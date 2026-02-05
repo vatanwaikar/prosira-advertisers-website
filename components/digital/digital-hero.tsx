@@ -11,7 +11,7 @@ export function DigitalHero() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8");
+            entry.target.classList.add("is-visible");
           }
         });
       },
@@ -27,13 +27,13 @@ export function DigitalHero() {
   return (
     <section
       ref={heroRef}
-      className="relative pt-32 pb-20 bg-gradient-to-b from-secondary to-background"
+      className="relative pt-32 pb-20 bg-gradient-to-b from-secondary to-background overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         {/* Breadcrumb */}
         <nav
           data-animate
-          className="flex items-center gap-2 text-sm text-muted-foreground mb-8 duration-700"
+          className="f-reveal flex items-center gap-2 text-sm text-muted-foreground mb-8"
           aria-label="Breadcrumb"
         >
           <Link href="/" className="hover:text-primary transition-colors">
@@ -46,20 +46,22 @@ export function DigitalHero() {
         <div className="max-w-4xl">
           <span
             data-animate
-            className="inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4 duration-700 delay-100"
+            className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
             Digital Marketing
           </span>
+
           <h1
             data-animate
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 duration-700 delay-200"
+            className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
             Digital Marketing Agency in{" "}
             <span className="text-primary font-serif italic">Pune</span>
           </h1>
+
           <p
             data-animate
-            className="text-xl text-muted-foreground leading-relaxed duration-700 delay-300"
+            className="f-reveal text-xl text-muted-foreground leading-relaxed"
           >
             Drive measurable growth with our data-driven digital marketing solutions.
             From SEO to performance marketing, we help brands dominate the digital

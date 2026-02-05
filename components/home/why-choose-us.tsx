@@ -90,20 +90,30 @@ export function WhyChooseUs() {
               <div className="absolute inset-0 flex items-end p-8">
                 <div className="glass rounded-xl p-6 w-full max-w-sm">
                   <div className="flex items-center gap-4">
-<div className="
-  relative
-  w-16 h-16
-  rounded-full
-  flex items-center justify-center
+<div
+  className="
+    relative
+    w-16 h-16
+    rounded-full
+    flex items-center justify-center
 
-  bg-primary/90
-  backdrop-blur-[2px]
+    bg-primary/90
+    backdrop-blur-[2px]
 
-  ring-1 ring-primary/30
-  shadow-[0_0_20px_rgba(212,175,55,0.25)]
-">
-                      <span className="text-2xl font-bold text-primary-foreground">15+</span>
-                    </div>
+    ring-1 ring-primary/30
+    shadow-[0_0_20px_rgba(212,175,55,0.25)]
+  "
+>
+  <span className="
+    relative z-10
+    text-2xl
+    font-bold
+    text-primary-foreground
+  ">
+    15+
+  </span>
+</div>
+
                     <div>
                       <div className="font-semibold text-lg text-foreground">Years of Excellence</div>
                       <div className="text-sm text-muted-foreground">Serving brands since 2009</div>
@@ -161,7 +171,7 @@ export function WhyChooseUs() {
             >
               <span className="text-foreground">Your Trusted</span>
               <br />
-              <span className="text-gradient-gold font-serif italic">Media Partner</span>
+              <span className="text-primary font-serif italic">Media Partner</span>
             </h2>
 
             <p

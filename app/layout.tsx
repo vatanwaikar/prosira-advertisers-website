@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -6,14 +6,25 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CustomCursor } from "@/components/custom-cursor";
+import { Providers } from "./Providers";
+import ScrollToTop from "@/components/ScrollToTop";
 
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+/* ---------- FONTS (NO BLINK) ---------- */
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+  display: "swap",
 });
 
+/* ---------- METADATA ---------- */
 export const metadata: Metadata = {
   title: {
     default: "Prosira Advertisers | 360° Advertising & Media Solutions in Pune",
@@ -49,24 +60,27 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased bg-background text-foreground">
-  <CustomCursor />
-  <Header />
-  <main>{children}</main>
-  <Footer />
-  <Analytics />
-</body>
-
+      <body className="font-sans antialiased bg-background text-foreground min-h-screen">
+        <Providers>
+          <CustomCursor />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+           <ScrollToTop />
+          <Analytics />
+          
+        </Providers>
+      </body>
     </html>
   );
 }

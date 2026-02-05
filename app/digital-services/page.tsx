@@ -3,6 +3,7 @@ import { DigitalHero } from "@/components/digital/digital-hero";
 import { DigitalServicesList } from "@/components/digital/digital-services-list";
 import { DigitalProcess } from "@/components/digital/digital-process";
 import { DigitalCTA } from "@/components/digital/digital-cta";
+import { DigitalServicesFAQ } from "@/components/faq/DigitalServicesFAQ";
 
 export const metadata: Metadata = {
   title: "Digital Marketing Agency in Pune",
@@ -30,6 +31,7 @@ export default function DigitalServicesPage() {
       <DigitalHero />
       <DigitalServicesList />
       <DigitalProcess />
+      <DigitalServicesFAQ />
       <DigitalCTA />
     </>
   );

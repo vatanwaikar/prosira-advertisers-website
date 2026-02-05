@@ -132,15 +132,17 @@ function ServiceCard({
 
         {/* Link */}
         <Link
-          href={service.href}
-          className="inline-flex items-center gap-2 text-primary font-medium group/link"
-        >
-          <span className="relative">
-            Explore Service
-            <span className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover/link:w-full transition-all duration-300" />
-          </span>
-          <ArrowRight className="h-4 w-4 group-hover/link:translate-x-2 transition-transform duration-300" />
-        </Link>
+  href="/traditional-services"
+  className="inline-flex items-center gap-2 text-primary group"
+>
+  <span className="text-sm font-medium">Explore</span>
+
+  <span className="w-9 h-9 rounded-full border border-primary/40 flex items-center justify-center
+                   group-hover:bg-primary/10 transition-all duration-300">
+    <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+  </span>
+</Link>
+          
       </div>
     </div>
   );
@@ -194,8 +196,9 @@ export function ServicesOverview() {
           >
             <span className="text-foreground">Comprehensive</span>
             <br />
-            <span className="text-gradient-gold font-serif italic">Advertising Solutions</span>
-          </h2>
+<span className="text-primary font-serif italic">
+    Advertising Solutions
+  </span>          </h2>
           <p
             className="text-lg text-muted-foreground leading-relaxed"
             style={{

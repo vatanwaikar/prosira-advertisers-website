@@ -7,13 +7,15 @@ import { ArrowRight } from "lucide-react";
 
 export function AboutContent() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Reveal observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8");
+            entry.target.classList.add("is-visible");
           }
         });
       },
@@ -23,16 +25,39 @@ export function AboutContent() {
     const elements = sectionRef.current?.querySelectorAll("[data-animate]");
     elements?.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    // Lightweight parallax for image
+    const handleScroll = () => {
+      if (!imageRef.current) return;
+      const rect = imageRef.current.getBoundingClientRect();
+      const offset = rect.top * 0.05;
+      imageRef.current.style.transform = `translateY(${offset}px)`;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-background">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image */}
-          <div data-animate className="relative duration-700">
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+    <section ref={sectionRef} className="relative py-24 bg-background overflow-hidden">
+      {/* Ambient background depth */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-40 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl float-slow" />
+        <div className="absolute bottom-32 right-10 w-80 h-80 bg-primary/10 rounded-full blur-3xl float-slow" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          {/* IMAGE SIDE */}
+          <div
+            ref={imageRef}
+            data-animate
+            className="f-reveal relative hover-lift"
+          >
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
               <Image
                 src="/images/team-meeting.jpg"
                 alt="Prosira Advertisers team collaborating on campaign strategy"
@@ -41,16 +66,17 @@ export function AboutContent() {
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-background/50 via-transparent to-primary/10" />
             </div>
-            {/* Accent element */}
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 border-2 border-primary/30 rounded-lg -z-10" />
-            <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-lg -z-10" />
+
+            {/* Decorative depth accents */}
+            <div className="absolute -bottom-8 -left-8 w-28 h-28 border-2 border-primary/30 rounded-xl -z-10" />
+            <div className="absolute -top-8 -right-8 w-28 h-28 bg-primary/10 rounded-xl -z-10" />
           </div>
 
-          {/* Content */}
+          {/* CONTENT SIDE */}
           <div>
             <div
               data-animate
-              className="prose prose-lg prose-invert max-w-none duration-700 delay-100"
+              className="f-reveal prose prose-lg prose-invert max-w-none"
             >
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Prosira Advertisers is a comprehensive event and advertising company that
@@ -73,15 +99,15 @@ export function AboutContent() {
               </p>
             </div>
 
-            {/* Internal Links */}
+            {/* LINKS */}
             <div
               data-animate
-              className="mt-8 pt-8 border-t border-border duration-700 delay-200"
+              className="f-reveal mt-10 pt-8 border-t border-border"
             >
               <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">
                 Explore Our Services
               </h3>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-6">
                 <Link
                   href="/traditional-services"
                   className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group"

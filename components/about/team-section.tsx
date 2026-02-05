@@ -34,7 +34,11 @@ export function TeamSection() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8");
+            entry.target.classList.add(
+              "animate-in",
+              "fade-in",
+              "slide-in-from-bottom-8"
+            );
           }
         });
       },
@@ -48,45 +52,103 @@ export function TeamSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-background">
+    <section ref={sectionRef} className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <span
             data-animate
             className="inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4 duration-700"
           >
-            Our Team
+            Our Strength
           </span>
           <h2
             data-animate
             className="text-3xl md:text-4xl font-bold mb-6 duration-700 delay-100"
           >
             The People Behind{" "}
-            <span className="text-primary font-serif italic">Your Success</span>
+            <span className="text-primary font-serif italic">
+              Your Success
+            </span>
           </h2>
           <p
             data-animate
             className="text-muted-foreground text-lg leading-relaxed duration-700 delay-200"
           >
-            Our diverse team brings together expertise in advertising, media, digital
-            marketing, and event management to deliver comprehensive solutions for your
-            brand.
+            A powerhouse team combining strategy, creativity, media expertise,
+            and execution excellence.
           </p>
         </div>
 
+        {/* Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {highlights.map((item, index) => (
             <div
               key={item.title}
               data-animate
-              className="text-center p-6 rounded-lg bg-card border border-border hover:border-primary/30 transition-all duration-500 group"
-              style={{ animationDelay: `${(index + 3) * 100}ms` }}
+              style={{ animationDelay: `${index * 120}ms` }}
+              className="
+                group relative
+                rounded-2xl
+                bg-card
+                border border-border
+                p-8
+                transition-all duration-500 ease-out
+                hover:-translate-y-3
+                hover:border-primary/40
+                overflow-hidden
+              "
             >
-              <div className="inline-flex p-4 rounded-full bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors">
-                <item.icon className="h-8 w-8 text-primary" />
+              {/* GOLDEN RADIAL GLOW */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute inset-0
+                  opacity-0
+                  group-hover:opacity-100
+                  transition-opacity duration-500
+                  bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.25),transparent_70%)]
+                "
+              />
+
+              {/* EXTRA BLUR DEPTH */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute -inset-12
+                  opacity-0
+                  group-hover:opacity-100
+                  transition-opacity duration-700
+                  blur-3xl
+                  bg-primary/20
+                "
+              />
+
+              {/* CONTENT */}
+              <div className="relative z-10 text-center">
+                <div
+                  className="
+                    inline-flex
+                    p-4
+                    rounded-full
+                    bg-primary/10
+                    mb-5
+                    transition-all duration-500
+                    group-hover:bg-primary/20
+                    group-hover:scale-110
+                  "
+                >
+                  <item.icon className="h-8 w-8 text-primary" />
+                </div>
+
+                <h3 className="font-semibold text-lg mb-2">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
               </div>
-              <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
             </div>
           ))}
         </div>

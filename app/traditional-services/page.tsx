@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { TraditionalHero } from "@/components/traditional/traditional-hero";
 import { ServicesList } from "@/components/traditional/services-list";
 import { ServicesCTA } from "@/components/traditional/services-cta";
+import { TraditionalServicesFAQ } from "@/components/faq/TraditionalServicesFAQ";
 
 export const metadata: Metadata = {
   title: "Traditional Advertising Services in Pune",
@@ -28,7 +29,9 @@ export default function TraditionalServicesPage() {
     <>
       <TraditionalHero />
       <ServicesList />
+      <TraditionalServicesFAQ />
       <ServicesCTA />
+      
     </>
   );
 }

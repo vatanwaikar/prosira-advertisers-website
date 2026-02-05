@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Tv,
   Radio,
@@ -10,6 +10,7 @@ import {
   Star,
   Palette,
   Sparkles,
+  ChevronDown,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -19,152 +20,195 @@ const services = [
     icon: Tv,
     title: "Television Advertising",
     description:
-      "Reach millions of viewers through strategic TV ad placements across leading national and regional channels. Our media buying expertise ensures premium slots at competitive rates.",
-    benefits: [
-      "Wide audience reach across demographics",
-      "High impact visual storytelling",
-      "Brand credibility and trust building",
-    ],
-    useCases: [
-      "Product launches",
-      "Brand awareness campaigns",
-      "Festive promotions",
-    ],
+"Television advertising helps your brand reach millions of viewers through high-impact TV ad placements on leading national and regional television channels. This powerful advertising medium builds mass brand awareness, emotional connection, and long-term brand recall during prime-time shows, festive seasons, and high-viewership programs.",
+    useCases: ["Product launches", "Brand awareness campaigns", "Festive promotions"],
+    details: {
+      whatItDoes:
+        "Television advertising gives your brand mass visibility during high-attention moments, helping build trust, recall, and authority at scale.",
+      strengths: [
+        "Creates known-brand perception fast",
+        "Builds strong emotional connection",
+        "Excellent for launches and festive campaigns",
+      ],
+      considerations: [
+        "Best used when awareness is the primary goal",
+        "Performs best with consistent repetition",
+        "More powerful when combined with digital follow-ups",
+      ],
+    },
   },
+
   {
     id: "radio",
     icon: Radio,
     title: "Radio Advertising",
     description:
-      "Connect with your target audience through engaging audio campaigns on popular FM and community radio stations. Perfect for local market penetration and frequency-based campaigns.",
-    benefits: [
-      "Cost-effective reach",
-      "High frequency messaging",
-      "Local market targeting",
-    ],
-    useCases: [
-      "Retail promotions",
-      "Event announcements",
-      "Brand jingles",
-    ],
+"Radio advertising enables brands to connect with local and regional audiences through engaging FM radio advertising and audio campaigns. It is a cost-effective advertising solution for retail promotions, event marketing, brand jingles, and improving repeated brand recall.",
+    useCases: ["Retail promotions", "Event announcements", "Brand jingles"],
+    details: {
+      whatItDoes:
+        "Radio advertising builds familiarity and recall through frequent audio exposure, especially effective in local and regional markets.",
+      strengths: [
+        "Affordable mass reach",
+        "High recall through repetition",
+        "Strong local market penetration",
+      ],
+      considerations: [
+        "Audio message quality is critical",
+        "Works best with catchy offers or jingles",
+      ],
+    },
   },
+
   {
     id: "outdoor",
     icon: Megaphone,
     title: "Outdoor & Hoardings",
     description:
-      "Dominate the visual landscape with high-impact outdoor advertising including billboards, hoardings, bus shelters, transit ads, and digital screens across prime locations.",
-    benefits: [
-      "24/7 brand visibility",
-      "Location-based targeting",
-      "Large format impact",
-    ],
-    useCases: [
-      "Highway advertising",
-      "City center visibility",
-      "Airport/railway placements",
-    ],
+"Outdoor advertising and hoardings provide continuous brand visibility through billboards, transit media, and large-format outdoor displays in high-traffic locations. This form of OOH advertising delivers strong geographic targeting, high repetition, and impactful visual brand recall.",
+    useCases: ["City branding", "Highway visibility", "Transit media"],
+    details: {
+      whatItDoes:
+        "Outdoor advertising ensures continuous brand visibility in high-footfall and high-traffic locations.",
+      strengths: [
+        "24/7 brand exposure",
+        "Strong geographic targeting",
+        "High repetition recall",
+      ],
+      considerations: [
+        "Best for short, impactful messaging",
+        "Supports awareness more than direct conversions",
+      ],
+    },
   },
+
   {
     id: "cinema",
     icon: Film,
     title: "Cinema Advertising",
     description:
-      "Captivate audiences in a distraction-free environment with cinema advertising across multiplexes and single screens. High engagement rates and premium brand positioning.",
-    benefits: [
-      "Captive audience attention",
-      "Premium brand association",
-      "High recall rates",
-    ],
-    useCases: [
-      "Movie tie-ups",
-      "Premium product launches",
-      "Youth-targeted campaigns",
-    ],
+"Cinema advertising places your brand in a premium, distraction-free theatre environment with immersive big-screen visuals and surround sound. In-cinema advertising ensures high attention, strong emotional engagement, and superior brand recall among movie-going audiences.",
+    useCases: ["Youth campaigns", "Luxury launches", "Movie tie-ups"],
+    details: {
+      whatItDoes:
+        "Cinema advertising delivers immersive big-screen exposure, resulting in high brand recall.",
+      strengths: [
+        "Captive audience attention",
+        "Premium brand association",
+        "High recall value",
+      ],
+      considerations: [
+        "Limited to movie show timings",
+        "Works best when paired with digital retargeting",
+      ],
+    },
   },
+
   {
     id: "print",
     icon: Newspaper,
-    title: "Newspaper & Print Media",
+    title: "Print Media Advertising",
     description:
-      "Build credibility and reach informed audiences through strategic placements in leading newspapers and magazines. Ideal for detailed messaging and announcement campaigns.",
-    benefits: [
-      "Editorial credibility",
-      "Targeted readership",
-      "Detailed information delivery",
-    ],
-    useCases: [
-      "Corporate announcements",
-      "Recruitment advertising",
-      "Real estate campaigns",
-    ],
+"Print media advertising builds credibility and trust through strategic newspaper advertising and magazine placements. It is ideal for detailed brand communication, corporate advertising, real estate promotions, and targeting high-intent print readership.",
+    useCases: ["Corporate ads", "Real estate", "Recruitment"],
+    details: {
+      whatItDoes:
+        "Print advertising allows detailed storytelling with strong editorial trust.",
+      strengths: [
+        "High credibility and trust",
+        "Ideal for detailed information",
+        "Targeted readership reach",
+      ],
+      considerations: [
+        "Best for specific audiences",
+        "Not ideal for instant lead generation",
+      ],
+    },
   },
+
   {
     id: "celebrity",
     icon: Star,
-    title: "Celebrity Management Services",
+    title: "Celebrity Management",
     description:
-      "Leverage the power of celebrity endorsements with our end-to-end celebrity management services. From selection to campaign execution, we handle it all.",
-    benefits: [
-      "Instant brand recall",
-      "Emotional connection",
-      "Social media amplification",
-    ],
-    useCases: [
-      "Brand endorsements",
-      "Event appearances",
-      "Social media collaborations",
-    ],
+"Celebrity management and endorsement services help brands gain instant recognition by collaborating with popular celebrities and public figures. Celebrity advertising strengthens brand image, emotional connection, and campaign amplification across television, digital, and social media platforms.",
+    useCases: ["Brand endorsements", "Events", "Influencer launches"],
+    details: {
+      whatItDoes:
+        "Celebrity endorsements create instant attention and emotional association with your brand.",
+      strengths: [
+        "High brand recall",
+        "Strong emotional connect",
+        "Quick amplification across media",
+      ],
+      considerations: [
+        "Requires strong brand-celebrity alignment",
+        "Needs careful reputation management",
+      ],
+    },
   },
+
   {
     id: "creative",
     icon: Palette,
     title: "Creative Design & Printing",
     description:
-      "Transform ideas into stunning visuals with our creative design services. From brochures to banners, packaging to point-of-sale materials, we deliver print-ready excellence.",
-    benefits: [
-      "Professional design quality",
-      "Brand consistency",
-      "Quick turnaround",
-    ],
-    useCases: [
-      "Marketing collaterals",
-      "Packaging design",
-      "Exhibition materials",
-    ],
+"Creative design and printing services convert brand strategy into visually compelling creatives, marketing collateral, and print materials. From graphic design to high-quality printing, we ensure brand consistency, premium aesthetics, and strong market presence.",
+    useCases: ["Brochures", "Packaging", "Exhibition creatives"],
+    details: {
+      whatItDoes:
+        "Creative services convert brand strategy into visually compelling communication assets.",
+      strengths: [
+        "Strong brand consistency",
+        "Premium visual appeal",
+        "Fast execution turnaround",
+      ],
+      considerations: [
+        "Best results come with clear creative briefs",
+      ],
+    },
   },
+
   {
     id: "brand",
     icon: Sparkles,
     title: "Brand Creative Development",
     description:
-      "Build a powerful brand identity from the ground up. Our strategic brand development services include logo design, brand guidelines, messaging, and complete visual identity systems.",
-    benefits: [
-      "Distinctive brand identity",
-      "Strategic positioning",
-      "Long-term brand value",
-    ],
-    useCases: [
-      "New brand launches",
-      "Rebranding projects",
-      "Brand refresh initiatives",
-    ],
+"Brand creative development focuses on building a strong brand identity through strategic design, messaging, and visual systems. This service helps businesses improve brand positioning, customer perception, and long-term brand value across all marketing channels.",
+    useCases: ["New brands", "Rebranding", "Brand refresh"],
+    details: {
+      whatItDoes:
+        "Brand development defines how your brand looks, sounds, and connects with audiences.",
+      strengths: [
+        "Creates distinct brand identity",
+        "Improves long-term brand value",
+        "Clear strategic positioning",
+      ],
+      considerations: [
+        "Best suited for long-term growth vision",
+      ],
+    },
   },
 ];
 
 export function ServicesList() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [openId, setOpenId] = useState<string | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8");
+            entry.target.classList.add(
+              "animate-in",
+              "fade-in",
+              "slide-in-from-bottom-8"
+            );
           }
         });
       },
-      { threshold: 0.05 }
+      { threshold: 0.1 }
     );
 
     const elements = sectionRef.current?.querySelectorAll("[data-animate]");
@@ -174,73 +218,107 @@ export function ServicesList() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-background">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="space-y-12">
-          {services.map((service, index) => (
+    <section ref={sectionRef} className="py-24 bg-background">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 space-y-14">
+        {services.map((service, index) => {
+          const isOpen = openId === service.id;
+
+          return (
             <Card
               key={service.id}
-              id={service.id}
               data-animate
-              className="bg-card border-border hover:border-primary/30 transition-all duration-500 overflow-hidden scroll-mt-24"
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ animationDelay: `${index * 120}ms` }}
+              className="
+                group relative bg-card/80 border border-border overflow-hidden
+                scroll-mt-24
+                transition-all duration-700 ease-out
+                hover:-translate-y-4 hover:scale-[1.02]
+                hover:shadow-[0_35px_90px_-25px_rgba(212,175,55,0.35)]
+              "
             >
-              <CardContent className="p-8">
-                <div className="grid lg:grid-cols-3 gap-8">
-                  {/* Main Content */}
+              <CardContent className="relative p-8">
+                {!isOpen && (
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 backdrop-blur-[6px] bg-white/[0.02]" />
+                )}
+
+                <div className="relative grid lg:grid-cols-3 gap-8">
                   <div className="lg:col-span-2">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                        <service.icon className="h-6 w-6" />
+                    <div className="flex gap-4 mb-4 items-start">
+                      <div className="p-4 rounded-xl bg-primary/10 text-primary">
+                        <service.icon className="h-7 w-7" />
                       </div>
-                      <div>
-                        <h2 className="text-2xl font-bold">{service.title}</h2>
-                      </div>
+                      <h2 className="text-2xl font-bold">{service.title}</h2>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
+
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       {service.description}
                     </p>
 
-                    {/* Benefits */}
-                    <div>
-                      <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
-                        Business Benefits
-                      </h3>
-                      <ul className="space-y-2">
-                        {service.benefits.map((benefit) => (
-                          <li
-                            key={benefit}
-                            className="flex items-center gap-2 text-sm text-muted-foreground"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                            {benefit}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <button
+  onClick={() => setOpenId(isOpen ? null : service.id)}
+  aria-label={isOpen ? "Hide details" : "Show details"}
+  className="
+    flex items-center justify-center
+    h-9 w-9 rounded-full
+    border border-primary/30
+    text-primary
+    transition-all duration-300
+    hover:bg-primary hover:text-black
+  "
+>
+  <ChevronDown
+    className={`h-4 w-4 transition-transform duration-300 ${
+      isOpen ? "rotate-180" : ""
+    }`}
+  />
+</button>
+
                   </div>
 
-                  {/* Use Cases */}
                   <div className="lg:border-l lg:border-border lg:pl-8">
-                    <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
+                    <h3 className="text-sm font-semibold text-primary uppercase mb-3">
                       Use Cases
                     </h3>
                     <div className="space-y-3">
-                      {service.useCases.map((useCase) => (
+                      {service.useCases.map((u) => (
                         <div
-                          key={useCase}
-                          className="px-4 py-2 bg-secondary rounded-lg text-sm"
+                          key={u}
+                          className="px-4 py-2 bg-secondary rounded-lg text-sm transition-all duration-500 hover:bg-primary/10 hover:text-primary hover:translate-x-2"
                         >
-                          {useCase}
+                          {u}
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
+
+                <div
+                  className={`overflow-hidden transition-all duration-700 ease-out ${
+                    isOpen ? "max-h-[900px] mt-8 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="rounded-xl border border-border bg-secondary/40 p-6 space-y-5">
+                    <p className="text-sm text-muted-foreground">
+                      {service.details.whatItDoes}
+                    </p>
+
+                    <ul className="space-y-2 text-sm">
+                      {service.details.strengths.map((s) => (
+                        <li key={s}>✔ {s}</li>
+                      ))}
+                    </ul>
+
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {service.details.considerations.map((c) => (
+                        <li key={c}>• {c}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </CardContent>
             </Card>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );

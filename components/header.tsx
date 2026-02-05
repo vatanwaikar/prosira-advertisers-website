@@ -6,12 +6,14 @@ import { Menu, Phone, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+
 
 
 const navigation = [
   { name: "About Us", href: "/about-prosira-advertisers" },
-  { name: "Traditional Services", href: "/traditional-services" },
-  { name: "Digital Services", href: "/digital-services" },
+  { name: "Services", href: "/traditional-services" },
+  { name: "Digital", href: "/digital-services" },
   { name: "Events & Expo", href: "/events-expo" },
   { name: "Contact Us", href: "/contact" },
   
@@ -41,6 +43,18 @@ export function Header() {
     return clickedPath === href || pathname === href;
   };
 
+  useEffect(() => {
+  if (mobileMenuOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [mobileMenuOpen]);
+
   return (
     <header
       className={cn(
@@ -52,84 +66,94 @@ export function Header() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="flex flex-col relative">
-            <span className="text-2xl font-bold tracking-tight text-gradient-gold font-serif transition-all duration-300 group-hover:tracking-wider">
-              PROSIRA
-            </span>
-            <span className="text-[10px] tracking-[0.25em] text-muted-foreground uppercase transition-all duration-300 group-hover:text-primary group-hover:tracking-[0.35em]">
-              Advertisers
-            </span>
-            <div className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-primary to-transparent group-hover:w-full transition-all duration-500" />
-          </div>
-        </Link>
+<Link href="/" className="flex items-center gap-3 group">
+  <div className="relative flex items-center">
+    <Image
+      src="/logo.png"
+      alt="Prosira Advertisers Logo"
+      width={140}          // desktop size
+      height={50}
+      priority
+      className="
+        h-7 w-auto
+        md:h-9
+        lg:h-9
+        transition-transform duration-300
+        group-hover:scale-105
+      "
+    />
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:gap-x-1">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={() => setClickedPath(item.href)}
-              className={cn(
-                "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group",
-                isActive(item.href)
-                  ? "text-primary"
-                  : "text-foreground/70 hover:text-foreground"
-              )}
-            >
-              <span className="relative z-10">{item.name}</span>
+    {/* underline animation (optional premium touch) */}
+    <div
+      className="
+        absolute -bottom-1 left-0
+        h-px w-0
+        bg-gradient-to-r from-primary to-transparent
+        transition-all duration-500
+        group-hover:w-full
+      "
+    />
+  </div>
+</Link>
 
-              {/* Hover background */}
-              <div className="absolute inset-0 rounded-lg bg-primary/0 group-hover:bg-primary/10 transition-all duration-300" />
 
-              {/* Active indicator */}
-              {isActive(item.href) && (
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
-              )}
+       {/* Right side wrapper */}
+<div className="hidden lg:flex items-center gap-6 ml-auto">
 
-              {/* Hover underline */}
-              <div className="absolute bottom-1 left-4 right-4 h-px bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-            </Link>
-          ))}
-        </div>
+  {/* Desktop Navigation */}
+  <div className="flex gap-x-1">
+    {navigation.map((item) => (
+      <Link
+        key={item.name}
+        href={item.href}
+        onClick={() => setClickedPath(item.href)}
+        className={cn(
+          "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group",
+          isActive(item.href)
+            ? "text-primary"
+            : "text-foreground/70 hover:text-foreground"
+        )}
+      >
+        <span className="relative z-10">{item.name}</span>
 
-        {/* CTA Section */}
-        <div className="hidden lg:flex lg:items-center lg:gap-6">
-          <a
-            href="tel:+919876543210"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 group"
-          >
-            <div className="w-10 h-10 rounded-full glass-gold flex items-center justify-center group-hover:animate-glow-pulse transition-all duration-300">
-              <Phone className="h-4 w-4 text-primary" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xs text-muted-foreground">Call Us</span>
-              <span className="font-medium text-foreground group-hover:text-primary transition-colors">
-                +91 90288 15714
-              </span>
-            </div>
-          </a>
+        <div className="absolute inset-0 rounded-lg bg-primary/0 group-hover:bg-primary/10 transition-all duration-300" />
 
-          <Button
-            asChild
-            className="bg-primary text-primary-foreground hover:bg-primary/90 magnetic-btn relative overflow-hidden group h-11 px-6"
-          >
-            <Link href="/contact">
-              <span className="relative z-10 flex items-center gap-2">
-                Get a Quote
-                <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-            </Link>
-          </Button>
-        </div>
+        {isActive(item.href) && (
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
+        )}
+
+        <div className="absolute bottom-1 left-4 right-4 h-px bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+      </Link>
+    ))}
+  </div>
+
+  {/* CTA Section */}
+  <a
+    href="tel:+919876543210"
+    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 group"
+  >
+    <div className="w-10 h-10 rounded-full glass-gold flex items-center justify-center group-hover:animate-glow-pulse transition-all duration-300">
+      <Phone className="h-4 w-4 text-primary" />
+    </div>
+    <div className="flex flex-col">
+      <span className="text-xs text-muted-foreground">Call Us</span>
+      <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+        +91 90288 15714
+      </span>
+    </div>
+  </a>
+
+</div>
+
 
         {/* Mobile menu button */}
         <button
           type="button"
           className="lg:hidden w-10 h-10 rounded-lg glass-gold flex items-center justify-center text-foreground hover:text-primary transition-colors"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+onClick={() => {
+  setMobileMenuOpen((prev) => !prev);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}}
         >
           <span className="sr-only">Toggle menu</span>
           <div className="relative w-5 h-4">
@@ -158,7 +182,7 @@ export function Header() {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "lg:hidden fixed inset-0 top-[60px] z-50 transition-all duration-500",
+         "lg:hidden fixed inset-0 z-50 transition-all duration-500",
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -169,7 +193,7 @@ export function Header() {
           onClick={() => setMobileMenuOpen(false)}
         />
 
-        <div className="relative h-full overflow-y-auto">
+        <div className="relative h-full overflow-y-auto pt-20">
           <div className="px-6 py-8 space-y-2">
             {navigation.map((item, index) => (
               <Link
@@ -216,7 +240,7 @@ export function Header() {
                 </div>
               </a>
 
-              <Button
+              {/* <Button
                 asChild
                 className="w-full mt-4 bg-primary text-primary-foreground h-14 text-lg"
               >
@@ -226,7 +250,7 @@ export function Header() {
                 >
                   Get a Quote
                 </Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>

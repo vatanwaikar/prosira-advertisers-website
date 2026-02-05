@@ -43,11 +43,15 @@ export function DigitalProcess() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8");
+            entry.target.classList.add(
+              "animate-in",
+              "fade-in",
+              "slide-in-from-bottom-6"
+            );
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.15 }
     );
 
     const elements = sectionRef.current?.querySelectorAll("[data-animate]");
@@ -57,61 +61,155 @@ export function DigitalProcess() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-secondary">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section ref={sectionRef} className="py-24 bg-secondary relative overflow-hidden">
+      {/* Soft background glow */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
+
+      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+        {/* HEADER */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <span
             data-animate
-            className="inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4 duration-700"
+            className="
+              inline-block
+              text-primary
+              text-sm
+              font-medium
+              uppercase
+              tracking-wider
+              mb-4
+              transition-all
+              duration-700
+            "
           >
             Our Process
           </span>
+
           <h2
             data-animate
-            className="text-3xl md:text-4xl font-bold mb-6 duration-700 delay-100"
+            className="
+              text-3xl md:text-4xl
+              font-bold
+              mb-6
+              transition-all
+              duration-700
+              delay-100
+            "
           >
             How We Drive{" "}
-            <span className="text-primary font-serif italic">Digital Success</span>
+            <span className="text-primary font-serif italic">
+              Digital Success
+            </span>
           </h2>
+
           <p
             data-animate
-            className="text-muted-foreground text-lg leading-relaxed duration-700 delay-200"
+            className="
+              text-muted-foreground
+              text-lg
+              leading-relaxed
+              transition-all
+              duration-700
+              delay-200
+            "
           >
             Our proven methodology ensures consistent results across all digital
             marketing initiatives.
           </p>
         </div>
 
+        {/* TIMELINE */}
         <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
+          {/* Center line */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
+            <div className="h-full w-full bg-border relative overflow-hidden">
+              {/* Animated gold pulse */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/30 to-transparent animate-pulse" />
+            </div>
+          </div>
 
-          <div className="space-y-12">
+          <div className="space-y-16">
             {steps.map((step, index) => (
               <div
                 key={step.number}
                 data-animate
-                className={`relative flex flex-col lg:flex-row items-center gap-8 duration-700 ${
-                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                }`}
-                style={{ animationDelay: `${(index + 3) * 100}ms` }}
+                style={{ animationDelay: `${index * 160}ms` }}
+                className={`
+                  relative
+                  group
+                  flex
+                  flex-col
+                  lg:flex-row
+                  items-center
+                  gap-10
+
+                  transition-all
+                  duration-[900ms]
+                  ease-[cubic-bezier(0.22,1,0.36,1)]
+                  ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}
+                `}
               >
-                {/* Content */}
+                {/* CONTENT */}
                 <div
-                  className={`flex-1 ${
-                    index % 2 === 0 ? "lg:text-right lg:pr-16" : "lg:text-left lg:pl-16"
-                  }`}
+                  className={`
+                    flex-1
+                    transition-all
+                    duration-700
+                    delay-100
+                    group-hover:opacity-90
+                    ${
+                      index % 2 === 0
+                        ? "lg:text-right lg:pr-20"
+                        : "lg:text-left lg:pl-20"
+                    }
+                  `}
                 >
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
+                  <h3 className="text-xl font-bold mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
 
-                {/* Number */}
-                <div className="relative z-10 w-16 h-16 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-lg">
+                {/* STEP NUMBER */}
+                <div
+                  className="
+                    relative
+                    z-10
+                    w-16
+                    h-16
+                    rounded-full
+                    bg-primary
+                    flex
+                    items-center
+                    justify-center
+                    text-primary-foreground
+                    font-bold
+                    text-lg
+
+                    transition-all
+                    duration-700
+                    group-hover:-translate-y-2
+                    group-hover:scale-110
+                  "
+                >
                   {step.number}
+
+                  {/* Glow ring */}
+                  <div className="
+                    absolute
+                    inset-0
+                    rounded-full
+                    bg-primary/40
+                    blur-xl
+                    opacity-0
+                    group-hover:opacity-70
+                    transition
+                  " />
                 </div>
 
-                {/* Empty space for alignment */}
+                {/* Spacer */}
                 <div className="flex-1 hidden lg:block" />
               </div>
             ))}
