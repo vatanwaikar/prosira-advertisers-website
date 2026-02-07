@@ -67,7 +67,7 @@ export function TeamSection() {
             className="text-3xl md:text-4xl font-bold mb-6 duration-700 delay-100"
           >
             The People Behind{" "}
-            <span className="text-primary font-serif italic">
+            <span className="text-primary font-serif ">
               Your Success
             </span>
           </h2>

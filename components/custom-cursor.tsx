@@ -12,18 +12,19 @@ export function CustomCursor() {
 
   const ICON_SIZE = 24;
 
-  // scale lerp refs
   const scaleRef = useRef(1);
   const targetScaleRef = useRef(1);
 
-  /* ---------- DEVICE CHECK ---------- */
+  /* ---------- FINAL DEVICE CHECK (HARD BLOCK TOUCH) ---------- */
   const checkDevice = () => {
     const isTouch =
       "ontouchstart" in window ||
-      navigator.maxTouchPoints > 0 ||
-      window.matchMedia("(pointer: coarse)").matches;
+      navigator.maxTouchPoints > 0;
 
-    setEnabled(!isTouch);
+    const canHover = window.matchMedia("(any-hover: hover)").matches;
+    const finePointer = window.matchMedia("(any-pointer: fine)").matches;
+
+    setEnabled(!isTouch && canHover && finePointer);
   };
 
   useEffect(() => {
@@ -32,13 +33,14 @@ export function CustomCursor() {
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
-  /* ---------- MOUSE MOVE ---------- */
+  /* ---------- POINTER MOVE (MOUSE ONLY) ---------- */
   useEffect(() => {
     if (!enabled) return;
 
     let rafId: number | null = null;
 
-    const onMove = (e: MouseEvent) => {
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
       if (rafId) return;
 
       rafId = requestAnimationFrame(() => {
@@ -51,8 +53,8 @@ export function CustomCursor() {
       });
     };
 
-    window.addEventListener("mousemove", onMove, { passive: true });
-    return () => window.removeEventListener("mousemove", onMove);
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onMove);
   }, [enabled]);
 
   /* ---------- HOVER DETECTION ---------- */
@@ -60,31 +62,36 @@ export function CustomCursor() {
     if (!enabled) return;
 
     const targets = document.querySelectorAll(
-      "a, button, [data-cursor='expand']"
+      "a[href], button:not([disabled]), [data-cursor='expand']"
     );
 
-    const enter = () => setHover(true);
+    const enter = (e: Event) => {
+      if ((e as PointerEvent).pointerType === "mouse") {
+        setHover(true);
+      }
+    };
+
     const leave = () => setHover(false);
 
     targets.forEach((el) => {
-      el.addEventListener("mouseenter", enter);
-      el.addEventListener("mouseleave", leave);
+      el.addEventListener("pointerenter", enter);
+      el.addEventListener("pointerleave", leave);
     });
 
     return () => {
       targets.forEach((el) => {
-        el.removeEventListener("mouseenter", enter);
-        el.removeEventListener("mouseleave", leave);
+        el.removeEventListener("pointerenter", enter);
+        el.removeEventListener("pointerleave", leave);
       });
     };
   }, [enabled]);
 
-  /* ---------- SMOOTH SCALE (LERP – REAL FIX) ---------- */
+  /* ---------- SMOOTH SCALE ---------- */
   useEffect(() => {
     if (!enabled || !cursorRef.current) return;
 
     let rafId: number;
-    const speed = 0.15; // ↓ slow = smoother
+    const speed = 0.15;
 
     const animate = () => {
       targetScaleRef.current = hover ? 3.5 : 1;
@@ -101,22 +108,32 @@ export function CustomCursor() {
     return () => cancelAnimationFrame(rafId);
   }, [hover, enabled]);
 
-  /* ---------- SAFETY RESET ---------- */
+  /* ---------- HARD RESET (EXTRA SAFETY) ---------- */
   useEffect(() => {
     if (!enabled) return;
 
     const reset = () => setHover(false);
 
-    window.addEventListener("mousedown", reset);
-    window.addEventListener("mouseup", reset);
+    window.addEventListener("pointerdown", reset);
+    window.addEventListener("pointercancel", reset);
     window.addEventListener("blur", reset);
     window.addEventListener("scroll", reset, { passive: true });
 
     return () => {
-      window.removeEventListener("mousedown", reset);
-      window.removeEventListener("mouseup", reset);
+      window.removeEventListener("pointerdown", reset);
+      window.removeEventListener("pointercancel", reset);
       window.removeEventListener("blur", reset);
       window.removeEventListener("scroll", reset);
+    };
+  }, [enabled]);
+
+  /* ---------- BODY CLASS FAILSAFE ---------- */
+  useEffect(() => {
+    if (!enabled) return;
+
+    document.body.classList.add("cursor-active");
+    return () => {
+      document.body.classList.remove("cursor-active");
     };
   }, [enabled]);
 

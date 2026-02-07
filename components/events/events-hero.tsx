@@ -129,7 +129,7 @@ export function EventsHero() {
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
             Event Management Company in{" "}
-            <span className="text-primary font-serif italic">Pune</span>
+            <span className="text-primary font-serif ">Pune</span>
           </h1>
 
           <p

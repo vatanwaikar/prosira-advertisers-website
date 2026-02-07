@@ -56,7 +56,7 @@ export function DigitalHero() {
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
             Digital Marketing Agency in{" "}
-            <span className="text-primary font-serif italic">Pune</span>
+            <span className="text-primary font-serif ">Pune</span>
           </h1>
 
           <p

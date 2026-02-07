@@ -20,7 +20,7 @@ export function ServicesCTA() {
       <div className="relative mx-auto max-w-4xl px-4 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
           Ready to Launch Your{" "}
-          <span className="text-primary font-serif italic">
+          <span className="text-primary font-serif ">
             Campaign?
           </span>
         </h2>
@@ -48,7 +48,7 @@ export function ServicesCTA() {
             variant="outline"
             className="border-primary/40 text-white hover:bg-primary/10 hover:text-primary bg-transparent"
           >
-            <a href="tel:+919876543210" className="flex items-center">
+            <a href="tel:+919028815714" className="flex items-center">
               <Phone className="mr-2 h-4 w-4" />
               Call Us Now
             </a>

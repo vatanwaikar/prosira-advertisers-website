@@ -11,39 +11,19 @@ import {
   Palette,
   Sparkles,
   ChevronDown,
+  Gift, 
+  BookOpen,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
-  {
-    id: "tv",
-    icon: Tv,
-    title: "Television Advertising",
-    description:
-"Television advertising helps your brand reach millions of viewers through high-impact TV ad placements on leading national and regional television channels. This powerful advertising medium builds mass brand awareness, emotional connection, and long-term brand recall during prime-time shows, festive seasons, and high-viewership programs.",
-    useCases: ["Product launches", "Brand awareness campaigns", "Festive promotions"],
-    details: {
-      whatItDoes:
-        "Television advertising gives your brand mass visibility during high-attention moments, helping build trust, recall, and authority at scale.",
-      strengths: [
-        "Creates known-brand perception fast",
-        "Builds strong emotional connection",
-        "Excellent for launches and festive campaigns",
-      ],
-      considerations: [
-        "Best used when awareness is the primary goal",
-        "Performs best with consistent repetition",
-        "More powerful when combined with digital follow-ups",
-      ],
-    },
-  },
-
+  // 1️⃣ RADIO
   {
     id: "radio",
     icon: Radio,
     title: "Radio Advertising",
     description:
-"Radio advertising enables brands to connect with local and regional audiences through engaging FM radio advertising and audio campaigns. It is a cost-effective advertising solution for retail promotions, event marketing, brand jingles, and improving repeated brand recall.",
+      "Radio advertising enables brands to connect with local and regional audiences through engaging FM radio advertising and audio campaigns. It is a cost-effective advertising solution for retail promotions, event marketing, brand jingles, and improving repeated brand recall.",
     useCases: ["Retail promotions", "Event announcements", "Brand jingles"],
     details: {
       whatItDoes:
@@ -60,136 +40,221 @@ const services = [
     },
   },
 
+  // 2️⃣ TELEVISION
   {
-    id: "outdoor",
-    icon: Megaphone,
-    title: "Outdoor & Hoardings",
+    id: "tv",
+    icon: Tv,
+    title: "Television Advertising",
     description:
-"Outdoor advertising and hoardings provide continuous brand visibility through billboards, transit media, and large-format outdoor displays in high-traffic locations. This form of OOH advertising delivers strong geographic targeting, high repetition, and impactful visual brand recall.",
-    useCases: ["City branding", "Highway visibility", "Transit media"],
+      "Television advertising helps your brand reach millions of viewers through high-impact TV ad placements on leading national and regional television channels.",
+    useCases: ["Product launches", "Brand awareness campaigns", "Festive promotions"],
     details: {
       whatItDoes:
-        "Outdoor advertising ensures continuous brand visibility in high-footfall and high-traffic locations.",
+        "Television advertising gives your brand mass visibility during high-attention moments.",
       strengths: [
-        "24/7 brand exposure",
-        "Strong geographic targeting",
-        "High repetition recall",
+        "Creates known-brand perception fast",
+        "Builds strong emotional connection",
+        "Excellent for launches",
       ],
       considerations: [
-        "Best for short, impactful messaging",
-        "Supports awareness more than direct conversions",
+        "Best used when awareness is the primary goal",
+        "Works best with repetition",
       ],
     },
   },
 
+  // 3️⃣ NEWSPAPER
+  {
+    id: "print",
+    icon: Newspaper,
+    title: "Newspaper Advertising",
+    description:
+      "Newspaper advertising builds credibility and trust through high-impact print placements in leading publications.",
+    useCases: ["Corporate ads", "Real estate", "Public notices"],
+    details: {
+      whatItDoes:
+        "Delivers trusted brand messaging to high-intent readers.",
+      strengths: [
+        "High credibility",
+        "Strong regional targeting",
+        "Editorial trust",
+      ],
+      considerations: [
+        "Not ideal for instant conversions",
+      ],
+    },
+  },
+
+  // 4️⃣ CINEMA
   {
     id: "cinema",
     icon: Film,
     title: "Cinema Advertising",
     description:
-"Cinema advertising places your brand in a premium, distraction-free theatre environment with immersive big-screen visuals and surround sound. In-cinema advertising ensures high attention, strong emotional engagement, and superior brand recall among movie-going audiences.",
-    useCases: ["Youth campaigns", "Luxury launches", "Movie tie-ups"],
+      "Cinema advertising places your brand in a distraction-free premium theatre environment.",
+    useCases: ["Youth campaigns", "Luxury launches"],
     details: {
       whatItDoes:
-        "Cinema advertising delivers immersive big-screen exposure, resulting in high brand recall.",
+        "Delivers immersive big-screen exposure with high recall.",
       strengths: [
-        "Captive audience attention",
-        "Premium brand association",
-        "High recall value",
+        "Captive audience",
+        "Premium brand image",
       ],
       considerations: [
-        "Limited to movie show timings",
-        "Works best when paired with digital retargeting",
+        "Limited show timings",
       ],
     },
   },
 
+  // 5️⃣ AUTO HOOD & BACK PANEL (NEW)
   {
-    id: "print",
-    icon: Newspaper,
-    title: "Print Media Advertising",
+    id: "auto-branding",
+    icon: Megaphone,
+    title: "Auto Hood & Back Panel Advertising",
     description:
-"Print media advertising builds credibility and trust through strategic newspaper advertising and magazine placements. It is ideal for detailed brand communication, corporate advertising, real estate promotions, and targeting high-intent print readership.",
-    useCases: ["Corporate ads", "Real estate", "Recruitment"],
+      "Auto rickshaw hood and back panel advertising delivers high-frequency brand visibility across busy city routes and local neighborhoods.",
+    useCases: ["Local branding", "Retail promotions"],
     details: {
       whatItDoes:
-        "Print advertising allows detailed storytelling with strong editorial trust.",
+        "Turns moving vehicles into mobile brand billboards.",
       strengths: [
-        "High credibility and trust",
-        "Ideal for detailed information",
-        "Targeted readership reach",
+        "High daily impressions",
+        "Excellent local reach",
+        "Cost-effective outdoor medium",
       ],
       considerations: [
-        "Best for specific audiences",
-        "Not ideal for instant lead generation",
+        "Best for short, bold creatives",
       ],
     },
   },
 
+  // 6️⃣ OUTDOOR
   {
-    id: "celebrity",
-    icon: Star,
-    title: "Celebrity Management",
+    id: "outdoor",
+    icon: Megaphone,
+    title: "Outdoor & Hoardings",
     description:
-"Celebrity management and endorsement services help brands gain instant recognition by collaborating with popular celebrities and public figures. Celebrity advertising strengthens brand image, emotional connection, and campaign amplification across television, digital, and social media platforms.",
-    useCases: ["Brand endorsements", "Events", "Influencer launches"],
+      "Outdoor advertising provides 24/7 brand visibility through billboards and transit media.",
+    useCases: ["City branding", "Highway visibility"],
     details: {
       whatItDoes:
-        "Celebrity endorsements create instant attention and emotional association with your brand.",
+        "Ensures constant brand exposure in high-footfall areas.",
       strengths: [
-        "High brand recall",
-        "Strong emotional connect",
-        "Quick amplification across media",
+        "24/7 exposure",
+        "Strong geographic targeting",
       ],
       considerations: [
-        "Requires strong brand-celebrity alignment",
-        "Needs careful reputation management",
+        "Short messaging works best",
       ],
     },
   },
 
+  // 7️⃣ SOCIETY ACTIVATION & DIGITAL SCREENS (NEW)
+  {
+    id: "society-activation",
+    icon: Sparkles,
+    title: "Society Activation & Digital Screen Advertising",
+    description:
+      "Society activations and digital screen advertising connect brands directly with residential audiences through events, kiosks, and digital displays.",
+    useCases: ["Product sampling", "Local launches"],
+    details: {
+      whatItDoes:
+        "Creates direct engagement at residential touchpoints.",
+      strengths: [
+        "Highly targeted audience",
+        "Interactive engagement",
+      ],
+      considerations: [
+        "Requires on-ground coordination",
+      ],
+    },
+  },
+
+  // 8️⃣ PRINTING SERVICES
+  {
+    id: "printing",
+    icon: Palette,
+    title: "Printing Services (Vinyl, Flex & More)",
+    description:
+      "High-quality printing services including vinyl, flex, banners, standees, and promotional materials.",
+    useCases: ["Outdoor creatives", "Retail branding"],
+    details: {
+      whatItDoes:
+        "Transforms creative designs into physical brand assets.",
+      strengths: [
+        "Durable materials",
+        "Quick execution",
+      ],
+      considerations: [
+        "Material selection impacts longevity",
+      ],
+    },
+  },
+
+  // 9️⃣ CREATIVE DESIGN
   {
     id: "creative",
     icon: Palette,
-    title: "Creative Design & Printing",
+    title: "Creative Design Services",
     description:
-"Creative design and printing services convert brand strategy into visually compelling creatives, marketing collateral, and print materials. From graphic design to high-quality printing, we ensure brand consistency, premium aesthetics, and strong market presence.",
-    useCases: ["Brochures", "Packaging", "Exhibition creatives"],
+      "Creative design services for branding, advertising creatives, and marketing communication.",
+    useCases: ["Ad creatives", "Brand identity"],
     details: {
       whatItDoes:
-        "Creative services convert brand strategy into visually compelling communication assets.",
+        "Builds visually strong and consistent brand communication.",
       strengths: [
-        "Strong brand consistency",
-        "Premium visual appeal",
-        "Fast execution turnaround",
+        "Strong visual appeal",
+        "Brand consistency",
       ],
       considerations: [
-        "Best results come with clear creative briefs",
+        "Clear briefs improve output quality",
       ],
     },
   },
 
+  // 🔟 CORPORATE GIFTS
   {
-    id: "brand",
-    icon: Sparkles,
-    title: "Brand Creative Development",
+    id: "corporate-gifts",
+    icon: Gift,
+    title: "Corporate Gifting Solutions",
     description:
-"Brand creative development focuses on building a strong brand identity through strategic design, messaging, and visual systems. This service helps businesses improve brand positioning, customer perception, and long-term brand value across all marketing channels.",
-    useCases: ["New brands", "Rebranding", "Brand refresh"],
+      "Customized corporate gifting solutions to strengthen business relationships.",
+    useCases: ["Client appreciation", "Employee rewards"],
     details: {
       whatItDoes:
-        "Brand development defines how your brand looks, sounds, and connects with audiences.",
+        "Creates emotional goodwill through thoughtful gifting.",
       strengths: [
-        "Creates distinct brand identity",
-        "Improves long-term brand value",
-        "Clear strategic positioning",
+        "High recall value",
+        "Custom branding",
       ],
       considerations: [
-        "Best suited for long-term growth vision",
+        "Quality impacts brand image",
+      ],
+    },
+  },
+
+  // 1️⃣1️⃣ MAGAZINE
+  {
+    id: "magazine-ads",
+    icon: BookOpen,
+    title: "Magazine & In-Flight Magazine Advertising",
+    description:
+      "Premium magazine and in-flight advertising for luxury and niche audiences.",
+    useCases: ["Luxury branding", "Business travelers"],
+    details: {
+      whatItDoes:
+        "Delivers long-lasting brand visibility in trusted publications.",
+      strengths: [
+        "Premium audience",
+        "High trust factor",
+      ],
+      considerations: [
+        "Best for brand-building campaigns",
       ],
     },
   },
 ];
+
 
 export function ServicesList() {
   const sectionRef = useRef<HTMLDivElement>(null);

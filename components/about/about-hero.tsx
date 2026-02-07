@@ -129,7 +129,7 @@ export function AboutHero() {
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
             About Prosira Advertisers –{" "}
-            <span className="text-primary font-serif italic">
+            <span className="text-primary font-serif ">
               Complete Range of 360° Media Services
             </span>
           </h1>

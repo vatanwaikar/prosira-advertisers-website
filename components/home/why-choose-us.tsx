@@ -125,25 +125,7 @@ export function WhyChooseUs() {
 
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-primary/30 rounded-2xl animate-spin-slow" />
-<div className="absolute -bottom-4 -left-4 w-32 h-32 border border-primary/20 rounded-full flex items-center justify-center overflow-hidden">
-  <Image
-    src="/prosra-icon-black-png.png"
-    alt="Prosira Advertisers"
-    width={130}
-    height={130}
-    className="
-      object-contain
-      pointer-events-none
-
-      /* WATERMARK GOLD */
-      invert
-      brightness-180
-
-      opacity-30
-      scale-90
-    "
-  />
-</div>
+              
 
           </div>
 
@@ -171,7 +153,7 @@ export function WhyChooseUs() {
             >
               <span className="text-foreground">Your Trusted</span>
               <br />
-              <span className="text-primary font-serif italic">Media Partner</span>
+              <span className="text-primary font-serif ">Media Partner</span>
             </h2>
 
             <p
@@ -245,7 +227,7 @@ export function WhyChooseUs() {
 
             {/* CTA */}
             <div
-              className="mt-10"
+              className="mt-10 ml-6"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "translateY(0)" : "translateY(20px)",

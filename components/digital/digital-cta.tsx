@@ -42,7 +42,7 @@ export function DigitalCTA() {
           className="f-reveal text-3xl md:text-4xl font-bold mb-6"
         >
           Ready to Go{" "}
-          <span className="text-primary font-serif italic">Digital?</span>
+          <span className="text-primary font-serif ">Digital?</span>
         </h2>
 
         <p
@@ -74,7 +74,7 @@ export function DigitalCTA() {
             variant="outline"
             className="hover-lift border-primary/30 text-foreground hover:bg-primary/10 hover:text-primary"
           >
-            <a href="tel:+919876543210" className="flex items-center">
+            <a href="tel:+919028815714" className="flex items-center">
               <Phone className="mr-2 h-4 w-4" />
               Call Us Now
             </a>

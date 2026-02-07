@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -7,17 +15,36 @@ const footerLinks = {
     { name: "Radio Advertising", href: "/traditional-services#radio" },
     { name: "Digital Marketing", href: "/digital-services" },
     { name: "Event Management", href: "/events-expo" },
+    { name: "Corporate Gifting", href: "/corporate-gifting" },      
+    { name: "Magazine Advertising", href: "/traditional-services#magazine" },
+    { name: "Brand Development", href: "/brand-development" },
   ],
+
+  // 👇 COMPANY + FOOTER-ONLY PAGES
   company: [
     { name: "About Us", href: "/about-prosira-advertisers" },
     { name: "Our Work", href: "/events-expo" },
     { name: "Contact", href: "/contact" },
+
+    // 🔥 FOOTER-ONLY LINKS
+    { name: "List Your Media", href: "/list-your-media" },
+    { name: "Blog", href: "/blog" },
+    { name: "Careers", href: "/careers" },
+    { name: "Testimonials", href: "/testimonials" },
   ],
+
   social: [
     { name: "Facebook", icon: Facebook, href: "#" },
-    { name: "Instagram", icon: Instagram, href: "#" },
-    { name: "LinkedIn", icon: Linkedin, href: "#" },
-    { name: "Twitter", icon: Twitter, href: "#" },
+   {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://www.instagram.com/prosira_advertisers?igsh=MXc3bjkwb2h3aThq",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/prosiraadvertisers/",
+  },
   ],
 };
 
@@ -26,7 +53,8 @@ export function Footer() {
     <footer className="bg-card border-t border-border">
       <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
+
+          {/* BRAND */}
           <div className="space-y-6">
             <Link href="/" className="inline-block">
               <div className="flex flex-col">
@@ -38,25 +66,30 @@ export function Footer() {
                 </span>
               </div>
             </Link>
+
             <p className="text-sm text-muted-foreground leading-relaxed">
-              A comprehensive event and advertising company that provides a complete
-              range of 360° media services with strategic and creative campaigns.
+              A comprehensive advertising and event company delivering
+              360° media solutions with strategic and creative campaigns.
             </p>
+
             <div className="flex gap-4">
-              {footerLinks.social.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label={item.name}
-                >
-                  <item.icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
+  {footerLinks.social.map((item) => (
+    <a
+      key={item.name}
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={item.name}
+      className="text-muted-foreground hover:text-primary transition-colors"
+    >
+      <item.icon className="h-5 w-5" />
+    </a>
+  ))}
+</div>
+
           </div>
 
-          {/* Services */}
+          {/* SERVICES */}
           <div>
             <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-6">
               Services
@@ -75,10 +108,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* COMPANY */}
           <div>
             <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-6">
-              Company
+              Quick Links
             </h3>
             <ul className="space-y-4">
               {footerLinks.company.map((item) => (
@@ -94,7 +127,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* CONTACT */}
           <div>
             <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-6">
               Contact Us
@@ -102,48 +135,49 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:+919876543210"
-                  className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  href="tel:+919028815714"
+                  className="flex gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  <Phone className="h-4 w-4 mt-0.5 text-primary" />
-                  <span>+91 90288 15714</span>
+                  <Phone className="h-4 w-4 text-primary" />
+                  +91 90288 15714
                 </a>
               </li>
+
               <li>
                 <a
-                  href="mailto:vijayant@prosira.in"
-                  className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  href="mailto:connect@prosira.in"
+                  className="flex gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  <Mail className="h-4 w-4 mt-0.5 text-primary" />
-                  <span>vijayant@prosira.in</span>
+                  <Mail className="h-4 w-4 text-primary" />
+                  connect@prosira.in
                 </a>
               </li>
-              <li>
-                <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
-                  <span>Pune, Maharashtra, India</span>
-                </div>
+
+              <li className="flex gap-3 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 text-primary" />
+                Pune, Maharashtra, India
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* BOTTOM BAR */}
         <div className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-muted-foreground">
               © {new Date().getFullYear()} Prosira Advertisers. All rights reserved.
             </p>
+
             <div className="flex gap-6">
               <Link
                 href="/privacy-policy"
-                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                className="text-xs text-muted-foreground hover:text-foreground"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                className="text-xs text-muted-foreground hover:text-foreground"
               >
                 Terms of Service
               </Link>

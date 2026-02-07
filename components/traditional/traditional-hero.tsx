@@ -113,7 +113,7 @@ export function TraditionalHero() {
             Home
           </Link>
           <span>/</span>
-          <span className="text-foreground">Traditional Services</span>
+          <span className="text-foreground">Advertising Services</span>
         </nav>
 
         <div className="max-w-4xl">
@@ -121,15 +121,15 @@ export function TraditionalHero() {
             data-animate
             className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
-            Traditional Advertising
+             Advertising Service
           </span>
 
           <h1
             data-animate
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Traditional Advertising Services in{" "}
-            <span className="text-primary font-serif italic">Pune</span>
+            Advertising Services in{" "}
+            <span className="text-primary font-serif ">Pune</span>
           </h1>
 
           <p

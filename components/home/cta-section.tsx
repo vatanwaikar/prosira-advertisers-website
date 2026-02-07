@@ -53,7 +53,7 @@ export function CTASection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 duration-700 delay-100"
           >
             Ready to{" "}
-            <span className="text-primary font-serif italic">Transform</span> Your
+            <span className="text-primary font-serif ">Transform</span> Your
             Brand?
           </h2>
           <p
@@ -84,32 +84,13 @@ export function CTASection() {
               variant="outline"
               className="border-primary/30 text-foreground hover:bg-primary/10 hover:text-primary bg-transparent"
             >
-              <a href="tel:+919876543210">
+              <a href="tel:+919028815714">
                 <Phone className="mr-2 h-4 w-4" />
                 +91 90288 15714
               </a>
             </Button>
           </div>
 
-          {/* Quick Contact Info */}
-          <div
-            data-animate
-            className="mt-12 pt-8 border-t border-border/30 grid sm:grid-cols-2 gap-6 duration-700 delay-500"
-          >
-            <div>
-              <div className="text-sm text-muted-foreground mb-1">Email Us</div>
-              <a
-                href="mailto:vijayant@prosira.in"
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                vijayant@prosira.in
-              </a>
-            </div>
-            <div>
-              <div className="text-sm text-muted-foreground mb-1">Visit Us</div>
-              <span className="text-foreground">Pune, Maharashtra, India</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

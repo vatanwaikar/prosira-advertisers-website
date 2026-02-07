@@ -222,3 +222,81 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+/* ===============================
+   LIST YOUR MEDIA – SELECT ONLY
+   =============================== */
+
+/* ===============================
+   PREMIUM FILE UPLOAD
+   =============================== */
+
+.media-file-upload {
+  display: block;
+  cursor: pointer;
+}
+
+.media-file-box {
+  height: 56px;
+  border: 1px dashed rgba(212, 175, 55, 0.45);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.25s ease;
+  background: linear-gradient(
+    180deg,
+    rgba(212, 175, 55, 0.08),
+    rgba(0, 0, 0, 0.4)
+  );
+}
+
+.media-file-upload:hover .media-file-box {
+  border-color: #d4af37;
+  color: #ffffff;
+}
+
+.media-file-icon {
+  width: 20px;
+  height: 20px;
+  color: #d4af37;
+}
+
+.media-file-text {
+  font-size: 14px;
+}
+
+/* ===============================
+   PREMIUM INPUT FIX (NO WHITE GLOW)
+   =============================== */
+
+.input {
+  background-color: hsl(var(--card));
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: hsl(var(--foreground));
+  border-radius: 14px;
+  height: 52px;
+  padding: 0 16px;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.45);
+}
+
+/* 🔥 REMOVE BROWSER AUTOFILL WHITE BG */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #0b0b0b inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+h1, h2, h3 {
+  scroll-margin-top: 110px;
+}

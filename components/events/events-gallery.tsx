@@ -74,7 +74,7 @@ export function EventsGallery() {
             className="text-3xl md:text-4xl font-bold mb-6 duration-700 delay-100"
           >
             Event{" "}
-            <span className="text-primary font-serif italic">Gallery</span>
+            <span className="text-primary font-serif ">Gallery</span>
           </h2>
           <p
             data-animate

@@ -50,7 +50,7 @@ export function MissionVision() {
             className="f-reveal text-3xl md:text-4xl font-bold"
           >
             Guided by{" "}
-            <span className="text-primary font-serif italic">
+            <span className="text-primary font-serif ">
               Vision & Mission
             </span>
           </h2>

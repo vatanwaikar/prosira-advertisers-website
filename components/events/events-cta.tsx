@@ -43,7 +43,7 @@ export function EventsCTA() {
           className="f-reveal text-3xl md:text-4xl font-bold mb-6"
         >
           Planning Your Next{" "}
-          <span className="text-primary font-serif italic">
+          <span className="text-primary font-serif ">
             Event?
           </span>
         </h2>
@@ -77,7 +77,7 @@ export function EventsCTA() {
             variant="outline"
             className="hover-lift border-primary/30 text-foreground hover:bg-primary/10 hover:text-primary"
           >
-            <a href="tel:+919876543210" className="flex items-center">
+            <a href="tel:+919028815714" className="flex items-center">
               <Phone className="mr-2 h-4 w-4" />
               Call Us Now
             </a>

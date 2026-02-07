@@ -60,11 +60,12 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 py-2 shadow-lg shadow-black/10"
-          : "bg-transparent py-4"
+  ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 py-0 shadow-lg shadow-black/10"
+  : "bg-transparent py-6"
+
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
+      <nav className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between px-4 lg:px-8">
         {/* Logo */}
 <Link href="/" className="flex items-center gap-3 group">
   <div className="relative flex items-center">
@@ -108,7 +109,7 @@ export function Header() {
         href={item.href}
         onClick={() => setClickedPath(item.href)}
         className={cn(
-          "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group",
+          "relative px-5 py-3 text-sm font-medium transition-all duration-300 rounded-lg group",
           isActive(item.href)
             ? "text-primary"
             : "text-foreground/70 hover:text-foreground"
@@ -129,7 +130,7 @@ export function Header() {
 
   {/* CTA Section */}
   <a
-    href="tel:+919876543210"
+    href="tel:+919028815714"
     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 group"
   >
     <div className="w-10 h-10 rounded-full glass-gold flex items-center justify-center group-hover:animate-glow-pulse transition-all duration-300">
@@ -224,7 +225,7 @@ onClick={() => {
 
             <div className="pt-6 mt-6 border-t border-border/50">
               <a
-                href="tel:+919876543210"
+                href="tel:+919028815714"
                 className="flex items-center gap-4 px-4 py-4 rounded-xl bg-secondary/50"
               >
                 <div className="w-12 h-12 rounded-full glass-gold flex items-center justify-center">

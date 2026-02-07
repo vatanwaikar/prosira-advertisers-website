@@ -72,32 +72,55 @@ export function AboutContent() {
             <div className="absolute -top-8 -right-8 w-28 h-28 bg-primary/10 rounded-xl -z-10" />
           </div>
 
-          {/* CONTENT SIDE */}
-          <div>
-            <div
-              data-animate
-              className="f-reveal prose prose-lg prose-invert max-w-none"
-            >
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Prosira Advertisers is a comprehensive event and advertising company that
-                provides a complete range of 360° media services. We deliver strategic,
-                creative, and performance-driven campaigns, specializing in blending
-                traditional media strength with modern digital innovation to help brands
-                connect, engage, and grow.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                With deep expertise in advertising strategy, creative design, media
-                planning & buying, public relations, and large-scale event execution, we
-                act as a true media partner—not just a service provider. From concept to
-                execution, every campaign is crafted to deliver measurable impact.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Operating across Pune and Maharashtra, our experienced team collaborates
-                closely with clients to understand business goals and translate them
-                into powerful brand stories. Our approach is insight-driven,
-                audience-focused, and results-oriented.
-              </p>
-            </div>
+         {/* CONTENT SIDE */}
+<div>
+  <div
+    data-animate
+    className="f-reveal prose prose-lg prose-invert max-w-none"
+  >
+    {/* SECTION 1 */}
+    <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
+  rounded-full border border-primary/30 bg-primary/10
+  text-xs md:text-sm font-medium text-primary
+  shadow-[0_0_14px_rgba(212,175,55,0.15)]">
+  ✦ Who We Are
+</h3>
+
+    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+      Prosira Advertisers is a full-service event and advertising company delivering
+      comprehensive 360° media solutions. We design strategic, creative, and
+      performance-driven campaigns by integrating traditional media strength with
+      modern digital innovation—helping brands connect, engage, and grow.
+    </p>
+
+    {/* SECTION 2 */}
+    <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
+  rounded-full border border-primary/30 bg-primary/10
+  text-xs md:text-sm font-medium text-primary
+  shadow-[0_0_14px_rgba(212,175,55,0.15)]">
+  ✦ What We Do
+</h3>
+
+    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+      With expertise in advertising strategy, creative design, media planning and
+      buying, public relations, and large-scale event execution, we work as a true
+      media partner—from concept to execution—focused on measurable impact.
+    </p>
+
+    {/* SECTION 3 */}
+   <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
+  rounded-full border border-primary/30 bg-primary/10
+  text-xs md:text-sm font-medium text-primary
+  shadow-[0_0_14px_rgba(212,175,55,0.15)]">
+  ✦ How We Work
+</h3>
+
+    <p className="text-lg text-muted-foreground leading-relaxed">
+      Operating across Pune and Maharashtra, our team collaborates closely with
+      clients to understand business goals and transform them into powerful brand
+      stories through insight-driven, audience-focused strategies.
+    </p>
+  </div>
 
             {/* LINKS */}
             <div

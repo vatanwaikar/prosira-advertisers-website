@@ -26,14 +26,19 @@ export default function ContactPage() {
   return (
     <>
       <ContactHero />
+
       <div className="py-20 bg-background">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <ContactForm />
-            <ContactInfo />
-          </div>
+        <div className="mx-auto max-w-5xl px-4 lg:px-8 space-y-20">
+          
+          {/* Contact Form */}
+          <ContactForm />
+
+          {/* Contact Info BELOW form */}
+          <ContactInfo />
+
         </div>
       </div>
+
       <ContactMap />
     </>
   );

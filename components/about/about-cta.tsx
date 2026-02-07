@@ -42,7 +42,7 @@ export function AboutCTA() {
           className="f-reveal text-3xl md:text-4xl font-bold mb-6"
         >
           Ready to Partner with{" "}
-          <span className="text-primary font-serif italic">Prosira?</span>
+          <span className="text-primary font-serif ">Prosira?</span>
         </h2>
 
         <p

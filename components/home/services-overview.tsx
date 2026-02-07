@@ -12,7 +12,7 @@ const services = [
     description:
       "Reach millions through strategic TV campaigns with premium placements across leading channels.",
     href: "/traditional-services#tv",
-    category: "Traditional",
+    category: "Television",
     gradient: "from-amber-500/20 to-orange-500/20",
   },
   {
@@ -21,7 +21,7 @@ const services = [
     description:
       "Connect with your audience through engaging audio campaigns on top radio stations.",
     href: "/traditional-services#radio",
-    category: "Traditional",
+    category: "Radio",
     gradient: "from-primary/20 to-yellow-500/20",
   },
   {
@@ -30,7 +30,7 @@ const services = [
     description:
       "High-impact outdoor advertising solutions including billboards, transit ads, and more.",
     href: "/traditional-services#outdoor",
-    category: "Traditional",
+    category: "Hoardings",
     gradient: "from-yellow-500/20 to-amber-500/20",
   },
   {
@@ -196,7 +196,7 @@ export function ServicesOverview() {
           >
             <span className="text-foreground">Comprehensive</span>
             <br />
-<span className="text-primary font-serif italic">
+<span className="text-primary font-serif ">
     Advertising Solutions
   </span>          </h2>
           <p

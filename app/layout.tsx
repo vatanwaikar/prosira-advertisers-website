@@ -8,6 +8,9 @@ import { Footer } from "@/components/footer";
 import { CustomCursor } from "@/components/custom-cursor";
 import { Providers } from "./Providers";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollSafety from "@/components/ScrollSafety";
+import ScrollFailsafe from "@/components/ScrollFailsafe";
+
 
 
 
@@ -61,7 +64,11 @@ export const metadata: Metadata = {
     follow: true,
   },
   generator: "v0.app",
+
+  
 };
+
+
 
 export default function RootLayout({
   children,
@@ -72,13 +79,40 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased bg-background text-foreground min-h-screen">
         <Providers>
+          <ScrollSafety />
+<ScrollFailsafe />
+
           <CustomCursor />
           <Header />
-          <main>{children}</main>
+          <main
+  id="app-scroll-root"
+  className="pt-[80px] lg:pt-[96px] min-h-screen"
+>
+  {children}
+</main>
+
           <Footer />
            <ScrollToTop />
           <Analytics />
-          
+       {/* ===== Local Business Schema (SEO) ===== */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "Prosira Advertisers",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "3rd Floor, Patil Plaza, Swargate",
+                  "addressLocality": "Pune",
+                  "addressRegion": "MH",
+                  "addressCountry": "IN"
+                },
+                "areaServed": "Pune"
+              }),
+            }}
+          />
         </Providers>
       </body>
     </html>

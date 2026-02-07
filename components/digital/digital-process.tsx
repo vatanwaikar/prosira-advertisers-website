@@ -1,219 +1,255 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import * as THREE from "three";
 
 const steps = [
   {
     number: "01",
     title: "Discovery & Research",
-    description:
-      "We start by understanding your business goals, target audience, and competitive landscape through comprehensive research and analysis.",
+    description: "Understanding goals & audience.",
   },
   {
     number: "02",
     title: "Strategy Development",
-    description:
-      "Based on insights gathered, we create a customized digital marketing strategy with clear KPIs and measurable objectives.",
+    description: "Building KPI roadmap.",
   },
   {
     number: "03",
     title: "Implementation",
-    description:
-      "Our expert team executes the strategy across chosen channels, setting up campaigns, creating content, and optimizing for performance.",
+    description: "Executing campaigns.",
   },
   {
     number: "04",
     title: "Monitor & Optimize",
-    description:
-      "We continuously monitor campaign performance, analyze data, and make data-driven optimizations to improve results.",
+    description: "Performance tuning.",
   },
   {
     number: "05",
     title: "Report & Scale",
-    description:
-      "Regular reporting keeps you informed of progress. Successful strategies are scaled for maximum impact and ROI.",
+    description: "Insights & growth.",
   },
 ];
 
 export function DigitalProcess() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const [angle, setAngle] = useState(0);
+  const radius = 300;
+
+  /* ================= PARTICLES ================= */
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(
-              "animate-in",
-              "fade-in",
-              "slide-in-from-bottom-6"
-            );
-          }
-        });
-      },
-      { threshold: 0.15 }
+    if (!canvasRef.current) return;
+
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 120 : 320;
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(60, 1, 1, 1000);
+    camera.position.z = 180;
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvasRef.current,
+      alpha: true,
+      antialias: false,
+    });
+
+    const resize = () => {
+      const w = containerRef.current?.offsetWidth || 300;
+const h = containerRef.current?.offsetHeight || 420;
+
+      renderer.setSize(w, h);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < positions.length; i++) {
+      positions[i] = (Math.random() - 0.5) * 260;
+    }
+
+    geometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(positions, 3)
     );
 
-    const elements = sectionRef.current?.querySelectorAll("[data-animate]");
-    elements?.forEach((el) => observer.observe(el));
+    const material = new THREE.PointsMaterial({
+      color: 0xd4af37,
+      size: isMobile ? 1.2 : 1.8,
+    });
 
-    return () => observer.disconnect();
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    let raf: number;
+
+    const animate = () => {
+      points.rotation.y += 0.0005;
+      renderer.render(scene, camera);
+      raf = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      renderer.dispose();
+      window.removeEventListener("resize", resize);
+    };
   }, []);
 
+  /* ================= POSITION CARDS ================= */
+
+  useEffect(() => {
+    cardsRef.current.forEach((card, i) => {
+      if (!card) return;
+
+      const a = (i / steps.length) * Math.PI * 2 + angle;
+
+      const x = Math.cos(a) * radius;
+      const z = Math.sin(a) * radius;
+
+      const isFront = z > 0;
+
+      gsap.to(card, {
+        x,
+        z,
+        scale: isFront ? 1.15 : 0.8,
+        opacity: isFront ? 1 : 0.35,
+        filter: `blur(${isFront ? 0 : 3}px)`,
+        rotationY: 0,
+        duration: 0.5,
+        overwrite: true,
+      });
+    });
+  }, [angle]);
+
+  /* ================= AUTO ROTATE ================= */
+
+  useEffect(() => {
+    let raf: number;
+
+    const loop = () => {
+      setAngle((a) => a - 0.0018);
+      raf = requestAnimationFrame(loop);
+    };
+
+    loop();
+
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  /* ================= DRAG CONTROL ================= */
+
+  useEffect(() => {
+    let dragging = false;
+    let lastX = 0;
+
+    const start = (e: PointerEvent) => {
+      dragging = true;
+      lastX = e.clientX;
+    };
+
+    const move = (e: PointerEvent) => {
+      if (!dragging) return;
+
+      const delta = e.clientX - lastX;
+      setAngle((a) => a + delta * 0.0035);
+
+      lastX = e.clientX;
+    };
+
+    const end = () => {
+      dragging = false;
+    };
+
+    window.addEventListener("pointerdown", start);
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", end);
+
+    return () => {
+      window.removeEventListener("pointerdown", start);
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", end);
+    };
+  }, []);
+
+  /* ================= RENDER ================= */
+
   return (
-    <section ref={sectionRef} className="py-24 bg-secondary relative overflow-hidden">
-      {/* Soft background glow */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
+<section className="relative bg-secondary min-h-screen flex flex-col items-center justify-center overflow-hidden">
 
-      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
-        {/* HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <span
-            data-animate
-            className="
-              inline-block
-              text-primary
-              text-sm
-              font-medium
-              uppercase
-              tracking-wider
-              mb-4
-              transition-all
-              duration-700
-            "
-          >
-            Our Process
-          </span>
+  {/* HEADING */}
+  <div className="text-center mb-10 z-10">
+    <h2 className="text-3xl md:text-4xl font-bold">
+      How We Drive{" "}
+      <span className="text-primary font-serif">
+        Digital Success
+      </span>
+    </h2>
 
-          <h2
-            data-animate
-            className="
-              text-3xl md:text-4xl
-              font-bold
-              mb-6
-              transition-all
-              duration-700
-              delay-100
-            "
-          >
-            How We Drive{" "}
-            <span className="text-primary font-serif italic">
-              Digital Success
-            </span>
-          </h2>
+    <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
+      Our proven process ensures measurable growth across every campaign.
+    </p>
+  </div>
+      {/* PARTICLE BACKGROUND */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-60 -z-0"
 
-          <p
-            data-animate
-            className="
-              text-muted-foreground
-              text-lg
-              leading-relaxed
-              transition-all
-              duration-700
-              delay-200
-            "
-          >
-            Our proven methodology ensures consistent results across all digital
-            marketing initiatives.
-          </p>
+      />
+
+      {/* ORBIT CONTAINER */}
+      <div
+        ref={containerRef}
+className="relative z-10 w-full max-w-5xl h-[420px] flex items-start justify-center pt-6 perspective-[1100px]"
+      >
+        {/* CARDS */}
+        <div className="relative w-0 h-0 preserve-3d">
+          {steps.map((step, i) => (
+            <div
+              key={i}
+              ref={(el) => {
+                if (el) cardsRef.current[i] = el;
+              }}
+              className="absolute w-[230px] p-6 rounded-xl border bg-background/80 backdrop-blur-md shadow-xl text-center will-change-transform"
+            >
+              <div className="text-primary font-bold mb-2">
+                {step.number}
+              </div>
+
+              <h3 className="font-bold mb-2">
+                {step.title}
+              </h3>
+
+              <p className="text-sm text-muted-foreground">
+                {step.description}
+              </p>
+            </div>
+          ))}
         </div>
 
-        {/* TIMELINE */}
-        <div className="relative">
-          {/* Center line */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
-            <div className="h-full w-full bg-border relative overflow-hidden">
-              {/* Animated gold pulse */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/30 to-transparent animate-pulse" />
-            </div>
-          </div>
-
-          <div className="space-y-16">
-            {steps.map((step, index) => (
-              <div
-                key={step.number}
-                data-animate
-                style={{ animationDelay: `${index * 160}ms` }}
-                className={`
-                  relative
-                  group
-                  flex
-                  flex-col
-                  lg:flex-row
-                  items-center
-                  gap-10
-
-                  transition-all
-                  duration-[900ms]
-                  ease-[cubic-bezier(0.22,1,0.36,1)]
-                  ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}
-                `}
-              >
-                {/* CONTENT */}
-                <div
-                  className={`
-                    flex-1
-                    transition-all
-                    duration-700
-                    delay-100
-                    group-hover:opacity-90
-                    ${
-                      index % 2 === 0
-                        ? "lg:text-right lg:pr-20"
-                        : "lg:text-left lg:pl-20"
-                    }
-                  `}
-                >
-                  <h3 className="text-xl font-bold mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-
-                {/* STEP NUMBER */}
-                <div
-                  className="
-                    relative
-                    z-10
-                    w-16
-                    h-16
-                    rounded-full
-                    bg-primary
-                    flex
-                    items-center
-                    justify-center
-                    text-primary-foreground
-                    font-bold
-                    text-lg
-
-                    transition-all
-                    duration-700
-                    group-hover:-translate-y-2
-                    group-hover:scale-110
-                  "
-                >
-                  {step.number}
-
-                  {/* Glow ring */}
-                  <div className="
-                    absolute
-                    inset-0
-                    rounded-full
-                    bg-primary/40
-                    blur-xl
-                    opacity-0
-                    group-hover:opacity-70
-                    transition
-                  " />
-                </div>
-
-                {/* Spacer */}
-                <div className="flex-1 hidden lg:block" />
-              </div>
-            ))}
-          </div>
+        {/* DOT NAVIGATION */}
+        <div className="absolute bottom-40 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+          {steps.map((_, i) => (
+            <button
+              key={i}
+              onClick={() =>
+                setAngle(-(i / steps.length) * Math.PI * 2)
+              }
+              className="w-3 h-3 rounded-full bg-primary/50 hover:bg-primary transition hover:scale-125"
+            />
+          ))}
         </div>
       </div>
     </section>

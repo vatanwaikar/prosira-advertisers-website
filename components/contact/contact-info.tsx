@@ -1,37 +1,66 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+  Facebook,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+/* CONTACT DETAILS */
 const contactDetails = [
   {
     icon: Phone,
     label: "Call Us",
     value: "+91 90288 15714",
-    href: "tel:+919876543210",
-    description: "Mon-Sat, 9:00 AM - 7:00 PM",
+    href: "tel:+919028815714",
+    description: "Mon–Sat, 9:00 AM – 7:00 PM",
   },
   {
     icon: Mail,
-    label: "Email Us",
-    value: "vijayant@prosira.in",
-    href: "mailto:vijayant@prosira.in",
-    description: "We reply within 24 hours",
+    label: "Email",
+    value: "connect@prosira.in",
+    href: "mailto:connect@prosira.in",
+    description: "Response within 6 hours",
   },
   {
     icon: MapPin,
-    label: "Visit Us",
-    value: "Pune, Maharashtra, India",
+    label: "Location",
+    value: "Pune, Maharashtra",
     href: "#map",
-    description: "Schedule an appointment",
+    description: "India-based operations",
   },
   {
     icon: Clock,
-    label: "Business Hours",
-    value: "Mon - Sat: 9:00 AM - 7:00 PM",
+    label: "Working Hours",
+    value: "Mon–Sat",
     href: null,
-    description: "Sunday: Closed",
+    description: "Sunday Closed",
+  },
+];
+
+/* SOCIAL LINKS */
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/share/1DnoEvbjBx/",
+    icon: Facebook,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/prosira_advertisers",
+    icon: Instagram,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/prosiraadvertisers/",
+    icon: Linkedin,
   },
 ];
 
@@ -43,7 +72,11 @@ export function ContactInfo() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8");
+            entry.target.classList.add(
+              "animate-in",
+              "fade-in",
+              "slide-in-from-bottom-8"
+            );
           }
         });
       },
@@ -57,38 +90,71 @@ export function ContactInfo() {
   }, []);
 
   return (
-    <div ref={sectionRef}>
-      <div data-animate className="mb-8 duration-700">
-        <h2 className="text-2xl font-bold mb-2">Contact Information</h2>
-        <p className="text-muted-foreground">
-          Reach out through any of these channels and our team will assist you.
+    <section ref={sectionRef} className="space-y-12">
+      {/* HEADER */}
+      <div data-animate className="space-y-3">
+        <h2 className="text-3xl md:text-4xl font-bold">
+          Contact Prosira Advertisers
+        </h2>
+
+        <p className="text-primary/80 font-medium">
+          We don’t just place ads. We build visibility.
+        </p>
+
+        <p className="text-muted-foreground max-w-2xl">
+          Connect with our advertising experts for media planning, outdoor
+          advertising, radio, television, print, and branding solutions in India.
         </p>
       </div>
 
-      <div className="space-y-6">
+      {/* HORIZONTAL CONTACT BAR (FIXED SIZE + TIGHT) */}
+      <div
+  data-animate
+  className="
+    grid grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-4
+    gap-5
+  "
+>
+
         {contactDetails.map((detail, index) => (
           <div
             key={detail.label}
-            data-animate
-            className="flex items-start gap-4 p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-colors duration-700"
-            style={{ animationDelay: `${(index + 1) * 100}ms` }}
+            className={`
+              relative min-w-[240px] max-w-[260px]
+              flex gap-3 items-start
+              p-5 rounded-xl
+              border border-white/10
+              backdrop-blur-lg
+              transition-all duration-400
+              hover:-translate-y-0.5
+              opacity-80 hover:opacity-100
+              bg-gradient-to-b from-white/[0.06] to-white/[0.015]
+            `}
+            style={{ animationDelay: `${index * 120}ms` }}
           >
-            <div className="p-3 rounded-lg bg-primary/10 text-primary">
-              <detail.icon className="h-5 w-5" />
+            <div className="p-2.5 rounded-lg bg-primary/15 text-primary shrink-0">
+              <detail.icon className="h-4.5 w-4.5" />
             </div>
-            <div>
-              <div className="text-sm text-muted-foreground mb-1">{detail.label}</div>
+
+            <div className="space-y-0.5">
+              <div className="text-[11px] uppercase tracking-widest text-muted-foreground">
+                {detail.label}
+              </div>
+
               {detail.href ? (
                 <a
                   href={detail.href}
-                  className="font-semibold hover:text-primary transition-colors"
+                  className="block font-semibold text-sm hover:text-primary transition-colors"
                 >
                   {detail.value}
                 </a>
               ) : (
-                <div className="font-semibold">{detail.value}</div>
+                <div className="font-semibold text-sm">{detail.value}</div>
               )}
-              <div className="text-sm text-muted-foreground mt-1">
+
+              <div className="text-xs text-muted-foreground">
                 {detail.description}
               </div>
             </div>
@@ -96,52 +162,60 @@ export function ContactInfo() {
         ))}
       </div>
 
-      {/* WhatsApp CTA */}
-      <div
-        data-animate
-        className="mt-8 p-6 rounded-lg bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 duration-700 delay-500"
-      >
-        <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 rounded-full bg-green-500/20">
-            <MessageCircle className="h-6 w-6 text-green-500" />
-          </div>
-          <div>
-            <h3 className="font-semibold">Quick Response on WhatsApp</h3>
-            <p className="text-sm text-muted-foreground">
-              Get instant replies from our team
-            </p>
-          </div>
-        </div>
-        <Button
-          asChild
-          className="w-full bg-green-600 hover:bg-green-700 text-white"
-        >
-          <a
-            href="https://wa.me/919876543210?text=Hi,%20I'm%20interested%20in%20your%20advertising%20services"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <MessageCircle className="mr-2 h-4 w-4" />
-            Chat on WhatsApp
-          </a>
-        </Button>
+      {/* GOLD DIVIDER (THINNER + SUBTLE) */}
+      <div data-animate className="flex items-center gap-3">
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+        <span className="text-[11px] tracking-widest uppercase text-primary/70">
+          Trusted Advertising Partner Since 2018
+        </span>
+        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       </div>
 
-      {/* Social Media */}
-      <div data-animate className="mt-8 duration-700 delay-600">
-        <h3 className="font-semibold mb-4">Follow Us</h3>
-        <div className="flex gap-4">
-          {["Facebook", "Instagram", "LinkedIn", "Twitter"].map((social) => (
-            <a
-              key={social}
-              href="#"
-              className="px-4 py-2 rounded-lg bg-card border border-border hover:border-primary/30 hover:text-primary transition-colors text-sm"
-            >
-              {social}
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
+    {/* COMPACT WHATSAPP TILE (SQUARE & CENTERED) */}
+<div
+  data-animate
+  className="
+    mx-auto
+    flex flex-col items-center justify-center
+    gap-3
+    px-6 py-5
+    rounded-xl
+    border border-primary/30
+    bg-gradient-to-b from-primary/15 to-primary/5
+    w-[220px]
+  "
+>
+  <div className="p-2.5 rounded-full bg-green-500/25">
+    <MessageCircle className="h-5 w-5 text-green-500" />
+  </div>
+
+  <div className="text-center">
+    <h3 className="text-sm font-semibold">
+      WhatsApp Support
+    </h3>
+    <p className="text-xs text-muted-foreground">
+      Quick replies
+    </p>
+  </div>
+
+  <Button
+    asChild
+    className="
+      h-8 px-4
+      bg-green-600 hover:bg-green-700
+      text-white text-xs font-medium
+      rounded-full
+    "
+  >
+    <a
+      href="https://wa.me/919028815714?text=Hi,%20I%20am%20interested%20in%20your%20advertising%20services"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Chat
+    </a>
+  </Button>
+</div>
+      </section>
   );
 }

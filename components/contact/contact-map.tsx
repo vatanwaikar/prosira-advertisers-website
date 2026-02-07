@@ -1,52 +1,131 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 export function ContactMap() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const globeRef = useRef<SVGSVGElement>(null);
+  const indiaRef = useRef<SVGPathElement>(null);
+  const puneRef = useRef<SVGCircleElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8");
-          }
-        });
+    const tl = gsap.timeline({
+      defaults: {
+        ease: "power3.out",
       },
-      { threshold: 0.1 }
+    });
+
+    // STEP 1 – globe appear
+    tl.fromTo(
+      globeRef.current,
+      { opacity: 0, scale: 0.96 },
+      { opacity: 1, scale: 1, duration: 1.5 }
     );
 
-    const elements = sectionRef.current?.querySelectorAll("[data-animate]");
-    elements?.forEach((el) => observer.observe(el));
+    // STEP 2 – globe slow rotate
+    tl.to(globeRef.current, {
+      rotate: 360,
+      transformOrigin: "50% 50%",
+      duration: 3,
+      ease: "none",
+    });
 
-    return () => observer.disconnect();
+    // STEP 3 – India highlight
+    tl.to(
+      indiaRef.current,
+      {
+        stroke: "#D4AF37",
+        strokeWidth: 2,
+        duration: 1,
+      },
+      "-=2"
+    );
+
+    // STEP 4 – Pune marker
+    tl.fromTo(
+      puneRef.current,
+      { scale: 0, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.8,
+        transformOrigin: "center",
+      }
+    );
+
+    // STEP 5 – Text reveal
+    tl.fromTo(
+      textRef.current,
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.8 }
+    );
   }, []);
 
   return (
-    <section ref={sectionRef} id="map" className="bg-secondary">
-      <div data-animate className="text-center py-12 duration-700">
-        <span className="inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4">
-          Our Location
-        </span>
-        <h2 className="text-2xl md:text-3xl font-bold">
-          Find Us in <span className="text-primary font-serif italic">Pune</span>
-        </h2>
-      </div>
-
-      <div data-animate className="w-full h-[400px] relative duration-700 delay-100">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242117.68019517444!2d73.72287831327148!3d18.524600199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Prosira Advertisers Office Location in Pune"
-          className="grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+    <section className="bg-[#0B0B0B] py-20 flex flex-col items-center">
+      {/* SVG GLOBE */}
+      <svg
+        ref={globeRef}
+        width="320"
+        height="320"
+        viewBox="0 0 320 320"
+        className="mb-6"
+      >
+        {/* Globe circle */}
+        <circle
+          cx="160"
+          cy="160"
+          r="140"
+          fill="none"
+          stroke="#2A2A2A"
+          strokeWidth="1"
         />
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-secondary via-transparent to-transparent" />
+
+        {/* Latitude lines */}
+        {[60, 100, 160, 220].map((y, i) => (
+          <ellipse
+            key={i}
+            cx="160"
+            cy="160"
+            rx="140"
+            ry={Math.abs(160 - y)}
+            fill="none"
+            stroke="#1F1F1F"
+            strokeWidth="0.6"
+          />
+        ))}
+
+        {/* INDIA (abstract shape) */}
+        <path
+          ref={indiaRef}
+          d="M190 140 L200 150 L195 170 L180 180 L170 160 Z"
+          fill="none"
+          stroke="#444"
+          strokeWidth="1"
+        />
+
+        {/* PUNE DOT */}
+        <circle
+          ref={puneRef}
+          cx="185"
+          cy="165"
+          r="4"
+          fill="#D4AF37"
+        />
+      </svg>
+
+      {/* TEXT */}
+      <div ref={textRef} className="text-center text-white">
+        <p className="text-sm tracking-widest uppercase opacity-70">
+          Global thinking
+        </p>
+        <h3 className="text-xl font-medium mt-2">
+          Prosira Advertisers
+        </h3>
+        <p className="text-sm opacity-60">
+          Patil Plaza, Swargate, Pune
+        </p>
       </div>
     </section>
   );
