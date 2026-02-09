@@ -74,13 +74,14 @@ export function ClientsSection() {
                 className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity"
               >
                 <Image
-                  src={client.logo}
-                  alt={client.name}
-                  width={140}
-                  height={70}
-                  className="h-12 md:h-16 w-auto object-contain"
-                  loading="lazy"
-                />
+  src={client.logo}
+  alt={`${client.name} advertising client`}
+  width={140}
+  height={70}
+  className="h-12 md:h-16 w-auto object-contain"
+  loading="lazy"
+/>
+
               </div>
             ))}
           </div>

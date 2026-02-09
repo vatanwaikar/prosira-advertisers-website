@@ -6,31 +6,31 @@ import { TeamSection } from "@/components/about/team-section";
 import { AboutCTA } from "@/components/about/about-cta";
 
 export const metadata: Metadata = {
-  title: "About Prosira Advertisers - 360° Advertising & Media Solutions",
+  title: "About Us | Prosira Advertisers – Advertising Agency in Pune",
   description:
-    "Prosira Advertisers is a leading advertising agency in Pune offering strategic, creative, and performance-driven campaigns. Learn about our mission, vision, and expertise in media, events, and branding.",
+    "Learn about Prosira Advertisers, a leading advertising agency in Pune offering strategic, creative, and performance-driven campaigns across media, events, and branding.",
   keywords: [
     "advertising agency in Pune",
-    "media agency in Pune",
+    "media agency Pune",
     "event advertising company",
     "branding agency Pune",
   ],
   openGraph: {
-    title: "About Prosira Advertisers - 360° Advertising & Media Solutions",
+    title: "About Prosira Advertisers – Advertising Agency in Pune",
     description:
-      "Full-service advertising, media, and event solutions company delivering strategic campaigns in Pune and Maharashtra.",
+      "Discover Prosira Advertisers, a full-service advertising and media agency delivering impactful campaigns in Pune and Maharashtra.",
     url: "https://prosiraadvertisers.com/about-prosira-advertisers",
   },
 };
 
 export default function AboutPage() {
   return (
-    <>
+    <main>
       <AboutHero />
       <AboutContent />
       <MissionVision />
       <TeamSection />
       <AboutCTA />
-    </>
+    </main>
   );
 }

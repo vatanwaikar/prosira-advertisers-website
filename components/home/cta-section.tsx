@@ -84,10 +84,14 @@ export function CTASection() {
               variant="outline"
               className="border-primary/30 text-foreground hover:bg-primary/10 hover:text-primary bg-transparent"
             >
-              <a href="tel:+919028815714">
-                <Phone className="mr-2 h-4 w-4" />
-                +91 90288 15714
-              </a>
+             <a
+  href="tel:+919028815714"
+  aria-label="Call Prosira Advertisers Pune"
+>
+  <Phone className="mr-2 h-4 w-4" />
+  +91 90288 15714
+</a>
+
             </Button>
           </div>
 

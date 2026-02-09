@@ -61,7 +61,7 @@ export function ContactForm() {
     return () => observer.disconnect();
   }, []);
 
-  /* SUBMIT (UNCHANGED LOGIC) */
+  /* SUBMIT */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -93,17 +93,15 @@ export function ContactForm() {
 
       setIsSubmitted(true);
 
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          contactPerson: "",
-          email: "",
-          phone: "",
-          company: "",
-          service: "",
-          message: "",
-        });
-      }, 3000);
+      setFormData({
+  contactPerson: "",
+  email: "",
+  phone: "",
+  company: "",
+  service: "",
+  message: "",
+});
+
     } catch {
       alert("Something went wrong. Please try again.");
     } finally {
@@ -111,7 +109,7 @@ export function ContactForm() {
     }
   };
 
-  /* SUCCESS */
+  /* SUCCESS STATE */
   if (isSubmitted) {
     return (
       <div
@@ -138,173 +136,167 @@ export function ContactForm() {
 
   /* FORM */
   return (
-    <div ref={formRef} className="max-w-3xl mx-auto">
+    <div ref={formRef} className="max-w-4xl mx-auto">
       <div data-animate className="mb-14 text-center">
-        <h2 className="text-4xl font-bold mb-3">
-          Connect With Us
-        </h2>
+        <h2 className="text-4xl font-bold mb-3">Connect With Us</h2>
       </div>
 
       <form
         onSubmit={handleSubmit}
-  className="
-    space-y-10
-    rounded-3xl
-    p-10
-    bg-gradient-to-b from-zinc-900 via-zinc-900 to-zinc-800
-    shadow-[0_50px_140px_-60px_rgba(212,175,55,0.45)]
+        className="
+          rounded-3xl
+          p-10
+          bg-gradient-to-b from-zinc-900 via-zinc-900 to-zinc-800
+          shadow-[0_50px_140px_-60px_rgba(212,175,55,0.45)]
         "
       >
-        {/* ROW 1 */}
-        <div data-animate className="grid sm:grid-cols-2 gap-8">
-          <div>
-            <Label>Contact Person</Label>
-            <Input
-              placeholder="Your name"
-              value={formData.contactPerson}
-              onChange={(e) =>
-                setFormData({ ...formData, contactPerson: e.target.value })
-              }
-              required
-              className="mt-3 h-12 text-base bg-secondary/60 focus:bg-secondary"
-            />
-          </div>
-
-          <div>
-            <Label>Email Address</Label>
-            <Input
-              type="email"
-              placeholder="you@company.com"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              required
-              className="mt-3 h-12 text-base bg-secondary/60 focus:bg-secondary"
-            />
-          </div>
-        </div>
-
-        {/* ROW 2 */}
-        <div data-animate className="grid sm:grid-cols-2 gap-8">
-          <div>
-            <Label>Phone Number</Label>
-            <div className="mt-3 flex">
-              <div className="px-4 flex items-center bg-secondary border border-border rounded-l-md text-sm">
-                +91
+        {/* MAIN GRID */}
+        <div className="grid lg:grid-cols-2 gap-10">
+          {/* LEFT SIDE */}
+          <div className="space-y-10">
+            {/* ROW 1 */}
+            <div data-animate className="grid sm:grid-cols-2 gap-8">
+              <div>
+                <Label>Contact Person</Label>
+                <Input
+                  placeholder="Your name"
+                  value={formData.contactPerson}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      contactPerson: e.target.value,
+                    })
+                  }
+                  required
+                  className="mt-3 h-12 text-base bg-secondary/60 focus:bg-secondary"
+                />
               </div>
-              <Input
-                type="tel"
-                placeholder="9876543210"
-                value={formData.phone}
-                onChange={(e) => {
-                  const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
-                  setFormData({ ...formData, phone: digits });
-                }}
+
+              <div>
+                <Label>Email Address</Label>
+                <Input
+                  type="email"
+                  placeholder="you@company.com"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  required
+                  className="mt-3 h-12 text-base bg-secondary/60 focus:bg-secondary"
+                />
+              </div>
+            </div>
+
+            {/* ROW 2 */}
+            <div data-animate className="grid sm:grid-cols-2 gap-8">
+              <div>
+                <Label>Phone Number</Label>
+                <div className="mt-3 flex">
+                  <div className="px-4 flex items-center bg-secondary border border-border rounded-l-md text-sm">
+                    +91
+                  </div>
+                  <Input
+                    type="tel"
+                    placeholder="9876543210"
+                    value={formData.phone}
+                    onChange={(e) => {
+                      const digits = e.target.value
+                        .replace(/\D/g, "")
+                        .slice(0, 10);
+                      setFormData({ ...formData, phone: digits });
+                    }}
+                    required
+                    className="h-12 text-base rounded-l-none bg-secondary/60 focus:bg-secondary"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <Label>Company</Label>
+                <Input
+                  placeholder="Company name"
+                  value={formData.company}
+                  onChange={(e) =>
+                    setFormData({ ...formData, company: e.target.value })
+                  }
+                  className="mt-3 h-12 text-base bg-secondary/60 focus:bg-secondary"
+                />
+              </div>
+            </div>
+
+            {/* SERVICE */}
+            <div data-animate>
+              <Label>Service Required</Label>
+              <Select
+                value={formData.service}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, service: value })
+                }
                 required
-                className="h-12 text-base rounded-l-none bg-secondary/60 focus:bg-secondary"
-              />
+              >
+                <SelectTrigger className="mt-3 h-12 bg-secondary/60">
+                  <SelectValue placeholder="Select a service" />
+                </SelectTrigger>
+                <SelectContent className="z-[9999] rounded-xl bg-zinc-900 border border-zinc-700">
+                  {services.map((service) => (
+                    <SelectItem
+                      key={service}
+                      value={service}
+                      className="
+                        cursor-pointer
+                        focus:bg-yellow-500/20
+                        data-[state=checked]:bg-yellow-500
+                        data-[state=checked]:text-black
+                      "
+                    >
+                      {service}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
-          <div>
-            <Label>Company</Label>
-            <Input
-              placeholder="Company name"
-              value={formData.company}
+          {/* RIGHT SIDE – MESSAGE */}
+          <div data-animate className="flex flex-col h-full">
+            <Label>Your Message</Label>
+            <Textarea
+              rows={10}
+              placeholder="Briefly tell us what you’re planning…"
+              value={formData.message}
               onChange={(e) =>
-                setFormData({ ...formData, company: e.target.value })
+                setFormData({ ...formData, message: e.target.value })
               }
-              className="mt-3 h-12 text-base bg-secondary/60 focus:bg-secondary"
+              required
+              className="
+                mt-3
+                flex-1
+                text-base
+                bg-secondary/60
+                resize-none
+                focus:bg-secondary
+              "
             />
           </div>
         </div>
 
-        {/* SERVICE */}
-        <div data-animate>
-          <Label>Service Required</Label>
-          <Select
-            value={formData.service}
-            onValueChange={(value) =>
-              setFormData({ ...formData, service: value })
-            }
-            required
-          >
-            <SelectTrigger className="mt-3 h-12 bg-secondary/60">
-              <SelectValue placeholder="Select a service" />
-            </SelectTrigger>
-            <SelectContent
-  className="
-    z-[9999]
-    rounded-xl
-    bg-zinc-900
-    border border-zinc-700
-    shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)]
-  "
->
-
-              {services.map((service) => (
-                <SelectItem
-  key={service}
-  value={service}
-  className="
-    cursor-pointer
-    focus:bg-yellow-500/20
-    focus:text-white
-    data-[state=checked]:bg-yellow-500
-    data-[state=checked]:text-black
-  "
->
-
-                  {service}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        {/* MESSAGE */}
-        <div data-animate>
-          <Label>Your Message</Label>
-          <Textarea
-            rows={4}
-            placeholder="Briefly tell us what you’re planning…"
-            value={formData.message}
-            onChange={(e) =>
-              setFormData({ ...formData, message: e.target.value })
-            }
-            required
-            className="mt-3 text-base bg-secondary/60 resize-none focus:bg-secondary"
-          />
-        </div>
-
         {/* CTA */}
-       <div
-  data-animate
-  className="
-    pt-1
-    flex justify-start
-  "
->
-
-         <Button
-  type="submit"
-  disabled={isSubmitting}
-  className="
-    h-12
-    px-2
-    rounded-lg
-    text-sm font-semibold
-    bg-yellow-400
-    text-black
-    shadow-[0_12px_30px_-12px_rgba(250,204,21,0.9)]
-    hover:shadow-[0_16px_45px_-12px_rgba(250,204,21,1)]
-    hover:-translate-y-0.5
-    transition-all duration-300
-  "
->
-
-
+        <div data-animate className="mt-8 flex justify-start">
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="
+              h-12
+              px-2
+              rounded-lg
+              text-sm font-semibold
+              bg-yellow-400
+              text-black
+              shadow-[0_12px_30px_-12px_rgba(250,204,21,0.9)]
+              hover:-translate-y-0.5
+              transition-all
+            "
+          >
             {isSubmitting ? (
               <>
                 <Loader2 className="mr-2 h-5 w-5 animate-spin" />

@@ -24,11 +24,7 @@ function FloatingParticle({
       style={{
         left: `${left}%`,
         bottom: "-20px",
-        animationName: "particle-float",
-        animationDuration: `${duration}s`,
-        animationTimingFunction: "linear",
-        animationIterationCount: "infinite",
-        animationDelay: `${delay}s`,
+        animation: `particle-float ${duration}s linear ${delay}s infinite`,
       }}
     >
       <div
@@ -36,7 +32,7 @@ function FloatingParticle({
         style={{
           width: size,
           height: size,
-          boxShadow: `0 0 ${size * 2}px rgba(212, 175, 55, 0.5)`,
+          boxShadow: `0 0 ${size * 2}px rgba(212,175,55,0.4)`,
         }}
       />
     </div>
@@ -49,27 +45,23 @@ function HeroImageSwitcher({ showAlt }: { showAlt: boolean }) {
     <div className="relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-xl">
       <Image
         src="/images/VJ.jpeg"
-        alt="Transform your brand with Prosira Advertisers"
+        alt="Advertising agency team at Prosira Advertisers Pune"
         fill
-        priority
         sizes="(min-width:1024px) 420px, 100vw"
-        className={`object-cover transition-opacity duration-700 ease-out ${
+        className={`object-cover transition-opacity duration-700 ${
           showAlt ? "opacity-0" : "opacity-100"
         }`}
       />
-
       <Image
         src="/images/SP.jpeg"
-        alt="More than an advertising agency"
+        alt="Creative advertising campaigns by Prosira Advertisers"
         fill
         loading="lazy"
         sizes="(min-width:1024px) 420px, 100vw"
-        className={`absolute inset-0 object-cover transition-opacity duration-700 ease-out ${
+        className={`absolute inset-0 object-cover transition-opacity duration-700 ${
           showAlt ? "opacity-100" : "opacity-0"
         }`}
       />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
     </div>
   );
 }
@@ -78,33 +70,45 @@ function HeroImageSwitcher({ showAlt }: { showAlt: boolean }) {
 export function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isLoaded, setIsLoaded] = useState(false);
   const [showAlt, setShowAlt] = useState(false);
-
   const [particles, setParticles] = useState<
     { delay: number; size: number; left: number; duration: number }[]
   >([]);
 
+  /* ✅ PARTICLES – DESKTOP ONLY */
   useEffect(() => {
-    setIsLoaded(true);
+    if (window.innerWidth < 768) return;
 
-    const generatedParticles = Array.from({ length: 20 }, (_, i) => ({
-      delay: i * 0.8,
-      size: 4 + Math.random() * 8,
-      left: Math.random() * 100,
-      duration: 15 + Math.random() * 10,
-    }));
+    setParticles(
+      Array.from({ length: 14 }, (_, i) => ({
+        delay: i * 0.8,
+        size: 4 + Math.random() * 6,
+        left: Math.random() * 100,
+        duration: 18 + Math.random() * 8,
+      }))
+    );
+  }, []);
 
-    setParticles(generatedParticles);
+  /* ✅ THROTTLED MOUSEMOVE – DESKTOP ONLY */
+  useEffect(() => {
+    if (window.innerWidth < 1024) return;
+
+    let rafId: number | null = null;
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (heroRef.current) {
+      if (rafId) return;
+
+      rafId = requestAnimationFrame(() => {
+        if (!heroRef.current) return;
         const rect = heroRef.current.getBoundingClientRect();
+
         setMousePosition({
-          x: (e.clientX - rect.left - rect.width / 2) / 50,
-          y: (e.clientY - rect.top - rect.height / 2) / 50,
+          x: (e.clientX - rect.left - rect.width / 2) / 60,
+          y: (e.clientY - rect.top - rect.height / 2) / 60,
         });
-      }
+
+        rafId = null;
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -115,115 +119,75 @@ export function HeroSection() {
     const interval = setInterval(() => {
       setShowAlt((prev) => !prev);
     }, 4000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* BACKGROUND */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0">
         <Image
           src="/images/hero-bg.jpg"
-          alt="Premium advertising agency workspace"
+          alt="Premium advertising agency in Pune"
           fill
-          priority
-          className="object-cover transition-transform duration-1000 ease-out"
+          sizes="100vw"
+          className="object-cover"
           style={{
-            transform: `scale(1.1) translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`,
+            transform: `scale(1.08) translate(${mousePosition.x * 0.4}px, ${mousePosition.y * 0.4}px)`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 animate-gradient-shift" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
       </div>
 
       {/* PARTICLES */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
+      <div className="absolute inset-0 pointer-events-none">
         {particles.map((p, i) => (
           <FloatingParticle key={i} {...p} />
         ))}
       </div>
 
       {/* CONTENT */}
-      <div className="relative z-20 mx-auto max-w-7xl px-4 py-24 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* LEFT */}
-          <div className="space-y-8">
-            <div
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-gold transition-all duration-700 ${
-                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-            >
-              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-primary text-sm font-medium">
-                Leading Advertising Agency in Pune
-              </span>
-            </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-24 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-8 lg:pl-28 xl:pl-36 max-w-xl lg:ml-4 xl:ml-6">
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-gold text-primary text-sm font-medium">
+            <Sparkles className="w-4 h-4" />
+            Leading Advertising Agency in Pune
+          </span>
 
-            {/* HEADING ROTATOR */}
-            <div className="relative h-[280px] md:h-[320px] lg:h-[360px] overflow-hidden">
-              <div
-                className={`absolute inset-0 transition-all duration-800 ease-out ${
-                  showAlt ? "opacity-0 translate-y-6" : "opacity-100 translate-y-0"
-                }`}
-              >
-                <h1 className="grid grid-rows-[auto_auto_auto] text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15]">
-                  <span>Transform Your</span>
-                  <span>Brand With</span>
-                  <span className="mt-2 text-primary font-serif">
-                    Prosira Advertisers
-                  </span>
-                </h1>
-              </div>
+          {/* ✅ SINGLE SEO-SAFE H1 */}
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
+            Transform Your Brand With{" "}
+            <span className="text-primary font-serif">Prosira Advertisers</span>
+          </h1>
 
-              <div
-                className={`absolute inset-0 transition-all duration-800 ease-out ${
-                  showAlt ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"
-                }`}
-              >
-                <h1 className="grid grid-rows-[auto_auto_auto] text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.15]">
-                  <span>More Than An</span>
-                  <span className="mt-2 text-primary font-serif">
-                    Advertising Agency
-                  </span>
-                </h1>
-              </div>
-            </div>
+          {/* SEO reinforcement */}
+          <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
+            Prosira Advertisers is a full-service advertising agency in Pune
+            delivering TV, radio, outdoor hoardings, digital marketing, and brand strategy solutions.
+          </p>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              From traditional advertising to cutting-edge digital campaigns, we craft
-              strategic, creative, and performance-driven solutions that connect your
-              brand with the right audience.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="h-14 px-8">
-                <Link href="/contact">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-
-              <Button asChild size="lg" variant="outline" className="h-14 px-8">
-                <Link href="/about-prosira-advertisers">
-                  <Play className="mr-2 h-5 w-5" />
-                  Our Story
-                </Link>
-              </Button>
-            </div>
-          </div>
-
-          {/* RIGHT IMAGE */}
-          <div className="hidden lg:flex justify-center">
-            <HeroImageSwitcher showAlt={showAlt} />
+          <div className="flex gap-4 flex-wrap">
+            <Button asChild size="lg">
+              <Link href="/contact">
+                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/about-prosira-advertisers">
+                <Play className="mr-2 h-5 w-5" />
+                Our Story
+              </Link>
+            </Button>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+        <div className="hidden lg:flex justify-center">
+          <HeroImageSwitcher showAlt={showAlt} />
+        </div>
+      </div>
     </section>
   );
 }

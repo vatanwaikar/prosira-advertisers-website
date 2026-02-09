@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CustomCursor } from "@/components/custom-cursor";
@@ -11,10 +12,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ScrollSafety from "@/components/ScrollSafety";
 import ScrollFailsafe from "@/components/ScrollFailsafe";
 
-
-
-
-/* ---------- FONTS (NO BLINK) ---------- */
+/* ---------- FONTS (CLS SAFE) ---------- */
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -27,7 +25,7 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-/* ---------- METADATA ---------- */
+/* ---------- SEO METADATA ---------- */
 export const metadata: Metadata = {
   title: {
     default: "Prosira Advertisers | 360° Advertising & Media Solutions in Pune",
@@ -39,6 +37,7 @@ export const metadata: Metadata = {
     "advertising agency in Pune",
     "media agency Pune",
     "digital marketing agency Pune",
+    "outdoor advertising Pune",
     "event management Pune",
     "branding agency Maharashtra",
   ],
@@ -63,13 +62,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  generator: "v0.app",
-
-  
 };
 
-
-
+/* ---------- ROOT LAYOUT ---------- */
 export default function RootLayout({
   children,
 }: {
@@ -79,38 +74,71 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased bg-background text-foreground min-h-screen">
         <Providers>
+          {/* UX SAFETY (SEO SAFE) */}
           <ScrollSafety />
-<ScrollFailsafe />
+          <ScrollFailsafe />
 
+          {/* DESKTOP CURSOR */}
           <CustomCursor />
+
+          {/* SITE CHROME */}
           <Header />
+
           <main
-  id="app-scroll-root"
-  className="pt-[80px] lg:pt-[96px] min-h-screen"
->
-  {children}
-</main>
+            id="app-scroll-root"
+            className="pt-[80px] lg:pt-[96px] min-h-screen"
+          >
+            {children}
+          </main>
+
+          
 
           <Footer />
-           <ScrollToTop />
+          <ScrollToTop />
           <Analytics />
-       {/* ===== Local Business Schema (SEO) ===== */}
+
+          {/* ===== FULL SCHEMA (SEO LOCK) ===== */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "LocalBusiness",
-                "name": "Prosira Advertisers",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "3rd Floor, Patil Plaza, Swargate",
-                  "addressLocality": "Pune",
-                  "addressRegion": "MH",
-                  "addressCountry": "IN"
+              __html: JSON.stringify([
+                {
+                  "@context": "https://schema.org",
+                  "@type": "AdvertisingAgency",
+                  "name": "Prosira Advertisers",
+                  "url": "https://prosiraadvertisers.com",
+                  "telephone": "+91-9028815714",
+                  "logo": "https://prosiraadvertisers.com/logo.png",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "3rd Floor, Patil Plaza, Swargate",
+                    "addressLocality": "Pune",
+                    "addressRegion": "MH",
+                    "postalCode": "411037",
+                    "addressCountry": "IN"
+                  },
+                  "areaServed": {
+                    "@type": "AdministrativeArea",
+                    "name": "Maharashtra"
+                  },
+                  "sameAs": [
+                    "https://www.instagram.com/",
+                    "https://www.facebook.com/",
+                    "https://www.linkedin.com/"
+                  ]
                 },
-                "areaServed": "Pune"
-              }),
+                {
+                  "@context": "https://schema.org",
+                  "@type": "WebSite",
+                  "name": "Prosira Advertisers",
+                  "url": "https://prosiraadvertisers.com",
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://prosiraadvertisers.com/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                  }
+                }
+              ]),
             }}
           />
         </Providers>

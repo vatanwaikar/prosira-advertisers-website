@@ -1,55 +1,34 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import * as THREE from "three";
 
 const steps = [
-  {
-    number: "01",
-    title: "Discovery & Research",
-    description: "Understanding goals & audience.",
-  },
-  {
-    number: "02",
-    title: "Strategy Development",
-    description: "Building KPI roadmap.",
-  },
-  {
-    number: "03",
-    title: "Implementation",
-    description: "Executing campaigns.",
-  },
-  {
-    number: "04",
-    title: "Monitor & Optimize",
-    description: "Performance tuning.",
-  },
-  {
-    number: "05",
-    title: "Report & Scale",
-    description: "Insights & growth.",
-  },
+  { title: "Discovery & Research", description: "Understanding goals & audience." },
+  { title: "Strategy Development", description: "Building KPI roadmap." },
+  { title: "Implementation", description: "Executing campaigns." },
+  { title: "Monitor & Optimize", description: "Performance tuning." },
+  { title: "Report & Scale", description: "Insights & growth." },
 ];
 
-export function DigitalProcess() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+export default function DigitalProcess() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const cardsRef = useRef<(HTMLElement | null)[]>([]);
 
-  const [angle, setAngle] = useState(0);
-  const radius = 300;
+  const angleRef = useRef(0);
+  const draggingRef = useRef(false);
+  const lastXRef = useRef(0);
 
-  /* ================= PARTICLES ================= */
-
+  /* ================= THREE.JS PARTICLES (SAFE) ================= */
   useEffect(() => {
-    if (!canvasRef.current) return;
+    if (!canvasRef.current || !containerRef.current) return;
 
     const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 120 : 320;
+    const particleCount = isMobile ? 100 : 220;
 
     const scene = new THREE.Scene();
-
     const camera = new THREE.PerspectiveCamera(60, 1, 1, 1000);
     camera.position.z = 180;
 
@@ -57,12 +36,12 @@ export function DigitalProcess() {
       canvas: canvasRef.current,
       alpha: true,
       antialias: false,
+      powerPreference: "low-power",
     });
 
     const resize = () => {
-      const w = containerRef.current?.offsetWidth || 300;
-const h = containerRef.current?.offsetHeight || 420;
-
+      const w = containerRef.current!.offsetWidth || 300;
+      const h = containerRef.current!.offsetHeight || 420;
       renderer.setSize(w, h);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
@@ -73,182 +52,145 @@ const h = containerRef.current?.offsetHeight || 420;
 
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
-
     for (let i = 0; i < positions.length; i++) {
       positions[i] = (Math.random() - 0.5) * 260;
     }
-
-    geometry.setAttribute(
-      "position",
-      new THREE.BufferAttribute(positions, 3)
-    );
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
     const material = new THREE.PointsMaterial({
       color: 0xd4af37,
-      size: isMobile ? 1.2 : 1.8,
+      size: isMobile ? 1.1 : 1.6,
     });
 
     const points = new THREE.Points(geometry, material);
     scene.add(points);
 
     let raf: number;
-
     const animate = () => {
-      points.rotation.y += 0.0005;
+      points.rotation.y += 0.00035;
       renderer.render(scene, camera);
       raf = requestAnimationFrame(animate);
     };
-
     animate();
 
     return () => {
       cancelAnimationFrame(raf);
+      geometry.dispose();
+      material.dispose();
       renderer.dispose();
       window.removeEventListener("resize", resize);
     };
   }, []);
 
-  /* ================= POSITION CARDS ================= */
+  /* ================= CARD POSITIONING ================= */
+  const updateCards = () => {
+    const radius = window.innerWidth < 768 ? 190 : 280;
 
-  useEffect(() => {
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
 
-      const a = (i / steps.length) * Math.PI * 2 + angle;
-
+      const a = (i / steps.length) * Math.PI * 2 + angleRef.current;
       const x = Math.cos(a) * radius;
       const z = Math.sin(a) * radius;
-
       const isFront = z > 0;
 
       gsap.to(card, {
         x,
         z,
-        scale: isFront ? 1.15 : 0.8,
-        opacity: isFront ? 1 : 0.35,
+        scale: isFront ? 1.1 : 0.85,
+        opacity: isFront ? 1 : 0.45,
         filter: `blur(${isFront ? 0 : 3}px)`,
-        rotationY: 0,
-        duration: 0.5,
+        duration: 0.45,
         overwrite: true,
       });
     });
-  }, [angle]);
+  };
 
-  /* ================= AUTO ROTATE ================= */
-
+  /* ================= AUTO ROTATE (NO RE-RENDER) ================= */
   useEffect(() => {
     let raf: number;
-
     const loop = () => {
-      setAngle((a) => a - 0.0018);
+      if (!draggingRef.current) {
+        angleRef.current -= 0.0013;
+        updateCards();
+      }
       raf = requestAnimationFrame(loop);
     };
-
     loop();
-
     return () => cancelAnimationFrame(raf);
   }, []);
 
   /* ================= DRAG CONTROL ================= */
-
   useEffect(() => {
-    let dragging = false;
-    let lastX = 0;
+    const el = containerRef.current;
+    if (!el) return;
 
     const start = (e: PointerEvent) => {
-      dragging = true;
-      lastX = e.clientX;
+      draggingRef.current = true;
+      lastXRef.current = e.clientX;
+      el.style.cursor = "grabbing";
     };
 
     const move = (e: PointerEvent) => {
-      if (!dragging) return;
-
-      const delta = e.clientX - lastX;
-      setAngle((a) => a + delta * 0.0035);
-
-      lastX = e.clientX;
+      if (!draggingRef.current) return;
+      const delta = e.clientX - lastXRef.current;
+      angleRef.current += delta * 0.0035;
+      lastXRef.current = e.clientX;
+      updateCards();
     };
 
     const end = () => {
-      dragging = false;
+      draggingRef.current = false;
+      el.style.cursor = "grab";
     };
 
-    window.addEventListener("pointerdown", start);
-    window.addEventListener("pointermove", move);
-    window.addEventListener("pointerup", end);
+    el.addEventListener("pointerdown", start);
+    el.addEventListener("pointermove", move);
+    el.addEventListener("pointerup", end);
+    el.addEventListener("pointerleave", end);
 
     return () => {
-      window.removeEventListener("pointerdown", start);
-      window.removeEventListener("pointermove", move);
-      window.removeEventListener("pointerup", end);
+      el.removeEventListener("pointerdown", start);
+      el.removeEventListener("pointermove", move);
+      el.removeEventListener("pointerup", end);
+      el.removeEventListener("pointerleave", end);
     };
   }, []);
 
   /* ================= RENDER ================= */
-
   return (
-<section className="relative bg-secondary min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative bg-secondary min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      <header className="text-center mb-10 z-10">
+        <h2 className="text-3xl md:text-4xl font-bold">
+          How We Drive <span className="text-primary font-serif">Digital Success</span>
+        </h2>
+        <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
+          Our proven process ensures measurable growth across every campaign.
+        </p>
+      </header>
 
-  {/* HEADING */}
-  <div className="text-center mb-10 z-10">
-    <h2 className="text-3xl md:text-4xl font-bold">
-      How We Drive{" "}
-      <span className="text-primary font-serif">
-        Digital Success
-      </span>
-    </h2>
-
-    <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-      Our proven process ensures measurable growth across every campaign.
-    </p>
-  </div>
-      {/* PARTICLE BACKGROUND */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-60 -z-0"
-
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-50"
       />
 
-      {/* ORBIT CONTAINER */}
       <div
         ref={containerRef}
-className="relative z-10 w-full max-w-5xl h-[420px] flex items-start justify-center pt-6 perspective-[1100px]"
+        className="relative z-10 w-full max-w-5xl h-[420px] flex items-start justify-center pt-6 perspective-[1100px] cursor-grab"
       >
-        {/* CARDS */}
         <div className="relative w-0 h-0 preserve-3d">
           {steps.map((step, i) => (
-            <div
+            <article
               key={i}
               ref={(el) => {
-                if (el) cardsRef.current[i] = el;
+                cardsRef.current[i] = el;
               }}
-              className="absolute w-[230px] p-6 rounded-xl border bg-background/80 backdrop-blur-md shadow-xl text-center will-change-transform"
+              className="absolute w-[230px] p-6 rounded-xl border bg-background/80 backdrop-blur-md shadow-xl text-center"
             >
-              <div className="text-primary font-bold mb-2">
-                {step.number}
-              </div>
-
-              <h3 className="font-bold mb-2">
-                {step.title}
-              </h3>
-
-              <p className="text-sm text-muted-foreground">
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* DOT NAVIGATION */}
-        <div className="absolute bottom-40 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-          {steps.map((_, i) => (
-            <button
-              key={i}
-              onClick={() =>
-                setAngle(-(i / steps.length) * Math.PI * 2)
-              }
-              className="w-3 h-3 rounded-full bg-primary/50 hover:bg-primary transition hover:scale-125"
-            />
+              <h3 className="font-bold mb-2">{step.title}</h3>
+              <p className="text-sm text-muted-foreground">{step.description}</p>
+            </article>
           ))}
         </div>
       </div>
