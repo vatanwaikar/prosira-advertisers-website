@@ -67,7 +67,7 @@ export function Header() {
     >
       <nav className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between px-4 lg:px-8">
         {/* Logo */}
-<Link href="/" className="flex items-center gap-3 group ml-4 lg:ml-8">
+<Link href="/" className="flex items-center gap-3 group [6.5rem] lg:ml-8">
   <div className="relative flex items-center">
     <Image
       src="/logo.png"
