@@ -110,13 +110,13 @@ export function WhyChooseUs() {
     font-bold
     text-primary-foreground
   ">
-    15+
+    10+
   </span>
 </div>
 
                     <div>
                       <div className="font-semibold text-lg text-foreground">Years of Excellence</div>
-                      <div className="text-sm text-muted-foreground">Serving brands since 2009</div>
+                      <div className="text-sm text-muted-foreground">Serving brands since 2016</div>
                     </div>
                   </div>
                 </div>

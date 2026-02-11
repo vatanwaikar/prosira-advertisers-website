@@ -51,76 +51,109 @@ export function AboutContent() {
 
       <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* IMAGE SIDE */}
-          <div
-            ref={imageRef}
-            data-animate
-            className="f-reveal relative hover-lift"
-          >
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-              <Image
-                src="/images/team-meeting.jpg"
-                alt="Prosira Advertisers team collaborating on campaign strategy"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-background/50 via-transparent to-primary/10" />
-            </div>
+          {/* CONTENT SIDE - Now on LEFT */}
+          <div data-animate className="f-reveal lg:order-1">
+            <div className="prose prose-lg prose-invert max-w-none">
 
-            {/* Decorative depth accents */}
-            <div className="absolute -bottom-8 -left-8 w-28 h-28 border-2 border-primary/30 rounded-xl -z-10" />
-            <div className="absolute -top-8 -right-8 w-28 h-28 bg-primary/10 rounded-xl -z-10" />
-          </div>
+  {/* SECTION 1 */}
+  <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
+    rounded-full border border-primary/30 bg-primary/10
+    text-xs md:text-sm font-medium text-primary
+    shadow-[0_0_14px_rgba(212,175,55,0.15)]">
+    ✦ Who We Are
+  </h3>
 
-         {/* CONTENT SIDE */}
-<div>
-  <div
-    data-animate
-    className="f-reveal prose prose-lg prose-invert max-w-none"
-  >
-    {/* SECTION 1 */}
-    <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
-  rounded-full border border-primary/30 bg-primary/10
-  text-xs md:text-sm font-medium text-primary
-  shadow-[0_0_14px_rgba(212,175,55,0.15)]">
-  ✦ Who We Are
-</h3>
+  <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+    Founded by industry professionals Shashikantt Paanchal and Vijayant Saini,
+    we are a data-driven media planning and buying agency helping brands
+    achieve measurable growth across India and global markets.
+  </p>
 
-    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-      Prosira Advertisers is a full-service event and advertising company delivering
-      comprehensive 360° media solutions. We design strategic, creative, and
-      performance-driven campaigns by integrating traditional media strength with
-      modern digital innovation—helping brands connect, engage, and grow.
-    </p>
+  <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+    We combine strategic thinking, media intelligence, and execution excellence
+    to ensure brands reach the right audience with maximum efficiency and ROI.
+  </p>
 
-    {/* SECTION 2 */}
-    <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
-  rounded-full border border-primary/30 bg-primary/10
-  text-xs md:text-sm font-medium text-primary
-  shadow-[0_0_14px_rgba(212,175,55,0.15)]">
-  ✦ What We Do
-</h3>
 
-    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-      With expertise in advertising strategy, creative design, media planning and
-      buying, public relations, and large-scale event execution, we work as a true
-      media partner—from concept to execution—focused on measurable impact.
-    </p>
+  {/* SECTION 2 */}
+  <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
+    rounded-full border border-primary/30 bg-primary/10
+    text-xs md:text-sm font-medium text-primary
+    shadow-[0_0_14px_rgba(212,175,55,0.15)]">
+    ✦ What We Do
+  </h3>
 
-    {/* SECTION 3 */}
-   <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
-  rounded-full border border-primary/30 bg-primary/10
-  text-xs md:text-sm font-medium text-primary
-  shadow-[0_0_14px_rgba(212,175,55,0.15)]">
-  ✦ How We Work
-</h3>
+  <div className="space-y-5 mb-8">
 
     <p className="text-lg text-muted-foreground leading-relaxed">
-      Operating across Pune and Maharashtra, our team collaborates closely with
-      clients to understand business goals and transform them into powerful brand
-      stories through insight-driven, audience-focused strategies.
+      <span className="font-semibold text-foreground">
+        Integrated Media Planning —
+      </span>{" "}
+      Audience research, media mix optimization, and reach & frequency planning
+      aligned with business objectives.
     </p>
+
+    <p className="text-lg text-muted-foreground leading-relaxed">
+      <span className="font-semibold text-foreground">
+        Digital & Traditional Media Buying —
+      </span>{" "}
+      Efficient buying across digital, TV, print, radio, outdoor, and integrated
+      platforms backed by strong negotiation leverage.
+    </p>
+
+    <p className="text-lg text-muted-foreground leading-relaxed">
+      <span className="font-semibold text-foreground">
+        ROI-Focused Media Execution —
+      </span>{" "}
+      Campaign execution designed to maximize visibility, engagement,
+      and measurable return on advertising investment.
+    </p>
+
   </div>
+
+
+  {/* SECTION 3 */}
+  <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
+    rounded-full border border-primary/30 bg-primary/10
+    text-xs md:text-sm font-medium text-primary
+    shadow-[0_0_14px_rgba(212,175,55,0.15)]">
+    ✦ How We Work
+  </h3>
+
+  <p className="text-lg text-muted-foreground leading-relaxed mb-5">
+    Our approach is rooted in insight-led planning and transparent media buying,
+    ensuring every media rupee delivers value.
+  </p>
+
+  <div className="space-y-5">
+
+    <p className="text-lg text-muted-foreground leading-relaxed">
+      <span className="font-semibold text-foreground">
+        Audience & Data-Led Strategy —
+      </span>{" "}
+      We analyze audience behavior, market trends, and performance data
+      to build precise media strategies.
+    </p>
+
+    <p className="text-lg text-muted-foreground leading-relaxed">
+      <span className="font-semibold text-foreground">
+        Smart Buying & Optimization —
+      </span>{" "}
+      We negotiate optimal media placements and continuously optimize
+      campaigns using real-time performance insights.
+    </p>
+
+    <p className="text-lg text-muted-foreground leading-relaxed">
+      <span className="font-semibold text-foreground">
+        Measurable Outcomes & Reporting —
+      </span>{" "}
+      Every campaign aligns with clear business objectives, supported by
+      transparent reporting and measurable ROI tracking.
+    </p>
+
+  </div>
+
+</div>
 
             {/* LINKS */}
             <div
@@ -135,7 +168,7 @@ export function AboutContent() {
                   href="/traditional-services"
                   className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
                 >
-                  Traditional Services
+                  Advertising Services
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
@@ -154,6 +187,27 @@ export function AboutContent() {
                 </Link>
               </div>
             </div>
+          </div>
+
+          {/* IMAGE SIDE - Now on RIGHT */}
+          <div
+            ref={imageRef}
+            data-animate
+            className="f-reveal relative hover-lift lg:order-2"
+          >
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+              <Image
+                src="/images/team-meeting.jpg"
+                alt="Prosira Advertisers team collaborating on campaign strategy"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-background/50 via-transparent to-primary/10" />
+            </div>
+
+            {/* Decorative depth accents */}
+            <div className="absolute -bottom-8 -left-8 w-28 h-28 border-2 border-primary/30 rounded-xl -z-10" />
+            <div className="absolute -top-8 -right-8 w-28 h-28 bg-primary/10 rounded-xl -z-10" />
           </div>
         </div>
       </div>

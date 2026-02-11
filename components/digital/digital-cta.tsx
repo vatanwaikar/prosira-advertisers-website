@@ -50,7 +50,7 @@ export function DigitalCTA() {
           className="f-reveal text-lg text-muted-foreground mb-10 leading-relaxed"
         >
           Let&apos;s discuss how our digital marketing expertise can help grow your
-          business online. Get a free consultation and a custom strategy proposal.
+          business online. Get a  consultation and a custom strategy proposal.
         </p>
 
         <div
@@ -63,7 +63,7 @@ export function DigitalCTA() {
             className="hover-lift bg-primary text-primary-foreground group"
           >
             <Link href="/contact">
-              Get Free Consultation
+              Get  Consultation
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </Button>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Prosira Advertisers - Get a Free Quote",
     description:
-      "Contact our advertising experts for a free consultation. We offer TV, radio, digital marketing, and event management services in Pune.",
+      "Contact our advertising experts for a  consultation. We offer TV, radio, digital marketing, and event management services in Pune.",
     url: "https://prosiraadvertisers.com/contact",
   },
 };

@@ -111,8 +111,10 @@ export function HeroSection() {
     id: 1,
     text: (
       <>
-        We are more than an{" "}
-        <span className="text-primary font-serif">advertising agency</span>
+        WE ARE MORE THAN AN{" "}
+        <span className="text-primary font-serif">
+          ADVERTISING AGENCY
+        </span>
       </>
     ),
   },
@@ -120,8 +122,10 @@ export function HeroSection() {
     id: 2,
     text: (
       <>
-        Improve your{" "}
-        <span className="text-primary font-serif">business</span>
+        IMPROVE YOUR{" "}
+        <span className="text-primary font-serif">
+          BUSINESS
+        </span>
       </>
     ),
   },
@@ -129,12 +133,15 @@ export function HeroSection() {
     id: 3,
     text: (
       <>
-        We are{" "}
-        <span className="text-primary font-serif">energetic</span>
+        WE ARE{" "}
+        <span className="text-primary font-serif">
+          ENERGETIC
+        </span>
       </>
     ),
   },
 ];
+
 
 
   /* Particles */
@@ -224,14 +231,16 @@ export function HeroSection() {
 
           {/* HEADING WITH BLUR EFFECT */}
           <h1
-            className={`text-4xl md:text-5xl lg:text-7xl font-bold leading-tight transition-all duration-500
-              ${
-                isAnimating
-                  ? "blur-sm opacity-0 translate-y-2"
-                  : "blur-0 opacity-100 translate-y-0"
-              }
-            `}
-          >
+  className={`text-3xl md:text-4xl lg:text-6xl
+    font-bold leading-tight tracking-wide transition-all duration-500
+    ${
+      isAnimating
+        ? "blur-sm opacity-0 translate-y-2"
+        : "blur-0 opacity-100 translate-y-0"
+    }
+  `}
+>
+
             {headings.find((h) => h.id === currentHeading)?.text}
             {/* <span className="text-primary font-serif block mt-4">
               Prosira Advertisers

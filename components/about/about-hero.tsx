@@ -121,26 +121,28 @@ export function AboutHero() {
             data-animate
             className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
-            About Prosira Advertisers
+            About Our Advertising agency
           </span>
 
-          <h1
-            data-animate
-            className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-          >
-            About Prosira Advertisers –{" "}
-            <span className="text-primary font-serif ">
-              Complete Range of 360° Media Services
-            </span>
-          </h1>
+        <h1
+  data-animate
+  className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+>
+  We are a full-service advertising agency –
+  <span className="block mt-2 text-primary font-serif text-2xl md:text-3xl lg:text-4xl">
+    helping brands grow through strategy, effective media planning, right media
+    buying and performance-driven marketing.
+  </span>
+</h1>
 
-          <p
+
+          {/* <p
             data-animate
             className="f-reveal text-xl text-muted-foreground leading-relaxed"
           >
             Your trusted partner for strategic, creative, and performance-driven
             advertising solutions in Pune and across Maharashtra.
-          </p>
+          </p> */}
         </div>
       </div>
     </section>

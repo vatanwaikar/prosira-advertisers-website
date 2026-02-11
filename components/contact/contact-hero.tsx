@@ -135,7 +135,7 @@ export function ContactHero() {
             data-animate
             className="f-reveal text-xl text-muted-foreground leading-relaxed"
           >
-            Ready to transform your brand? Get in touch with our team for a free
+            Ready to transform your brand? Get in touch with our team for a 
             consultation & customized advertising strategy.
           </p>
         
