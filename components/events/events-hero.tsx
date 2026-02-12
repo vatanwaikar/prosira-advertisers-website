@@ -121,24 +121,22 @@ export function EventsHero() {
             data-animate
             className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
-            Event Management
+            Event & Exhibition Planning Services
           </span>
 
           <h1
             data-animate
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Event Management Company in{" "}
-            <span className="text-primary font-serif ">Pune</span>
+            We provide end-to-end event marketing and exhibition management services{" "}
+            {/* <span className="text-primary font-serif ">Pune</span> */}
           </h1>
 
           <p
             data-animate
             className="f-reveal text-xl text-muted-foreground leading-relaxed"
           >
-            From intimate corporate gatherings to large-scale exhibitions, we
-            create memorable experiences that leave lasting impressions and
-            achieve your business objectives.
+            designed to help brands create impactful on-ground experiences, generate business leads, and build strong industry presence. From concept development to execution, our team delivers strategic planning, creative design, and seamless management for corporate events, trade shows, and brand activations.
           </p>
         </div>
       </div>

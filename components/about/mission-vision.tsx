@@ -111,64 +111,55 @@ export function MissionVision() {
         </div>
 
         {/* ================= MISSION & VISION (BOTTOM) ================= */}
-        <div className="grid md:grid-cols-2 gap-10">
+<div className="grid md:grid-cols-2 gap-8">
 
+  {/* Vision */}
+  <Card
+    data-animate
+    className="f-reveal hover-lift group bg-card border-border relative overflow-hidden"
+  >
+    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+      <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-[radial-gradient(circle,rgba(212,175,55,0.35),transparent_60%)] blur-3xl" />
+    </div>
 
-          {/* Vision */}
-          <Card
-            data-animate
-            className="f-reveal hover-lift group bg-card border-border relative overflow-hidden"
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-              <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[radial-gradient(circle,rgba(212,175,55,0.35),transparent_60%)] blur-3xl" />
-            </div>
-
-            <CardContent className="relative p-10">
-              <div className="flex items-center gap-5 mb-6">
-                <div className="p-4 rounded-xl bg-primary/10 transition-transform duration-300 group-hover:scale-110">
-                  <Eye className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">Our Vision</h3>
-              </div>
-
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                Our vision is to become one of Maharashtra’s most trusted and influential
-                advertising and media agencies, setting benchmarks in creativity,
-                technology, and execution. We aspire to empower brands of all sizes by
-                delivering impactful campaigns, embracing innovation, and consistently
-                driving meaningful results in an ever-evolving digital world.
-              </p>
-            </CardContent>
-          </Card>
-
-           {/* Mission */}
-          <Card
-            data-animate
-            className="f-reveal hover-lift group bg-card border-border relative overflow-hidden"
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-              <div className="absolute -top-24 -left-24 w-96 h-96 bg-[radial-gradient(circle,rgba(212,175,55,0.35),transparent_60%)] blur-3xl" />
-            </div>
-
-            <CardContent className="relative p-10">
-              <div className="flex items-center gap-5 mb-6">
-                <div className="p-4 rounded-xl bg-primary/10 transition-transform duration-300 group-hover:scale-110">
-                  <Target className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold">Our Mission</h3>
-              </div>
-
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                Our mission is to deliver strategically driven, creatively compelling,
-                and performance-oriented advertising solutions that help brands stand
-                out, connect with the right audience, and achieve measurable business
-                growth. We are committed to exceeding client expectations through
-                innovation, transparency, and long-term brand-building strategies.
-              </p>
-            </CardContent>
-          </Card>
-
+    <CardContent className="relative p-8">
+      <div className="flex items-center gap-4 mb-5">
+        <div className="p-3 rounded-lg bg-primary/10 transition-transform duration-300 group-hover:scale-105">
+          <Eye className="h-6 w-6 text-primary" />
         </div>
+        <h3 className="text-xl font-semibold">Our Vision</h3>
+      </div>
+
+      <p className="text-muted-foreground leading-relaxed">
+        To become a leading media planning and buying agency known for innovative advertising solutions, transparent media investments, and measurable brand growth.
+      </p>
+    </CardContent>
+  </Card>
+
+  {/* Mission */}
+  <Card
+    data-animate
+    className="f-reveal hover-lift group bg-card border-border relative overflow-hidden"
+  >
+    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+      <div className="absolute -top-24 -left-24 w-80 h-80 bg-[radial-gradient(circle,rgba(212,175,55,0.35),transparent_60%)] blur-3xl" />
+    </div>
+
+    <CardContent className="relative p-8">
+      <div className="flex items-center gap-4 mb-5">
+        <div className="p-3 rounded-lg bg-primary/10 transition-transform duration-300 group-hover:scale-105">
+          <Target className="h-6 w-6 text-primary" />
+        </div>
+        <h3 className="text-xl font-semibold">Our Mission</h3>
+      </div>
+
+      <p className="text-muted-foreground leading-relaxed">
+        To deliver result-driven media planning and buying through data-led strategies, smart audience targeting, and performance-focused advertising that maximizes ROI.
+      </p>
+    </CardContent>
+  </Card>
+
+</div>
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+// app/layout.tsx - UPDATED UNIVERSAL SINGLE-LINE LAYOUT
 import React from "react";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
   },
 };
 
-/* ---------- ROOT LAYOUT ---------- */
+/* ---------- ROOT LAYOUT - SINGLE LINE UNIVERSAL ALL PAGES ---------- */
 export default function RootLayout({
   children,
 }: {
@@ -72,7 +73,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased bg-background text-foreground min-h-screen">
+      <body className="font-sans antialiased bg-background text-foreground min-h-screen overflow-x-hidden">
         <Providers>
           {/* UX SAFETY (SEO SAFE) */}
           <ScrollSafety />
@@ -81,19 +82,26 @@ export default function RootLayout({
           {/* DESKTOP CURSOR */}
           <CustomCursor />
 
-          {/* SITE CHROME */}
-          <Header />
+          {/* ===== UNIVERSAL SINGLE-LINE STRUCTURE - ALL PAGES ===== */}
+          <div className="flex flex-col min-h-screen w-full">
+            {/* HEADER - FULL WIDTH SINGLE LINE */}
+            <Header />
 
-          <main
-            id="app-scroll-root"
-            className="pt-[80px] lg:pt-[96px] min-h-screen"
-          >
-            {children}
-          </main>
+            {/* MAIN CONTENT - SINGLE LINE MATCH HEADER/FOOTER */}
+            <main
+              id="app-scroll-root"
+              className="flex-1 pt-[80px] lg:pt-[96px] w-full"
+            >
+              {/* SINGLE SOURCE-OF-TRUTH CONTAINER - ensures header/main/footer alignment */}
+              <div className="site-container">
+                {children}
+              </div>
+            </main>
 
-          
+            {/* FOOTER - FULL WIDTH SINGLE LINE */}
+            <Footer />
+          </div>
 
-          <Footer />
           <ScrollToTop />
           <Analytics />
 
@@ -105,39 +113,40 @@ export default function RootLayout({
                 {
                   "@context": "https://schema.org",
                   "@type": "AdvertisingAgency",
-                  "name": "Prosira Advertisers",
-                  "url": "https://prosiraadvertisers.com",
-                  "telephone": "+91-9028815714",
-                  "logo": "https://prosiraadvertisers.com/logo.png",
-                  "address": {
+                  name: "Prosira Advertisers",
+                  url: "https://prosiraadvertisers.com",
+                  telephone: "+91-9028815714",
+                  logo: "https://prosiraadvertisers.com/logo.png",
+                  address: {
                     "@type": "PostalAddress",
-                    "streetAddress": "3rd Floor, Patil Plaza, Swargate",
-                    "addressLocality": "Pune",
-                    "addressRegion": "MH",
-                    "postalCode": "411037",
-                    "addressCountry": "IN"
+                    streetAddress: "3rd Floor, Patil Plaza, Swargate",
+                    addressLocality: "Pune",
+                    addressRegion: "MH",
+                    postalCode: "411037",
+                    addressCountry: "IN",
                   },
-                  "areaServed": {
+                  areaServed: {
                     "@type": "AdministrativeArea",
-                    "name": "Maharashtra"
+                    name: "Maharashtra",
                   },
-                  "sameAs": [
+                  sameAs: [
                     "https://www.instagram.com/",
                     "https://www.facebook.com/",
-                    "https://www.linkedin.com/"
-                  ]
+                    "https://www.linkedin.com/",
+                  ],
                 },
                 {
                   "@context": "https://schema.org",
                   "@type": "WebSite",
-                  "name": "Prosira Advertisers",
-                  "url": "https://prosiraadvertisers.com",
-                  "potentialAction": {
+                  name: "Prosira Advertisers",
+                  url: "https://prosiraadvertisers.com",
+                  potentialAction: {
                     "@type": "SearchAction",
-                    "target": "https://prosiraadvertisers.com/search?q={search_term_string}",
-                    "query-input": "required name=search_term_string"
-                  }
-                }
+                    target:
+                      "https://prosiraadvertisers.com/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string",
+                  },
+                },
               ]),
             }}
           />

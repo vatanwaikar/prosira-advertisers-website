@@ -23,7 +23,7 @@ const services = [
     icon: Radio,
     title: "Radio Advertising",
     description:
-      "Radio advertising enables brands to connect with local and regional audiences through engaging FM radio advertising and audio campaigns. It is a cost-effective advertising solution for retail promotions, event marketing, brand jingles, and improving repeated brand recall.",
+      "Results-focused radio media planning and buying with expert scripting, creative storytelling, and optimized scheduling. Our radio campaigns increase local brand recall, drive retail footfall, and deliver cost-effective frequency across top FM stations.",
     useCases: ["Retail promotions", "Event announcements", "Brand jingles"],
     details: {
       whatItDoes:
@@ -46,7 +46,7 @@ const services = [
     icon: Tv,
     title: "Television Advertising",
     description:
-      "Television advertising helps your brand reach millions of viewers through high-impact TV ad placements on leading national and regional television channels.",
+      "End-to-end television advertising solutions including media buying, commercial placements, and show sponsorships. We plan targeted TV campaigns that enhance brand authority and reach mass audiences across regional and national channels.",
     useCases: ["Product launches", "Brand awareness campaigns", "Festive promotions"],
     details: {
       whatItDoes:
@@ -69,7 +69,7 @@ const services = [
     icon: Newspaper,
     title: "Newspaper Advertising",
     description:
-      "Newspaper advertising builds credibility and trust through high-impact print placements in leading publications.",
+      "Strategic newspaper advertising solutions including display ads, advertorials, recruitment campaigns, public notices, and tenders. We help brands secure premium placements in leading regional and national publications to reach high-intent audiences and build strong market credibility.",
     useCases: ["Corporate ads", "Real estate", "Public notices"],
     details: {
       whatItDoes:
@@ -91,7 +91,7 @@ const services = [
     icon: Film,
     title: "Cinema Advertising",
     description:
-      "Cinema advertising places your brand in a distraction-free premium theatre environment.",
+      "High-impact cinema screen advertising designed for immersive brand experiences. From Marathi movie promotions and celebrity collaborations to targeted theatre branding, we help brands engage audiences through powerful visual storytelling on the big screen.",
     useCases: ["Youth campaigns", "Luxury launches"],
     details: {
       whatItDoes:
@@ -112,7 +112,7 @@ const services = [
     icon: Megaphone,
     title: "Auto Hood & Back Panel Advertising",
     description:
-      "Auto rickshaw hood and back panel advertising delivers high-frequency brand visibility across busy city routes and local neighborhoods.",
+      "High-visibility auto hood and back panel advertising across Maharashtra, helping brands reach hyperlocal audiences through mobile outdoor media with consistent daily exposure.",
     useCases: ["Local branding", "Retail promotions"],
     details: {
       whatItDoes:
@@ -134,7 +134,7 @@ const services = [
     icon: Megaphone,
     title: "Outdoor & Hoardings",
     description:
-      "Outdoor advertising provides 24/7 brand visibility through billboards and transit media.",
+      "Prime outdoor advertising solutions including hoardings, billboards, transit media, and exclusive high-traffic locations. Our outdoor media planning ensures maximum reach, visibility, and long-term brand recall.",
     useCases: ["City branding", "Highway visibility"],
     details: {
       whatItDoes:
@@ -155,7 +155,7 @@ const services = [
     icon: Sparkles,
     title: "Society Activation & Digital Screen Advertising",
     description:
-      "Society activations and digital screen advertising connect brands directly with residential audiences through events, kiosks, and digital displays.",
+      "Targeted residential society activations and digital screen advertising designed to connect brands with urban communities through localized engagement, sampling, and interactive campaigns.",
     useCases: ["Product sampling", "Local launches"],
     details: {
       whatItDoes:
@@ -176,7 +176,7 @@ const services = [
     icon: Palette,
     title: "Printing Services (Vinyl, Flex & More)",
     description:
-      "High-quality printing services including vinyl, flex, banners, standees, and promotional materials.",
+      "Advanced large-format printing solutions including flex, vinyl, one-way vision, backlit media, and fabric prints. Our in-house setup powered by ColorJet Sonic Aqua technology delivers sharp 6-picoliter print quality for superior brand presentation.",
     useCases: ["Outdoor creatives", "Retail branding"],
     details: {
       whatItDoes:
@@ -218,7 +218,7 @@ const services = [
     icon: Gift,
     title: "Corporate Gifting Solutions",
     description:
-      "Customized corporate gifting solutions to strengthen business relationships.",
+      "Premium corporate gifting services curated to strengthen brand relationships and enhance client engagement. We design customized gifting experiences aligned with your brand identity and marketing objectives.",
     useCases: ["Client appreciation", "Employee rewards"],
     details: {
       whatItDoes:
@@ -239,7 +239,7 @@ const services = [
     icon: BookOpen,
     title: "Magazine & In-Flight Magazine Advertising",
     description:
-      "Premium magazine and in-flight advertising for luxury and niche audiences.",
+      "Strategic magazine and inflight advertising placements to reach premium audiences, business travelers, and niche readership segments through high-quality editorial environments.",
     useCases: ["Luxury branding", "Business travelers"],
     details: {
       whatItDoes:
@@ -340,7 +340,7 @@ export function ServicesList() {
 
                   </div>
 
-                  <div className="lg:border-l lg:border-border lg:pl-8">
+                  {/* <div className="lg:border-l lg:border-border lg:pl-8">
                     <h3 className="text-sm font-semibold text-primary uppercase mb-3">
                       Use Cases
                     </h3>
@@ -354,7 +354,7 @@ export function ServicesList() {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div

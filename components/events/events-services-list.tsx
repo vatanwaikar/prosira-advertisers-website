@@ -2,78 +2,134 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Building2, Rocket, Store, Megaphone, Users } from "lucide-react";
+import { Building2, Rocket, Store, Megaphone, Users, Palette, Wrench, Newspaper, Printer } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
   {
-    icon: Building2,
-    title: "Corporate Events",
-    description:
-      "Professional corporate event management including conferences, seminars, annual meetings, award ceremonies, and team-building activities. We handle everything from venue selection to post-event reporting.",
-    image: "/images/events/corporate-event.jpg",
-    features: [
-      "Venue selection & setup",
-      "Audio-visual production",
-      "Guest management",
-      "Catering coordination",
-      "Event documentation",
-    ],
-  },
-  {
-    icon: Rocket,
-    title: "Product Launches",
-    description:
-      "Create buzz and excitement around your new product with spectacular launch events. We design immersive experiences that showcase your product's unique value proposition.",
-    image: "/images/events/product-launch.jpg",
-    features: [
-      "Creative concept development",
-      "Stage & set design",
-      "Media coordination",
-      "Live demonstrations",
-      "Social media integration",
-    ],
-  },
-  {
     icon: Store,
-    title: "Exhibitions & Expos",
+    title: "Exhibition Planning & Management",
     description:
-      "Stand out at trade shows and exhibitions with our comprehensive expo management services. From booth design to lead capture, we ensure maximum impact and ROI.",
+      "Complete exhibition planning services including stall design, space planning, exhibitor coordination, and visitor flow management. We help brands maximize visibility at trade fairs, B2B expos, and industry exhibitions through strategic layouts and professional execution.",
     image: "/images/events/exhibition.jpg",
     features: [
-      "Exhibition booth design",
-      "Stall fabrication",
-      "Product display solutions",
-      "Lead generation systems",
-      "Post-event analytics",
+      "Stall layout planning",
+      "Exhibitor coordination",
+      "Visitor flow management",
+      "Trade fair execution",
+      "Post-event reporting",
     ],
   },
   {
-    icon: Megaphone,
-    title: "Brand Activations",
+    icon: Building2,
+    title: "Trade Show & B2B Expo Management",
     description:
-      "Engage your audience with interactive brand activations that create memorable experiences. We design activations that drive engagement, sampling, and brand recall.",
-    image: "/images/events/brand-activation.jpg",
+      "End-to-end trade show management solutions covering exhibitor onboarding, branding, logistics, sponsorship integration, and marketing support. Our structured approach ensures successful participation and strong networking opportunities for businesses.",
+    image: "/images/events/exhibition.jpg",
     features: [
-      "Experiential marketing",
-      "Sampling campaigns",
-      "Interactive installations",
-      "Contest & giveaways",
-      "Brand ambassador programs",
+      "Exhibitor onboarding",
+      "Logistics & branding setup",
+      "Sponsorship integration",
+      "Marketing coordination",
+      "Business networking support",
+    ],
+  },
+  {
+    icon: Palette,
+    title: "Event Concept & Creative Design",
+    description:
+      "Strategic event concept development with innovative themes, stage design, branding elements, and audience engagement ideas. We focus on creating memorable brand experiences that align with marketing goals.",
+    image: "/images/events/product-launch.jpg",
+    features: [
+      "Theme development",
+      "Stage & set design",
+      "Brand storytelling elements",
+      "Creative installations",
+      "Audience engagement planning",
+    ],
+  },
+  {
+    icon: Wrench,
+    title: "Stall Design & Fabrication",
+    description:
+      "Custom exhibition stall design and fabrication that enhances brand presence and attracts footfall. Our designs combine creative aesthetics with functional layouts to deliver high-impact visual branding.",
+    image: "/images/events/exhibition.jpg",
+    features: [
+      "Custom stall design",
+      "3D visualization",
+      "Fabrication & setup",
+      "Lighting integration",
+      "Branding elements installation",
     ],
   },
   {
     icon: Users,
-    title: "On-Ground Promotions",
+    title: "On-Ground Execution & Event Management",
     description:
-      "Take your brand directly to consumers with strategic on-ground promotions. Our field teams execute flawless campaigns that drive awareness and conversions.",
+      "Professional on-site event execution managed by experienced teams handling logistics, vendor coordination, production setup, registrations, and technical support to ensure smooth operations.",
     image: "/images/events/corporate-event.jpg",
     features: [
-      "Mall activations",
-      "Residential campaigns",
-      "Road shows",
-      "Canopy activities",
-      "Mobile van campaigns",
+      "Vendor coordination",
+      "Production management",
+      "Registration handling",
+      "Technical supervision",
+      "On-site operations control",
+    ],
+  },
+  {
+    icon: Rocket,
+    title: "Corporate Events & Brand Activations",
+    description:
+      "Strategic corporate event planning including product launches, conferences, roadshows, and experiential marketing campaigns designed to increase brand engagement and audience interaction.",
+    image: "/images/events/brand-activation.jpg",
+    features: [
+      "Product launches",
+      "Conferences & seminars",
+      "Roadshows",
+      "Experiential marketing",
+      "Audience engagement campaigns",
+    ],
+  },
+  {
+    icon: Newspaper,
+    title: "Sponsorship & Media Integration",
+    description:
+      "Integrated event marketing strategies including media partnerships, sponsorship planning, promotional campaigns, and digital amplification to maximize event reach and visibility.",
+    image: "/images/events/product-launch.jpg",
+    features: [
+      "Media partnerships",
+      "Sponsorship strategy",
+      "PR & promotional campaigns",
+      "Digital amplification",
+      "Brand visibility planning",
+    ],
+  },
+  {
+    icon: Megaphone,
+    title: "Exhibition Marketing & Lead Generation",
+    description:
+      "Targeted event promotion and lead generation strategies using digital marketing, social media campaigns, and database outreach to attract the right audience before, during, and after the event.",
+    image: "/images/events/brand-activation.jpg",
+    features: [
+      "Pre-event promotion",
+      "Social media campaigns",
+      "Database outreach",
+      "Lead capture systems",
+      "Post-event follow-up strategy",
+    ],
+  },
+  {
+    icon: Printer,
+    title: "Printing, Branding & Production Support",
+    description:
+      "Complete event branding solutions including backdrops, standees, signage, stage graphics, flex printing, and on-site installations to maintain consistent brand communication across the venue.",
+    image: "/images/events/corporate-event.jpg",
+    features: [
+      "Backdrop & stage graphics",
+      "Flex & signage printing",
+      "Standee production",
+      "Venue branding setup",
+      "On-site installation support",
     ],
   },
 ];

@@ -34,6 +34,11 @@
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --dur-fast: 400ms;
   --dur-mid: 700ms;
+
+  /* ---------- LAYOUT / CONTAINER (Single Source of Truth) ---------- */
+  --site-container-max-width: 1280px; /* single max-width for all content */
+  --site-container-side-padding: 1rem; /* default side padding */
+  --site-container-side-padding-lg: 2rem; /* larger side padding on wide screens */
 }
 
 @theme inline {
@@ -206,6 +211,45 @@ html {
   background-clip: text;
   color: transparent;
 }
+/* ========= GLOBAL SITE CONTAINER =========
+   Use `site-container` across Header, Main, and Footer to guarantee
+   perfect horizontal alignment and a single source of truth for max-width.
+   - full width background allowed on parent elements (header/footer backgrounds)
+   - inner content constrained and consistently padded
+*/
+.site-container {
+  width: 100%;
+  max-width: var(--site-container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--site-container-side-padding);
+  padding-right: var(--site-container-side-padding);
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: var(--site-container-side-padding-lg);
+    padding-right: var(--site-container-side-padding-lg);
+  }
+}
+
+/* Backwards-compatible alias: Tailwind `container mx-auto px-*` -> consistent global container */
+.container {
+  max-width: var(--site-container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--site-container-side-padding);
+  padding-right: var(--site-container-side-padding);
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--site-container-side-padding-lg);
+    padding-right: var(--site-container-side-padding-lg);
+  }
+}
 /* 🔥 FORCE HIDE CUSTOM CURSOR ON TOUCH DEVICES */
 @media (hover: none), (pointer: coarse) {
   .custom-cursor {
@@ -299,4 +343,67 @@ input:-webkit-autofill {
 }
 h1, h2, h3 {
   scroll-margin-top: 110px;
+}
+.gold-fill {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.8);
+}
+
+.gold-fill::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: #d4af37;
+  -webkit-text-stroke: 0px transparent;
+  clip-path: inset(0 100% 0 0);
+  animation: goldReveal 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes goldReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  50% {
+    clip-path: inset(0 0% 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeMove 20s linear infinite;
+}
+
+@keyframes marqueeMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.site-container {
+  @apply mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8;
 }

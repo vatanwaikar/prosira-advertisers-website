@@ -9,6 +9,12 @@ import {
   FileText,
   TrendingUp,
   ChevronDown,
+  Monitor,
+  Globe,
+  LayoutTemplate,
+  ShoppingCart,
+  RefreshCcw,
+  Wrench,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -18,7 +24,7 @@ const services = [
     icon: Target,
     title: "Google Ads",
     description:
-      "Maximize ROI with expertly managed Google Ads campaigns. We handle search, display, shopping, and YouTube ads with data-driven optimization for consistent performance.",
+      "Expert Google Ads management including keyword research, campaign setup, ad copywriting, bid strategy, and conversion tracking. Our campaigns capture high-intent audiences through search ads, display advertising, and YouTube video promotions.",
     features: [
       "Search & Display campaigns",
       "Shopping & YouTube ads",
@@ -46,7 +52,7 @@ const services = [
     icon: Share2,
     title: "Social Media Marketing",
     description:
-      "Build a powerful social presence across Facebook, Instagram, LinkedIn, and Twitter.",
+      "Strategic social media marketing focused on brand awareness, audience engagement, and lead generation across Instagram, Facebook, LinkedIn, and YouTube. Our services include content planning, creative design, reels strategy, community management, and performance optimization to strengthen your digital presence.",
     features: [
       "Content creation & curation",
       "Community management",
@@ -74,7 +80,7 @@ const services = [
     icon: Search,
     title: "SEO Services",
     description:
-      "Dominate organic search results with our comprehensive SEO services.",
+      "Comprehensive SEO services designed to improve Google rankings, increase organic traffic, and build long-term online authority. Our approach covers technical SEO, on-page optimization, local SEO, content strategy, and performance monitoring aligned with the latest search algorithms.",
     features: [
       "Technical SEO audits",
       "On-page optimization",
@@ -102,7 +108,7 @@ const services = [
     icon: TrendingUp,
     title: "Performance Marketing",
     description:
-      "Results-focused campaigns designed to drive conversions.",
+      "Data-driven performance marketing campaigns built to drive conversions and maximize ROI. We develop full-funnel strategies, advanced audience targeting, retargeting campaigns, and conversion-focused creatives to deliver consistent business growth.",
     features: [
       "Conversion rate optimization",
       "Retargeting campaigns",
@@ -130,7 +136,7 @@ const services = [
     icon: FileText,
     title: "Content & Creative Strategy",
     description:
-      "Compelling content that tells your brand story across formats.",
+      "SEO-focused content marketing including branded visuals, short-form videos, ad creatives, and campaign messaging that enhances engagement and strengthens brand positioning across digital platforms.",
     features: [
       "Brand storytelling",
       "Blog & article writing",
@@ -158,7 +164,7 @@ const services = [
     icon: BarChart3,
     title: "Analytics & Optimization",
     description:
-      "Make data-driven decisions with advanced analytics services.",
+      "Advanced analytics setup with performance dashboards, conversion tracking, and user behavior insights. We optimize landing pages, ad creatives, and targeting strategies to improve conversion rates and scale results effectively.  ",
     features: [
       "GA4 setup & configuration",
       "Custom dashboard creation",
@@ -180,6 +186,174 @@ const services = [
       ],
     },
   },
+    {
+    id: "web-design-development",
+    icon: Monitor,
+    title: "Website Design & Development",
+    description:
+      "Professional, mobile-responsive business websites built to enhance credibility, improve user experience, and support digital marketing campaigns.",
+    features: [
+      "Custom business website design",
+      "Mobile-responsive layouts",
+      "UI/UX focused structure",
+      "CMS integration",
+      "Lead capture forms",
+    ],
+    details: {
+      whatItDoes:
+        "We design and develop professional websites that establish brand credibility and create seamless digital experiences for your customers.",
+      strengths: [
+        "Professional brand presence",
+        "Mobile-first development",
+        "Built for marketing integration",
+      ],
+      considerations: [
+        "Content quality impacts performance",
+        "Best results when aligned with SEO strategy",
+      ],
+    },
+  },
+
+  {
+    id: "seo-friendly-development",
+    icon: Globe,
+    title: "SEO-Friendly Website Development",
+    description:
+      "Search-optimized websites with fast loading speed, clean coding structure, schema readiness, and strong on-page SEO foundations to help your business rank higher on Google.",
+    features: [
+      "Clean & optimized code structure",
+      "Schema markup readiness",
+      "Core Web Vitals optimization",
+      "On-page SEO foundation",
+      "Technical SEO setup",
+    ],
+    details: {
+      whatItDoes:
+        "We build websites with strong technical SEO foundations so they are ready to rank on Google from day one.",
+      strengths: [
+        "Improved ranking potential",
+        "Faster loading speed",
+        "Better crawlability",
+      ],
+      considerations: [
+        "Requires ongoing SEO efforts",
+        "Content strategy is essential for ranking growth",
+      ],
+    },
+  },
+
+  {
+    id: "landing-page-design",
+    icon: LayoutTemplate,
+    title: "Landing Page Design for Advertising Campaigns",
+    description:
+      "High-converting landing pages designed specifically for Google Ads and social media campaigns, focusing on strong CTAs, user-friendly layouts, and conversion-driven design.",
+    features: [
+      "Ad-focused landing pages",
+      "Conversion-driven layouts",
+      "Strong CTA placement",
+      "A/B testing readiness",
+      "Lead tracking integration",
+    ],
+    details: {
+      whatItDoes:
+        "We design landing pages specifically optimized to convert paid traffic into qualified leads or sales.",
+      strengths: [
+        "Higher conversion rates",
+        "Ad campaign alignment",
+        "Clear user journey",
+      ],
+      considerations: [
+        "Requires strong offer positioning",
+        "Continuous testing improves performance",
+      ],
+    },
+  },
+
+  {
+    id: "ecommerce-development",
+    icon: ShoppingCart,
+    title: "E-Commerce Website Development",
+    description:
+      "Scalable e-commerce platforms with secure payment integration, optimized product pages, and SEO-ready architecture built to increase online sales and customer engagement.",
+    features: [
+      "Secure payment gateway integration",
+      "Optimized product pages",
+      "Inventory management",
+      "Mobile shopping experience",
+      "SEO-ready architecture",
+    ],
+    details: {
+      whatItDoes:
+        "We build scalable online stores that help businesses sell products securely and efficiently.",
+      strengths: [
+        "Scalable architecture",
+        "Secure checkout systems",
+        "Sales-focused structure",
+      ],
+      considerations: [
+        "Requires marketing support for traffic",
+        "Product optimization impacts conversion rate",
+      ],
+    },
+  },
+
+  {
+    id: "website-redesign",
+    icon: RefreshCcw,
+    title: "Website Redesign & Performance Optimization",
+    description:
+      "Modern website redesign solutions that improve speed, UI/UX, mobile responsiveness, and overall SEO performance.",
+    features: [
+      "UI/UX modernization",
+      "Speed optimization",
+      "Mobile responsiveness upgrade",
+      "Technical SEO improvements",
+      "Conversion optimization",
+    ],
+    details: {
+      whatItDoes:
+        "We redesign outdated websites to improve user experience, speed, and search performance.",
+      strengths: [
+        "Improved engagement",
+        "Better SEO performance",
+        "Modern visual appeal",
+      ],
+      considerations: [
+        "Content restructuring may be required",
+        "SEO migration must be handled carefully",
+      ],
+    },
+  },
+
+  {
+    id: "website-maintenance",
+    icon: Wrench,
+    title: "Website Maintenance & Technical Support",
+    description:
+      "Ongoing technical support, security updates, backups, and performance monitoring to ensure your website stays fast, secure, and fully optimized.",
+    features: [
+      "Regular backups",
+      "Security updates",
+      "Performance monitoring",
+      "Bug fixes & technical support",
+      "Hosting support",
+    ],
+    details: {
+      whatItDoes:
+        "We provide continuous maintenance to ensure your website remains secure, fast, and technically sound.",
+      strengths: [
+        "Improved security",
+        "Reduced downtime",
+        "Peace of mind",
+      ],
+      considerations: [
+        "Requires regular monitoring",
+        "Security updates must not be delayed",
+      ],
+    },
+  },
+
 ];
 
 export function DigitalServicesList() {

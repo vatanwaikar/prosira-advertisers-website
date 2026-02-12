@@ -121,24 +121,22 @@ export function TraditionalHero() {
             data-animate
             className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
-             Advertising Service
+             Our Advertising & Media Services
           </span>
 
           <h1
             data-animate
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Advertising Services in{" "}
-            <span className="text-primary font-serif ">Pune</span>
+            We are a full-service media planning, buying, and advertising agency {" "}
+            {/* <span className="text-primary font-serif ">Pune</span> */}
           </h1>
 
           <p
             data-animate
             className="f-reveal text-xl text-muted-foreground leading-relaxed"
           >
-            Leverage the power of traditional media with our comprehensive TV,
-            radio, outdoor, print, and cinema advertising solutions designed to
-            maximize your brand reach.
+           delivering integrated campaigns across traditional, digital, and on-ground platforms. Our strategies are designed to maximize reach, improve brand visibility, and generate measurable business growth through high-impact media execution.
           </p>
         </div>
       </div>

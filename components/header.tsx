@@ -65,7 +65,7 @@ export function Header() {
 
       )}
     >
-      <nav className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between px-4 lg:px-8">
+<nav className="site-container flex min-h-[72px] items-center justify-between">
         {/* Logo */}
 <Link href="/" className="flex items-center gap-3 group [6.5rem] lg:ml-8">
   <div className="relative flex items-center">
@@ -98,8 +98,8 @@ export function Header() {
 </Link>
 
 
-       {/* Right side wrapper */}
-<div className="hidden lg:flex items-center gap-6 ml-auto">
+      {/* Right side wrapper */}
+    <div className="hidden lg:flex items-center gap-6 ml-auto transform lg:-translate-x-8">
 
   {/* Desktop Navigation */}
   <div className="flex gap-x-1">
@@ -195,7 +195,7 @@ onClick={() => {
         />
 
         <div className="relative h-full overflow-y-auto pt-20">
-          <div className="px-6 py-8 space-y-2">
+          <div className="site-container py-8 space-y-2">
             {navigation.map((item, index) => (
               <Link
                 key={item.name}

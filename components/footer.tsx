@@ -15,14 +15,17 @@ const footerLinks = {
     { name: "Radio Advertising", href: "/traditional-services#radio" },
     { name: "Digital Marketing", href: "/digital-services" },
     { name: "Event Management", href: "/events-expo" },
-    { name: "Corporate Gifting", href: "/corporate-gifting" },      
+    { name: "Corporate Gifting", href: "/traditional-services#corporate-gifting" },      
     { name: "Magazine Advertising", href: "/traditional-services#magazine" },
-    { name: "Brand Development", href: "/brand-development" },
+    { name: "Brand Development", href: "/traditional-services#brand-development" },
+    { name: "outdoor Advertising", href: "/traditional-services#outdoor" },
+    
   ],
 
   // 👇 COMPANY + FOOTER-ONLY PAGES
   company: [
     { name: "About Us", href: "/about-prosira-advertisers" },
+    { name: "Our Team", href: "/team" },
     { name: "Our Work", href: "/events-expo" },
     { name: "Contact", href: "/contact" },
 
@@ -34,7 +37,7 @@ const footerLinks = {
   ],
 
   social: [
-    { name: "Facebook", icon: Facebook, href: "#" },
+    { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/share/1DnoEvbjBx/" },
    {
     name: "Instagram",
     icon: Instagram,
@@ -51,11 +54,11 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
-      <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <div className="site-container py-16">
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
 
           {/* BRAND */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:ml-8">
             <Link href="/" className="inline-block">
               <div className="flex flex-col">
                 <span className="text-2xl font-bold tracking-tight text-primary font-serif">
@@ -128,7 +131,7 @@ export function Footer() {
           </div>
 
           {/* CONTACT */}
-          <div>
+          <div className="lg:pl-12 xl:pl-16">
             <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-6">
               Contact Us
             </h3>
@@ -164,11 +167,13 @@ export function Footer() {
         {/* BOTTOM BAR */}
         <div className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Prosira Advertisers. All rights reserved.
-            </p>
+            <div className="w-full md:w-auto lg:ml-8">
+              <p className="text-xs text-muted-foreground">
+                © {new Date().getFullYear()} Prosira Advertisers. All rights reserved.
+              </p>
+            </div>
 
-            <div className="flex gap-6">
+            <div className="lg:pl-12 xl:pl-16">
               <Link
                 href="/privacy-policy"
                 className="text-xs text-muted-foreground hover:text-foreground"

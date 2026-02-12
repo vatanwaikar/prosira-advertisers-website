@@ -48,24 +48,22 @@ export function DigitalHero() {
             data-animate
             className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
-            Digital Marketing
+           Digital Marketing, Performance Advertising & Website Development Services
           </span>
 
           <h1
             data-animate
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Digital Marketing Agency in{" "}
-            <span className="text-primary font-serif ">Pune</span>
+           We provide end-to-end digital marketing, performance advertising, and website development services  {" "}
+            {/* <span className="text-primary font-serif ">Pune</span> */}
           </h1>
 
           <p
             data-animate
             className="f-reveal text-xl text-muted-foreground leading-relaxed"
           >
-            Drive measurable growth with our data-driven digital marketing solutions.
-            From SEO to performance marketing, we help brands dominate the digital
-            landscape.
+            designed to help brands grow faster online. Our integrated approach combines SEO, paid advertising, social media strategy, and high-performance website development to increase visibility on Google, generate quality leads, and deliver measurable ROI.
           </p>
         </div>
       </div>

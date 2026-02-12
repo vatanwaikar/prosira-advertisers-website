@@ -42,7 +42,7 @@ export function EventsCTA() {
           data-animate
           className="f-reveal text-3xl md:text-4xl font-bold mb-6"
         >
-          Planning Your Next{" "}
+         Looking to create impactful exhibitions and high-performing{" "}
           <span className="text-primary font-serif ">
             Event?
           </span>
@@ -52,8 +52,7 @@ export function EventsCTA() {
           data-animate
           className="f-reveal text-lg text-muted-foreground mb-10 leading-relaxed"
         >
-          Let&apos;s create an unforgettable experience together. Share your vision and
-          we&apos;ll bring it to life with our expertise in event management.
+          Partner with our team for strategic event planning, creative execution, and professional exhibition management that delivers measurable business results.
         </p>
 
         <div
