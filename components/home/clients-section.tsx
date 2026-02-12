@@ -47,7 +47,7 @@ export function ClientsSection() {
 
   return (
     <section className="py-20 bg-background overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="site-container">
         {/* Heading */}
         <div className="text-center mb-12">
           <span className="text-primary text-sm font-medium uppercase tracking-wider">
@@ -83,33 +83,6 @@ export function ClientsSection() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .marquee-track {
-          width: max-content;
-          animation: marquee 32s linear infinite;
-          will-change: transform;
-        }
-
-        
-
-        @keyframes marquee {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(
-              calc(-1 * var(--marquee-distance))
-            );
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .marquee-track {
-            animation: none;
-          }
-        }
-      `}</style>
     </section>
   );
 }

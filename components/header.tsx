@@ -67,7 +67,7 @@ export function Header() {
     >
 <nav className="site-container flex min-h-[72px] items-center justify-between">
         {/* Logo */}
-<Link href="/" className="flex items-center gap-3 group [6.5rem] lg:ml-8">
+<Link href="/" className="flex items-center gap-3 group">
   <div className="relative flex items-center">
     <Image
       src="/logo.png"
@@ -99,7 +99,7 @@ export function Header() {
 
 
       {/* Right side wrapper */}
-    <div className="hidden lg:flex items-center gap-6 ml-auto transform lg:-translate-x-8">
+    <div className="hidden lg:flex items-center gap-6 ml-auto">
 
   {/* Desktop Navigation */}
   <div className="flex gap-x-1">

@@ -66,7 +66,7 @@ export function WhyChooseUs() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float delay-700" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 lg:px-8 relative">
+      <div className="site-container relative">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image Side */}
           <div

@@ -58,7 +58,7 @@ export function Footer() {
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
 
           {/* BRAND */}
-          <div className="space-y-6 lg:ml-8">
+          <div className="space-y-6">
             <Link href="/" className="inline-block">
               <div className="flex flex-col">
                 <span className="text-2xl font-bold tracking-tight text-primary font-serif">
@@ -131,7 +131,7 @@ export function Footer() {
           </div>
 
           {/* CONTACT */}
-          <div className="lg:pl-12 xl:pl-16">
+          <div>
             <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-6">
               Contact Us
             </h3>
@@ -167,13 +167,13 @@ export function Footer() {
         {/* BOTTOM BAR */}
         <div className="mt-16 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="w-full md:w-auto lg:ml-8">
+            <div className="w-full md:w-auto">
               <p className="text-xs text-muted-foreground">
                 © {new Date().getFullYear()} Prosira Advertisers. All rights reserved.
               </p>
             </div>
 
-            <div className="lg:pl-12 xl:pl-16">
+            <div>
               <Link
                 href="/privacy-policy"
                 className="text-xs text-muted-foreground hover:text-foreground"
