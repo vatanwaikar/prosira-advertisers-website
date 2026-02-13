@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 
@@ -8,7 +8,7 @@ export function ContactMap() {
 
   return (
     <section className="bg-[#0B0B0B] py-24">
-      <div className="container mx-auto px-4">
+      <div className="site-container">
         {/* TEXT ABOVE MAP */}
         <div className="mb-12 text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">

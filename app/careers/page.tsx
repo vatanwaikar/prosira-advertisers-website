@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function CareersPage() {
   return (
-    <section className="container mx-auto px-4 py-16 max-w-4xl">
+    <section className="site-container py-16 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">Careers at Prosira Advertisers</h1>
 
       <p className="text-muted-foreground mb-10">

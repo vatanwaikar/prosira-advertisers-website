@@ -40,7 +40,7 @@ const teamMembers = [
 export default function TeamPage() {
   return (
     <section className="py-24 bg-background">
-      <div className="mx-auto max-w-6xl px-4 lg:px-8 space-y-24">
+      <div className="site-container space-y-24">
 
         {/* Heading */}
         <div className="text-center">

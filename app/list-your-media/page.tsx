@@ -56,7 +56,7 @@ export default function ListYourMediaPage() {
   }
 
   return (
-    <section className="container mx-auto px-4 py-16 max-w-3xl">
+    <section className="site-container py-16 max-w-3xl mx-auto">
       <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
         List Your Media With Prosira Advertisers
       </h1>
