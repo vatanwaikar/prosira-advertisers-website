@@ -160,57 +160,55 @@ export function HeroSection() {
             <div className="absolute inset-0 rounded-xl ring-2 ring-primary/30" />
           </div>
         </div>
-        
-        {/* Right Social Column - Fixed positioning outside flow */}
-        <div className="hidden lg:flex flex-col items-center gap-6 fixed top-1/2 -translate-y-1/2 z-20 right-8">
+      </div>
+      
+      {/* Right Social Column - Fixed positioning outside flow */}
+      <div className="hidden lg:flex flex-col items-center gap-6 fixed top-1/2 -translate-y-1/2 z-20 right-8">
+        <span className="rotate-90 text-xs tracking-widest text-gray-400">
+          FOLLOW US
+        </span>
 
+        <div className="w-px h-16 bg-gray-600" />
 
-  <span className="rotate-90 text-xs tracking-widest text-gray-400">
-    FOLLOW US
-  </span>
+        <Link
+          href="https://www.facebook.com/share/1DnoEvbjBx/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
+        >
+          <Facebook size={18} />
+        </Link>
 
-  <div className="w-px h-16 bg-gray-600" />
+        <Link
+          href="https://www.youtube.com/@Prosira"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
+        >
+          <Youtube size={18} />
+        </Link>
 
-  <Link
-    href="https://www.facebook.com/share/1DnoEvbjBx/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-  >
-    <Facebook size={18} />
-  </Link>
+        <Link
+          href="https://www.linkedin.com/company/prosiraadvertisers/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
+        >
+          <Linkedin size={18} />
+        </Link>
 
-  <Link
-    href="https://www.youtube.com/@Prosira"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-  >
-    <Youtube size={18} />
-  </Link>
+        <Link
+          href="https://www.instagram.com/prosira_advertisers?igsh=MXc3bjkwb2h3aThq"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
+        >
+          <Instagram size={18} />
+        </Link>
 
-  <Link
-    href="https://www.linkedin.com/company/prosiraadvertisers/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-  >
-    <Linkedin size={18} />
-  </Link>
+        <div className="w-px h-16 bg-gray-600" />
 
-  <Link
-    href="https://www.instagram.com/prosira_advertisers?igsh=MXc3bjkwb2h3aThq"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-  >
-    <Instagram size={18} />
-  </Link>
-
-  <div className="w-px h-16 bg-gray-600" />
-
-  <ArrowDown className="animate-bounce text-gray-400" />
-        </div>
+        <ArrowDown className="animate-bounce text-gray-400" />
       </div>
 
       {/* Bottom Marquee - Full width bar */}
