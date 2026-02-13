@@ -212,19 +212,15 @@ export function HeroSection() {
   <ArrowDown className="animate-bounce text-gray-400" />
         </div>
       </div>
-    
+
       {/* Bottom Marquee - Full width bar */}
-<div className="absolute bottom-0 left-0 w-full bg-primary text-black py-4 z-30">
-  <div className="marquee-track whitespace-nowrap text-lg font-semibold tracking-wide">
-    UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
-    &nbsp;&nbsp;&nbsp;
-    UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
-  </div>
-</div>
-
-
-
-
+      <div className="absolute bottom-0 left-0 w-full bg-primary text-black py-4 z-30">
+        <div className="marquee-track whitespace-nowrap text-lg font-semibold tracking-wide">
+          UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
+          &nbsp;&nbsp;&nbsp;
+          UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
+        </div>
+      </div>
     </section>
   );
 } 
