@@ -161,6 +161,7 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+      </div>
       
       {/* Right Social Column - Fixed positioning outside flow */}
       <div className="hidden lg:flex flex-col items-center gap-6 fixed top-1/2 -translate-y-1/2 z-20 right-8">
