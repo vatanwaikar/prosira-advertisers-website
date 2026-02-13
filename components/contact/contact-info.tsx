@@ -122,7 +122,7 @@ export function ContactInfo() {
           <div
             key={detail.label}
             className={`
-              relative min-w-[240px] max-w-[260px]
+              relative w-full max-w-[260px]
               flex gap-3 items-start
               p-5 rounded-xl
               border border-white/10
@@ -172,17 +172,17 @@ export function ContactInfo() {
       </div>
 
     {/* COMPACT WHATSAPP TILE (SQUARE & CENTERED) */}
-<div
+  <div
   data-animate
   className="
-    mx-auto
+    site-container
     flex flex-col items-center justify-center
     gap-3
     px-6 py-5
     rounded-xl
     border border-primary/30
     bg-gradient-to-b from-primary/15 to-primary/5
-    w-[220px]
+    w-full max-w-[220px]
   "
 >
   <div className="p-2.5 rounded-full bg-green-500/25">

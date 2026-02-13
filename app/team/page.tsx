@@ -40,14 +40,14 @@ const teamMembers = [
 export default function TeamPage() {
   return (
     <section className="py-24 bg-background">
-      <div className="mx-auto max-w-6xl px-4 lg:px-8 space-y-24">
+      <div className="site-container space-y-24">
 
         {/* Heading */}
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Meet Our <span className="text-primary font-serif">Experts</span>
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl site-container">
             A passionate team driving strategy, creativity, and measurable growth.
           </p>
         </div>
@@ -67,7 +67,7 @@ export default function TeamPage() {
     alt={member.name}
     width={350}
     height={500}
-    className="w-[260px] md:w-[300px] lg:w-[340px] h-auto rounded-2xl shadow-xl"
+    className="w-full max-w-[340px] h-auto object-contain rounded-2xl shadow-xl"
   />
 </div>
 

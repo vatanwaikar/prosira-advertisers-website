@@ -29,7 +29,7 @@ export function DigitalHero() {
       ref={heroRef}
       className="relative pt-32 pb-20 bg-gradient-to-b from-secondary to-background overflow-hidden"
     >
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="site-container">
         {/* Breadcrumb */}
         <nav
           data-animate

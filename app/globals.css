@@ -211,45 +211,9 @@ html {
   background-clip: text;
   color: transparent;
 }
-/* ========= GLOBAL SITE CONTAINER =========
-   Use `site-container` across Header, Main, and Footer to guarantee
-   perfect horizontal alignment and a single source of truth for max-width.
-   - full width background allowed on parent elements (header/footer backgrounds)
-   - inner content constrained and consistently padded
-*/
-.site-container {
-  width: 100%;
-  max-width: var(--site-container-max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--site-container-side-padding);
-  padding-right: var(--site-container-side-padding);
-  box-sizing: border-box;
-}
-
-@media (min-width: 1024px) {
-  .site-container {
-    padding-left: var(--site-container-side-padding-lg);
-    padding-right: var(--site-container-side-padding-lg);
-  }
-}
-
-/* Backwards-compatible alias: Tailwind `container mx-auto px-*` -> consistent global container */
-.container {
-  max-width: var(--site-container-max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--site-container-side-padding);
-  padding-right: var(--site-container-side-padding);
-  box-sizing: border-box;
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding-left: var(--site-container-side-padding-lg);
-    padding-right: var(--site-container-side-padding-lg);
-  }
-}
+/* Using Tailwind container utilities (className="site-container")
+   as the single source-of-truth for horizontal alignment across Header,
+   Main, and Footer. Removed the previous custom `.site-container` rules. */
 /* 🔥 FORCE HIDE CUSTOM CURSOR ON TOUCH DEVICES */
 @media (hover: none), (pointer: coarse) {
   .custom-cursor {
@@ -404,6 +368,28 @@ h1, h2, h3 {
   }
 }
 
+
+/* ---------- */
+/* ================= UNIVERSAL CONTAINER ================= */
 .site-container {
-  @apply mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8;
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }

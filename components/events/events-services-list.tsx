@@ -157,7 +157,7 @@ export function EventsServicesList() {
 
   return (
     <section ref={sectionRef} className="py-20 bg-background">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="site-container">
         <div className="space-y-16">
           {services.map((service, index) => (
             <Card
@@ -182,7 +182,7 @@ export function EventsServicesList() {
                       src={service.image || "/placeholder.svg"}
                       alt={service.title}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-background/50" />
                   </div>

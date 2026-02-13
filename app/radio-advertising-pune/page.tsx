@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function RadioAdvertisingPunePage() {
   return (
     <>
-      <main className="container mx-auto px-4 py-16 max-w-6xl">
+      <main className="site-container py-16">
         <h1 className="text-3xl md:text-5xl font-bold mb-6">
           Radio Advertising in <span className="text-primary">Pune</span>
         </h1>

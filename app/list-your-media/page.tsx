@@ -56,7 +56,7 @@ export default function ListYourMediaPage() {
   }
 
   return (
-    <section className="container mx-auto px-4 py-16 max-w-3xl">
+    <section className="site-container py-16">
       <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
         List Your Media With Prosira Advertisers
       </h1>
@@ -71,7 +71,7 @@ export default function ListYourMediaPage() {
           <h3 className="text-2xl font-bold mb-2 text-primary">
             Thank You!
           </h3>
-          <p className="text-muted-foreground max-w-md mx-auto">
+          <p className="text-muted-foreground max-w-md site-container">
             Your message has been sent successfully. Our team will contact you shortly.
           </p>
         </div>

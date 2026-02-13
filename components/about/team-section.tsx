@@ -54,10 +54,10 @@ export function TeamSection() {
 
   return (
     <section ref={sectionRef} className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="site-container">
         
         {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl site-container mb-20">
           <span
             data-animate
             className="inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4 duration-700"

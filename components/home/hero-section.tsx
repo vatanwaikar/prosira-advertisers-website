@@ -93,13 +93,13 @@ export function HeroSection() {
           alt="Abstract pattern"
           fill
           priority
-          className="object-cover opacity-60"
+          className="object-contain opacity-60"
         />
         <div className="absolute inset-0 bg-black/70" />
       </div>
 
       {/* Content Grid */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 site-container px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT TEXT */}
         <div className="space-y-8">
@@ -144,14 +144,14 @@ export function HeroSection() {
         {/* RIGHT IMAGE (Changes With Heading) */}
         <div className="hidden lg:flex justify-center relative h-screen">
 
-          <div className="relative w-[400px] h-full overflow-hidden rounded-xl shadow-2xl transition-all duration-700">
+          <div className="relative w-full max-w-[400px] h-full overflow-hidden rounded-xl shadow-2xl transition-all duration-700">
 
             <Image
               key={activeSlide?.image}
               src={activeSlide?.image || ""}
               alt="Hero Image"
               fill
-              className={`object-cover transition-all duration-700 ${
+              className={`object-contain transition-all duration-700 ${
                 isAnimating ? "opacity-0 scale-105" : "opacity-100 scale-100"
               }`}
             />
@@ -161,9 +161,8 @@ export function HeroSection() {
         </div>
       </div>
 
-     {/* Right Social Column */}
-<div className="hidden lg:flex flex-col items-center gap-6 absolute top-1/2 -translate-y-1/2 z-20 right-[calc((100vw-1280px)/1-0.5rem)]
-">
+    {/* Right Social Column (aligned to container; not viewport) */}
+      <div className="hidden lg:flex flex-col items-center gap-6 z-20">
 
 
   <span className="rotate-90 text-xs tracking-widest text-gray-400">

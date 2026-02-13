@@ -70,7 +70,7 @@ export function StatsSection() {
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-background via-secondary to-background" />
       <div className="absolute pointer-events-none inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
-      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="relative site-container">
         {/* ✅ MOBILE FIX: grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, index) => (

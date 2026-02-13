@@ -114,7 +114,7 @@ export function ContactForm() {
       <div
         ref={formRef}
         className="
-          max-w-2xl mx-auto
+          max-w-2xl site-container
           rounded-3xl
           p-12
           text-center
@@ -122,7 +122,7 @@ export function ContactForm() {
           shadow-[0_40px_120px_-40px_rgba(212,175,55,0.5)]
         "
       >
-        <div className="mx-auto mb-6 h-16 w-16 rounded-full bg-primary/25 flex items-center justify-center">
+        <div className="site-container mb-6 h-16 w-16 rounded-full bg-primary/25 flex items-center justify-center">
           <CheckCircle className="h-8 w-8 text-primary" />
         </div>
         <h3 className="text-2xl font-bold mb-2">We've got it ✨</h3>
@@ -135,7 +135,7 @@ export function ContactForm() {
 
   /* FORM - EXACT Screenshot Layout */
   return (
-    <div ref={formRef} className="max-w-4xl mx-auto">
+    <div ref={formRef} className="site-container">
       <div data-animate className="mb-14 text-center">
         <h2 className="text-4xl font-bold mb-3">Connect With Us</h2>
       </div>

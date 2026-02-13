@@ -11,7 +11,7 @@ export default function AdvertisingAgencyPunePage() {
   return (
     <>
       {/* ===== PAGE CONTENT ===== */}
-      <section className="container mx-auto px-4 py-20 max-w-6xl">
+      <section className="site-container py-20">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Advertising Agency in <span className="text-primary">Pune</span>
         </h1>

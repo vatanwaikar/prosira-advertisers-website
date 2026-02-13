@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
 };
 
-/* ---------- ROOT LAYOUT - SINGLE LINE UNIVERSAL ALL PAGES ---------- */
+/* ---------- ROOT LAYOUT ---------- */
 export default function RootLayout({
   children,
 }: {
@@ -75,37 +75,33 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased bg-background text-foreground min-h-screen overflow-x-hidden">
         <Providers>
-          {/* UX SAFETY (SEO SAFE) */}
+          {/* UX SAFETY */}
           <ScrollSafety />
           <ScrollFailsafe />
 
           {/* DESKTOP CURSOR */}
           <CustomCursor />
 
-          {/* ===== UNIVERSAL SINGLE-LINE STRUCTURE - ALL PAGES ===== */}
           <div className="flex flex-col min-h-screen w-full">
-            {/* HEADER - FULL WIDTH SINGLE LINE */}
+            {/* HEADER */}
             <Header />
 
-            {/* MAIN CONTENT - SINGLE LINE MATCH HEADER/FOOTER */}
+            {/* MAIN CONTENT */}
             <main
               id="app-scroll-root"
-              className="flex-1 pt-[80px] lg:pt-[96px] w-full"
+              className="flex-1 pt-[80px] lg:pt-[96px]"
             >
-              {/* SINGLE SOURCE-OF-TRUTH CONTAINER - ensures header/main/footer alignment */}
-              <div className="site-container">
-                {children}
-              </div>
+              {children}
             </main>
 
-            {/* FOOTER - FULL WIDTH SINGLE LINE */}
+            {/* FOOTER */}
             <Footer />
           </div>
 
           <ScrollToTop />
           <Analytics />
 
-          {/* ===== FULL SCHEMA (SEO LOCK) ===== */}
+          {/* SCHEMA */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{

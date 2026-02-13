@@ -82,7 +82,7 @@ export function WhyChooseUs() {
                 src="/images/services-bg.jpg"
                 alt="Professional advertising team at work"
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-contain transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-background/90 via-background/40 to-primary/20" />
               

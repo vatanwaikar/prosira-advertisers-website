@@ -8,9 +8,9 @@ export function ContactMap() {
 
   return (
     <section className="bg-[#0B0B0B] py-24">
-      <div className="container mx-auto px-4">
+      <div className="site-container">
         {/* TEXT ABOVE MAP */}
-        <div className="mb-12 text-center max-w-2xl mx-auto">
+        <div className="mb-12 text-center max-w-2xl site-container">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Visit Our Office
           </h2>
@@ -20,7 +20,7 @@ export function ContactMap() {
         </div>
 
         {/* OUTER WRAPPER (NO MASK HERE) */}
-        <div className="relative w-full max-w-6xl mx-auto rounded-2xl overflow-hidden">
+        <div className="relative w-full max-w-6xl site-container rounded-2xl overflow-hidden">
           {/* IMAGE ONLY (MASK APPLIED HERE) */}
           <div
             className="relative"
@@ -39,12 +39,7 @@ export function ContactMap() {
               width={1920}
               height={600}
               priority
-              className="
-                w-full h-[420px] object-cover
-                brightness-[0.82]
-                contrast-[1.04]
-                saturate-[0.75]
-              "
+              className="w-full h-auto object-contain brightness-[0.82] contrast-[1.04] saturate-[0.75]"
             />
 
             {/* DARK BLEND */}
@@ -119,7 +114,7 @@ export function ContactMap() {
         </div>
 
         {/* TEXT BELOW MAP */}
-        <div className="mt-12 text-center max-w-2xl mx-auto">
+        <div className="mt-12 text-center max-w-2xl site-container">
           <p className="text-white/60 text-sm md:text-base">
             
             <span className="text-[#E6C766]">

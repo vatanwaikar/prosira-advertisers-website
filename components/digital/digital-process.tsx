@@ -164,7 +164,7 @@ export default function DigitalProcess() {
         <h2 className="text-3xl md:text-4xl font-bold">
           How We Drive <span className="text-primary font-serif">Digital Success</span>
         </h2>
-        <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
+        <p className="text-muted-foreground mt-3 max-w-xl site-container">
           Our proven process ensures measurable growth across every campaign.
         </p>
       </header>
@@ -186,7 +186,7 @@ export default function DigitalProcess() {
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="absolute w-[230px] p-6 rounded-xl border bg-background/80 backdrop-blur-md shadow-xl text-center"
+              className="absolute w-full max-w-[230px] p-6 rounded-xl border bg-background/80 backdrop-blur-md shadow-xl text-center"
             >
               <h3 className="font-bold mb-2">{step.title}</h3>
               <p className="text-sm text-muted-foreground">{step.description}</p>

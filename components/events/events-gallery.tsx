@@ -61,8 +61,8 @@ export function EventsGallery() {
 
   return (
     <section ref={sectionRef} className="py-20 bg-secondary">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="site-container">
+        <div className="text-center max-w-3xl site-container mb-16">
           <span
             data-animate
             className="inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4 duration-700"
@@ -98,7 +98,7 @@ export function EventsGallery() {
                 src={image.src || "/placeholder.svg"}
                 alt={image.alt}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-contain transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-primary font-semibold">{image.category}</span>

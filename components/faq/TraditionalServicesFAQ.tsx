@@ -76,7 +76,7 @@ export function TraditionalServicesFAQ() {
 
   return (
     <section className="py-24 bg-background">
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="site-container">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Frequently Asked Questions
         </h2>

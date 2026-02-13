@@ -417,7 +417,7 @@ export function DigitalServicesList() {
 
   return (
     <section ref={sectionRef} className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="site-container">
         
         <div  ref={scrollRef}
         className="
@@ -444,7 +444,7 @@ export function DigitalServicesList() {
   style={{ animationDelay: `${index * 120}ms` }}
   className="
     snap-start
-    min-w-[90%] sm:min-w-[48%] md:min-w-[48%] lg:min-w-[48%]
+    w-full sm:w-1/2 md:w-1/2 lg:w-1/2 flex-shrink-0
     group relative bg-card border border-border overflow-hidden
     transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]
     hover:-translate-y-3 hover:scale-[1.02]
