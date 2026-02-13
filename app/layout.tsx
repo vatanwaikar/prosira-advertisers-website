@@ -92,10 +92,7 @@ export default function RootLayout({
               id="app-scroll-root"
               className="flex-1 pt-[80px] lg:pt-[96px] w-full"
             >
-              {/* SINGLE SOURCE-OF-TRUTH CONTAINER - ensures header/main/footer alignment */}
-              <div className="site-container">
-                {children}
-              </div>
+              {children}
             </main>
 
             {/* FOOTER - FULL WIDTH SINGLE LINE */}

@@ -417,7 +417,7 @@ export function DigitalServicesList() {
 
   return (
     <section ref={sectionRef} className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="site-container">
         
         <div  ref={scrollRef}
         className="

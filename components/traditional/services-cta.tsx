@@ -17,7 +17,7 @@ export function ServicesCTA() {
         "
       />
 
-      <div className="relative mx-auto max-w-4xl px-4 lg:px-8 text-center">
+      <div className="relative site-container text-center max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
           Ready to Launch Your{" "}
           <span className="text-primary font-serif ">

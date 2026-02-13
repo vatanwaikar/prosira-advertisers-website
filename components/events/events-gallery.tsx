@@ -61,7 +61,7 @@ export function EventsGallery() {
 
   return (
     <section ref={sectionRef} className="py-20 bg-secondary">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="site-container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span
             data-animate

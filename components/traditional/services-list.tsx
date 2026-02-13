@@ -284,7 +284,7 @@ export function ServicesList() {
 
   return (
     <section ref={sectionRef} className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8 space-y-14">
+      <div className="site-container space-y-14">
         {services.map((service, index) => {
           const isOpen = openId === service.id;
 

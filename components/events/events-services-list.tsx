@@ -157,7 +157,7 @@ export function EventsServicesList() {
 
   return (
     <section ref={sectionRef} className="py-20 bg-background">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="site-container">
         <div className="space-y-16">
           {services.map((service, index) => (
             <Card

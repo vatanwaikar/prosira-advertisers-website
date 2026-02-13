@@ -99,10 +99,11 @@ export function HeroSection() {
       </div>
 
       {/* Content Grid */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 w-full flex flex-col h-screen">
+        <div className="site-container py-24 grid lg:grid-cols-2 gap-12 items-center flex-1">
 
-        {/* LEFT TEXT */}
-        <div className="space-y-8">
+          {/* LEFT TEXT */}
+          <div className="space-y-8">
 
           <span className="inline-flex px-5 py-2 rounded-full border border-primary/40 text-primary text-sm tracking-wide">
             ✦ Leading Advertising Agency in Pune
@@ -142,7 +143,7 @@ export function HeroSection() {
         </div>
 
         {/* RIGHT IMAGE (Changes With Heading) */}
-        <div className="hidden lg:flex justify-center relative h-screen">
+        <div className="hidden lg:flex justify-center relative flex-1">
 
           <div className="relative w-[400px] h-full overflow-hidden rounded-xl shadow-2xl transition-all duration-700">
 
@@ -159,11 +160,9 @@ export function HeroSection() {
             <div className="absolute inset-0 rounded-xl ring-2 ring-primary/30" />
           </div>
         </div>
-      </div>
-
-     {/* Right Social Column */}
-<div className="hidden lg:flex flex-col items-center gap-6 absolute top-1/2 -translate-y-1/2 z-20 right-[calc((100vw-1280px)/1-0.5rem)]
-">
+        
+        {/* Right Social Column - Fixed positioning outside flow */}
+        <div className="hidden lg:flex flex-col items-center gap-6 fixed top-1/2 -translate-y-1/2 z-20 right-8">
 
 
   <span className="rotate-90 text-xs tracking-widest text-gray-400">
@@ -211,13 +210,11 @@ export function HeroSection() {
   <div className="w-px h-16 bg-gray-600" />
 
   <ArrowDown className="animate-bounce text-gray-400" />
-</div>
-
-
-     
+        </div>
+      </div>
     
-{/* Bottom Marquee */}
-<div className="absolute bottom-14 left-0 w-full bg-primary text-black py-4 z-30">
+      {/* Bottom Marquee - Full width bar */}
+<div className="absolute bottom-0 left-0 w-full bg-primary text-black py-4 z-30">
   <div className="marquee-track whitespace-nowrap text-lg font-semibold tracking-wide">
     UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
     &nbsp;&nbsp;&nbsp;

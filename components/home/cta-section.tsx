@@ -40,7 +40,7 @@ export function CTASection() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="relative z-10 site-container">
         <div className="max-w-2xl">
           <span
             data-animate

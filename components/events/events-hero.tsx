@@ -102,7 +102,7 @@ export function EventsHero() {
       </div>
 
       {/* CONTENT */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="relative z-10 site-container">
         {/* Breadcrumb */}
         <nav
           data-animate

@@ -36,7 +36,7 @@ export function MissionVision() {
         <div className="absolute bottom-24 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl float-slow" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="relative site-container">
 
         
 

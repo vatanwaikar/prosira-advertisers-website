@@ -36,7 +36,7 @@ export function DigitalCTA() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl float-slow" />
       </div>
 
-      <div className="relative mx-auto max-w-4xl px-4 lg:px-8 text-center">
+      <div className="relative site-container text-center max-w-4xl mx-auto">
         <h2
           data-animate
           className="f-reveal text-3xl md:text-4xl font-bold mb-6"

@@ -49,7 +49,7 @@ export function AboutContent() {
         <div className="absolute bottom-32 right-10 w-80 h-80 bg-primary/10 rounded-full blur-3xl float-slow" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="relative site-container">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* CONTENT SIDE - Now on LEFT */}
           <div data-animate className="f-reveal lg:order-1">
