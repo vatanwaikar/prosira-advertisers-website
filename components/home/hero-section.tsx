@@ -37,7 +37,8 @@ export function HeroSection() {
         AGENCY
       </div>
     ),
-    image: "/images/ss.png",
+    image: "/images/shashikantsirr.png",
+    touchMarquee: true, // Touch marquee - all devices
   },
   {
     id: 2,
@@ -51,19 +52,20 @@ export function HeroSection() {
       </div>
     ),
     image: "/images/vs.png",
+    touchMarquee: true, // Touch marquee - all devices
   },
   {
     id: 3,
     heading: (
       <div className={`${kanit.className}`}>
-        EXPERT IN <br />
-        <span className="gold-fill" data-text="BRANDING">
-          BRANDING
-        </span>{" "}
-        SOLUTIONS
+        WE ARE <br />
+        <span className="gold-fill" data-text="ENERGETIC">
+          ENERGETIC
+        </span>
       </div>
     ),
-    image: "/images/nm.png",
+    image: "/images/neetamadamm.png",
+    touchMarquee: true, // Touch marquee - all devices
   },
 ];
 
@@ -100,17 +102,17 @@ export function HeroSection() {
       </div>
 
       {/* Content Grid */}
-      <div className="relative z-10 site-container px-4 sm:px-6 py-12 sm:py-20 lg:py-24 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen">
+      <div className="relative z-10 site-container px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT TEXT */}
-        <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
+        <div className="space-y-8">
 
-          <span className="inline-flex px-3 py-1.5 sm:px-5 sm:py-2 rounded-full border border-primary/40 text-primary text-xs sm:text-sm tracking-wide">
+          <span className="inline-flex px-5 py-2 rounded-full border border-primary/40 text-primary text-sm tracking-wide">
             ✦ Leading Advertising Agency in Pune
           </span>
 
           <h1
-            className={`text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight transition-all duration-500 ${
+            className={`text-3xl md:text-4xl lg:text-6xl font-bold leading-tight transition-all duration-500 ${
               isAnimating
                 ? "blur-sm opacity-0 translate-y-2"
                 : "opacity-100 translate-y-0"
@@ -119,48 +121,34 @@ export function HeroSection() {
             {activeSlide?.heading}
           </h1>
 
-          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-400 max-w-lg lg:max-w-xl">
+          <p className="text-lg md:text-xl text-gray-400 max-w-xl">
             Prosira Advertisers delivers powerful TV, radio, outdoor,
             digital marketing and branding solutions that grow businesses.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap">
+          <div className="flex gap-4 flex-wrap">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-primary text-black px-4 py-2.5 sm:px-6 sm:py-3 rounded-lg font-medium hover:scale-105 transition text-sm sm:text-base"
+              className="inline-flex items-center gap-2 bg-primary text-black px-6 py-3 rounded-lg font-medium hover:scale-105 transition"
             >
-              Get Started <ArrowRight size={16} className="sm:size-18" />
+              Get Started <ArrowRight size={18} />
             </Link>
 
             <Link
               href="/about-prosira-advertisers"
-              className="inline-flex items-center justify-center gap-2 border border-white/30 px-4 py-2.5 sm:px-6 sm:py-3 rounded-lg hover:bg-white/10 transition text-sm sm:text-base"
+              className="inline-flex items-center gap-2 border border-white/30 px-6 py-3 rounded-lg hover:bg-white/10 transition"
             >
-              <Play size={16} className="sm:size-18" />
+              <Play size={18} />
               Our Story
             </Link>
           </div>
         </div>
 
-        {/* RIGHT IMAGE (Mobile Friendly) */}
-        <div className="flex lg:hidden justify-center items-center order-1 lg:order-2 mb-8 lg:mb-0">
-          <div className="relative w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 overflow-hidden rounded-xl shadow-2xl transition-all duration-700">
-            <Image
-              key={activeSlide?.image}
-              src={activeSlide?.image || ""}
-              alt="Hero Image"
-              fill
-              className={`object-contain transition-all duration-700 ${
-                isAnimating ? "opacity-0 scale-105" : "opacity-100 scale-100"
-              }`}
-            />
-            <div className="absolute inset-0 rounded-xl ring-2 ring-primary/30" />
-          </div>
-        </div>
+        {/* RIGHT IMAGE (Changes With Heading) */}
+        <div className="hidden lg:flex justify-center relative h-screen">
 
-        {/* DESKTOP IMAGE */}
-        <div className="hidden lg:flex justify-center relative h-screen order-2">
           <div className="relative w-full max-w-[400px] h-full overflow-hidden rounded-xl shadow-2xl transition-all duration-700">
+
             <Image
               key={activeSlide?.image}
               src={activeSlide?.image || ""}
@@ -170,6 +158,7 @@ export function HeroSection() {
                 isAnimating ? "opacity-0 scale-105" : "opacity-100 scale-100"
               }`}
             />
+
             <div className="absolute inset-0 rounded-xl ring-2 ring-primary/30" />
           </div>
         </div>
