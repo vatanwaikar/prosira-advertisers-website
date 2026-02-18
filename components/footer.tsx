@@ -17,22 +17,19 @@ import { Input } from "@/components/ui/input";
 
 const footerLinks = {
   services: [
-    { name: "TV Advertising", href: "/traditional-services#tv" },
-    { name: "Radio Advertising", href: "/traditional-services#radio" },
+    { name: "Traditional Media", href: "/traditional-services" },
     { name: "Digital Marketing", href: "/digital-services" },
-    { name: "Event Management", href: "/events-expo" },
-    { name: "Corporate Gifting", href: "/traditional-services#corporate-gifting" },      
-    { name: "Magazine Advertising", href: "/traditional-services#magazine" },
-    { name: "Brand Development", href: "/traditional-services#brand-development" },
-    { name: "outdoor Advertising", href: "/traditional-services#outdoor" },
-    
+    { name: "Event & Expo", href: "/events-expo" },
+    { name: "Services Portfolio", href: "/services" },
+    { name: "Digital Portfolio", href: "/digital" },
+    { name: "Event Portfolio", href: "/event-expo" },
   ],
 
   // 👇 COMPANY + FOOTER-ONLY PAGES
   company: [
     { name: "About Us", href: "/about-prosira-advertisers" },
     { name: "Our Team", href: "/team" },
-    { name: "Our Work", href: "/events-expo" },
+    { name: "Our Work", href: "/work" },
     { name: "Contact", href: "/contact" },
 
     // 🔥 FOOTER-ONLY LINKS

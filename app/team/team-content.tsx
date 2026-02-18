@@ -83,7 +83,7 @@ const teamMembers = [
     image: "/team/shaurya.png",
     bio: "Creative social media manager building brand presence and engagement across platforms.",
     expandedBio: "Shaurya has successfully grown social media presence for multiple brands, creating engaging content and community management strategies that drive brand loyalty and customer engagement.",
-    linkedin: "https://www.linkedin.com/in/shaurya-shinde-72914416b/"
+    linkedin: "https://www.linkedin.com/in/11shourya-shinde/"
   },
   {
     name: "Vishal ",
@@ -177,7 +177,7 @@ export default function TeamContent() {
                 className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mt-4"
               >
                 <span className="text-sm font-medium">
-                  {expandedMembers.has(member.name) ? 'Show Less' : 'Read More'}
+                  {expandedMembers.has(member.name) ? 'Show Less' : 'More'}
                 </span>
                 {expandedMembers.has(member.name) ? (
                   <ChevronUp className="h-4 w-4" />

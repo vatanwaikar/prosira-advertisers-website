@@ -99,7 +99,9 @@ export function CustomCursor() {
       scaleRef.current +=
         (targetScaleRef.current - scaleRef.current) * speed;
 
-      cursorRef.current!.style.transform = `scale(${scaleRef.current})`;
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `scale(${scaleRef.current})`;
+      }
 
       rafId = requestAnimationFrame(animate);
     };

@@ -15,6 +15,7 @@ const navigation = [
   { name: "Services", href: "/traditional-services" },
   { name: "Digital", href: "/digital-services" },
   { name: "Events & Expo", href: "/events-expo" },
+  { name: "Our Work", href: "/work" },
   { name: "Contact Us", href: "/contact" },
   
 ];
