@@ -153,7 +153,6 @@ export function Header() {
           className="lg:hidden w-10 h-10 rounded-lg glass-gold flex items-center justify-center text-foreground hover:text-primary transition-colors"
 onClick={() => {
   setMobileMenuOpen((prev) => !prev);
-  window.scrollTo({ top: 0, behavior: "smooth" });
 }}
         >
           <span className="sr-only">Toggle menu</span>

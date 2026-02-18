@@ -320,25 +320,26 @@ export function ServicesList() {
                     </p>
 
                     <button
-  onClick={() => setOpenId(isOpen ? null : service.id)}
-  aria-label={isOpen ? "Hide details" : "Show details"}
-  className="
-    flex items-center justify-center
-    h-9 w-9 rounded-full
-    border border-primary/30
-    text-primary
-    transition-all duration-300
-    hover:bg-primary hover:text-black
-  "
->
-  <ChevronDown
-    className={`h-4 w-4 transition-transform duration-300 ${
-      isOpen ? "rotate-180" : ""
-    }`}
-  />
-</button>
+                      onClick={() => setOpenId(isOpen ? null : service.id)}
+                      aria-label={isOpen ? "Hide details" : "Show details"}
+                      className="
+                        flex items-center justify-center
+                        h-9 w-9 rounded-full
+                        border border-primary/30
+                        text-primary
+                        transition-all duration-300
+                        hover:bg-primary hover:text-black
+                      "
+                    >
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-300 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
 
                   </div>
+                </div>
 
                   {/* <div className="lg:border-l lg:border-border lg:pl-8">
                     <h3 className="text-sm font-semibold text-primary uppercase mb-3">
@@ -352,32 +353,87 @@ export function ServicesList() {
                         >
                           {u}
                         </div>
-                      ))}
-                    </div>
-                  </div> */}
+
+                  <button
+                    onClick={() => setOpenId(isOpen ? null : service.id)}
+                    aria-label={isOpen ? "Hide details" : "Show details"}
+                    className="
+                      flex items-center justify-center
+                      h-9 w-9 rounded-full
+                      border border-primary/30
+                      text-primary
+                      transition-all duration-300
+                      hover:bg-primary hover:text-black
+                    "
+                  >
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
                 </div>
 
+                {/* FAST ACCORDION */}
                 <div
-                  className={`overflow-hidden transition-all duration-700 ease-out ${
-                    isOpen ? "max-h-[900px] mt-8 opacity-100" : "max-h-0 opacity-0"
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen
+                      ? "max-h-[600px] opacity-100 mt-8"
+                      : "max-h-0 opacity-0 mt-0"
                   }`}
                 >
-                  <div className="rounded-xl border border-border bg-secondary/40 p-6 space-y-5">
-                    <p className="text-sm text-muted-foreground">
-                      {service.details.whatItDoes}
-                    </p>
+                  <div className="space-y-6">
+                    {/* What It Does */}
+                    <div className="bg-gradient-to-r from-primary/5 to-primary/10 p-4 rounded-lg border-l-4 border-primary">
+                      <h4 className="font-semibold text-primary mb-2">🎯 What It Does</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {service.details.whatItDoes}
+                      </p>
+                    </div>
 
-                    <ul className="space-y-2 text-sm">
-                      {service.details.strengths.map((s) => (
-                        <li key={s}>✔ {s}</li>
-                      ))}
-                    </ul>
+                    {/* Strengths */}
+                    <div>
+                      <h4 className="font-semibold text-green-600 mb-3">✅ Key Benefits</h4>
+                      <ul className="space-y-2">
+                        {service.details.strengths.map((strength, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="text-green-500 mt-1">•</span>
+                            <span className="text-sm text-muted-foreground">{strength}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      {service.details.considerations.map((c) => (
-                        <li key={c}>• {c}</li>
-                      ))}
-                    </ul>
+                    {/* Considerations */}
+                    {service.details.considerations && (
+                      <div>
+                        <h4 className="font-semibold text-orange-600 mb-3">⚠️ Things to Consider</h4>
+                        <ul className="space-y-2">
+                          {service.details.considerations.map((consideration, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <span className="text-orange-500 mt-1">•</span>
+                              <span className="text-sm text-muted-foreground">{consideration}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Use Cases */}
+                    <div>
+                      <h4 className="font-semibold text-blue-600 mb-3">🎯 Best For</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {service.useCases.map((useCase, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium"
+                          >
+                            {useCase}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </CardContent>
