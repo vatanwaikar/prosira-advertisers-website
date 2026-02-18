@@ -15,7 +15,7 @@ export function CustomCursor() {
   const scaleRef = useRef(1);
   const targetScaleRef = useRef(1);
 
-  /* ---------- FINAL DEVICE CHECK (HARD BLOCK TOUCH) ---------- */
+  /* ---------- DEVICE CHECK ---------- */
   const checkDevice = () => {
     const isTouch =
       "ontouchstart" in window ||
@@ -33,7 +33,7 @@ export function CustomCursor() {
     return () => window.removeEventListener("resize", checkDevice);
   }, []);
 
-  /* ---------- POINTER MOVE (MOUSE ONLY) ---------- */
+  /* ---------- POINTER MOVE ---------- */
   useEffect(() => {
     if (!enabled) return;
 
@@ -100,7 +100,7 @@ export function CustomCursor() {
         (targetScaleRef.current - scaleRef.current) * speed;
 
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `scale(${scaleRef.current})`;
+        cursorRef.current.style.transform = `translateZ(0) scale(${scaleRef.current})`;
       }
 
       rafId = requestAnimationFrame(animate);
@@ -110,7 +110,7 @@ export function CustomCursor() {
     return () => cancelAnimationFrame(rafId);
   }, [hover, enabled]);
 
-  /* ---------- HARD RESET (EXTRA SAFETY) ---------- */
+  /* ---------- HARD RESET ---------- */
   useEffect(() => {
     if (!enabled) return;
 
@@ -129,7 +129,7 @@ export function CustomCursor() {
     };
   }, [enabled]);
 
-  /* ---------- BODY CLASS FAILSAFE ---------- */
+  /* ---------- BODY CLASS ---------- */
   useEffect(() => {
     if (!enabled) return;
 
@@ -157,6 +157,8 @@ export function CustomCursor() {
           alt="Prosira cursor icon"
           width={ICON_SIZE}
           height={ICON_SIZE}
+          sizes="24px"
+          loading="lazy"
           draggable={false}
           className="object-contain brightness-200 invert sepia saturate-200 hue-rotate-[20deg]"
         />

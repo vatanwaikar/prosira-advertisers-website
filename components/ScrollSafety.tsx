@@ -7,12 +7,15 @@ export default function ScrollSafety() {
     const root = document.getElementById("app-scroll-root");
     if (!root) return;
 
-    const style = root.style as CSSStyleDeclaration & {
-      webkitOverflowScrolling?: string;
-    };
+    // Prevent unnecessary style overwrites
+    if (root.style.overflowY !== "auto") {
+      root.style.overflowY = "auto";
+    }
 
-    style.overflowY = "auto";
-    style.webkitOverflowScrolling = "touch";
+    // iOS smooth scrolling support
+    if ((root.style as any).webkitOverflowScrolling !== "touch") {
+      (root.style as any).webkitOverflowScrolling = "touch";
+    }
   }, []);
 
   return null;

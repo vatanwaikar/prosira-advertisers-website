@@ -1,20 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  const [hydrated, setHydrated] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setHydrated(true);
+    const el = wrapperRef.current;
+    if (!el) return;
+
+    el.classList.remove("opacity-0");
+    el.classList.add("opacity-100");
   }, []);
 
   return (
     <div
-      className={`
-        transition-opacity duration-300 ease-out
-        ${hydrated ? "opacity-100" : "opacity-0"}
-      `}
+      ref={wrapperRef}
+      className="opacity-0 transition-opacity duration-300 ease-out"
     >
       {children}
     </div>

@@ -9,14 +9,19 @@ export default function ScrollFailsafe() {
 
     const forceUnlock = () => {
       if (root.scrollHeight > window.innerHeight) {
-        root.style.overflowY = "auto";
+        if (root.style.overflowY !== "auto") {
+          root.style.overflowY = "auto";
+        }
       }
     };
 
     forceUnlock();
-    window.addEventListener("resize", forceUnlock);
 
-    return () => window.removeEventListener("resize", forceUnlock);
+    window.addEventListener("resize", forceUnlock, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", forceUnlock);
+    };
   }, []);
 
   return null;
