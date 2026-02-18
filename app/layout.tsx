@@ -1,6 +1,6 @@
-// app/layout.tsx - UPDATED UNIVERSAL SINGLE-LINE LAYOUT
+// app/layout.tsx - PRODUCTION SAFE VERSION
 import React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -18,22 +18,36 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
   display: "swap",
+  preload: true,
 });
+
+/* ---------- VIEWPORT (SEO + MOBILE SAFE) ---------- */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 /* ---------- SEO METADATA ---------- */
 export const metadata: Metadata = {
+  metadataBase: new URL("https://prosiraadvertisers.com"),
+
   title: {
-    default: "Prosira Advertisers | 360° Advertising & Media Solutions in Pune",
+    default:
+      "Prosira Advertisers | 360° Advertising & Media Solutions in Pune",
     template: "%s | Prosira Advertisers",
   },
+
   description:
     "Prosira Advertisers is a leading advertising agency in Pune offering TV, radio, outdoor advertising, digital marketing, event management, and brand solutions across Maharashtra.",
+
   keywords: [
     "advertising agency in Pune",
     "media agency Pune",
@@ -42,26 +56,48 @@ export const metadata: Metadata = {
     "event management Pune",
     "branding agency Maharashtra",
   ],
+
   authors: [{ name: "Prosira Advertisers" }],
   creator: "Prosira Advertisers",
+  publisher: "Prosira Advertisers",
+
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://prosiraadvertisers.com",
+    url: "/",
     siteName: "Prosira Advertisers",
-    title: "Prosira Advertisers | 360° Advertising & Media Solutions",
+    title:
+      "Prosira Advertisers | 360° Advertising & Media Solutions in Pune",
     description:
       "Full-service advertising, media, and event solutions company delivering strategic, creative, and performance-driven campaigns in Pune and Maharashtra.",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Prosira Advertisers | 360° Advertising & Media Solutions",
+    title:
+      "Prosira Advertisers | 360° Advertising & Media Solutions in Pune",
     description:
       "Full-service advertising, media, and event solutions company in Pune.",
   },
+
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  referrer: "origin-when-cross-origin",
+
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
 
@@ -72,7 +108,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable}`}
+      suppressHydrationWarning
+    >
       <body className="font-sans antialiased bg-background text-foreground min-h-screen overflow-x-hidden">
         <Providers>
           {/* UX SAFETY */}
@@ -101,7 +141,7 @@ export default function RootLayout({
           <ScrollToTop />
           <Analytics />
 
-          {/* SCHEMA */}
+          {/* SCHEMA (SAFE JSON INJECTION) */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -115,7 +155,8 @@ export default function RootLayout({
                   logo: "https://prosiraadvertisers.com/logo.png",
                   address: {
                     "@type": "PostalAddress",
-                    streetAddress: "3rd Floor, Patil Plaza, Swargate",
+                    streetAddress:
+                      "3rd Floor, Patil Plaza, Swargate",
                     addressLocality: "Pune",
                     addressRegion: "MH",
                     postalCode: "411037",
@@ -140,7 +181,8 @@ export default function RootLayout({
                     "@type": "SearchAction",
                     target:
                       "https://prosiraadvertisers.com/search?q={search_term_string}",
-                    "query-input": "required name=search_term_string",
+                    "query-input":
+                      "required name=search_term_string",
                   },
                 },
               ]),

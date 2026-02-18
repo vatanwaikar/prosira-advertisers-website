@@ -355,7 +355,7 @@ h1, h2, h3 {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marqueeMove 20s linear infinite;
+  animation: marqueeMove 35s linear infinite;
 }
 
 @keyframes marqueeMove {

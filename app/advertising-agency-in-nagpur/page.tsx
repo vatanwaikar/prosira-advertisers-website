@@ -5,6 +5,23 @@ export const metadata: Metadata = {
   title: "Advertising Agency in Nagpur | Prosira Advertisers",
   description:
     "Prosira Advertisers is a reliable advertising agency in Nagpur offering TV, radio, outdoor advertising, digital marketing, branding, and event management services.",
+  alternates: {
+    canonical: "/advertising-agency-in-nagpur",
+  },
+  openGraph: {
+    title: "Advertising Agency in Nagpur | Prosira Advertisers",
+    description:
+      "Reliable advertising agency in Nagpur offering TV, radio, outdoor advertising, digital marketing and branding services.",
+    url: "/advertising-agency-in-nagpur",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Advertising Agency in Nagpur | Prosira Advertisers",
+    description:
+      "Trusted advertising agency in Nagpur delivering strategic and regional advertising campaigns.",
+  },
 };
 
 export default function AdvertisingAgencyNagpurPage() {
@@ -63,27 +80,41 @@ export default function AdvertisingAgencyNagpurPage() {
         </div>
       </section>
 
-      {/* ===== LOCAL BUSINESS SCHEMA (NAGPUR) ===== */}
+      {/* ===== ENHANCED LOCAL BUSINESS + BREADCRUMB SCHEMA ===== */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AdvertisingAgency",
-            "name": "Prosira Advertisers",
-            "url": "https://prosiraadvertisers.com/advertising-agency-in-nagpur",
-            "telephone": "+91-9028815714",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Nagpur",
-              "addressRegion": "MH",
-              "addressCountry": "IN"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "AdvertisingAgency",
+              "name": "Prosira Advertisers",
+              "url": "https://prosiraadvertisers.com/advertising-agency-in-nagpur",
+              "telephone": "+91-9028815714",
+              "areaServed": {
+                "@type": "City",
+                "name": "Nagpur"
+              }
             },
-            "areaServed": {
-              "@type": "City",
-              "name": "Nagpur"
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://prosiraadvertisers.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Advertising Agency in Nagpur",
+                  "item": "https://prosiraadvertisers.com/advertising-agency-in-nagpur"
+                }
+              ]
             }
-          }),
+          ])
         }}
       />
     </>

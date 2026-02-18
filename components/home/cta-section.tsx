@@ -10,19 +10,27 @@ export function CTASection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8");
+            entry.target.classList.add(
+              "animate-in",
+              "fade-in",
+              "slide-in-from-bottom-8"
+            );
+            observer.unobserve(entry.target); // trigger once only
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const elements = sectionRef.current?.querySelectorAll("[data-animate]");
-    elements?.forEach((el) => observer.observe(el));
+    const elements = element.querySelectorAll("[data-animate]");
+    elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
@@ -32,10 +40,12 @@ export function CTASection() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/events-bg.jpg"
-          alt="Contact us background"
+          src="/images/events-bg.jpg"   // convert to webp if possible
+          alt="Contact Prosira Advertisers background"
           fill
+          sizes="100vw"
           className="object-cover"
+          priority={false}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
       </div>
@@ -48,20 +58,25 @@ export function CTASection() {
           >
             Let's Work Together
           </span>
+
           <h2
             data-animate
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 duration-700 delay-100"
           >
             Ready to{" "}
-            <span className="text-primary font-serif ">Transform</span> Your
-            Brand?
+            <span className="text-primary font-serif">
+              Transform
+            </span>{" "}
+            Your Brand?
           </h2>
+
           <p
             data-animate
             className="text-lg text-muted-foreground mb-8 leading-relaxed duration-700 delay-200"
           >
-            Get in touch with our team to discuss your advertising goals. We'll create
-            a customized strategy that delivers measurable results for your business.
+            Get in touch with our team to discuss your advertising goals.
+            We'll create a customized strategy that delivers measurable
+            results for your business.
           </p>
 
           <div
@@ -78,23 +93,22 @@ export function CTASection() {
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
+
             <Button
               asChild
               size="lg"
               variant="outline"
               className="border-primary/30 text-foreground hover:bg-primary/10 hover:text-primary bg-transparent"
             >
-             <a
-  href="tel:+919028815714"
-  aria-label="Call Prosira Advertisers Pune"
->
-  <Phone className="mr-2 h-4 w-4" />
-  +91 90288 15714
-</a>
-
+              <a
+                href="tel:+919028815714"
+                aria-label="Call Prosira Advertisers Pune"
+              >
+                <Phone className="mr-2 h-4 w-4" />
+                +91 90288 15714
+              </a>
             </Button>
           </div>
-
         </div>
       </div>
     </section>

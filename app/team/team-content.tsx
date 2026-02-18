@@ -78,9 +78,9 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/sayaji-teji-72914416b/"
   },
   {
-    name: "Shaurya Shinde",
+    name: "Shourya Shinde",
     role: "Social Media Intern",
-    image: "/team/shaurya.png",
+    image: "/team/shourya.png",
     bio: "Creative social media manager building brand presence and engagement across platforms.",
     expandedBio: "Shaurya has successfully grown social media presence for multiple brands, creating engaging content and community management strategies that drive brand loyalty and customer engagement.",
     linkedin: "https://www.linkedin.com/in/11shourya-shinde/"

@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Tv, Radio, Megaphone, Globe, Calendar, Sparkles, ArrowRight } from "lucide-react";
+import {
+  Tv,
+  Radio,
+  Megaphone,
+  Globe,
+  Calendar,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
 
@@ -75,16 +83,18 @@ function ServiceCard({
 
   return (
     <div
-      className="relative group"
+      className="relative group will-change-transform"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "translateY(0)" : "translateY(60px)",
-        transition: `all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) ${index * 100}ms`,
+        transition: `all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) ${
+          index * 100
+        }ms`,
       }}
     >
-      {/* Glow effect on hover */}
+      {/* Glow */}
       <div
         className={`absolute -inset-0.5 bg-gradient-to-r ${service.gradient} rounded-2xl blur-xl transition-opacity duration-500 ${
           isHovered ? "opacity-100" : "opacity-0"
@@ -92,15 +102,12 @@ function ServiceCard({
       />
 
       <div className="relative h-full bg-card border border-border/50 rounded-2xl p-6 overflow-hidden hover:border-primary/30 transition-all duration-500 hover-lift">
-        {/* Background pattern */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-full -translate-y-16 translate-x-16" />
 
-        {/* Category badge */}
         <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary mb-4">
           {service.category}
         </div>
 
-        {/* Icon with animated background */}
         <div className="relative mb-4">
           <div
             className={`w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-500 ${
@@ -109,11 +116,13 @@ function ServiceCard({
           >
             <service.icon
               className={`h-7 w-7 transition-all duration-500 ${
-                isHovered ? "text-primary-foreground scale-110" : "text-primary"
+                isHovered
+                  ? "text-primary-foreground scale-110"
+                  : "text-primary"
               }`}
             />
           </div>
-          {/* Floating particles on hover */}
+
           {isHovered && (
             <>
               <div className="absolute top-0 right-0 w-2 h-2 rounded-full bg-primary animate-float" />
@@ -122,27 +131,25 @@ function ServiceCard({
           )}
         </div>
 
-        {/* Content */}
         <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
           {service.title} Services
         </h3>
+
         <p className="text-muted-foreground leading-relaxed mb-6">
           {service.description}
         </p>
 
-        {/* Link */}
+        {/* FIXED: now uses service.href */}
         <Link
-  href="/traditional-services"
-  className="inline-flex items-center gap-2 text-primary group"
->
-  <span className="text-sm font-medium">Explore</span>
-
-  <span className="w-9 h-9 rounded-full border border-primary/40 flex items-center justify-center
-                   group-hover:bg-primary/10 transition-all duration-300">
-    <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-  </span>
-</Link>
-          
+          href={service.href}
+          aria-label={`Explore ${service.title} services`}
+          className="inline-flex items-center gap-2 text-primary group"
+        >
+          <span className="text-sm font-medium">Explore</span>
+          <span className="w-9 h-9 rounded-full border border-primary/40 flex items-center justify-center group-hover:bg-primary/10 transition-all duration-300">
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </span>
+        </Link>
       </div>
     </div>
   );
@@ -153,66 +160,80 @@ export function ServicesOverview() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.unobserve(entry.target);
         }
       },
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    observer.observe(element);
+
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 bg-background relative overflow-hidden">
-      {/* Background elements */}
+    <section
+      ref={sectionRef}
+      className="py-32 bg-background relative overflow-hidden"
+    >
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="site-container relative">
-        {/* Section Header */}
         <div className="text-center max-w-3xl site-container mb-20">
           <span
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-gold text-primary text-sm font-medium mb-6"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(20px)",
+              transform: isVisible
+                ? "translateY(0)"
+                : "translateY(20px)",
               transition: "all 0.8s ease-out",
             }}
           >
             <Sparkles className="w-4 h-4" />
             Our Services
           </span>
+
           <h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(30px)",
+              transform: isVisible
+                ? "translateY(0)"
+                : "translateY(30px)",
               transition: "all 0.8s ease-out 100ms",
             }}
           >
             <span className="text-foreground">Comprehensive</span>
             <br />
-<span className="text-primary font-serif ">
-    Advertising Solutions
-  </span>          </h2>
+            <span className="text-primary font-serif">
+              Advertising Solutions
+            </span>
+          </h2>
+
           <p
             className="text-lg text-muted-foreground leading-relaxed"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(30px)",
+              transform: isVisible
+                ? "translateY(0)"
+                : "translateY(30px)",
               transition: "all 0.8s ease-out 200ms",
             }}
           >
-            From traditional media to digital innovation, we offer end-to-end advertising
-            and marketing solutions tailored to your business goals.
+            From traditional media to digital innovation, we offer end-to-end
+            advertising and marketing solutions tailored to your business goals.
           </p>
         </div>
 
-        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <ServiceCard
@@ -224,12 +245,13 @@ export function ServicesOverview() {
           ))}
         </div>
 
-        {/* CTA */}
         <div
           className="text-center mt-16"
           style={{
             opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(30px)",
+            transform: isVisible
+              ? "translateY(0)"
+              : "translateY(30px)",
             transition: "all 0.8s ease-out 800ms",
           }}
         >
@@ -247,17 +269,17 @@ export function ServicesOverview() {
             </Link>
           </Button>
         </div>
-        <p className="mt-6 text-sm text-muted-foreground text-center">
-  Looking for a trusted{" "}
-  <Link
-    href="/advertising-agency-in-pune"
-    className="text-primary font-medium hover:underline"
-  >
-    advertising agency in Pune
-  </Link>
-  ? Explore how Prosira Advertisers helps brands grow locally.
-</p>
 
+        <p className="mt-6 text-sm text-muted-foreground text-center">
+          Looking for a trusted{" "}
+          <Link
+            href="/advertising-agency-in-pune"
+            className="text-primary font-medium hover:underline"
+          >
+            advertising agency in Pune
+          </Link>
+          ? Explore how Prosira Advertisers helps brands grow locally.
+        </p>
       </div>
     </section>
   );

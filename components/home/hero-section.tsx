@@ -23,52 +23,50 @@ const kanit = Kanit({
 export function HeroSection() {
   const [currentHeading, setCurrentHeading] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
-  
 
- const slides = [
-  {
-    id: 1,
-    heading: (
-      <div className={`${kanit.className}`}>
-        MORE THAN AN <br />
-        <span className="gold-fill" data-text="ADVERTISING">
-          ADVERTISING
-        </span>{" "}
-        AGENCY
-      </div>
-    ),
-    image: "/images/shashikantsirr.png",
-    touchMarquee: true, // Touch marquee - all devices
-  },
-  {
-    id: 2,
-    heading: (
-      <div className={`${kanit.className}`}>
-        IMPROVE YOUR <br />
-        <span className="gold-fill" data-text="BUSINESS">
-          BUSINESS
-        </span>{" "}
-        TODAY
-      </div>
-    ),
-    image: "/images/vs.png",
-    touchMarquee: true, // Touch marquee - all devices
-  },
-  {
-    id: 3,
-    heading: (
-      <div className={`${kanit.className}`}>
-        WE ARE <br />
-        <span className="gold-fill" data-text="ENERGETIC">
-          ENERGETIC
-        </span>
-      </div>
-    ),
-    image: "/images/neetamadamm.png",
-    touchMarquee: true, // Touch marquee - all devices
-  },
-];
-
+  const slides = [
+    {
+      id: 1,
+      heading: (
+        <div className={`${kanit.className}`}>
+          MORE THAN AN <br />
+          <span className="gold-fill" data-text="ADVERTISING">
+            ADVERTISING
+          </span>{" "}
+          AGENCY
+        </div>
+      ),
+      image: "/images/shashikantsirr.webp",
+      touchMarquee: true,
+    },
+    {
+      id: 2,
+      heading: (
+        <div className={`${kanit.className}`}>
+          IMPROVE YOUR <br />
+          <span className="gold-fill" data-text="BUSINESS">
+            BUSINESS
+          </span>{" "}
+          TODAY
+        </div>
+      ),
+      image: "/images/Vijayantsir.webp",
+      touchMarquee: true,
+    },
+    {
+      id: 3,
+      heading: (
+        <div className={`${kanit.className}`}>
+          WE ARE <br />
+          <span className="gold-fill" data-text="ENERGETIC">
+            ENERGETIC
+          </span>
+        </div>
+      ),
+      image: "/images/neetamadamm.webp",
+      touchMarquee: true,
+    },
+  ];
 
   /* Auto Rotation */
   useEffect(() => {
@@ -92,11 +90,12 @@ export function HeroSection() {
       {/* Background Pattern */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero.png"
-          alt="Abstract pattern"
+          src="/images/hero-bg.jpg"
+          alt="Prosira Advertisers abstract background"
           fill
           priority
-          className="object-contain opacity-60"
+          sizes="100vw"
+          className="object-contain object-right opacity-60"
         />
         <div className="absolute inset-0 bg-black/70" />
       </div>
@@ -144,93 +143,85 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* RIGHT IMAGE (Changes With Heading) */}
+        {/* RIGHT IMAGE */}
         <div className="hidden lg:flex justify-center relative h-screen">
-
           <div className="relative w-full max-w-[400px] h-full overflow-hidden rounded-xl shadow-2xl transition-all duration-700">
 
-            <Image
-              key={activeSlide?.image}
-              src={activeSlide?.image || ""}
-              alt="Hero Image"
-              fill
-              className={`object-contain transition-all duration-700 ${
-                isAnimating ? "opacity-0 scale-105" : "opacity-100 scale-100"
-              }`}
-            />
+            {activeSlide && (
+              <Image
+                key={activeSlide.image}
+                src={activeSlide.image}
+                alt="Prosira team member"
+                fill
+                sizes="(max-width: 1024px) 100vw, 400px"
+                className={`object-contain transition-all duration-700 ${
+                  isAnimating ? "opacity-0 scale-105" : "opacity-100 scale-100"
+                }`}
+              />
+            )}
 
             <div className="absolute inset-0 rounded-xl ring-2 ring-primary/30" />
           </div>
         </div>
       </div>
 
-    {/* Right Social Column (aligned to container; not viewport) */}
+      {/* Right Social Column */}
       <div className="hidden lg:flex flex-col items-center gap-6 z-20">
+        <span className="rotate-90 text-xs tracking-widest text-gray-400">
+          FOLLOW US
+        </span>
 
+        <div className="w-px h-16 bg-gray-600" />
 
-  <span className="rotate-90 text-xs tracking-widest text-gray-400">
-    FOLLOW US
-  </span>
+        <Link
+          href="https://www.facebook.com/share/1DnoEvbjBx/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
+        >
+          <Facebook size={18} />
+        </Link>
 
-  <div className="w-px h-16 bg-gray-600" />
+        <Link
+          href="https://www.youtube.com/@Prosira"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
+        >
+          <Youtube size={18} />
+        </Link>
 
-  <Link
-    href="https://www.facebook.com/share/1DnoEvbjBx/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-  >
-    <Facebook size={18} />
-  </Link>
+        <Link
+          href="https://www.linkedin.com/company/prosiraadvertisers/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
+        >
+          <Linkedin size={18} />
+        </Link>
 
-  <Link
-    href="https://www.youtube.com/@Prosira"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-  >
-    <Youtube size={18} />
-  </Link>
+        <Link
+          href="https://www.instagram.com/prosira_advertisers?igsh=MXc3bjkwb2h3aThq"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
+        >
+          <Instagram size={18} />
+        </Link>
 
-  <Link
-    href="https://www.linkedin.com/company/prosiraadvertisers/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-  >
-    <Linkedin size={18} />
-  </Link>
+        <div className="w-px h-16 bg-gray-600" />
+        <ArrowDown className="animate-bounce text-gray-400" />
+      </div>
 
-  <Link
-    href="https://www.instagram.com/prosira_advertisers?igsh=MXc3bjkwb2h3aThq"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-  >
-    <Instagram size={18} />
-  </Link>
-
-  <div className="w-px h-16 bg-gray-600" />
-
-  <ArrowDown className="animate-bounce text-gray-400" />
-</div>
-
-
-     
-    
-{/* Bottom Marquee */}
-<div className="absolute bottom-8 sm:bottom-12 lg:bottom-14 left-0 w-full bg-primary text-black py-2 sm:py-3 lg:py-4 z-30">
-  <div className="marquee-track whitespace-nowrap text-sm sm:text-base lg:text-lg font-semibold tracking-wide">
-    UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
-    &nbsp;&nbsp;&nbsp;
-    UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
-  </div>
-</div>
-
-
-
+      {/* Bottom Marquee */}
+      <div className="absolute bottom-8 sm:bottom-12 lg:bottom-14 left-0 w-full bg-primary text-black py-2 sm:py-3 lg:py-4 z-30">
+        <div className="marquee-track whitespace-nowrap text-sm sm:text-base lg:text-lg font-semibold tracking-wide">
+          UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
+          &nbsp;&nbsp;&nbsp;
+          UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
+        </div>
+      </div>
 
     </section>
   );
-} 
-
+}

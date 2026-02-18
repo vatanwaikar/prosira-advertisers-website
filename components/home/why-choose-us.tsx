@@ -45,22 +45,30 @@ export function WhyChooseUs() {
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
 
   useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.unobserve(entry.target); // trigger once only
         }
       },
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    observer.observe(element);
+
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 bg-secondary relative overflow-hidden">
-      {/* Animated background elements */}
+    <section
+      ref={sectionRef}
+      className="py-32 bg-secondary relative overflow-hidden"
+    >
+      {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float-slow" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float delay-700" />
@@ -68,9 +76,10 @@ export function WhyChooseUs() {
 
       <div className="site-container relative">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
           {/* Image Side */}
           <div
-            className="relative"
+            className="relative will-change-transform"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible ? "translateX(0)" : "translateX(-60px)",
@@ -79,54 +88,39 @@ export function WhyChooseUs() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden group">
               <Image
-                src="/images/services-bg.jpg"
+                src="/images/services-bg.jpg"   // convert to webp if possible
                 alt="Professional advertising team at work"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-contain transition-transform duration-700 group-hover:scale-110"
               />
+
               <div className="absolute inset-0 bg-gradient-to-tr from-background/90 via-background/40 to-primary/20" />
-              
-              {/* Overlay content */}
+
+              {/* Overlay */}
               <div className="absolute inset-0 flex items-end p-8">
                 <div className="glass rounded-xl p-6 w-full max-w-sm">
                   <div className="flex items-center gap-4">
-<div
-  className="
-    relative
-    w-16 h-16
-    rounded-full
-    flex items-center justify-center
-
-    bg-primary/90
-    backdrop-blur-[2px]
-
-    ring-1 ring-primary/30
-    shadow-[0_0_20px_rgba(212,175,55,0.25)]
-  "
->
-  <span className="
-    relative z-10
-    text-2xl
-    font-bold
-    text-primary-foreground
-  ">
-    10+
-  </span>
-</div>
+                    <div className="relative w-16 h-16 rounded-full flex items-center justify-center bg-primary/90 backdrop-blur-[2px] ring-1 ring-primary/30 shadow-[0_0_20px_rgba(212,175,55,0.25)]">
+                      <span className="relative z-10 text-2xl font-bold text-primary-foreground">
+                        10+
+                      </span>
+                    </div>
 
                     <div>
-                      <div className="font-semibold text-lg text-foreground">Years of Excellence</div>
-                      <div className="text-sm text-muted-foreground">Serving brands since 2016</div>
+                      <div className="font-semibold text-lg text-foreground">
+                        Years of Excellence
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        Serving brands since 2016
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-primary/30 rounded-2xl animate-spin-slow" />
-              
-
           </div>
 
           {/* Content Side */}
@@ -153,7 +147,9 @@ export function WhyChooseUs() {
             >
               <span className="text-foreground">Your Trusted</span>
               <br />
-              <span className="text-primary font-serif ">Media Partner</span>
+              <span className="text-primary font-serif">
+                Media Partner
+              </span>
             </h2>
 
             <p
@@ -164,16 +160,17 @@ export function WhyChooseUs() {
                 transition: "all 0.8s ease-out 400ms",
               }}
             >
-              We act as a true media partner, not just a service provider. Our
-              experienced team collaborates closely with clients to understand business
-              goals and translate them into powerful brand stories.
+              We act as a true media partner, not just a service provider.
+              Our experienced team collaborates closely with clients to
+              understand business goals and translate them into powerful
+              brand stories.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4">
               {features.map((feature, index) => (
                 <div
                   key={feature.title}
-                  className="group relative"
+                  className="group relative will-change-transform"
                   onMouseEnter={() => setActiveFeature(index)}
                   onMouseLeave={() => setActiveFeature(null)}
                   style={{
@@ -205,6 +202,7 @@ export function WhyChooseUs() {
                           }`}
                         />
                       </div>
+
                       <div>
                         <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors">
                           {feature.title}
@@ -225,7 +223,6 @@ export function WhyChooseUs() {
               ))}
             </div>
 
-            {/* CTA */}
             <div
               className="mt-10 ml-6"
               style={{

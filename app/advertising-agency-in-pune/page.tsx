@@ -5,12 +5,28 @@ export const metadata: Metadata = {
   title: "Advertising Agency in Pune | Prosira Advertisers",
   description:
     "Prosira Advertisers is a trusted advertising agency in Pune offering TV, radio, outdoor hoardings, digital marketing, branding, and event solutions for businesses across Pune.",
+  alternates: {
+    canonical: "/advertising-agency-in-pune",
+  },
+  openGraph: {
+    title: "Advertising Agency in Pune | Prosira Advertisers",
+    description:
+      "Full-service advertising agency in Pune providing TV, radio, outdoor, digital marketing and branding solutions.",
+    url: "/advertising-agency-in-pune",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Advertising Agency in Pune | Prosira Advertisers",
+    description:
+      "Trusted advertising agency in Pune delivering strategic and performance-driven campaigns.",
+  },
 };
 
 export default function AdvertisingAgencyPunePage() {
   return (
     <>
-      {/* ===== PAGE CONTENT ===== */}
       <section className="site-container py-20">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Advertising Agency in <span className="text-primary">Pune</span>
@@ -69,29 +85,49 @@ export default function AdvertisingAgencyPunePage() {
         </div>
       </section>
 
-      {/* ===== LOCAL BUSINESS SCHEMA (CITY PAGE) ===== */}
+      {/* ===== ENHANCED LOCAL BUSINESS + BREADCRUMB SCHEMA ===== */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "AdvertisingAgency",
-            "name": "Prosira Advertisers",
-            "url": "https://prosiraadvertisers.com/advertising-agency-in-pune",
-            "telephone": "+91-9028815714",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "3rd Floor, Patil Plaza, Swargate",
-              "addressLocality": "Pune",
-              "addressRegion": "MH",
-              "postalCode": "411037",
-              "addressCountry": "IN"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "AdvertisingAgency",
+              "name": "Prosira Advertisers",
+              "url": "https://prosiraadvertisers.com/advertising-agency-in-pune",
+              "telephone": "+91-9028815714",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "3rd Floor, Patil Plaza, Swargate",
+                "addressLocality": "Pune",
+                "addressRegion": "MH",
+                "postalCode": "411037",
+                "addressCountry": "IN"
+              },
+              "areaServed": {
+                "@type": "City",
+                "name": "Pune"
+              }
             },
-            "areaServed": {
-              "@type": "City",
-              "name": "Pune"
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://prosiraadvertisers.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Advertising Agency in Pune",
+                  "item": "https://prosiraadvertisers.com/advertising-agency-in-pune"
+                }
+              ]
             }
-          }),
+          ])
         }}
       />
     </>

@@ -8,8 +8,6 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-
-
 const navigation = [
   { name: "About Us", href: "/about-prosira-advertisers" },
   { name: "Services", href: "/traditional-services" },
@@ -17,7 +15,6 @@ const navigation = [
   { name: "Events & Expo", href: "/events-expo" },
   { name: "Our Work", href: "/work" },
   { name: "Contact Us", href: "/contact" },
-  
 ];
 
 export function Header() {
@@ -26,16 +23,25 @@ export function Header() {
   const [clickedPath, setClickedPath] = useState<string | null>(null);
   const pathname = usePathname();
 
+  /* 🔥 Smooth Scroll Performance */
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // clear optimistic state after route change
+  /* Clear clicked state on route change */
   useEffect(() => {
     setClickedPath(null);
   }, [pathname]);
@@ -44,146 +50,120 @@ export function Header() {
     return clickedPath === href || pathname === href;
   };
 
+  /* Lock body scroll when mobile menu open */
   useEffect(() => {
-  if (mobileMenuOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
-
-  return () => {
-    document.body.style.overflow = "";
-  };
-}, [mobileMenuOpen]);
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-  ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 py-0 shadow-lg shadow-black/10"
-  : "bg-transparent py-6"
-
+          ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 py-6 shadow-lg shadow-black/10"
+          : "bg-transparent py-6"
       )}
     >
-<nav className="site-container flex min-h-[72px] items-center justify-between">
+      <nav className="site-container flex min-h-[72px] items-center justify-between">
+
         {/* Logo */}
-<Link href="/" className="flex items-center gap-3 group">
-  <div className="relative flex items-center">
-    <Image
-      src="/logo.png"
-      alt="Prosira Advertisers Logo"
-      width={140}          // desktop size
-      height={50}
-      priority
-      className="
-        h-7 w-auto
-        md:h-9
-        lg:h-9
-        transition-transform duration-300
-        group-hover:scale-105
-      "
-    />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative flex items-center">
+            <Image
+              src="/logo.webp"
+              alt="Prosira Advertisers Logo"
+              width={140}
+              height={50}
+              priority
+              sizes="(max-width: 768px) 110px, 140px"
+              className="
+                h-7 w-auto
+                md:h-9
+                lg:h-9
+                transition-transform duration-300
+                group-hover:scale-105
+              "
+            />
+            <div className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-primary to-transparent transition-all duration-500 group-hover:w-full" />
+          </div>
+        </Link>
 
-    {/* underline animation (optional premium touch) */}
-    <div
-      className="
-        absolute -bottom-1 left-0
-        h-px w-0
-        bg-gradient-to-r from-primary to-transparent
-        transition-all duration-500
-        group-hover:w-full
-      "
-    />
-  </div>
-</Link>
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-6 ml-auto">
+          <div className="flex gap-x-1">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setClickedPath(item.href)}
+                className={cn(
+                  "relative px-5 py-3 text-sm font-medium transition-all duration-300 rounded-lg group",
+                  isActive(item.href)
+                    ? "text-primary"
+                    : "text-foreground/70 hover:text-foreground"
+                )}
+              >
+                <span className="relative z-10">{item.name}</span>
 
+                <div className="absolute inset-0 rounded-lg bg-primary/0 group-hover:bg-primary/10 transition-all duration-300" />
 
-      {/* Right side wrapper */}
-    <div className="hidden lg:flex items-center gap-6 ml-auto">
+                {isActive(item.href) && (
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
+                )}
 
-  {/* Desktop Navigation */}
-  <div className="flex gap-x-1">
-    {navigation.map((item) => (
-      <Link
-        key={item.name}
-        href={item.href}
-        onClick={() => setClickedPath(item.href)}
-        className={cn(
-          "relative px-5 py-3 text-sm font-medium transition-all duration-300 rounded-lg group",
-          isActive(item.href)
-            ? "text-primary"
-            : "text-foreground/70 hover:text-foreground"
-        )}
-      >
-        <span className="relative z-10">{item.name}</span>
+                <div className="absolute bottom-1 left-4 right-4 h-px bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              </Link>
+            ))}
+          </div>
 
-        <div className="absolute inset-0 rounded-lg bg-primary/0 group-hover:bg-primary/10 transition-all duration-300" />
+          {/* Call CTA */}
+          <a
+            href="tel:+919028815714"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 group"
+          >
+            <div className="w-10 h-10 rounded-full glass-gold flex items-center justify-center group-hover:animate-glow-pulse transition-all duration-300">
+              <Phone className="h-4 w-4 text-primary" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs text-muted-foreground">Call Us</span>
+              <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                +91 90288 15714
+              </span>
+            </div>
+          </a>
+        </div>
 
-        {isActive(item.href) && (
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
-        )}
-
-        <div className="absolute bottom-1 left-4 right-4 h-px bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-      </Link>
-    ))}
-  </div>
-
-  {/* CTA Section */}
-  <a
-    href="tel:+919028815714"
-    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 group"
-  >
-    <div className="w-10 h-10 rounded-full glass-gold flex items-center justify-center group-hover:animate-glow-pulse transition-all duration-300">
-      <Phone className="h-4 w-4 text-primary" />
-    </div>
-    <div className="flex flex-col">
-      <span className="text-xs text-muted-foreground">Call Us</span>
-      <span className="font-medium text-foreground group-hover:text-primary transition-colors">
-        +91 90288 15714
-      </span>
-    </div>
-  </a>
-
-</div>
-
-
-        {/* Mobile menu button */}
+        {/* Mobile Button */}
         <button
           type="button"
           className="lg:hidden w-10 h-10 rounded-lg glass-gold flex items-center justify-center text-foreground hover:text-primary transition-colors"
-onClick={() => {
-  setMobileMenuOpen((prev) => !prev);
-}}
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
         >
           <span className="sr-only">Toggle menu</span>
           <div className="relative w-5 h-4">
-            <span
-              className={cn(
-                "absolute left-0 w-5 h-0.5 bg-current transition-all duration-300",
-                mobileMenuOpen ? "top-1.5 rotate-45" : "top-0"
-              )}
-            />
-            <span
-              className={cn(
-                "absolute left-0 top-1.5 w-5 h-0.5 bg-current transition-all duration-300",
-                mobileMenuOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
-              )}
-            />
-            <span
-              className={cn(
-                "absolute left-0 w-5 h-0.5 bg-current transition-all duration-300",
-                mobileMenuOpen ? "top-1.5 -rotate-45" : "top-3"
-              )}
-            />
+            <span className={cn(
+              "absolute left-0 w-5 h-0.5 bg-current transition-all duration-300",
+              mobileMenuOpen ? "top-1.5 rotate-45" : "top-0"
+            )} />
+            <span className={cn(
+              "absolute left-0 top-1.5 w-5 h-0.5 bg-current transition-all duration-300",
+              mobileMenuOpen ? "opacity-0 scale-0" : "opacity-100 scale-100"
+            )} />
+            <span className={cn(
+              "absolute left-0 w-5 h-0.5 bg-current transition-all duration-300",
+              mobileMenuOpen ? "top-1.5 -rotate-45" : "top-3"
+            )} />
           </div>
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       <div
         className={cn(
-         "lg:hidden fixed inset-0 z-50 transition-all duration-500",
+          "lg:hidden fixed inset-0 z-50 transition-all duration-500",
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -211,9 +191,7 @@ onClick={() => {
                     : "text-foreground/80 hover:bg-primary/5 hover:text-primary"
                 )}
                 style={{
-                  transform: mobileMenuOpen
-                    ? "translateX(0)"
-                    : "translateX(-20px)",
+                  transform: mobileMenuOpen ? "translateX(0)" : "translateX(-20px)",
                   opacity: mobileMenuOpen ? 1 : 0,
                   transitionDelay: `${index * 50}ms`,
                 }}
@@ -232,27 +210,14 @@ onClick={() => {
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground">
-                    Call Us Now
-                  </div>
+                  <div className="text-sm text-muted-foreground">Call Us Now</div>
                   <div className="text-lg font-semibold text-foreground">
                     +91 90288 15714
                   </div>
                 </div>
               </a>
-
-              {/* <Button
-                asChild
-                className="w-full mt-4 bg-primary text-primary-foreground h-14 text-lg"
-              >
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Get a Quote
-                </Link>
-              </Button> */}
             </div>
+
           </div>
         </div>
       </div>

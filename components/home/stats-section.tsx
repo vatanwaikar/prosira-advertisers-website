@@ -20,22 +20,37 @@ function AnimatedCounter({
   inView: boolean;
 }) {
   const [count, setCount] = useState(0);
+  const frameRef = useRef<number | null>(null);
+  const startedRef = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || startedRef.current) return;
+
+    startedRef.current = true;
 
     const duration = 2500;
     let startTime: number;
 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
+
       const progress = Math.min((currentTime - startTime) / duration, 1);
       const easeOut = 1 - Math.pow(1 - progress, 3);
+
       setCount(Math.floor(easeOut * value));
-      if (progress < 1) requestAnimationFrame(animate);
+
+      if (progress < 1) {
+        frameRef.current = requestAnimationFrame(animate);
+      }
     };
 
-    requestAnimationFrame(animate);
+    frameRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    };
   }, [inView, value]);
 
   return (
@@ -51,16 +66,21 @@ export function StatsSection() {
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setInView(true);
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.unobserve(entry.target); // ✅ trigger once only
+        }
       },
       { threshold: 0.3 }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    observer.observe(element);
+
     return () => observer.disconnect();
   }, []);
 
@@ -71,12 +91,11 @@ export function StatsSection() {
       <div className="absolute pointer-events-none inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
       <div className="relative site-container">
-        {/* ✅ MOBILE FIX: grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className="relative group"
+              className="relative group will-change-transform"
               style={{
                 opacity: inView ? 1 : 0,
                 transform: inView
@@ -87,32 +106,14 @@ export function StatsSection() {
                 }ms`,
               }}
             >
-              {/* HOVER GLOW */}
               <div className="absolute -inset-0.5 z-0 rounded-2xl bg-gradient-to-r from-primary/30 to-primary/10 blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* CARD */}
-              <div
-                className="
-                  relative z-10
-                  bg-card/60 backdrop-blur-sm
-                  rounded-2xl
-                  p-6 md:p-8
-                  border border-border/50
-                  transition-all duration-500
-                  min-h-[220px]
-                  flex flex-col
-
-                  group-hover:-translate-y-3
-                  group-hover:scale-[1.03]
-                  group-hover:border-primary/40
-                "
-              >
-                {/* ICON */}
+              <div className="relative z-10 bg-card/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-border/50 transition-all duration-500 min-h-[220px] flex flex-col group-hover:-translate-y-3 group-hover:scale-[1.03] group-hover:border-primary/40">
+                
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <stat.icon className="w-7 h-7 text-primary" />
                 </div>
 
-                {/* VALUE */}
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-1 leading-tight">
                   <AnimatedCounter
                     value={stat.value}
@@ -121,12 +122,10 @@ export function StatsSection() {
                   />
                 </div>
 
-                {/* LABEL */}
                 <div className="text-sm sm:text-base text-muted-foreground leading-snug break-words">
                   {stat.label}
                 </div>
 
-                {/* DECORATIVE LINE */}
                 <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </div>
