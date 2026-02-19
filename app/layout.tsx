@@ -1,4 +1,4 @@
-// app/layout.tsx - PRODUCTION SAFE VERSION
+// app/layout.tsx
 import React from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
@@ -10,56 +10,46 @@ import { Footer } from "@/components/footer";
 import { CustomCursor } from "@/components/custom-cursor";
 import { Providers } from "./Providers";
 import ScrollToTop from "@/components/ScrollToTop";
-import ScrollSafety from "@/components/ScrollSafety";
-import ScrollFailsafe from "@/components/ScrollFailsafe";
 
-/* ---------- FONTS (CLS SAFE) ---------- */
+/* ---------- FONTS ---------- */
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-  preload: true,
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
   display: "swap",
-  preload: true,
 });
 
-/* ---------- VIEWPORT (SEO + MOBILE SAFE) ---------- */
+/* ---------- VIEWPORT ---------- */
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 /* ---------- SEO METADATA ---------- */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://prosiraadvertisers.com"),
+  metadataBase: new URL("https://prosira.in"),
 
   title: {
     default:
-      "Prosira Advertisers | 360° Advertising & Media Solutions in Pune",
+      "Prosira Advertisers - Top Digital Marketing & Advertising Agency in Pune | SEO & Ads",
     template: "%s | Prosira Advertisers",
   },
 
   description:
-    "Prosira Advertisers is a leading advertising agency in Pune offering TV, radio, outdoor advertising, digital marketing, event management, and brand solutions across Maharashtra.",
+    "Trusted Digital Marketing & Advertising Experts in Pune delivering leads, visibility & brand growth through SEO, Google Ads, performance marketing and 360° advertising solutions.",
 
   keywords: [
-    "advertising agency in Pune",
-    "media agency Pune",
-    "digital marketing agency Pune",
-    "outdoor advertising Pune",
-    "event management Pune",
-    "branding agency Maharashtra",
+    "digital marketing agency in Pune",
+    "advertising agency Pune",
+    "SEO services Pune",
+    "Google Ads agency Pune",
+    "media planning and buying Pune",
   ],
-
-  authors: [{ name: "Prosira Advertisers" }],
-  creator: "Prosira Advertisers",
-  publisher: "Prosira Advertisers",
 
   openGraph: {
     type: "website",
@@ -67,37 +57,33 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Prosira Advertisers",
     title:
-      "Prosira Advertisers | 360° Advertising & Media Solutions in Pune",
+      "Prosira Advertisers - Top Digital Marketing & Advertising Agency in Pune",
     description:
-      "Full-service advertising, media, and event solutions company delivering strategic, creative, and performance-driven campaigns in Pune and Maharashtra.",
+      "Trusted Digital Marketing & Advertising Experts in Pune delivering measurable growth.",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Prosira Advertisers - Digital Marketing Agency in Pune",
+      },
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title:
-      "Prosira Advertisers | 360° Advertising & Media Solutions in Pune",
-    description:
-      "Full-service advertising, media, and event solutions company in Pune.",
+    images: ["/opengraph-image.png"],
+  },
+
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-
-  referrer: "origin-when-cross-origin",
-
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
   },
 };
 
@@ -111,81 +97,53 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable}`}
-      suppressHydrationWarning
     >
       <body className="font-sans antialiased bg-background text-foreground min-h-screen overflow-x-hidden">
         <Providers>
-          {/* UX SAFETY */}
-          <ScrollSafety />
-          <ScrollFailsafe />
-
-          {/* DESKTOP CURSOR */}
           <CustomCursor />
 
-          <div className="flex flex-col min-h-screen w-full">
-            {/* HEADER */}
+          <div className="flex flex-col min-h-screen">
             <Header />
 
-            {/* MAIN CONTENT */}
-            <main
-              id="app-scroll-root"
-              className="flex-1 pt-[80px] lg:pt-[96px]"
-            >
+            <main className="flex-1 pt-[80px] lg:pt-[96px]">
               {children}
             </main>
 
-            {/* FOOTER */}
             <Footer />
           </div>
 
           <ScrollToTop />
           <Analytics />
 
-          {/* SCHEMA (SAFE JSON INJECTION) */}
+          {/* LOCAL BUSINESS SCHEMA */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify([
-                {
-                  "@context": "https://schema.org",
-                  "@type": "AdvertisingAgency",
-                  name: "Prosira Advertisers",
-                  url: "https://prosiraadvertisers.com",
-                  telephone: "+91-9028815714",
-                  logo: "https://prosiraadvertisers.com/logo.png",
-                  address: {
-                    "@type": "PostalAddress",
-                    streetAddress:
-                      "3rd Floor, Patil Plaza, Swargate",
-                    addressLocality: "Pune",
-                    addressRegion: "MH",
-                    postalCode: "411037",
-                    addressCountry: "IN",
-                  },
-                  areaServed: {
-                    "@type": "AdministrativeArea",
-                    name: "Maharashtra",
-                  },
-                  sameAs: [
-                    "https://www.instagram.com/",
-                    "https://www.facebook.com/",
-                    "https://www.linkedin.com/",
-                  ],
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "AdvertisingAgency",
+                name: "Prosira Advertisers",
+                url: "https://prosira.in",
+                logo: "https://prosira.in/logo.png",
+                image: "https://prosira.in/opengraph-image.png",
+                telephone: "+91-9028815714",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress:
+                    "3rd Floor, Patil Plaza, Swargate",
+                  addressLocality: "Pune",
+                  addressRegion: "Maharashtra",
+                  postalCode: "411037",
+                  addressCountry: "IN",
                 },
-                {
-                  "@context": "https://schema.org",
-                  "@type": "WebSite",
-                  name: "Prosira Advertisers",
-                  url: "https://prosiraadvertisers.com",
-                  potentialAction: {
-                    "@type": "SearchAction",
-                    target:
-                      "https://prosiraadvertisers.com/search?q={search_term_string}",
-                    "query-input":
-                      "required name=search_term_string",
-                  },
-                },
-              ]),
+                areaServed: "Maharashtra",
+                openingHours: "Mo-Sa 10:00-18:00",
+                sameAs: [
+                  "https://www.instagram.com/prosira_advertisers",
+                  "https://www.linkedin.com/company/prosiraadvertisers",
+                  "https://www.facebook.com/share/1DnoEvbjBx/",
+                ],
+              }),
             }}
           />
         </Providers>

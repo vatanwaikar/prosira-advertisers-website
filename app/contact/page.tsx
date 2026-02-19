@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Contact Prosira Advertisers - Get a Free Quote",
     description:
       "Contact our advertising experts for a  consultation. We offer TV, radio, digital marketing, and event management services in Pune.",
-    url: "https://prosiraadvertisers.com/contact",
+    url: "https://prosira.in/contact",
   },
 };
 

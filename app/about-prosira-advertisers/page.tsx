@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "About Prosira Advertisers – Advertising Agency in Pune",
     description:
       "Discover Prosira Advertisers, a full-service advertising and media agency delivering impactful campaigns in Pune and Maharashtra.",
-    url: "https://prosiraadvertisers.com/about-prosira-advertisers",
+    url: "https://prosira.in/about-prosira-advertisers",
   },
 };
 

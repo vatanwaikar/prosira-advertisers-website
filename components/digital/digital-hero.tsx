@@ -29,7 +29,8 @@ export function DigitalHero() {
       ref={heroRef}
       className="relative pt-32 pb-20 bg-gradient-to-b from-secondary to-background overflow-hidden"
     >
-      <div className="site-container">
+      <div className="site-container relative z-10">
+        
         {/* Breadcrumb */}
         <nav
           data-animate
@@ -44,27 +45,30 @@ export function DigitalHero() {
         </nav>
 
         <div className="max-w-4xl">
+          
           <span
             data-animate
             className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
-           Digital Marketing, Performance Advertising & Website Development Services
+            Digital Marketing, Performance Advertising & Website Development Services
           </span>
 
           <h1
             data-animate
-            className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance"
           >
-           We provide end-to-end digital marketing, performance advertising, and website development services  {" "}
-            {/* <span className="text-primary font-serif ">Pune</span> */}
+            End-to-End Digital Marketing & Performance Advertising Solutions
           </h1>
 
           <p
             data-animate
             className="f-reveal text-xl text-muted-foreground leading-relaxed"
           >
-            designed to help brands grow faster online. Our integrated approach combines SEO, paid advertising, social media strategy, and high-performance website development to increase visibility on Google, generate quality leads, and deliver measurable ROI.
+            We provide integrated digital marketing services including SEO, paid advertising,
+            social media strategy, and high-performance website development to improve
+            Google visibility, generate quality leads, and deliver measurable ROI.
           </p>
+
         </div>
       </div>
     </section>

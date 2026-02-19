@@ -358,10 +358,10 @@ const services = [
 
 export function DigitalServicesList() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [openId, setOpenId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [openId, setOpenId] = useState<string | null>(null);
 
-
+  /* ---------- REVEAL ANIMATION ---------- */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -384,114 +384,120 @@ export function DigitalServicesList() {
     return () => observer.disconnect();
   }, []);
 
- useEffect(() => {
-  const container = scrollRef.current;
-  if (!container) return;
+  /* ---------- INFINITE SCROLL LOOP ---------- */
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
 
-  const setInitialPosition = () => {
-    const half = container.scrollWidth / 2;
-    container.scrollLeft = half / 2;
-  };
+    const setInitialPosition = () => {
+      const half = container.scrollWidth / 2;
+      container.scrollLeft = half / 2;
+    };
 
-  requestAnimationFrame(setInitialPosition);
-  setTimeout(setInitialPosition, 50); // safety
+    requestAnimationFrame(setInitialPosition);
+    setTimeout(setInitialPosition, 50);
 
-  const handleScroll = () => {
-    const half = container.scrollWidth / 2;
-    const current = container.scrollLeft;
+    const handleScroll = () => {
+      const half = container.scrollWidth / 2;
+      const current = container.scrollLeft;
 
-    if (current > half + 200) {
-      container.scrollLeft = current - half;
-    }
+      if (current > half + 200) {
+        container.scrollLeft = current - half;
+      }
 
-    if (current < 200) {
-      container.scrollLeft = current + half;
-    }
-  };
+      if (current < 200) {
+        container.scrollLeft = current + half;
+      }
+    };
 
-  container.addEventListener("scroll", handleScroll, { passive: true });
-  return () => container.removeEventListener("scroll", handleScroll);
-}, []);
-
-
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section ref={sectionRef} className="py-24 bg-background">
       <div className="site-container">
-        
-        <div  ref={scrollRef}
-        className="
-    relative flex gap-6 overflow-x-auto pb-6
-    snap-none
-    scrollbar-hide
-  ">
+
+        <div
+          ref={scrollRef}
+          className="
+            relative flex gap-6 overflow-x-auto pb-6
+            scrollbar-hide
+            scroll-smooth
+          "
+          style={{ willChange: "scroll-position" }}
+        >
           {/* LEFT FADE */}
-<div className="pointer-events-none absolute left-0 top-0 h-full w-10 
-  bg-gradient-to-r from-background to-transparent z-20" />
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-background to-transparent z-20" />
 
-{/* RIGHT FADE */}
-<div className="pointer-events-none absolute right-0 top-0 h-full w-14 
-  bg-gradient-to-l from-background to-transparent z-20" />
+          {/* RIGHT FADE */}
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-14 bg-gradient-to-l from-background to-transparent z-20" />
 
-         {[...services, ...services].map((service, index) => {
-
+          {[...services, ...services].map((service, index) => {
             const isOpen = openId === service.id;
 
             return (
               <Card
-  key={`${service.id}-${index}`}
-  data-animate
-  style={{ animationDelay: `${index * 120}ms` }}
-  className="
-    snap-start
-    w-full sm:w-1/2 md:w-1/2 lg:w-1/2 flex-shrink-0
-    group relative bg-card border border-border overflow-hidden
-    transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]
-    hover:-translate-y-3 hover:scale-[1.02]
-    hover:shadow-[0_25px_60px_-20px_rgba(212,175,55,0.45)]
-  "
->
-
+                key={`${service.id}-${index}`}
+                data-animate
+                style={{
+                  animationDelay: `${index * 120}ms`,
+                  willChange: "transform",
+                }}
+                className="
+                  w-full sm:w-1/2 lg:w-1/2 flex-shrink-0
+                  group relative bg-card border border-border overflow-hidden
+                  transition-all duration-700 ease-out
+                  hover:-translate-y-2 hover:scale-[1.02]
+                  hover:shadow-[0_20px_50px_-20px_rgba(212,175,55,0.35)]
+                "
+              >
                 {/* GOLD LIGHT */}
-                <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
 
                 <CardContent className="relative z-10 p-8 space-y-5">
-                  <div className="p-4 rounded-xl w-fit mb-4 bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-black group-hover:-translate-y-1.5 group-hover:scale-110">
+                  {/* ICON */}
+                  <div className="p-4 rounded-xl w-fit mb-4 bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-black group-hover:-translate-y-1 group-hover:scale-110">
                     <service.icon className="h-6 w-6" />
                   </div>
 
+                  {/* TITLE */}
                   <h2 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                     {service.title}
                   </h2>
 
+                  {/* DESCRIPTION */}
                   <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                     {service.description}
                   </p>
 
-                 <button
-  onClick={() => setOpenId(isOpen ? null : service.id)}
-  className="
-    inline-flex items-center justify-center
-    h-7 w-7 rounded-full
-    text-primary border border-primary/30
-    transition-all hover:bg-primary hover:text-black
-    mt-2
-  "
-  aria-label="Toggle details"
->
-  <ChevronDown
-    className={`h-4 w-4 transition-transform ${
-      isOpen ? "rotate-180" : ""
-    }`}
-  />
-</button>
- 
+                  {/* TOGGLE */}
+                  <button
+                    onClick={() => setOpenId(isOpen ? null : service.id)}
+                    className="
+                      inline-flex items-center justify-center
+                      h-7 w-7 rounded-full
+                      text-primary border border-primary/30
+                      transition-all hover:bg-primary hover:text-black
+                      mt-2
+                    "
+                    aria-label="Toggle details"
+                  >
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
 
-                  {/* EXPAND */}
+                  {/* ACCORDION */}
                   <div
-                    className={`overflow-hidden transition-all duration-700 ease-out ${
-                      isOpen ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
+                    className={`overflow-hidden transition-all duration-500 ease-out ${
+                      isOpen
+                        ? "max-h-[700px] opacity-100"
+                        : "max-h-0 opacity-0"
                     }`}
+                    style={{ willChange: "max-height, opacity" }}
                   >
                     <div className="pt-4 border-t border-border space-y-4">
                       <p className="text-sm text-muted-foreground">
@@ -512,6 +518,7 @@ export function DigitalServicesList() {
                     </div>
                   </div>
 
+                  {/* FEATURES */}
                   <div className="pt-4 border-t border-border mt-6">
                     <h3 className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
                       What We Offer
@@ -533,20 +540,15 @@ export function DigitalServicesList() {
             );
           })}
         </div>
-        {/* SCROLL INDICATOR DOTS (MOBILE ONLY) */}
-<div className="flex justify-center gap-2 mt-6 sm:hidden">
-  {[1, 2, 3].map((i) => (
-    <span
-      key={i}
-      className={`h-1.5 rounded-full transition-all
-        ${i === 1 ? "w-8 bg-primary" : "w-5 bg-primary/30"}
-      `}
-    />
-  ))}
-</div>
+
+        {/* MOBILE DOTS */}
+        <div className="flex justify-center gap-2 mt-6 sm:hidden">
+          <span className="h-1.5 w-8 bg-primary rounded-full" />
+          <span className="h-1.5 w-5 bg-primary/30 rounded-full" />
+          <span className="h-1.5 w-5 bg-primary/30 rounded-full" />
+        </div>
 
       </div>
-      
     </section>
   );
 }

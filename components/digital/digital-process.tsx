@@ -5,11 +5,11 @@ import gsap from "gsap";
 import * as THREE from "three";
 
 const steps = [
-  { title: "Discovery & Research", description: "Understanding goals & audience." },
-  { title: "Strategy Development", description: "Building KPI roadmap." },
-  { title: "Implementation", description: "Executing campaigns." },
-  { title: "Monitor & Optimize", description: "Performance tuning." },
-  { title: "Report & Scale", description: "Insights & growth." },
+  { title: "Discovery & Research", description: "Understanding business goals, competitors, and target audience deeply before launching any campaign." },
+  { title: "Strategy Development", description: "Building a KPI-focused roadmap aligned with ROI, lead generation, and measurable growth." },
+  { title: "Implementation", description: "Executing high-performance campaigns across search, social, and web platforms." },
+  { title: "Monitor & Optimize", description: "Continuous performance tuning using real-time analytics and conversion tracking." },
+  { title: "Report & Scale", description: "Detailed reporting, insights, and smart scaling strategies for long-term success." },
 ];
 
 export default function DigitalProcess() {
@@ -21,16 +21,16 @@ export default function DigitalProcess() {
   const draggingRef = useRef(false);
   const lastXRef = useRef(0);
 
-  /* ================= THREE.JS PARTICLES (SAFE) ================= */
+  /* ================= THREE PARTICLES ================= */
   useEffect(() => {
     if (!canvasRef.current || !containerRef.current) return;
 
     const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 100 : 220;
+    const particleCount = isMobile ? 120 : 260;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, 1, 1, 1000);
-    camera.position.z = 180;
+    camera.position.z = 200;
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
@@ -41,7 +41,7 @@ export default function DigitalProcess() {
 
     const resize = () => {
       const w = containerRef.current!.offsetWidth || 300;
-      const h = containerRef.current!.offsetHeight || 420;
+      const h = containerRef.current!.offsetHeight || 500;
       renderer.setSize(w, h);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
@@ -53,13 +53,13 @@ export default function DigitalProcess() {
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     for (let i = 0; i < positions.length; i++) {
-      positions[i] = (Math.random() - 0.5) * 260;
+      positions[i] = (Math.random() - 0.5) * 300;
     }
     geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
     const material = new THREE.PointsMaterial({
       color: 0xd4af37,
-      size: isMobile ? 1.1 : 1.6,
+      size: isMobile ? 1.2 : 1.8,
     });
 
     const points = new THREE.Points(geometry, material);
@@ -67,7 +67,7 @@ export default function DigitalProcess() {
 
     let raf: number;
     const animate = () => {
-      points.rotation.y += 0.00035;
+      points.rotation.y += 0.0005;
       renderer.render(scene, camera);
       raf = requestAnimationFrame(animate);
     };
@@ -82,9 +82,9 @@ export default function DigitalProcess() {
     };
   }, []);
 
-  /* ================= CARD POSITIONING ================= */
+  /* ================= CARD POSITION ================= */
   const updateCards = () => {
-    const radius = window.innerWidth < 768 ? 190 : 280;
+    const radius = window.innerWidth < 768 ? 230 : 350;
 
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
@@ -97,21 +97,21 @@ export default function DigitalProcess() {
       gsap.to(card, {
         x,
         z,
-        scale: isFront ? 1.1 : 0.85,
-        opacity: isFront ? 1 : 0.45,
-        filter: `blur(${isFront ? 0 : 3}px)`,
-        duration: 0.45,
+        scale: isFront ? 1.15 : 0.85,
+        opacity: isFront ? 1 : 0.35,
+        filter: `blur(${isFront ? 0 : 4}px)`,
+        duration: 0.6,
         overwrite: true,
       });
     });
   };
 
-  /* ================= AUTO ROTATE (NO RE-RENDER) ================= */
+  /* ================= AUTO ROTATE ================= */
   useEffect(() => {
     let raf: number;
     const loop = () => {
       if (!draggingRef.current) {
-        angleRef.current -= 0.0013;
+        angleRef.current -= 0.0025; // faster
         updateCards();
       }
       raf = requestAnimationFrame(loop);
@@ -120,64 +120,74 @@ export default function DigitalProcess() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
-  /* ================= DRAG CONTROL ================= */
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
+  /* ================= DRAG (SCROLL SAFE) ================= */
+useEffect(() => {
+  const el = containerRef.current;
+  if (!el) return;
 
-    const start = (e: PointerEvent) => {
+  let isHorizontalDrag = false;
+
+  const start = (e: PointerEvent) => {
+    draggingRef.current = false; // not immediately true
+    lastXRef.current = e.clientX;
+  };
+
+  const move = (e: PointerEvent) => {
+    const deltaX = e.clientX - lastXRef.current;
+    const deltaY = Math.abs(e.movementY);
+
+    // Detect horizontal intent only
+    if (Math.abs(deltaX) > 5 && Math.abs(deltaX) > deltaY) {
+      isHorizontalDrag = true;
       draggingRef.current = true;
-      lastXRef.current = e.clientX;
-      el.style.cursor = "grabbing";
-    };
+    }
 
-    const move = (e: PointerEvent) => {
-      if (!draggingRef.current) return;
-      const delta = e.clientX - lastXRef.current;
-      angleRef.current += delta * 0.0035;
-      lastXRef.current = e.clientX;
-      updateCards();
-    };
+    if (!isHorizontalDrag) return;
 
-    const end = () => {
-      draggingRef.current = false;
-      el.style.cursor = "grab";
-    };
+    angleRef.current += deltaX * 0.004;
+    lastXRef.current = e.clientX;
+    updateCards();
+  };
 
-    el.addEventListener("pointerdown", start);
-    el.addEventListener("pointermove", move);
-    el.addEventListener("pointerup", end);
-    el.addEventListener("pointerleave", end);
+  const end = () => {
+    draggingRef.current = false;
+    isHorizontalDrag = false;
+  };
 
-    return () => {
-      el.removeEventListener("pointerdown", start);
-      el.removeEventListener("pointermove", move);
-      el.removeEventListener("pointerup", end);
-      el.removeEventListener("pointerleave", end);
-    };
-  }, []);
+  el.addEventListener("pointerdown", start);
+  el.addEventListener("pointermove", move);
+  el.addEventListener("pointerup", end);
+  el.addEventListener("pointerleave", end);
+
+  return () => {
+    el.removeEventListener("pointerdown", start);
+    el.removeEventListener("pointermove", move);
+    el.removeEventListener("pointerup", end);
+    el.removeEventListener("pointerleave", end);
+  };
+}, []);
+
 
   /* ================= RENDER ================= */
   return (
-    <section className="relative bg-secondary min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      <header className="text-center mb-10 z-10">
-        <h2 className="text-3xl md:text-4xl font-bold">
-          How We Drive <span className="text-primary font-serif">Digital Success</span>
+    <section className="relative bg-secondary py-28 overflow-hidden">
+      <header className="text-center mb-16 z-10 relative">
+        <h2 className="text-4xl md:text-5xl font-bold">
+          Our <span className="text-primary font-serif">Digital Process</span>
         </h2>
-        <p className="text-muted-foreground mt-3 max-w-xl site-container">
-          Our proven process ensures measurable growth across every campaign.
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          A premium, performance-driven approach designed to maximize ROI and accelerate digital growth.
         </p>
       </header>
 
       <canvas
         ref={canvasRef}
-        aria-hidden="true"
         className="absolute inset-0 w-full h-full pointer-events-none opacity-50"
       />
 
       <div
         ref={containerRef}
-        className="relative z-10 w-full max-w-5xl h-[420px] flex items-start justify-center pt-6 perspective-[1100px] cursor-grab"
+        className="relative z-10 w-full max-w-6xl mx-auto h-[520px] flex items-start justify-center perspective-[1400px] cursor-grab"
       >
         <div className="relative w-0 h-0 preserve-3d">
           {steps.map((step, i) => (
@@ -186,10 +196,21 @@ export default function DigitalProcess() {
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="absolute w-full max-w-[230px] p-6 rounded-xl border bg-background/80 backdrop-blur-md shadow-xl text-center"
+              className="
+                absolute w-[340px] md:w-[420px]
+                p-10 rounded-3xl
+                bg-black/60 backdrop-blur-xl
+                border border-primary/30
+                shadow-[0_20px_60px_-10px_rgba(212,175,55,0.35)]
+                text-center
+              "
             >
-              <h3 className="font-bold mb-2">{step.title}</h3>
-              <p className="text-sm text-muted-foreground">{step.description}</p>
+              <h3 className="text-2xl font-bold text-primary mb-4">
+                {step.title}
+              </h3>
+              <p className="text-base text-gray-300 leading-relaxed">
+                {step.description}
+              </p>
             </article>
           ))}
         </div>

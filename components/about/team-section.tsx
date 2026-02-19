@@ -43,7 +43,10 @@ export function TeamSection() {
           }
         });
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
     );
 
     const elements = sectionRef.current?.querySelectorAll("[data-animate]");
@@ -55,7 +58,7 @@ export function TeamSection() {
   return (
     <section ref={sectionRef} className="py-24 bg-background">
       <div className="site-container">
-        
+
         {/* Heading */}
         <div className="text-center max-w-3xl site-container mb-20">
           <span
@@ -131,7 +134,6 @@ export function TeamSection() {
               </div>
             );
 
-            // 👇 Only first card clickable
             if (index === 0) {
               return (
                 <Link key={item.title} href="/team">

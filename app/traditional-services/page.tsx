@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Advertising Services - Prosira Advertisers",
     description:
       "TV, Radio, Outdoor, Print, Cinema advertising and more. Full-service traditional media solutions in Pune.",
-    url: "https://prosiraadvertisers.com/traditional-services",
+    url: "https://prosira.in/traditional-services",
   },
 };
 

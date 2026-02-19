@@ -90,7 +90,7 @@ export default function HoardingAdvertisingPunePage() {
             "provider": {
               "@type": "AdvertisingAgency",
               "name": "Prosira Advertisers",
-              "url": "https://prosiraadvertisers.com"
+              "url": "https://prosira.in"
             },
             "areaServed": {
               "@type": "City",

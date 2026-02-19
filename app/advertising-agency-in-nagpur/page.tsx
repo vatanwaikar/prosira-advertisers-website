@@ -89,7 +89,7 @@ export default function AdvertisingAgencyNagpurPage() {
               "@context": "https://schema.org",
               "@type": "AdvertisingAgency",
               "name": "Prosira Advertisers",
-              "url": "https://prosiraadvertisers.com/advertising-agency-in-nagpur",
+              "url": "https://prosira.in/advertising-agency-in-nagpur",
               "telephone": "+91-9028815714",
               "areaServed": {
                 "@type": "City",
@@ -104,13 +104,13 @@ export default function AdvertisingAgencyNagpurPage() {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://prosiraadvertisers.com"
+                  "item": "https://prosira.in"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Advertising Agency in Nagpur",
-                  "item": "https://prosiraadvertisers.com/advertising-agency-in-nagpur"
+                  "item": "https://prosira.in/advertising-agency-in-nagpur"
                 }
               ]
             }

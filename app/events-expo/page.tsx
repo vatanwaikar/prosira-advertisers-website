@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Events & Expo Management - Prosira Advertisers",
     description:
       "Professional event management services for corporate events, product launches, exhibitions, and brand activations in Pune.",
-    url: "https://prosiraadvertisers.com/events-expo",
+    url: "https://prosira.in/events-expo",
   },
 };
 

@@ -94,7 +94,7 @@ export default function AdvertisingAgencyPunePage() {
               "@context": "https://schema.org",
               "@type": "AdvertisingAgency",
               "name": "Prosira Advertisers",
-              "url": "https://prosiraadvertisers.com/advertising-agency-in-pune",
+              "url": "https://prosira.in/advertising-agency-in-pune",
               "telephone": "+91-9028815714",
               "address": {
                 "@type": "PostalAddress",
@@ -117,13 +117,13 @@ export default function AdvertisingAgencyPunePage() {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://prosiraadvertisers.com"
+                  "item": "https://prosira.in"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Advertising Agency in Pune",
-                  "item": "https://prosiraadvertisers.com/advertising-agency-in-pune"
+                  "item": "https://prosira.in/advertising-agency-in-pune"
                 }
               ]
             }

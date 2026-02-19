@@ -17,7 +17,7 @@ function FloatingParticle({
 }) {
   return (
     <div
-      className="absolute pointer-events-none"
+      className="absolute pointer-events-none will-change-transform"
       style={{
         left: `${left}%`,
         bottom: "-40px",
@@ -47,12 +47,11 @@ function FloatingParticle({
 export function TraditionalHero() {
   const heroRef = useRef<HTMLDivElement>(null);
 
-  /* particles – client only */
   const [particles, setParticles] = useState<
     { delay: number; size: number; left: number; duration: number }[]
   >([]);
 
-  /* reveal animation observer */
+  /* Reveal Observer */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -62,7 +61,10 @@ export function TraditionalHero() {
           }
         });
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
     );
 
     const elements = heroRef.current?.querySelectorAll("[data-animate]");
@@ -71,7 +73,7 @@ export function TraditionalHero() {
     return () => observer.disconnect();
   }, []);
 
-  /* generate floating particles */
+  /* Generate Particles */
   useEffect(() => {
     const generated = Array.from({ length: 24 }, (_, i) => ({
       delay: i * 0.8,
@@ -88,22 +90,21 @@ export function TraditionalHero() {
       ref={heroRef}
       className="relative pt-32 pb-24 bg-gradient-to-b from-secondary to-background overflow-hidden"
     >
-      {/* AMBIENT BLOBS */}
+      {/* Ambient blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-24 left-16 w-72 h-72 bg-primary/10 rounded-full blur-3xl float-slow" />
         <div className="absolute bottom-32 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl float-slow" />
       </div>
 
-      {/* FLOATING PARTICLES */}
+      {/* Floating particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-[5]">
         {particles.map((p, i) => (
           <FloatingParticle key={i} {...p} />
         ))}
       </div>
 
-      {/* CONTENT */}
+      {/* Content */}
       <div className="relative z-10 site-container">
-        {/* Breadcrumb */}
         <nav
           data-animate
           className="f-reveal flex items-center gap-2 text-sm text-muted-foreground mb-8"
@@ -113,7 +114,9 @@ export function TraditionalHero() {
             Home
           </Link>
           <span>/</span>
-          <span className="text-foreground">Advertising Services</span>
+          <span className="text-foreground">
+            Advertising Services
+          </span>
         </nav>
 
         <div className="max-w-4xl">
@@ -121,22 +124,24 @@ export function TraditionalHero() {
             data-animate
             className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
-             Our Advertising & Media Services
+            Our Advertising & Media Services
           </span>
 
           <h1
             data-animate
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            We are a full-service media planning, buying, and advertising agency {" "}
-            {/* <span className="text-primary font-serif ">Pune</span> */}
+            We are a full-service media planning, buying, and advertising agency
           </h1>
 
           <p
             data-animate
             className="f-reveal text-xl text-muted-foreground leading-relaxed"
           >
-           delivering integrated campaigns across traditional, digital, and on-ground platforms. Our strategies are designed to maximize reach, improve brand visibility, and generate measurable business growth through high-impact media execution.
+            Delivering integrated campaigns across traditional, digital,
+            and on-ground platforms. Our strategies are designed to maximize
+            reach, improve brand visibility, and generate measurable
+            business growth through high-impact media execution.
           </p>
         </div>
       </div>

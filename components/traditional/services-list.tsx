@@ -260,6 +260,7 @@ export function ServicesList() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [openId, setOpenId] = useState<string | null>(null);
 
+  /* Reveal Observer (optimized) */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -273,7 +274,10 @@ export function ServicesList() {
           }
         });
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -60px 0px",
+      }
     );
 
     const elements = sectionRef.current?.querySelectorAll("[data-animate]");
@@ -302,6 +306,8 @@ export function ServicesList() {
               "
             >
               <CardContent className="relative p-8">
+
+                {/* Hover overlay */}
                 {!isOpen && (
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 backdrop-blur-[6px] bg-white/[0.02]" />
                 )}
@@ -312,16 +318,22 @@ export function ServicesList() {
                       <div className="p-4 rounded-xl bg-primary/10 text-primary">
                         <service.icon className="h-7 w-7" />
                       </div>
-                      <h2 className="text-2xl font-bold">{service.title}</h2>
+                      <h2 className="text-2xl font-bold">
+                        {service.title}
+                      </h2>
                     </div>
 
                     <p className="text-muted-foreground mb-6 leading-relaxed">
                       {service.description}
                     </p>
 
+                    {/* Toggle Button */}
                     <button
-                      onClick={() => setOpenId(isOpen ? null : service.id)}
-                      aria-label={isOpen ? "Hide details" : "Show details"}
+                      onClick={() =>
+                        setOpenId(isOpen ? null : service.id)
+                      }
+                      aria-expanded={isOpen}
+                      aria-controls={`details-${service.id}`}
                       className="
                         flex items-center justify-center
                         h-9 w-9 rounded-full
@@ -337,56 +349,25 @@ export function ServicesList() {
                         }`}
                       />
                     </button>
-
                   </div>
                 </div>
 
-                  {/* <div className="lg:border-l lg:border-border lg:pl-8">
-                    <h3 className="text-sm font-semibold text-primary uppercase mb-3">
-                      Use Cases
-                    </h3>
-                    <div className="space-y-3">
-                      {service.useCases.map((u) => (
-                        <div
-                          key={u}
-                          className="px-4 py-2 bg-secondary rounded-lg text-sm transition-all duration-500 hover:bg-primary/10 hover:text-primary hover:translate-x-2"
-                        >
-                          {u}
-                        </div>
-
-                  <button
-                    onClick={() => setOpenId(isOpen ? null : service.id)}
-                    aria-label={isOpen ? "Hide details" : "Show details"}
-                    className="
-                      flex items-center justify-center
-                      h-9 w-9 rounded-full
-                      border border-primary/30
-                      text-primary
-                      transition-all duration-300
-                      hover:bg-primary hover:text-black
-                    "
-                  >
-                    <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-
-                </div>
-
-                {/* FAST ACCORDION */}
+                {/* Accordion */}
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen
-                      ? "max-h-[600px] opacity-100 mt-8"
-                      : "max-h-0 opacity-0 mt-0"
-                  }`}
+                  id={`details-${service.id}`}
+                  className={`
+                    overflow-hidden
+                    transition-all duration-500 ease-in-out
+                    ${isOpen ? "max-h-[700px] opacity-100 mt-8" : "max-h-0 opacity-0"}
+                  `}
                 >
                   <div className="space-y-6">
+
                     {/* What It Does */}
                     <div className="bg-gradient-to-r from-primary/5 to-primary/10 p-4 rounded-lg border-l-4 border-primary">
-                      <h4 className="font-semibold text-primary mb-2">🎯 What It Does</h4>
+                      <h4 className="font-semibold text-primary mb-2">
+                        🎯 What It Does
+                      </h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {service.details.whatItDoes}
                       </p>
@@ -394,12 +375,16 @@ export function ServicesList() {
 
                     {/* Strengths */}
                     <div>
-                      <h4 className="font-semibold text-green-600 mb-3">✅ Key Benefits</h4>
+                      <h4 className="font-semibold text-green-600 mb-3">
+                        ✅ Key Benefits
+                      </h4>
                       <ul className="space-y-2">
                         {service.details.strengths.map((strength, idx) => (
                           <li key={idx} className="flex items-start gap-2">
                             <span className="text-green-500 mt-1">•</span>
-                            <span className="text-sm text-muted-foreground">{strength}</span>
+                            <span className="text-sm text-muted-foreground">
+                              {strength}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -408,21 +393,29 @@ export function ServicesList() {
                     {/* Considerations */}
                     {service.details.considerations && (
                       <div>
-                        <h4 className="font-semibold text-orange-600 mb-3">⚠️ Things to Consider</h4>
+                        <h4 className="font-semibold text-orange-600 mb-3">
+                          ⚠️ Things to Consider
+                        </h4>
                         <ul className="space-y-2">
-                          {service.details.considerations.map((consideration, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <span className="text-orange-500 mt-1">•</span>
-                              <span className="text-sm text-muted-foreground">{consideration}</span>
-                            </li>
-                          ))}
+                          {service.details.considerations.map(
+                            (consideration, idx) => (
+                              <li key={idx} className="flex items-start gap-2">
+                                <span className="text-orange-500 mt-1">•</span>
+                                <span className="text-sm text-muted-foreground">
+                                  {consideration}
+                                </span>
+                              </li>
+                            )
+                          )}
                         </ul>
                       </div>
                     )}
 
                     {/* Use Cases */}
                     <div>
-                      <h4 className="font-semibold text-blue-600 mb-3">🎯 Best For</h4>
+                      <h4 className="font-semibold text-blue-600 mb-3">
+                        🎯 Best For
+                      </h4>
                       <div className="flex flex-wrap gap-2">
                         {service.useCases.map((useCase, idx) => (
                           <span
@@ -434,8 +427,10 @@ export function ServicesList() {
                         ))}
                       </div>
                     </div>
+
                   </div>
                 </div>
+
               </CardContent>
             </Card>
           );
