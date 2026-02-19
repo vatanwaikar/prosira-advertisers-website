@@ -5,8 +5,8 @@ import gsap from "gsap";
 import * as THREE from "three";
 
 const steps = [
-  { title: "Discovery & Research", description: "Understanding business goals, competitors, and target audience deeply before launching any campaign." },
-  { title: "Strategy Development", description: "Building a KPI-focused roadmap aligned with ROI, lead generation, and measurable growth." },
+  { title: "Discovery & Research", description: "Understanding business, competitors & target audience before launching campaign." },
+  { title: "Strategy Development", description: "Building a KPI-focused roadmap aligned with ROI, lead generation &  growth." },
   { title: "Implementation", description: "Executing high-performance campaigns across search, social, and web platforms." },
   { title: "Monitor & Optimize", description: "Continuous performance tuning using real-time analytics and conversion tracking." },
   { title: "Report & Scale", description: "Detailed reporting, insights, and smart scaling strategies for long-term success." },

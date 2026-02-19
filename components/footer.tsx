@@ -13,9 +13,9 @@ import { Input } from "@/components/ui/input";
 
 const footerLinks = {
   services: [
-    { name: "Traditional Media", href: "/traditional-services" },
-    { name: "Digital Marketing", href: "/digital-services" },
-    { name: "Event & Expo", href: "/events-expo" },
+    { name: "Traditional Media", href: "/services" },
+    { name: "Digital Marketing", href: "/digital" },
+    { name: "Event & Expo", href: "/event-expo" },
     { name: "Services Portfolio", href: "/services" },
     { name: "Digital Portfolio", href: "/digital" },
     { name: "Event Portfolio", href: "/event-expo" },

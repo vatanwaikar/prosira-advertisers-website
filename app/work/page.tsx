@@ -14,11 +14,7 @@ const services = [
     gradient: "from-purple-600/20 to-purple-800/20",
     borderColor: "border-purple-500/30",
     hoverGlow: "hover:shadow-purple-500/25",
-    stats: {
-      projects: "150+",
-      clients: "50+",
-      experience: "10+ years"
-    }
+    
   },
   {
     id: 2,
@@ -132,33 +128,7 @@ export default function WorkPage() {
                         {service.description}
                       </p>
 
-                      {/* Stats */}
-                      <div className="grid grid-cols-3 gap-4 mb-8">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-primary mb-1">
-                            {service.stats.projects}
-                          </div>
-                          <div className="text-xs text-gray-400 uppercase">
-                            Projects
-                          </div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-primary mb-1">
-                            {service.stats.clients}
-                          </div>
-                          <div className="text-xs text-gray-400 uppercase">
-                            Clients
-                          </div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-primary mb-1">
-                            {service.stats.experience}
-                          </div>
-                          <div className="text-xs text-gray-400 uppercase">
-                            Experience
-                          </div>
-                        </div>
-                      </div>
+                      
 
                       {/* Arrow Indicator */}
                       <div className="flex items-center justify-between mt-auto">

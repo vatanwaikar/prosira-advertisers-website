@@ -1,65 +1,132 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { Play, Pause, X, ExternalLink, Volume2 } from "lucide-react";
+import Link from "next/link";
 
-const portfolioProjects = [
+// Radio Campaigns Data
+const radioCampaigns = [
   {
     id: 1,
-    title: "FM Radio Brand Campaign",
-    category: "Radio Advertising",
-    description: "Comprehensive radio campaign for leading FM brand across Maharashtra with 40% increase in brand recall.",
-    image: "/portfolio/radio-campaign.jpg",
-    featured: true
+    client: "Radio City FM",
+    logo: "/clients/radio-city.png",
+    audioFile: "/audio/radio-city-campaign.mp3",
+    description: "Morning Drive Time Campaign"
   },
   {
     id: 2,
-    title: "Newspaper Brand Launch",
-    category: "Print Media",
-    description: "Strategic newspaper campaign for new product launch achieving 2M+ impressions across major publications.",
-    image: "/portfolio/newspaper-campaign.jpg",
-    featured: true
+    client: "Red FM",
+    logo: "/clients/red-fm.png",
+    audioFile: "/audio/red-fm-campaign.mp3",
+    description: "Weekend Prime Time Slots"
   },
   {
     id: 3,
-    title: "Highway Billboard Series",
-    category: "Outdoor Advertising",
-    description: "Premium highway billboard campaign with strategic placement for maximum visibility and impact.",
-    image: "/portfolio/billboard-campaign.jpg",
-    featured: false
+    client: "Mirchi FM",
+    logo: "/clients/mirchi-fm.png",
+    audioFile: "/audio/mirchi-campaign.mp3",
+    description: "Festival Special Campaign"
   },
   {
     id: 4,
-    title: "Retail Brand Identity",
-    category: "Branding",
-    description: "Complete brand identity redesign for retail chain including logo, packaging and in-store branding.",
-    image: "/portfolio/brand-identity.jpg",
-    featured: false
+    client: "Vividh Bharati",
+    logo: "/clients/vividh-bharati.png",
+    audioFile: "/audio/vividh-campaign.mp3",
+    description: "Rural Outreach Program"
   },
   {
     id: 5,
-    title: "Festival Print Campaign",
-    category: "Print Media",
-    description: "Cultural festival themed print campaign connecting brand with local traditions and values.",
-    image: "/portfolio/festival-campaign.jpg",
-    featured: false
-  },
-  {
-    id: 6,
-    title: "Metro Station Branding",
-    category: "Outdoor Advertising",
-    description: "Comprehensive metro station branding campaign reaching daily commuters with high-frequency exposure.",
-    image: "/portfolio/metro-branding.jpg",
-    featured: false
+    client: "FM Rainbow",
+    logo: "/clients/fm-rainbow.png",
+    audioFile: "/audio/rainbow-campaign.mp3",
+    description: "Youth Engagement Campaign"
   }
 ];
 
-export default function ServicesPage() {
+// Newspaper Campaigns Data
+const newspaperCampaigns = [
+  {
+    id: 1,
+    client: "Times of India",
+    logo: "/clients/times-of-india.png",
+    adImage: "/portfolio/times-ad.jpg",
+    description: "Front Page Premium Placement"
+  },
+  {
+    id: 2,
+    client: "Maharashtra Times",
+    logo: "/clients/maharashtra-times.png",
+    adImage: "/portfolio/maharashtra-ad.jpg",
+    description: "Regional Language Campaign"
+  },
+  {
+    id: 3,
+    client: "Indian Express",
+    logo: "/clients/indian-express.png",
+    adImage: "/portfolio/express-ad.jpg",
+    description: "Business Section Spotlight"
+  },
+  {
+    id: 4,
+    client: "Sakal Newspaper",
+    logo: "/clients/sakal.png",
+    adImage: "/portfolio/sakal-ad.jpg",
+    description: "Marathi Daily Campaign"
+  },
+  {
+    id: 5,
+    client: "Pune Mirror",
+    logo: "/clients/pune-mirror.png",
+    adImage: "/portfolio/mirror-ad.jpg",
+    description: "City Lifestyle Feature"
+  }
+];
+
+export default function TraditionalMediaPortfolio() {
+  const [activeAudio, setActiveAudio] = useState<number | null>(null);
+  const [selectedAd, setSelectedAd] = useState<typeof newspaperCampaigns[0] | null>(null);
+  const audioRefs = useRef<{ [key: number]: HTMLAudioElement }>({});
+
+  // Handle audio play/pause
+  const toggleAudio = (campaignId: number) => {
+    if (activeAudio === campaignId) {
+      // Pause current audio
+      if (audioRefs.current[campaignId]) {
+        audioRefs.current[campaignId].pause();
+      }
+      setActiveAudio(null);
+    } else {
+      // Stop any currently playing audio
+      if (activeAudio !== null && audioRefs.current[activeAudio]) {
+        audioRefs.current[activeAudio].pause();
+      }
+      
+      // Play new audio
+      if (audioRefs.current[campaignId]) {
+        audioRefs.current[campaignId].play();
+        setActiveAudio(campaignId);
+      }
+    }
+  };
+
+  // Cleanup audio on unmount
+  useEffect(() => {
+    return () => {
+      Object.values(audioRefs.current).forEach(audio => {
+        if (audio) audio.pause();
+      });
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
-      
+      {/* Animated Background Gradient */}
+      <div className="fixed inset-0 opacity-30">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-amber-500/20 animate-pulse" />
+      </div>
+
       {/* Hero Section */}
       <section className="relative py-20 lg:py-24">
         <div className="site-container">
@@ -67,7 +134,7 @@ export default function ServicesPage() {
             href="/work"
             className="inline-flex items-center gap-2 text-gray-400 hover:text-primary transition-colors mb-8"
           >
-            <ArrowLeft size={20} />
+            <X size={20} />
             Back to Our Work
           </Link>
           
@@ -83,68 +150,207 @@ export default function ServicesPage() {
               </span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
-              Discover our successful traditional advertising campaigns that have delivered exceptional results for our clients across radio, print, outdoor media and branding.
+              Award-winning traditional advertising campaigns that connect brands with audiences through radio, print, and outdoor media.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Portfolio Grid */}
+      {/* Premium Card - Radio & Newspaper */}
       <section className="py-12">
         <div className="site-container">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 to-transparent border border-primary/20 hover:border-primary/40 transition-all duration-300 ${
-                  project.featured ? 'md:col-span-2 md:row-span-2' : ''
-                }`}
-              >
-                <div className="relative h-64 md:h-full">
-                  {/* Project Image */}
-                  <div className="relative h-48 md:h-56 overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => {
-                        e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(project.title)}&background=0d1117&color=ffffff&size=400`;
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="rounded-3xl bg-white/5 backdrop-blur-xl border border-primary/20 hover:border-primary/40 hover:shadow-primary/20 transition-all duration-500 overflow-hidden"
+          >
+            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-primary/20">
+              
+              {/* LEFT SIDE - Radio Advertising */}
+              <div className="p-8 lg:p-12">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="text-3xl font-bold mb-2">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-400">
+                      Radio Advertising
+                    </span>
+                  </h2>
+                  <p className="text-gray-400 mb-8">Client FM Brand Activations</p>
 
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                    <div className="text-primary text-sm font-medium mb-2">
-                      {project.category}
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-2">
-                      {project.description}
-                    </p>
-                  </div>
+                  <div className="space-y-6">
+                    {radioCampaigns.map((campaign, index) => (
+                      <motion.div
+                        key={campaign.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="group flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-primary/10 border border-transparent hover:border-primary/30 transition-all duration-300 hover:scale-[1.02]"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white/10">
+                            <Image
+                              src={campaign.logo}
+                              alt={campaign.client}
+                              fill
+                              className="object-contain p-2"
+                              onError={(e) => {
+                                e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(campaign.client)}&background=0d1117&color=ffffff&size=64`;
+                              }}
+                            />
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-white">{campaign.client}</h3>
+                            <p className="text-sm text-gray-400">{campaign.description}</p>
+                          </div>
+                        </div>
 
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-center">
-                      <ExternalLink className="h-8 w-8 text-primary mb-3" />
-                      <p className="text-white font-medium">View Project</p>
-                    </div>
+                        <button
+                          onClick={() => toggleAudio(campaign.id)}
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 hover:bg-primary/30 text-primary hover:text-primary-foreground border border-primary/30 transition-all duration-300"
+                        >
+                          {activeAudio === campaign.id ? (
+                            <>
+                              <Pause size={16} />
+                              <span className="text-sm">Pause</span>
+                            </>
+                          ) : (
+                            <>
+                              <Play size={16} />
+                              <span className="text-sm">Play</span>
+                            </>
+                          )}
+                        </button>
+
+                        {/* Hidden Audio Element */}
+                        <audio
+                          ref={(el) => {
+                            if (el) audioRefs.current[campaign.id] = el;
+                          }}
+                          src={campaign.audioFile}
+                          onEnded={() => setActiveAudio(null)}
+                        />
+                      </motion.div>
+                    ))}
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                </motion.div>
+              </div>
+
+              {/* RIGHT SIDE - Newspaper Advertising */}
+              <div className="p-8 lg:p-12">
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="text-3xl font-bold mb-2">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-400">
+                      Newspaper Campaigns
+                    </span>
+                  </h2>
+                  <p className="text-gray-400 mb-8">Print Media Launches</p>
+
+                  <div className="space-y-6">
+                    {newspaperCampaigns.map((campaign, index) => (
+                      <motion.div
+                        key={campaign.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="group flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-primary/10 border border-transparent hover:border-primary/30 transition-all duration-300 hover:scale-[1.02]"
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white/10">
+                            <Image
+                              src={campaign.logo}
+                              alt={campaign.client}
+                              fill
+                              className="object-contain p-2"
+                              onError={(e) => {
+                                e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(campaign.client)}&background=0d1117&color=ffffff&size=64`;
+                              }}
+                            />
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-white">{campaign.client}</h3>
+                            <p className="text-sm text-gray-400">{campaign.description}</p>
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={() => setSelectedAd(campaign)}
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 hover:bg-primary/30 text-primary hover:text-primary-foreground border border-primary/30 transition-all duration-300"
+                        >
+                          <ExternalLink size={16} />
+                          <span className="text-sm">View Ad</span>
+                        </button>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Modal for Newspaper Ads */}
+      <AnimatePresence>
+        {selectedAd && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedAd(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-4xl w-full rounded-3xl bg-gray-900 border border-primary/30 shadow-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedAd(null)}
+                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+              >
+                <X size={20} />
+              </button>
+
+              {/* Ad Content */}
+              <div className="p-6 lg:p-8">
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold text-white mb-2">{selectedAd.client}</h3>
+                  <p className="text-gray-400">{selectedAd.description}</p>
+                </div>
+
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/5">
+                  <Image
+                    src={selectedAd.adImage}
+                    alt={`${selectedAd.client} Advertisement`}
+                    fill
+                    className="object-contain"
+                    onError={(e) => {
+                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(selectedAd.client + ' Ad')}&background=0d1117&color=ffffff&size=400`;
+                    }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* CTA Section */}
       <section className="py-20">
@@ -157,7 +363,7 @@ export default function ServicesPage() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Create Your Success Story?
+              Ready to Create Your Campaign?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
               Let us craft powerful traditional advertising campaigns that drive real results for your business.
@@ -173,7 +379,6 @@ export default function ServicesPage() {
           </motion.div>
         </div>
       </section>
-
     </div>
   );
 }
