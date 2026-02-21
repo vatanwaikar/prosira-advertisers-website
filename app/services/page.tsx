@@ -3,146 +3,84 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Play, Pause, X, ExternalLink, Volume2 } from "lucide-react";
+import { Play, Pause, X, ExternalLink, Maximize2 } from "lucide-react";
 import Link from "next/link";
 
-// Radio Campaigns Data
+/* ================= RADIO DATA ================= */
 const radioCampaigns = [
-  {
-    id: 1,
-    client: "Radio City FM",
-    logo: "/clients/radio-city.png",
-    audioFile: "/audio/radio-city-campaign.mp3",
-    description: "Morning Drive Time Campaign"
-  },
-  {
-    id: 2,
-    client: "Red FM",
-    logo: "/clients/red-fm.png",
-    audioFile: "/audio/red-fm-campaign.mp3",
-    description: "Weekend Prime Time Slots"
-  },
-  {
-    id: 3,
-    client: "Mirchi FM",
-    logo: "/clients/mirchi-fm.png",
-    audioFile: "/audio/mirchi-campaign.mp3",
-    description: "Festival Special Campaign"
-  },
-  {
-    id: 4,
-    client: "Vividh Bharati",
-    logo: "/clients/vividh-bharati.png",
-    audioFile: "/audio/vividh-campaign.mp3",
-    description: "Rural Outreach Program"
-  },
-  {
-    id: 5,
-    client: "FM Rainbow",
-    logo: "/clients/fm-rainbow.png",
-    audioFile: "/audio/rainbow-campaign.mp3",
-    description: "Youth Engagement Campaign"
-  }
+  { id: 1, client: "Shubh Developers", logo: "/clients/shubh.webp", audioFile: "/audio/shubh.mp4"  },
+  { id: 2, client: "SSPL Group", logo: "/clients/SSPL.webp", audioFile: "/audio/sspl.mp4"  },
+  { id: 3, client: "Ceratec Group", logo: "/clients/ceratec.webp", audioFile: "/audio/ceratec.mp4" },
+  { id: 4, client: "RRLunkad", logo: "/clients/rrlunkad.webp", audioFile: "/audio/rrlunkadaudio.mp4"},
+  { id: 5, client: "Tulip Group", logo: "/clients/tulip.webp", audioFile: "/audio/tulip.mp4" }
 ];
 
-// Newspaper Campaigns Data
 const newspaperCampaigns = [
-  {
-    id: 1,
-    client: "Times of India",
-    logo: "/clients/times-of-india.png",
-    adImage: "/portfolio/times-ad.jpg",
-    description: "Front Page Premium Placement"
-  },
-  {
-    id: 2,
-    client: "Maharashtra Times",
-    logo: "/clients/maharashtra-times.png",
-    adImage: "/portfolio/maharashtra-ad.jpg",
-    description: "Regional Language Campaign"
-  },
-  {
-    id: 3,
-    client: "Indian Express",
-    logo: "/clients/indian-express.png",
-    adImage: "/portfolio/express-ad.jpg",
-    description: "Business Section Spotlight"
-  },
-  {
-    id: 4,
-    client: "Sakal Newspaper",
-    logo: "/clients/sakal.png",
-    adImage: "/portfolio/sakal-ad.jpg",
-    description: "Marathi Daily Campaign"
-  },
-  {
-    id: 5,
-    client: "Pune Mirror",
-    logo: "/clients/pune-mirror.png",
-    adImage: "/portfolio/mirror-ad.jpg",
-    description: "City Lifestyle Feature"
-  }
+  { id: 1, client: "Ashwamedh", logo: "/clients/Ashwamedh.webp", adImage: "/portfolio/ash.jpg", description: "Front Page Premium Placement" },
+  { id: 2, client: "Circle of Crust", logo: "/clients/crust.jpg", adImage: "/portfolio/crust.jpg", description: "Regional Language Campaign" },
+  { id: 3, client: "Parth", logo: "/clients/Parth.jpg", adImage: "/portfolio/parth.jpg", description: "Business Section Spotlight" },
+  { id: 4, client: "CityOne", logo: "/clients/cityone.jpg", adImage: "/portfolio/city.jpg", description: "Marathi Daily Campaign" },
+  { id: 5, client: "Kocuonut Tree", logo: "/clients/cck.jpg", adImage: "/portfolio/koconuttree.jpg", description: "City Lifestyle Feature" }
+];
+
+const tvCampaigns = [
+  { id: 1, client: "Inifinity Acedemy", thumbnail: "/clients/infinity.jpg", video: "/video/infinity.mp4" },
+  { id: 2, client: "Ekvira Nuro", thumbnail: "/clients/EkviraEuro.jpg", video: "/video/EkviraNuro.mp4" },
+  { id: 3, client: "Windsor Shelter", thumbnail: "/clients/Windsorshelter.jpg", video: "/video/windsorshelter.mp4" },
+  { id: 4, client: "Mangalam", thumbnail: "/clients/Mangalam.jpg", video: "/video/mangalam.mp4" },
+  { id: 5, client: "Helios", thumbnail: "/clients/helios.jpg", video: "/video/helios.mp4" }
+];
+
+const outdoorCampaigns = [
+  { id: 1, client: "SSPL Group", image: "/clients/ssploutdoor.jpg" },
+  { id: 2, client: "Shubh Developers  ", image: "/clients/shubhoutdoor.jpg" },
+];
+
+/* ================= CORPORATE GIFTING - JUST IMAGES ================= */
+const corporateGiftingImages = [
+  { id: 1, image: "/gifts/gift1.jpg" },
+  { id: 2, image: "/gifts/gift5.jpg" },
+  { id: 3, image: "/gifts/gift3.jpg" },
+  { id: 4, image: "/gifts/gift4.jpg" }
 ];
 
 export default function TraditionalMediaPortfolio() {
   const [activeAudio, setActiveAudio] = useState<number | null>(null);
   const [selectedAd, setSelectedAd] = useState<typeof newspaperCampaigns[0] | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<typeof tvCampaigns[0] | null>(null);
+  const [selectedGiftImage, setSelectedGiftImage] = useState<typeof corporateGiftingImages[0] | null>(null);
   const audioRefs = useRef<{ [key: number]: HTMLAudioElement }>({});
 
-  // Handle audio play/pause
   const toggleAudio = (campaignId: number) => {
     if (activeAudio === campaignId) {
-      // Pause current audio
-      if (audioRefs.current[campaignId]) {
-        audioRefs.current[campaignId].pause();
-      }
+      audioRefs.current[campaignId]?.pause();
       setActiveAudio(null);
     } else {
-      // Stop any currently playing audio
-      if (activeAudio !== null && audioRefs.current[activeAudio]) {
-        audioRefs.current[activeAudio].pause();
+      if (activeAudio !== null) {
+        audioRefs.current[activeAudio]?.pause();
       }
-      
-      // Play new audio
-      if (audioRefs.current[campaignId]) {
-        audioRefs.current[campaignId].play();
-        setActiveAudio(campaignId);
-      }
+      audioRefs.current[campaignId]?.play();
+      setActiveAudio(campaignId);
     }
   };
 
-  // Cleanup audio on unmount
   useEffect(() => {
     return () => {
-      Object.values(audioRefs.current).forEach(audio => {
-        if (audio) audio.pause();
-      });
+      Object.values(audioRefs.current).forEach(audio => audio?.pause());
     };
   }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Animated Background Gradient */}
-      <div className="fixed inset-0 opacity-30">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-amber-500/20 animate-pulse" />
-      </div>
 
-      {/* Hero Section */}
+      {/* HERO */}
       <section className="relative py-20 lg:py-24">
         <div className="site-container">
-          <Link 
-            href="/work"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-primary transition-colors mb-8"
-          >
-            <X size={20} />
-            Back to Our Work
+          <Link href="/work" className="inline-flex items-center gap-2 text-gray-400 hover:text-primary transition-colors mb-8">
+            ←Back to Our Work
           </Link>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-white">Traditional Media </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-400">
@@ -150,13 +88,117 @@ export default function TraditionalMediaPortfolio() {
               </span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
-              Award-winning traditional advertising campaigns that connect brands with audiences through radio, print, and outdoor media.
+              Award-winning campaigns across radio, print, TV, outdoor & corporate gifting.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Premium Card - Radio & Newspaper */}
+      {/* RADIO + NEWSPAPER */}
+      <section className="py-12">
+        <div className="site-container">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Radio Card */}
+            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="rounded-3xl bg-white/5 backdrop-blur-xl border border-primary/20 p-8 lg:p-12">
+              <h2 className="text-3xl font-bold mb-2 text-primary">Radio Advertising</h2>
+              <p className="text-gray-400 mb-8">Client FM Brand Activations</p>
+              <div className="space-y-6">
+                {radioCampaigns.map((campaign, index) => (
+                  <motion.div key={campaign.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-primary/10 transition-all">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center">
+                        <Image src={campaign.logo} alt={campaign.client} fill className="object-cover" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-white">{campaign.client}</h3>
+                      </div>
+                    </div>
+                    <button onClick={() => toggleAudio(campaign.id)} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">
+                      {activeAudio === campaign.id ? <Pause size={16}/> : <Play size={16}/>}
+                      {activeAudio === campaign.id ? "Pause" : "Play"}
+                    </button>
+                    <audio ref={(el) => { if (el) audioRefs.current[campaign.id] = el; }} src={campaign.audioFile} onEnded={() => setActiveAudio(null)} />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Newspaper Card */}
+            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }} className="rounded-3xl bg-white/5 backdrop-blur-xl border border-primary/20 p-8 lg:p-12">
+              <h2 className="text-3xl font-bold mb-2 text-primary">Newspaper Campaigns</h2>
+              <p className="text-gray-400 mb-8">Print Media Launches</p>
+              <div className="space-y-6">
+                {newspaperCampaigns.map((campaign, index) => (
+                  <motion.div key={campaign.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-primary/10 transition-all">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center">
+                        <Image src={campaign.logo} alt={campaign.client} fill className="object-cover" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-white">{campaign.client}</h3>
+                        <p className="text-sm text-gray-400">{campaign.description}</p>
+                      </div>
+                    </div>
+                    <button onClick={() => setSelectedAd(campaign)} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">
+                      <ExternalLink size={16} /> View Ad
+                    </button>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* TV + OUTDOOR */}
+      <section className="py-12">
+        <div className="site-container">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* TV Card */}
+            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="rounded-3xl bg-white/5 backdrop-blur-xl border border-primary/20 p-8 lg:p-12">
+              <h2 className="text-3xl font-bold mb-2 text-primary">Television Campaigns</h2>
+              <p className="text-gray-400 mb-8">TV Commercial Productions</p>
+              <div className="space-y-6">
+                {tvCampaigns.map((campaign, index) => (
+                  <motion.div key={campaign.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-primary/10 transition-all">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white/10">
+                        <Image src={campaign.thumbnail} alt={campaign.client} fill className="object-cover" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-white">{campaign.client}</h3>
+                      </div>
+                    </div>
+                    <button onClick={() => setSelectedVideo(campaign)} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">
+                      <ExternalLink size={16} /> Watch Video
+                    </button>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Outdoor Card */}
+            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }} className="rounded-3xl bg-white/5 backdrop-blur-xl border border-primary/20 p-8 lg:p-12">
+              <h2 className="text-3xl font-bold mb-2 text-primary">Outdoor Advertising</h2>
+              <p className="text-gray-400 mb-8">OOH & Billboard Campaigns</p>
+              <div className="space-y-6">
+                {outdoorCampaigns.map((campaign, index) => (
+                  <motion.div key={campaign.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }} viewport={{ once: true }} className="p-4 rounded-xl bg-white/5 hover:bg-primary/10 transition-all cursor-pointer">
+                    <div className="relative w-full h-48 rounded-xl overflow-hidden">
+                      <Image src={campaign.image} alt={campaign.client} fill className="object-cover hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="mt-4">
+                      <h3 className="font-semibold text-white text-lg">{campaign.client}</h3>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CORPORATE GIFTING - IMAGE GALLERY (TV+Outdoor नंतर) */}
       <section className="py-12">
         <div className="site-container">
           <motion.div
@@ -164,221 +206,136 @@ export default function TraditionalMediaPortfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="rounded-3xl bg-white/5 backdrop-blur-xl border border-primary/20 hover:border-primary/40 hover:shadow-primary/20 transition-all duration-500 overflow-hidden"
+            className="rounded-3xl bg-white/5 backdrop-blur-xl border border-primary/20 p-8 lg:p-12"
           >
-            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-primary/20">
-              
-              {/* LEFT SIDE - Radio Advertising */}
-              <div className="p-8 lg:p-12">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center">
+                <span className="text-primary font-bold text-xl">🎁</span>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-primary">Corporate Gifting</h2>
+                <p className="text-gray-400">Premium Branded Gifts Gallery</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {corporateGiftingImages.map((gift, index) => (
                 <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  key={gift.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
                   viewport={{ once: true }}
+                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-black/30 border-2 border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-500 cursor-pointer aspect-square"
+                  onClick={() => setSelectedGiftImage(gift)}
                 >
-                  <h2 className="text-3xl font-bold mb-2">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-400">
-                      Radio Advertising
-                    </span>
-                  </h2>
-                  <p className="text-gray-400 mb-8">Client FM Brand Activations</p>
-
-                  <div className="space-y-6">
-                    {radioCampaigns.map((campaign, index) => (
-                      <motion.div
-                        key={campaign.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        className="group flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-primary/10 border border-transparent hover:border-primary/30 transition-all duration-300 hover:scale-[1.02]"
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white/10">
-                            <Image
-                              src={campaign.logo}
-                              alt={campaign.client}
-                              fill
-                              className="object-contain p-2"
-                              onError={(e) => {
-                                e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(campaign.client)}&background=0d1117&color=ffffff&size=64`;
-                              }}
-                            />
-                          </div>
-                          <div>
-                            <h3 className="font-semibold text-white">{campaign.client}</h3>
-                            <p className="text-sm text-gray-400">{campaign.description}</p>
-                          </div>
-                        </div>
-
-                        <button
-                          onClick={() => toggleAudio(campaign.id)}
-                          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 hover:bg-primary/30 text-primary hover:text-primary-foreground border border-primary/30 transition-all duration-300"
-                        >
-                          {activeAudio === campaign.id ? (
-                            <>
-                              <Pause size={16} />
-                              <span className="text-sm">Pause</span>
-                            </>
-                          ) : (
-                            <>
-                              <Play size={16} />
-                              <span className="text-sm">Play</span>
-                            </>
-                          )}
-                        </button>
-
-                        {/* Hidden Audio Element */}
-                        <audio
-                          ref={(el) => {
-                            if (el) audioRefs.current[campaign.id] = el;
-                          }}
-                          src={campaign.audioFile}
-                          onEnded={() => setActiveAudio(null)}
-                        />
-                      </motion.div>
-                    ))}
+                  <div className="relative w-full h-full">
+                    <Image 
+  src={gift.image} 
+  alt="Corporate Gift" 
+  fill 
+  className="object-contain p-4 transition-transform duration-700 group-hover:scale-105" 
+/>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                    
+                    <motion.div 
+                      className="absolute -top-4 -right-4 w-16 h-16 bg-primary/90 backdrop-blur-xl rounded-3xl flex items-center justify-center shadow-2xl border-4 border-black/20 opacity-0 group-hover:opacity-100"
+                      initial={{ scale: 0 }}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ type: "spring", bounce: 0.4 }}
+                    >
+                      <Maximize2 size={20} className="text-black font-bold" />
+                    </motion.div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full" />
                   </div>
                 </motion.div>
-              </div>
-
-              {/* RIGHT SIDE - Newspaper Advertising */}
-              <div className="p-8 lg:p-12">
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <h2 className="text-3xl font-bold mb-2">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-400">
-                      Newspaper Campaigns
-                    </span>
-                  </h2>
-                  <p className="text-gray-400 mb-8">Print Media Launches</p>
-
-                  <div className="space-y-6">
-                    {newspaperCampaigns.map((campaign, index) => (
-                      <motion.div
-                        key={campaign.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        className="group flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-primary/10 border border-transparent hover:border-primary/30 transition-all duration-300 hover:scale-[1.02]"
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white/10">
-                            <Image
-                              src={campaign.logo}
-                              alt={campaign.client}
-                              fill
-                              className="object-contain p-2"
-                              onError={(e) => {
-                                e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(campaign.client)}&background=0d1117&color=ffffff&size=64`;
-                              }}
-                            />
-                          </div>
-                          <div>
-                            <h3 className="font-semibold text-white">{campaign.client}</h3>
-                            <p className="text-sm text-gray-400">{campaign.description}</p>
-                          </div>
-                        </div>
-
-                        <button
-                          onClick={() => setSelectedAd(campaign)}
-                          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 hover:bg-primary/30 text-primary hover:text-primary-foreground border border-primary/30 transition-all duration-300"
-                        >
-                          <ExternalLink size={16} />
-                          <span className="text-sm">View Ad</span>
-                        </button>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
+              ))}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Modal for Newspaper Ads */}
+      {/* MODALS */}
       <AnimatePresence>
         {selectedAd && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-            onClick={() => setSelectedAd(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-4xl w-full rounded-3xl bg-gray-900 border border-primary/30 shadow-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedAd(null)}
-                className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
-              >
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedAd(null)}>
+            <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} exit={{ scale: 0.8 }} className="relative max-w-2xl w-full rounded-3xl bg-gray-900 border border-primary/30 shadow-2xl overflow-hidden p-6 md:p-8" onClick={(e) => e.stopPropagation()}>
+              <button onClick={() => setSelectedAd(null)} className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all">
                 <X size={20} />
               </button>
-
-              {/* Ad Content */}
-              <div className="p-6 lg:p-8">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{selectedAd.client}</h3>
-                  <p className="text-gray-400">{selectedAd.description}</p>
-                </div>
-
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/5">
-                  <Image
-                    src={selectedAd.adImage}
-                    alt={`${selectedAd.client} Advertisement`}
-                    fill
-                    className="object-contain"
-                    onError={(e) => {
-                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(selectedAd.client + ' Ad')}&background=0d1117&color=ffffff&size=400`;
-                    }}
-                  />
-                </div>
+              <h3 className="text-2xl font-bold text-white mb-4">{selectedAd.client}</h3>
+              <div className="relative w-full max-h-[70vh] aspect-[3/4] rounded-2xl overflow-hidden">
+                <Image src={selectedAd.adImage} alt="Advertisement" fill className="object-contain" />
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* CTA Section */}
-      <section className="py-20">
-        <div className="site-container text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Create Your Campaign?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Let us craft powerful traditional advertising campaigns that drive real results for your business.
-            </p>
-            
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 bg-primary text-black px-8 py-4 rounded-lg font-semibold hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25"
-            >
-              Start Your Project
-              <ExternalLink size={20} />
-            </Link>
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedVideo(null)}>
+            <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} exit={{ scale: 0.8 }} className="relative max-w-3xl w-full rounded-3xl bg-gray-900 border border-primary/30 shadow-2xl overflow-hidden p-6" onClick={(e) => e.stopPropagation()}>
+              <button onClick={() => setSelectedVideo(null)} className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/70">
+                <X size={20} />
+              </button>
+              <h3 className="text-2xl font-bold text-white mb-4">{selectedVideo.client}</h3>
+              <video src={selectedVideo.video} controls autoPlay className="w-full rounded-2xl" />
+            </motion.div>
           </motion.div>
-        </div>
-      </section>
+        )}
+      </AnimatePresence>
+
+      {/* Corporate Gifting Modal */}
+      <AnimatePresence>
+        {selectedGiftImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-2xl"
+            onClick={() => setSelectedGiftImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.7, rotate: -5 }}
+              animate={{ scale: 1, rotate: 0 }}
+              exit={{ scale: 0.7, rotate: 5 }}
+              className="relative w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="absolute top-8 right-8 z-10">
+                <button
+                  onClick={() => setSelectedGiftImage(null)}
+                  className="w-16 h-16 bg-black/60 hover:bg-black/80 backdrop-blur-xl rounded-3xl flex items-center justify-center text-white text-2xl transition-all duration-300 hover:scale-110"
+                >
+                  <X size={32} />
+                </button>
+              </div>
+
+              <Image
+                src={selectedGiftImage.image}
+                alt="Corporate Gift"
+                fill
+                className="object-contain"
+              />
+              
+              <div className="absolute bottom-8 left-8 right-8 bg-black/70 backdrop-blur-xl rounded-3xl p-6 text-center">
+                <div className="flex items-center justify-center gap-4 mb-4">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary/30 to-amber-400/30 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                    <span className="text-primary text-2xl font-bold">🎁</span>
+                  </div>
+                </div>
+                <h3 className="text-3xl font-bold text-white drop-shadow-2xl">Corporate Gifting Excellence</h3>
+                <p className="text-xl text-primary/90 mt-2 drop-shadow-lg">Premium branded gifts & hampers</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 }
