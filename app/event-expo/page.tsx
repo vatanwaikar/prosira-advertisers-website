@@ -1,191 +1,651 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Play, Pause, X, ExternalLink, Calendar } from "lucide-react";
+import { X, ExternalLink, Calendar, MapPin, Users, Clock, Star, ChevronLeft, ChevronRight, Heart, MessageCircle, Share2 } from "lucide-react";
 import Link from "next/link";
 
-/* ================= DATA ================= */
-
-const eventProjects = [
-  { id: 1, client: "Tech Summit 2024", logo: "/clients/tech-summit.png", eventImage: "/portfolio/tech-summit-event.jpg", description: "Annual technology conference with 5000+ attendees" },
-  { id: 2, client: "Corporate Annual Meet", logo: "/clients/corporate-meet.png", eventImage: "/portfolio/corporate-event.jpg", description: "Company-wide annual meeting for 1000+ employees" },
-  { id: 3, client: "Product Launch Expo", logo: "/clients/product-expo.png", eventImage: "/portfolio/product-expo.jpg", description: "New product exhibition with media coverage" },
-  { id: 4, client: "Cultural Festival", logo: "/clients/cultural-festival.png", eventImage: "/portfolio/cultural-event.jpg", description: "Traditional cultural festival with 10K+ visitors" },
-  { id: 5, client: "Sports Championship", logo: "/clients/sports-championship.png", eventImage: "/portfolio/sports-event.jpg", description: "Regional sports tournament with live streaming" }
-];
-
-const activationCampaigns = [
-  { id: 1, client: "Fashion Brand Launch", logo: "/clients/fashion-launch.png", campaignVideo: "/video/fashion-activation.mp4", description: "Interactive fashion brand activation with 500K+ reach" },
-  { id: 2, client: "Food Festival Activation", logo: "/clients/food-festival.png", campaignVideo: "/video/food-activation.mp4", description: "Food tasting experience with 2000+ participants" },
-  { id: 3, client: "Tech Product Demo", logo: "/clients/tech-demo.png", campaignVideo: "/video/tech-activation.mp4", description: "Hands-on tech product demonstration event" },
-  { id: 4, client: "Sports Brand Event", logo: "/clients/sports-brand.png", campaignVideo: "/video/sports-activation.mp4", description: "Athlete meet-and-greet with product trials" },
-  { id: 5, client: "Music Festival Sponsorship", logo: "/clients/music-festival.png", campaignVideo: "/video/music-activation.mp4", description: "Music festival brand activation with 50K+ attendees" }
-];
-
-export default function EventExpoPortfolio() {
-  const [activeVideo, setActiveVideo] = useState<number | null>(null);
-  const [selectedEvent, setSelectedEvent] = useState<typeof eventProjects[0] | null>(null);
-  const videoRefs = useRef<{ [key: number]: HTMLVideoElement }>({});
-
-  const toggleVideo = (id: number) => {
-    if (activeVideo === id) {
-      videoRefs.current[id]?.pause();
-      setActiveVideo(null);
-    } else {
-      if (activeVideo !== null) videoRefs.current[activeVideo]?.pause();
-      videoRefs.current[id]?.play();
-      setActiveVideo(id);
+// Your Real Event Work Data
+const events = [
+  {
+    id: 1,
+    eventName: "Sanam Consert",
+    clientName: "Sanam",
+    eventDate: "March 15-16, 2024",
+    venue: "Pune Convention Center",
+    attendees: "2500+",
+    category: "Technology Conference",
+    description: "Annual technology summit featuring keynote speakers, workshops, and networking sessions for tech professionals.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/sanam/1.webp",
+        caption: "Main stage with keynote speaker",
+        engagement: "450 likes, 89 comments"
+      },
+      {
+        id: 2,
+        url: "/event/sanam/2.webp",
+        caption: "Networking session during break",
+        engagement: "320 likes, 67 comments"
+      },
+      {
+        id: 3,
+        url: "/event/sanam/3.webp",
+        caption: "Workshop on AI and Machine Learning",
+        engagement: "280 likes, 45 comments"
+      }
+    ],
+    highlights: [
+      "25+ Industry Speakers",
+      "15+ Technical Workshops", 
+      "50+ Exhibition Stalls",
+      "Live Streaming to 10K+ Online Viewers"
+    ],
+    results: {
+      satisfaction: "96%",
+      leads: "850+ Qualified Leads",
+      media: "15+ Media Mentions",
+      social: "500K+ Social Reach"
     }
+  },
+  {
+    id: 2,
+    eventName: "Saturday Club",
+    clientName: "Maharashtra Tourism",
+    eventDate: "April 20-22, 2024",
+    venue: "Shaniwarwada Ground, Pune",
+    attendees: "15000+",
+    category: "Cultural Festival",
+    description: "Three-day cultural festival celebrating Maharashtra's rich heritage with traditional music, dance, art, and cuisine.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/saturday/sat1.webp",
+        caption: "Traditional Lavani performance",
+        engagement: "890 likes, 156 comments"
+      },
+      {
+        id: 2,
+        url: "/event/saturday/sat2.webp",
+        caption: "Food festival with local delicacies",
+        engagement: "1.2K likes, 234 comments"
+      },
+      {
+        id: 3,
+        url: "/event/saturday/sat3.webp",
+        caption: "Art exhibition featuring local artists",
+        engagement: "670 likes, 98 comments"
+      }
+    ],
+    highlights: [
+      "100+ Cultural Performances",
+      "50+ Food Stalls",
+      "Art & Craft Exhibition",
+      "Traditional Fashion Show"
+    ],
+    results: {
+      satisfaction: "94%",
+      visitors: "50K+ Total Visitors",
+      media: "25+ Media Coverages",
+      social: "2M+ Social Reach"
+    }
+  },
+  {
+    id: 3,
+    eventName: "Ghille 18",
+    clientName: "ElectroMax Industries",
+    eventDate: "May 10, 2024",
+    venue: "Hyatt Regency, Pune",
+    attendees: "800+",
+    category: "Product Launch",
+    description: "Exclusive product launch event for new smart home devices with live demonstrations and press conference.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/gh18/gh18.webp",
+        caption: "Product unveiling ceremony",
+        engagement: "340 likes, 78 comments"
+      },
+      {
+        id: 2,
+        url: "/event/gh18/gh182.webp",
+        caption: "Live product demonstration",
+        engagement: "280 likes, 56 comments"
+      },
+      {
+        id: 3,
+        url: "/event/gh18/gh183.webp",
+        caption: "Press conference with media",
+        engagement: "190 likes, 34 comments"
+      }
+    ],
+    highlights: [
+      "5 New Products Launched",
+      "Live Demonstrations",
+      "Press Conference",
+      "B2B Meetings"
+    ],
+    results: {
+      satisfaction: "92%",
+      orders: "₹2.5Cr Pre-Orders",
+      media: "12+ Media Features",
+      social: "300K+ Social Reach"
+    }
+  },
+  {
+    id: 4,
+    eventName: "Ghille 17",
+    clientName: "Pune Sports Association",
+    eventDate: "June 15-17, 2024",
+    venue: "Shree Shiv Chhatrapati Sports Complex",
+    attendees: "5000+",
+    category: "Sports Event",
+    description: "Three-day sports championship featuring multiple disciplines with participants from across Maharashtra.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/gh17/gh171.webp",
+        caption: "Opening ceremony with march past",
+        engagement: "560 likes, 89 comments"
+      },
+      {
+        id: 2,
+        url: "/event/gh17/gh172.webp",
+        caption: "Cricket finals match",
+        engagement: "890 likes, 167 comments"
+      },
+      {
+        id: 3,
+        url: "/event/gh17/gh173.webp",
+        caption: "Award ceremony for winners",
+        engagement: "450 likes, 78 comments"
+      }
+    ],
+    highlights: [
+      "8 Sports Disciplines",
+      "500+ Athletes",
+      "Live Commentary",
+      "Prize Distribution"
+    ],
+    results: {
+      satisfaction: "98%",
+      participants: "500+ Athletes",
+      media: "18+ Sports Media",
+      social: "800K+ Social Reach"
+    }
+  },
+  {
+    id: 5,
+    eventName: "CBRE",
+    clientName: "GlobalTech Solutions",
+    eventDate: "July 8, 2024",
+    venue: "The Westin, Pune",
+    attendees: "1200+",
+    category: "Corporate Event",
+    description: "Annual company meeting featuring team building activities, awards ceremony, and strategic planning sessions.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/cbre/cbre1.webp",
+        caption: "CEO's keynote address",
+        engagement: "230 likes, 45 comments"
+      },
+      {
+        id: 2,
+        url: "/event/cbre/cbre2.webp",
+        caption: "Team building activities",
+        engagement: "180 likes, 34 comments"
+      },
+      {
+        id: 3,
+        url: "/event/cbre/cbre3.webp",
+        caption: "Awards ceremony for top performers",
+        engagement: "290 likes, 56 comments"
+      }
+    ],
+    highlights: [
+      "CEO Keynote",
+      "Team Building Sessions",
+      "Awards Ceremony",
+      "Strategic Planning Workshop"
+    ],
+    results: {
+      satisfaction: "95%",
+      engagement: "88% Employee Engagement",
+      feedback: "4.8/5 Average Rating",
+      social: "150K+ Internal Reach"
+    }
+  }
+];
+
+// Event Card Component
+const EventCard = ({ event, index }: { event: typeof events[0], index: number }) => {
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const nextPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev + 1) % event.photos.length);
+  };
+
+  const prevPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev - 1 + event.photos.length) % event.photos.length);
   };
 
   useEffect(() => {
-    return () => {
-      Object.values(videoRefs.current).forEach(v => v?.pause());
-    };
-  }, []);
+    if (isHovered) return;
+    const interval = setInterval(nextPhoto, 3000);
+    return () => clearInterval(interval);
+  }, [isHovered, event.photos.length]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="group cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-green-600/10 to-emerald-600/10 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-green-500/20">
+        
+        {/* Photo Carousel */}
+        <div className="relative h-64 md:h-80">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentPhotoIndex}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5 }}
+              className="relative w-full h-full"
+            >
+              <Image
+                src={event.photos[currentPhotoIndex].url}
+                alt={event.photos[currentPhotoIndex].caption}
+                fill
+                className="object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.eventName)}&background=0d1117&color=ffffff&size=400`;
+                }}
+              />
+              
+              {/* Photo Navigation */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              
+              {/* Navigation Buttons */}
+              <button
+                onClick={(e) => { e.stopPropagation(); prevPhoto(); }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); nextPhoto(); }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
+              >
+                <ChevronRight size={20} />
+              </button>
+              
+              {/* Photo Indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {event.photos.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentPhotoIndex ? 'bg-white w-6' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Event Details */}
+        <div className="p-6">
+          <div className="flex items-start justify-between mb-4">
+            <div>
+              <h3 className="text-xl font-bold text-white mb-1">{event.eventName}</h3>
+              <p className="text-sm text-gray-400">{event.clientName}</p>
+            </div>
+            <div className="px-3 py-1 rounded-full bg-green-500/20 border border-green-500/30">
+              <span className="text-xs text-green-400 font-medium">{event.category}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+            <div className="flex items-center gap-1">
+              <Calendar size={14} />
+              <span>{event.eventDate.split(',')[0]}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <MapPin size={14} />
+              <span>{event.venue.split(',')[0]}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Users size={14} />
+              <span>{event.attendees}</span>
+            </div>
+          </div>
+
+          <p className="text-gray-300 text-sm mb-4 line-clamp-2">{event.description}</p>
+
+          {/* Engagement Stats */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3 text-gray-400 text-xs">
+              <div className="flex items-center gap-1">
+                <Heart size={12} />
+                <span>{event.photos[currentPhotoIndex].engagement.split(' ')[0]}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <MessageCircle size={12} />
+                <span>{event.photos[currentPhotoIndex].engagement.split(', ')[1]}</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-1 text-green-400 group-hover:text-green-300 transition-colors">
+              <span className="text-sm">View Details</span>
+              <ExternalLink size={14} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// Event Detail Modal Component
+const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose: () => void }) => {
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+
+  const nextPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev + 1) % event.photos.length);
+  };
+
+  const prevPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev - 1 + event.photos.length) % event.photos.length);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-3xl bg-gray-900 border border-green-400/30 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+        >
+          <X size={20} />
+        </button>
+
+        <div className="p-6 lg:p-8">
+          {/* Event Header */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-2">{event.eventName}</h2>
+            <div className="flex items-center gap-6 text-gray-400">
+              <span>{event.clientName}</span>
+              <span>•</span>
+              <span>{event.eventDate}</span>
+              <span>•</span>
+              <span>{event.venue}</span>
+            </div>
+          </div>
+
+          {/* Photo Gallery */}
+          <div className="mb-8">
+            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-green-600/10 to-emerald-600/10">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentPhotoIndex}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.05 }}
+                  transition={{ duration: 0.5 }}
+                  className="relative w-full h-full"
+                >
+                  <Image
+                    src={event.photos[currentPhotoIndex].url}
+                    alt={event.photos[currentPhotoIndex].caption}
+                    fill
+                    className="object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.photos[currentPhotoIndex].caption)}&background=0d1117&color=ffffff&size=800`;
+                    }}
+                  />
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    <p className="text-white text-lg mb-2">{event.photos[currentPhotoIndex].caption}</p>
+                    <div className="flex items-center gap-4 text-white/80">
+                      <div className="flex items-center gap-1">
+                        <Heart size={16} />
+                        <span>{event.photos[currentPhotoIndex].engagement}</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Gallery Navigation */}
+              <button
+                onClick={prevPhoto}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                onClick={nextPhoto}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
+
+            {/* Photo Thumbnails */}
+            <div className="flex gap-2 mt-4">
+              {event.photos.map((photo, index) => (
+                <button
+                  key={photo.id}
+                  onClick={() => setCurrentPhotoIndex(index)}
+                  className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                    index === currentPhotoIndex ? 'border-green-400' : 'border-transparent'
+                  }`}
+                >
+                  <Image
+                    src={photo.url}
+                    alt={photo.caption}
+                    fill
+                    className="object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(photo.caption)}&background=0d1117&color=ffffff&size=80`;
+                    }}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Event Details Grid */}
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">Event Details</h3>
+              <p className="text-gray-300 mb-6">{event.description}</p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <Calendar className="h-5 w-5 text-green-400" />
+                  <span className="text-gray-300">{event.eventDate}</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin className="h-5 w-5 text-green-400" />
+                  <span className="text-gray-300">{event.venue}</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Users className="h-5 w-5 text-green-400" />
+                  <span className="text-gray-300">{event.attendees} Attendees</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">Event Highlights</h3>
+              <ul className="space-y-2">
+                {event.highlights.map((highlight, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <Star className="h-5 w-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Results Grid */}
+          <div>
+            <h3 className="text-xl font-bold text-white mb-4">Event Results</h3>
+            <div className="grid md:grid-cols-4 gap-4">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-green-600/20 to-green-600/10 border border-green-500/30">
+                <Star className="h-6 w-6 text-yellow-400 mb-2" />
+                <p className="text-2xl font-bold text-white">{event.results.satisfaction}</p>
+                <p className="text-sm text-gray-400">Satisfaction</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-600/10 border border-blue-500/30">
+                <Users className="h-6 w-6 text-blue-400 mb-2" />
+                <p className="text-2xl font-bold text-white">{event.results.leads || event.results.visitors || event.results.participants || event.results.engagement}</p>
+                <p className="text-sm text-gray-400">Impact</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-600/20 to-purple-600/10 border border-purple-500/30">
+                <Share2 className="h-6 w-6 text-purple-400 mb-2" />
+                <p className="text-2xl font-bold text-white">{event.results.media}</p>
+                <p className="text-sm text-gray-400">Media Coverage</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-600/20 to-orange-600/10 border border-orange-500/30">
+                <Heart className="h-6 w-6 text-orange-400 mb-2" />
+                <p className="text-2xl font-bold text-white">{event.results.social}</p>
+                <p className="text-sm text-gray-400">Social Reach</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+export default function EventExpoPortfolio() {
+  const [selectedEvent, setSelectedEvent] = useState<typeof events[0] | null>(null);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
+      {/* Animated Background */}
+<div className="fixed inset-0 opacity-20 pointer-events-none">        <div className="absolute inset-0 bg-gradient-to-br from-green-600/30 via-emerald-600/20 to-teal-400/30 animate-pulse" />
+        <div className="absolute inset-0">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-green-400 rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${3 + Math.random() * 4}s`
+              }}
+            />
+          ))}
+        </div>
+      </div>
 
-      {/* HERO */}
+      {/* Hero Section */}
       <section className="relative py-20 lg:py-24">
         <div className="site-container">
-          <Link href="/work" className="inline-flex items-center gap-2 text-gray-400 hover:text-green-400 mb-8">
+          <Link 
+            href="/work"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors mb-8"
+          >
             <X size={20} />
             Back to Our Work
           </Link>
-
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-white">Event & Expo </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400">
                 Portfolio
               </span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
-              Spectacular events and brand activations that create unforgettable experiences.
+              Spectacular events and memorable experiences. From tech conferences to cultural festivals, we create unforgettable moments that leave lasting impressions.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* TWO SEPARATE CARDS */}
+      {/* Events Grid */}
       <section className="py-12">
         <div className="site-container">
-          <div className="grid md:grid-cols-2 gap-8">
-
-            {/* EVENT MANAGEMENT CARD */}
-            <motion.div className="rounded-3xl bg-white/5 backdrop-blur-xl border border-green-500/20 p-8 lg:p-12">
-              <h2 className="text-3xl font-bold text-green-400 mb-2">Event Management</h2>
-              <p className="text-gray-400 mb-8">Complete Event Solutions</p>
-
-              <div className="space-y-6">
-                {eventProjects.map((project, index) => (
-                  <motion.div
-                    key={project.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-green-600/10 transition-all"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white/10">
-                        <Image src={project.logo} alt={project.client} fill className="object-contain p-2" />
-                      </div>
-                      <div>
-                        <h3 className="text-white font-semibold">{project.client}</h3>
-                        <p className="text-sm text-gray-400">{project.description}</p>
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => setSelectedEvent(project)}
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-600/20 text-green-400 border border-green-400/30"
-                    >
-                      <Calendar size={16} />
-                      View Event
-                    </button>
-                  </motion.div>
-                ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {events.map((event, index) => (
+              <div key={event.id} onClick={() => setSelectedEvent(event)}>
+                <EventCard event={event} index={index} />
               </div>
-            </motion.div>
-
-            {/* BRAND ACTIVATION CARD */}
-            <motion.div className="rounded-3xl bg-white/5 backdrop-blur-xl border border-green-500/20 p-8 lg:p-12">
-              <h2 className="text-3xl font-bold text-green-400 mb-2">Brand Activations</h2>
-              <p className="text-gray-400 mb-8">Interactive Campaigns</p>
-
-              <div className="space-y-6">
-                {activationCampaigns.map((campaign, index) => (
-                  <motion.div
-                    key={campaign.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-green-600/10 transition-all"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white/10">
-                        <Image src={campaign.logo} alt={campaign.client} fill className="object-contain p-2" />
-                      </div>
-                      <div>
-                        <h3 className="text-white font-semibold">{campaign.client}</h3>
-                        <p className="text-sm text-gray-400">{campaign.description}</p>
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => toggleVideo(campaign.id)}
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-600/20 text-green-400 border border-green-400/30"
-                    >
-                      {activeVideo === campaign.id ? <Pause size={16} /> : <Play size={16} />}
-                      {activeVideo === campaign.id ? "Pause" : "Play"}
-                    </button>
-
-                    <video
-                      ref={(el) => { if (el) videoRefs.current[campaign.id] = el; }}
-                      src={campaign.campaignVideo}
-                      className="hidden"
-                      onEnded={() => setActiveVideo(null)}
-                    />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
+            ))}
           </div>
         </div>
       </section>
 
-      {/* MODAL SAME AS BEFORE (unchanged logic) */}
+      {/* Event Detail Modal */}
       <AnimatePresence>
         {selectedEvent && (
-          <motion.div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setSelectedEvent(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.8 }} animate={{ scale: 1 }} exit={{ scale: 0.8 }}
-              className="relative max-w-4xl w-full rounded-3xl bg-gray-900 border border-green-400/30 p-8"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button onClick={() => setSelectedEvent(null)} className="absolute top-4 right-4">
-                <X size={20} />
-              </button>
-
-              <h3 className="text-2xl text-white mb-4">{selectedEvent.client}</h3>
-              <p className="text-gray-400 mb-6">{selectedEvent.description}</p>
-
-              <div className="relative aspect-[16/9]">
-                <Image src={selectedEvent.eventImage} alt={selectedEvent.client} fill className="object-contain" />
-              </div>
-            </motion.div>
-          </motion.div>
+          <EventDetailModal 
+            event={selectedEvent} 
+            onClose={() => setSelectedEvent(null)} 
+          />
         )}
       </AnimatePresence>
 
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="site-container text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Ready to Create Your Next Event?
+            </h2>
+            <p className="text-xl text-gray-300 mb-8">
+              Let us design and execute exceptional events that bring your vision to life and create unforgettable experiences.
+            </p>
+            
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 hover:scale-105 transition-all duration-300 shadow-lg shadow-green-500/25"
+            >
+              Plan Your Event
+              <Calendar size={20} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }

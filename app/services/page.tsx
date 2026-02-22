@@ -44,6 +44,20 @@ const corporateGiftingImages = [
   { id: 4, image: "/gifts/gift4.jpg" }
 ];
 
+/* ================= AUTO ADVERTISING ================= */
+const autoAdvertisingImages = [
+  { id: 1, image: "/auto/auto1.jpg" },
+  { id: 2, image: "/auto/auto2.png" }
+];
+
+/* ================= DESIGNS & BRANDING ================= */
+const designBrandingImages = [
+  { id: 1, image: "/design/1.jpg" },
+  { id: 2, image: "/design/2.jpg" },
+  { id: 3, image: "/design/3.jpg" },
+  { id: 4, image: "/design/4.jpg" }
+];
+
 export default function TraditionalMediaPortfolio() {
   const [activeAudio, setActiveAudio] = useState<number | null>(null);
   const [selectedAd, setSelectedAd] = useState<typeof newspaperCampaigns[0] | null>(null);
@@ -258,6 +272,91 @@ export default function TraditionalMediaPortfolio() {
         </div>
       </section>
 
+      {/* ================= AUTO + DESIGN & BRANDING ================= */}
+<section className="py-12">
+  <div className="site-container">
+    <div className="grid md:grid-cols-2 gap-8">
+
+      {/* AUTO ADVERTISING CARD */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="rounded-3xl bg-white/5 backdrop-blur-xl border border-primary/20 p-8 lg:p-12"
+      >
+        <div className="flex items-center gap-4 mb-10">
+          
+          <div>
+            <h2 className="text-3xl font-bold text-primary">Auto Advertising</h2>
+            <p className="text-gray-400">Vehicle Branding & Transit Media</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6">
+          {autoAdvertisingImages.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
+              className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all"
+            >
+              <Image
+                src={item.image}
+                alt="Auto Advertising"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* DESIGN & BRANDING CARD */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="rounded-3xl bg-white/5 backdrop-blur-xl border border-primary/20 p-8 lg:p-12"
+      >
+        <div className="flex items-center gap-4 mb-10">
+          
+          <div>
+            <h2 className="text-3xl font-bold text-primary">Designs & Branding</h2>
+            <p className="text-gray-400">Creative Identity & Visual Systems</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6">
+          {designBrandingImages.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
+              className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all"
+            >
+              <Image
+                src={item.image}
+                alt="Design & Branding"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
       {/* MODALS */}
       <AnimatePresence>
         {selectedAd && (
@@ -324,9 +423,7 @@ export default function TraditionalMediaPortfolio() {
               
               <div className="absolute bottom-8 left-8 right-8 bg-black/70 backdrop-blur-xl rounded-3xl p-6 text-center">
                 <div className="flex items-center justify-center gap-4 mb-4">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary/30 to-amber-400/30 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-primary text-2xl font-bold">🎁</span>
-                  </div>
+                 
                 </div>
                 <h3 className="text-3xl font-bold text-white drop-shadow-2xl">Corporate Gifting Excellence</h3>
                 <p className="text-xl text-primary/90 mt-2 drop-shadow-lg">Premium branded gifts & hampers</p>
