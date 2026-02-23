@@ -32,8 +32,8 @@ const tvCampaigns = [
 ];
 
 const outdoorCampaigns = [
-  { id: 1, client: "SSPL Group", image: "/clients/ssploutdoor.jpg" },
-  { id: 2, client: "Shubh Developers  ", image: "/clients/shubhoutdoor.jpg" },
+  { id: 1, client: "SSPL Group", image: "/clients/ssploutdoor.webp" },
+  { id: 2, client: "Shubh Developers  ", image: "/clients/shubhoutdoor.webp" },
 ];
 
 /* ================= CORPORATE GIFTING - JUST IMAGES ================= */
@@ -46,8 +46,8 @@ const corporateGiftingImages = [
 
 /* ================= AUTO ADVERTISING ================= */
 const autoAdvertisingImages = [
-  { id: 1, image: "/auto/auto1.jpg" },
-  { id: 2, image: "/auto/auto2.png" }
+  { id: 1, image: "/auto/auto1.webp" },
+  { id: 2, image: "/auto/auto2.webp" }
 ];
 
 /* ================= DESIGNS & BRANDING ================= */

@@ -28,7 +28,7 @@ const clientWork = [
       {
         id: 1,
         type: "Post",
-        image: "/digital/seasecret.jpeg",
+        image: "/digital/seasecret.webp",
         caption: "New Collection Launch - Summer 2024 🌟",
         engagement: "12.5K likes, 890 comments",
         reach: "450K+"
@@ -45,7 +45,7 @@ const clientWork = [
       {
         id: 3,
         type: "story",
-        image: "/portfolio/fashion-story-1.jpg",
+        // image: "/portfolio/fashion-story-1.jpg",
         caption: "Limited time offer - 30% OFF! 🔥",
         engagement: "8.9K views, 450 shares",
         reach: "120K+"
@@ -78,7 +78,7 @@ const clientWork = [
       {
         id: 1,
         type: "Post",
-        image: "/digital/stargaed.jpeg",
+        image: "/digital/stargaed.webp",
         caption: "New Menu Launch - Authentic Maharashtrian 🍛",
         engagement: "8.2K likes, 567 comments",
         reach: "320K+"
@@ -128,7 +128,7 @@ const clientWork = [
       {
         id: 1,
         type: "Post",
-        image: "/digital/ventex.jpeg",
+        image: "/digital/ventex.webp",
         caption: "Product Launch - Revolutionary AI Solution 🚀",
         engagement: "5.6K likes, 445 comments",
         reach: "180K+"
@@ -509,7 +509,7 @@ export default function DigitalMarketingPortfolio() {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
                       <Award className="h-4 w-4 text-yellow-400" />
                       <span className="text-sm text-gray-300">{client.metrics.roi} ROI</span>
@@ -551,8 +551,8 @@ export default function DigitalMarketingPortfolio() {
                 <X size={20} />
               </button>
 
-              <div className="p-6 lg:p-8">
-                {/* Client Header */}
+<div className="p-6 md:p-8 lg:p-10 space-y-12">
+                  {/* Client Header */}
                 <div className="mb-8">
                   <h2 className="text-3xl font-bold text-white mb-2">{selectedClientData.clientName}</h2>
                   <div className="flex items-center gap-6 text-gray-400">
@@ -562,9 +562,18 @@ export default function DigitalMarketingPortfolio() {
                   </div>
                 </div>
 
+                {/* Social Posts Gallery */}
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-6">Campaign Posts</h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {selectedClientData.posts.map((post, index) => (
+                      <SocialPostCard key={post.id} post={post} index={index} />
+                    ))}
+                  </div>
+                </div>
+
                 {/* Results Grid */}
-                <div className="grid md:grid-cols-4 gap-4 mb-8">
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-600/10 border border-blue-500/30">
+<div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">                  <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-600/10 border border-blue-500/30">
                     <Eye className="h-6 w-6 text-blue-400 mb-2" />
                     <p className="text-2xl font-bold text-white">{selectedClientData.results.reach}</p>
                     <p className="text-sm text-gray-400">Total Reach</p>
@@ -589,8 +598,7 @@ export default function DigitalMarketingPortfolio() {
                 </div>
 
                 {/* Charts Section */}
-                <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <PieChartComponent
+<div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">                  <PieChartComponent
                     data={selectedClientData.platformPerformance}
                     label="Platform Performance"
                   />
@@ -622,16 +630,6 @@ export default function DigitalMarketingPortfolio() {
                         <span className="text-yellow-400 font-medium">{selectedClientData.metrics.roi}</span>
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Social Posts Gallery */}
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-6">Campaign Posts</h3>
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {selectedClientData.posts.map((post, index) => (
-                      <SocialPostCard key={post.id} post={post} index={index} />
-                    ))}
                   </div>
                 </div>
               </div>
@@ -670,3 +668,4 @@ export default function DigitalMarketingPortfolio() {
     </div>
   );
 }
+  

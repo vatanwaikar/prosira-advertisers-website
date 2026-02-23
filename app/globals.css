@@ -392,3 +392,52 @@ h1, h2, h3 {
     padding-right: 2rem;
   }
 }
+/* Gold Animated Border Line */
+
+.gold-animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-animated-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 1.5rem; /* match your card rounded-3xl */
+  background: linear-gradient(
+    120deg,
+    transparent,
+    #d4af37,
+    #f5d76e,
+    #d4af37,
+    transparent
+  );
+  background-size: 300% 300%;
+  animation: goldBorderMove 4s linear infinite;
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes goldBorderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-lineGrow {
+  animation: lineGrow 0.8s ease-out forwards;
+}
