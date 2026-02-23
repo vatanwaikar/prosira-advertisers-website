@@ -27,9 +27,9 @@ export default function CareersPage() {
         {/* Resume Card */}
         <div className="bg-white/5 backdrop-blur-xl border border-yellow-500/30 rounded-3xl p-10 shadow-2xl shadow-yellow-500/10">
 
-          <h2 className="text-2xl font-semibold mb-4 text-yellow-400">
-            Share Your Resume
-          </h2>
+         <h2 className="text-2xl font-semibold mb-4 text-primary font-serif">
+  Share Your Resume
+</h2>
 
           <p className="text-gray-400 mb-8">
             Interested in working with us? Send your updated resume and portfolio.
@@ -38,13 +38,13 @@ export default function CareersPage() {
 
           {/* Gold Email Button */}
           <a
-            href="mailto:careers@prosira.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-yellow-500 to-amber-500 text-black px-8 py-4 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-yellow-500/30"
-          >
-            Send Resume via Email
-          </a>
+  href="mailto:careers@prosira.in"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-primary/30"
+>
+  Send Resume via Email
+</a>
 
           <p className="mt-6 text-sm text-gray-500">
             careers@prosira.in

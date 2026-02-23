@@ -19,6 +19,7 @@ const footerLinks = {
     { name: "Services Portfolio", href: "/services" },
     { name: "Digital Portfolio", href: "/digital" },
     { name: "Event Portfolio", href: "/event-expo" },
+
   ],
   company: [
     { name: "About Us", href: "/about-prosira-advertisers" },
@@ -29,6 +30,7 @@ const footerLinks = {
     { name: "Blog", href: "/blog" },
     { name: "Careers", href: "/careers" },
     { name: "Testimonials", href: "/testimonials" },
+    { name: "Channel Partners", href: "/channel-partners" },
   ],
 };
 
