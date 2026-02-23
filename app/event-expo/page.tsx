@@ -8,6 +8,198 @@ import Link from "next/link";
 
 // Your Real Event Work Data
 const events = [
+
+   {
+    id: 3,
+    eventName: "Great Home & Land Expo 18",
+    clientName: "ElectroMax Industries",
+    eventDate: "May 10, 2024",
+    venue: "Hyatt Regency, Pune",
+    attendees: "800+",
+    category: "Product Launch",
+    description: "Exclusive product launch event for new smart home devices with live demonstrations and press conference.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/gh18/gh18.webp",
+        caption: "Product unveiling ceremony",
+        engagement: "340 likes, 78 comments"
+      },
+      {
+        id: 2,
+        url: "/event/gh18/gh182.webp",
+        caption: "Live product demonstration",
+        engagement: "280 likes, 56 comments"
+      },
+      {
+        id: 3,
+        url: "/event/gh18/gh183.webp",
+        caption: "Press conference with media",
+        engagement: "190 likes, 34 comments"
+      }
+    ],
+    highlights: [
+      "5 New Products Launched",
+      "Live Demonstrations",
+      "Press Conference",
+      "B2B Meetings"
+    ],
+    results: {
+      satisfaction: "92%",
+      orders: "₹2.5Cr Pre-Orders",
+      media: "12+ Media Features",
+      social: "300K+ Social Reach"
+    }
+  },
+  {
+    id: 4,
+    eventName: "Great Home & Land Expo 17",
+    clientName: "Pune Sports Association",
+    eventDate: "June 15-17, 2024",
+    venue: "Shree Shiv Chhatrapati Sports Complex",
+    attendees: "5000+",
+    category: "Sports Event",
+    description: "Three-day sports championship featuring multiple disciplines with participants from across Maharashtra.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/gh17/gh171.webp",
+        caption: "Opening ceremony with march past",
+        engagement: "560 likes, 89 comments"
+      },
+      {
+        id: 2,
+        url: "/event/gh17/gh172.webp",
+        caption: "Cricket finals match",
+        engagement: "890 likes, 167 comments"
+      },
+      {
+        id: 3,
+        url: "/event/gh17/gh173.webp",
+        caption: "Award ceremony for winners",
+        engagement: "450 likes, 78 comments"
+      }
+    ],
+    highlights: [
+      "8 Sports Disciplines",
+      "500+ Athletes",
+      "Live Commentary",
+      "Prize Distribution"
+    ],
+    results: {
+      satisfaction: "98%",
+      participants: "500+ Athletes",
+      media: "18+ Sports Media",
+      social: "800K+ Social Reach"
+    }
+  },
+   {
+    id: 5,
+    eventName: "CBRE PropFest",
+    clientName: "GlobalTech Solutions",
+    eventDate: "July 8, 2024",
+    venue: "The Westin, Pune",
+    attendees: "1200+",
+    category: "Corporate Event",
+    description: "Annual company meeting featuring team building activities, awards ceremony, and strategic planning sessions.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/cbre/cbre1.webp",
+        caption: "CEO's keynote address",
+        engagement: "230 likes, 45 comments"
+      },
+      {
+        id: 2,
+        url: "/event/cbre/cbre2.webp",
+        caption: "Team building activities",
+        engagement: "180 likes, 34 comments"
+      },
+      {
+        id: 3,
+        url: "/event/cbre/cbre3.webp",
+        caption: "Awards ceremony for top performers",
+        engagement: "290 likes, 56 comments"
+      }
+    ],
+    highlights: [
+      "CEO Keynote",
+      "Team Building Sessions",
+      "Awards Ceremony",
+      "Strategic Planning Workshop"
+    ],
+    results: {
+      satisfaction: "95%",
+      engagement: "88% Employee Engagement",
+      feedback: "4.8/5 Average Rating",
+      social: "150K+ Internal Reach"
+    }
+  },
+  {
+  id: 8,
+  eventName: "Blessing Tree",
+  clientName: "InnovateX Hub",
+  eventDate: "October 10, 2024",
+  venue: "Symbiosis Auditorium, Pune",
+  attendees: "1200+",
+  category: "Startup Event",
+  description: "High-energy startup pitch competition with venture capitalists and angel investors.",
+  photos: [
+    { id: 1, url: "/event/bt/bt.jpeg", caption: "Startup pitch presentation", engagement: "420 likes, 70 comments" },
+    { id: 2, url: "/event/bt/bt2.jpeg", caption: "Investor panel", engagement: "380 likes, 55 comments" },
+    { id: 3, url: "/event/bt/bt3.jpeg", caption: "Winner announcement", engagement: "500 likes, 88 comments" }
+  ],
+  highlights: ["50+ Startups", "VC Investors", "Funding Announcements", "Award Ceremony"],
+  results: {
+    satisfaction: "97%",
+    leads: "25+ Funded Startups",
+    media: "15+ Tech Media",
+    social: "900K+ Social Reach"
+  }
+},
+   {
+    id: 2,
+    eventName: "Udyog Dindi By Saturday Club",
+    clientName: "Maharashtra Tourism",
+    eventDate: "April 20-22, 2024",
+    venue: "Shaniwarwada Ground, Pune",
+    attendees: "15000+",
+    category: "Cultural Festival",
+    description: "Three-day cultural festival celebrating Maharashtra's rich heritage with traditional music, dance, art, and cuisine.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/saturday/sat1.webp",
+        caption: "Traditional Lavani performance",
+        engagement: "890 likes, 156 comments"
+      },
+      {
+        id: 2,
+        url: "/event/saturday/sat2.webp",
+        caption: "Food festival with local delicacies",
+        engagement: "1.2K likes, 234 comments"
+      },
+      {
+        id: 3,
+        url: "/event/saturday/sat3.webp",
+        caption: "Art exhibition featuring local artists",
+        engagement: "670 likes, 98 comments"
+      }
+    ],
+    highlights: [
+      "100+ Cultural Performances",
+      "50+ Food Stalls",
+      "Art & Craft Exhibition",
+      "Traditional Fashion Show"
+    ],
+    results: {
+      satisfaction: "94%",
+      visitors: "50K+ Total Visitors",
+      media: "25+ Media Coverages",
+      social: "2M+ Social Reach"
+    }
+  },
+ 
   {
     id: 1,
     eventName: "Sanam Consert",
@@ -50,174 +242,120 @@ const events = [
       social: "500K+ Social Reach"
     }
   },
+ 
+ 
   {
-    id: 2,
-    eventName: "Saturday Club",
-    clientName: "Maharashtra Tourism",
-    eventDate: "April 20-22, 2024",
-    venue: "Shaniwarwada Ground, Pune",
-    attendees: "15000+",
-    category: "Cultural Festival",
-    description: "Three-day cultural festival celebrating Maharashtra's rich heritage with traditional music, dance, art, and cuisine.",
-    photos: [
-      {
-        id: 1,
-        url: "/event/saturday/sat1.webp",
-        caption: "Traditional Lavani performance",
-        engagement: "890 likes, 156 comments"
-      },
-      {
-        id: 2,
-        url: "/event/saturday/sat2.webp",
-        caption: "Food festival with local delicacies",
-        engagement: "1.2K likes, 234 comments"
-      },
-      {
-        id: 3,
-        url: "/event/saturday/sat3.webp",
-        caption: "Art exhibition featuring local artists",
-        engagement: "670 likes, 98 comments"
-      }
-    ],
-    highlights: [
-      "100+ Cultural Performances",
-      "50+ Food Stalls",
-      "Art & Craft Exhibition",
-      "Traditional Fashion Show"
-    ],
-    results: {
-      satisfaction: "94%",
-      visitors: "50K+ Total Visitors",
-      media: "25+ Media Coverages",
-      social: "2M+ Social Reach"
-    }
-  },
-  {
-    id: 3,
-    eventName: "Ghille 18",
-    clientName: "ElectroMax Industries",
-    eventDate: "May 10, 2024",
-    venue: "Hyatt Regency, Pune",
-    attendees: "800+",
-    category: "Product Launch",
-    description: "Exclusive product launch event for new smart home devices with live demonstrations and press conference.",
-    photos: [
-      {
-        id: 1,
-        url: "/event/gh18/gh18.webp",
-        caption: "Product unveiling ceremony",
-        engagement: "340 likes, 78 comments"
-      },
-      {
-        id: 2,
-        url: "/event/gh18/gh182.webp",
-        caption: "Live product demonstration",
-        engagement: "280 likes, 56 comments"
-      },
-      {
-        id: 3,
-        url: "/event/gh18/gh183.webp",
-        caption: "Press conference with media",
-        engagement: "190 likes, 34 comments"
-      }
-    ],
-    highlights: [
-      "5 New Products Launched",
-      "Live Demonstrations",
-      "Press Conference",
-      "B2B Meetings"
-    ],
-    results: {
-      satisfaction: "92%",
-      orders: "₹2.5Cr Pre-Orders",
-      media: "12+ Media Features",
-      social: "300K+ Social Reach"
-    }
-  },
-  {
-    id: 4,
-    eventName: "Ghille 17",
-    clientName: "Pune Sports Association",
-    eventDate: "June 15-17, 2024",
-    venue: "Shree Shiv Chhatrapati Sports Complex",
-    attendees: "5000+",
-    category: "Sports Event",
-    description: "Three-day sports championship featuring multiple disciplines with participants from across Maharashtra.",
-    photos: [
-      {
-        id: 1,
-        url: "/event/gh17/gh171.webp",
-        caption: "Opening ceremony with march past",
-        engagement: "560 likes, 89 comments"
-      },
-      {
-        id: 2,
-        url: "/event/gh17/gh172.webp",
-        caption: "Cricket finals match",
-        engagement: "890 likes, 167 comments"
-      },
-      {
-        id: 3,
-        url: "/event/gh17/gh173.webp",
-        caption: "Award ceremony for winners",
-        engagement: "450 likes, 78 comments"
-      }
-    ],
-    highlights: [
-      "8 Sports Disciplines",
-      "500+ Athletes",
-      "Live Commentary",
-      "Prize Distribution"
-    ],
-    results: {
-      satisfaction: "98%",
-      participants: "500+ Athletes",
-      media: "18+ Sports Media",
-      social: "800K+ Social Reach"
-    }
-  },
-  {
-    id: 5,
-    eventName: "CBRE",
-    clientName: "GlobalTech Solutions",
-    eventDate: "July 8, 2024",
-    venue: "The Westin, Pune",
-    attendees: "1200+",
-    category: "Corporate Event",
-    description: "Annual company meeting featuring team building activities, awards ceremony, and strategic planning sessions.",
-    photos: [
-      {
-        id: 1,
-        url: "/event/cbre/cbre1.webp",
-        caption: "CEO's keynote address",
-        engagement: "230 likes, 45 comments"
-      },
-      {
-        id: 2,
-        url: "/event/cbre/cbre2.webp",
-        caption: "Team building activities",
-        engagement: "180 likes, 34 comments"
-      },
-      {
-        id: 3,
-        url: "/event/cbre/cbre3.webp",
-        caption: "Awards ceremony for top performers",
-        engagement: "290 likes, 56 comments"
-      }
-    ],
-    highlights: [
-      "CEO Keynote",
-      "Team Building Sessions",
-      "Awards Ceremony",
-      "Strategic Planning Workshop"
-    ],
-    results: {
-      satisfaction: "95%",
-      engagement: "88% Employee Engagement",
-      feedback: "4.8/5 Average Rating",
-      social: "150K+ Internal Reach"
-    }
+  id: 6,
+  eventName: "Varad Property Festival Season 1",
+  clientName: "Velocity Motors",
+  eventDate: "August 12-14, 2024",
+  venue: "Auto Cluster Exhibition Center, Pune",
+  attendees: "10000+",
+  category: "Exhibition",
+  description: "Grand automobile expo showcasing latest electric vehicles and performance cars.",
+  photos: [
+    { id: 1, url: "/event/varad/varad1.webp", caption: "Luxury car showcase", engagement: "780 likes, 120 comments" },
+    { id: 2, url: "/event/varad/varad2.webp", caption: "EV launch ceremony", engagement: "640 likes, 98 comments" },
+    { id: 3, url: "/event/varad/varad3.webp", caption: "Test drive zone", engagement: "520 likes, 76 comments" }
+  ],
+  highlights: ["30+ Auto Brands", "Live Test Drives", "EV Launch", "Celebrity Appearance"],
+  results: {
+    satisfaction: "95%",
+    visitors: "40K+ Visitors",
+    media: "20+ Media Coverages",
+    social: "1.5M+ Social Reach"
   }
+},
+{
+  id: 7,
+  eventName: "Chandramukhi",
+  clientName: "Prime Infra Group",
+  eventDate: "September 5, 2024",
+  venue: "JW Marriott, Pune",
+  attendees: "1500+",
+  category: "Business Conference",
+  description: "Premium real estate summit with top developers and investors.",
+  photos: [
+    { id: 1, url: "/event/chandra/chnd.webp", caption: "Panel discussion", engagement: "310 likes, 54 comments" },
+    { id: 2, url: "/event/chandra/chnad2.webp", caption: "Networking session", engagement: "280 likes, 40 comments" },
+    { id: 3, url: "/event/chandra/chnad3.webp", caption: "Project unveiling", engagement: "350 likes, 60 comments" }
+  ],
+  highlights: ["Top Developers Panel", "Investment Insights", "Live Q&A", "VIP Networking"],
+  results: {
+    satisfaction: "93%",
+    leads: "600+ Qualified Leads",
+    media: "10+ Media Mentions",
+    social: "400K+ Social Reach"
+  }
+},
+
+{
+  id: 9,
+  eventName: "Varad Property Festival Season 2",
+  clientName: "StyleWave",
+  eventDate: "November 18-19, 2024",
+  venue: "Phoenix Mall, Pune",
+  attendees: "7000+",
+  category: "Fashion Show",
+  description: "Luxury fashion showcase featuring top designers and celebrity models.",
+  photos: [
+    { id: 1, url: "/event/varad/varad4.webp", caption: "Ramp walk highlight", engagement: "1K likes, 210 comments" },
+    { id: 2, url: "/event/varad/varad5.webp", caption: "Designer showcase", engagement: "890 likes, 180 comments" },
+    { id: 3, url: "/event/varad/varad6.webp", caption: "Closing ceremony", engagement: "760 likes, 150 comments" }
+  ],
+  highlights: ["20+ Designers", "Celebrity Showstopper", "Luxury Brands", "Live Media Coverage"],
+  results: {
+    satisfaction: "94%",
+    visitors: "20K+ Visitors",
+    media: "30+ Media Coverages",
+    social: "2.2M+ Social Reach"
+  }
+},
+{
+  id: 10,
+  eventName: "Varad Property Festival Season 3",
+  clientName: "EduFuture India",
+  eventDate: "December 2-3, 2024",
+  venue: "Balewadi Stadium, Pune",
+  attendees: "9000+",
+  category: "Education Expo",
+  description: "Mega education fair connecting students with universities and institutions.",
+  photos: [
+    { id: 1, url: "/event/varad/varad7.webp", caption: "University stalls", engagement: "500 likes, 90 comments" },
+    { id: 2, url: "/event/varad/varad8.webp", caption: "Career counseling session", engagement: "450 likes, 75 comments" },
+    { id: 3, url: "/event/varad/varad9.webp", caption: "Student registration desk", engagement: "380 likes, 60 comments" }
+  ],
+  highlights: ["100+ Universities", "Career Counseling", "Scholarship Info", "Workshops"],
+  results: {
+    satisfaction: "96%",
+    visitors: "35K+ Visitors",
+    media: "18+ Media Mentions",
+    social: "1M+ Social Reach"
+  }
+},
+{
+  id: 11,
+  eventName: "Channel Partner Summit",
+  clientName: "Taste Maharashtra",
+  eventDate: "January 15-17, 2025",
+  venue: "Amanora Park, Pune",
+  attendees: "12000+",
+  category: "Food Festival",
+  description: "Grand food carnival featuring street food, gourmet dishes, and live music.",
+  photos: [
+    { id: 1, url: "/event/cp/cp1.webp", caption: "Live cooking demo", engagement: "950 likes, 160 comments" },
+    { id: 2, url: "/event/cp/cp2.webp", caption: "Crowd enjoying food", engagement: "1.3K likes, 240 comments" },
+    { id: 3, url: "/event/cp/cp3.webp", caption: "Music performance", engagement: "870 likes, 140 comments" }
+  ],
+  highlights: ["150+ Food Stalls", "Celebrity Chefs", "Live Music", "Family Activities"],
+  results: {
+    satisfaction: "98%",
+    visitors: "45K+ Visitors",
+    media: "22+ Media Coverages",
+    social: "2.5M+ Social Reach"
+  }
+}
+  
 ];
 
 // Event Card Component
