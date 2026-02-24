@@ -24,6 +24,7 @@ const clientWork = [
       followers: "+115",
       sales: "1,374 Paid Clicks"
     },
+    backgroundImage: "/digital/seasecret.webp",
     posts: [
       {
         id: 1,
@@ -45,7 +46,7 @@ const clientWork = [
       {
         id: 3,
         type: "story",
-        // image: "/portfolio/fashion-story-1.jpg",
+         image: "/digital/seastory.jpeg",
         caption: "Limited time offer - 30% OFF! 🔥",
         engagement: "8.9K views, 450 shares",
         reach: "120K+"
@@ -74,6 +75,7 @@ const clientWork = [
       followers: "100+",
       sales: "2.9K Link Clicks"
     },
+    backgroundImage: "/digital/stargaed.webp",
     posts: [
       {
         id: 1,
@@ -95,7 +97,7 @@ const clientWork = [
       {
         id: 3,
         type: "story",
-        image: "/portfolio/food-story-1.jpg",
+        image: "/digital/starstory.jpeg",
         caption: "Today's Special Offer - 20% OFF! 🔥",
         engagement: "6.5K views, 320 shares",
         reach: "210K+"
@@ -124,6 +126,7 @@ const clientWork = [
       followers: "+998",
       leads: "2.6K+ Qualified Leads"
     },
+    backgroundImage: "/digital/ventex.webp",
     posts: [
       {
         id: 1,
@@ -134,14 +137,6 @@ const clientWork = [
         reach: "180K+"
       },
       {
-        id: 2,
-        type: "poll",
-        image: "/portfolio/tech-poll-1.jpg",
-        caption: "What's your biggest tech challenge? 🤔",
-        engagement: "3.2K responses, 890 shares",
-        reach: "95K+"
-      },
-      {
         id: 3,
         type: "reel",
         video: "/reel/stargagereel.mp4",
@@ -149,7 +144,15 @@ const clientWork = [
         caption: "How our AI transforms agriculture 🌱🤖",
         engagement: "9.8K likes, 1.2K comments",
         reach: "245K+"
-      }
+      },
+      {
+        id: 2,
+        type: "story",
+        image: "/digital/vinstory.jpeg",
+        caption: "What's your biggest tech challenge? 🤔",
+        engagement: "3.2K responses, 890 shares",
+        reach: "95K+"
+      },
     ],
     metrics: {
       engagementRate: "2.9%",
@@ -451,8 +454,8 @@ export default function DigitalMarketingPortfolio() {
             href="/work"
             className="inline-flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors mb-8"
           >
-            <X size={20} />
-            Back to Our Work
+           
+            ← Back to Our Work
           </Link>
           
           <motion.div
@@ -487,36 +490,54 @@ export default function DigitalMarketingPortfolio() {
                 onClick={() => setSelectedClient(client.id)}
                 className="group cursor-pointer"
               >
-                <div className="relative p-6 rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-blue-500/20">
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-1">{client.clientName}</h3>
-                      <p className="text-sm text-gray-400">{client.industry}</p>
-                    </div>
-                    <div className="p-3 rounded-xl bg-blue-500/20">
-                      <TrendingUp className="h-6 w-6 text-blue-400" />
-                    </div>
-                  </div>
+                <div className="relative h-80 rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/30">
+                  {/* Background Image */}
+                  <Image
+                    src={client.backgroundImage}
+                    alt={client.clientName}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                   
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="p-3 rounded-xl bg-white/5">
-                      <p className="text-2xl font-bold text-blue-400">{client.results.reach}</p>
-                      <p className="text-xs text-gray-400">Reach</p>
-                    </div>
-                    <div className="p-3 rounded-xl bg-white/5">
-                      <p className="text-2xl font-bold text-purple-400">{client.results.engagement}</p>
-                      <p className="text-xs text-gray-400">Engagement</p>
-                    </div>
-                  </div>
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
                   
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2">
-                      <Award className="h-4 w-4 text-yellow-400" />
-                      <span className="text-sm text-gray-300">{client.metrics.roi} ROI</span>
+                  {/* Content Container */}
+                  <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                    {/* Top Section */}
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg">{client.clientName}</h3>
+                        <p className="text-sm text-gray-200 drop-shadow-md">{client.industry}</p>
+                      </div>
+                      <div className="p-3 rounded-xl bg-white/20 backdrop-blur-md border border-white/30">
+                        <TrendingUp className="h-6 w-6 text-white" />
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1 text-blue-400 group-hover:text-blue-300 transition-colors">
-                      <span className="text-sm">View Details</span>
-                      <ExternalLink size={14} />
+                    
+                    {/* Middle Stats */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
+                        <p className="text-2xl font-bold text-blue-300 drop-shadow-lg">{client.results.reach}</p>
+                        <p className="text-xs text-gray-200">Reach</p>
+                      </div>
+                      <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
+                        <p className="text-2xl font-bold text-purple-300 drop-shadow-lg">{client.results.engagement}</p>
+                        <p className="text-xs text-gray-200">Engagement</p>
+                      </div>
+                    </div>
+                    
+                    {/* Bottom Section */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Award className="h-5 w-5 text-yellow-400 drop-shadow-lg" />
+                        <span className="text-sm text-white font-medium drop-shadow-md">{client.metrics.roi} ROI</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/30 group-hover:bg-white/30 transition-all">
+                        <span className="text-sm font-medium">View Details</span>
+                        <ExternalLink size={14} />
+                      </div>
                     </div>
                   </div>
                 </div>

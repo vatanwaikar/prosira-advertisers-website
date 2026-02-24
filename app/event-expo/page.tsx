@@ -11,13 +11,13 @@ const events = [
 
    {
     id: 3,
-    eventName: "Great Home & Land Expo 18",
-    clientName: "ElectroMax Industries",
-    eventDate: "May 10, 2024",
-    venue: "Hyatt Regency, Pune",
+    eventName: "Great Home & Land Expo 2018",
+    clientName: "InHouse",
+    eventDate: "Jan 5 to 8, 2018",
+    venue: "Shivgorksh Maidan Katraj Kondhwa Road, Katraj",
     attendees: "800+",
-    category: "Product Launch",
-    description: "Exclusive product launch event for new smart home devices with live demonstrations and press conference.",
+    category: "Property Exhibition",
+    description:"Following the successful 2017 edition held during a challenging market phase, the 2nd edition of the Property Exhibition was organized in 2018, building on renewed industry confidence and positive buyer sentiment. The event witnessed stronger participation from leading developers, increased footfall, and a wider showcase of residential and commercial projects aligned with the evolving regulatory environment.",
     photos: [
       {
         id: 1,
@@ -39,27 +39,27 @@ const events = [
       }
     ],
     highlights: [
-      "5 New Products Launched",
-      "Live Demonstrations",
-      "Press Conference",
-      "B2B Meetings"
-    ],
+  "Sponsored by Ceratec Group",
+  "Inaugurated by Aanand Agarwal",
+  "Celebrity Guest – Prajakta Mali",
+  "Top Real Estate Participation"
+],
     results: {
-      satisfaction: "92%",
-      orders: "₹2.5Cr Pre-Orders",
-      media: "12+ Media Features",
-      social: "300K+ Social Reach"
+      satisfaction: "100%",
+      orders: "8500+",
+      media: "45+ Media",
+      social: "2M+  Reach"
     }
   },
   {
     id: 4,
-    eventName: "Great Home & Land Expo 17",
-    clientName: "Pune Sports Association",
-    eventDate: "June 15-17, 2024",
-    venue: "Shree Shiv Chhatrapati Sports Complex",
+    eventName: "Great Home & Land Expo 2017",
+    clientName: "InHouse",
+    eventDate: "March 3-5, 2017",
+    venue: "Shivgorksh Maidan Katraj Kondhwa Road, Katraj",
     attendees: "5000+",
-    category: "Sports Event",
-    description: "Three-day sports championship featuring multiple disciplines with participants from across Maharashtra.",
+    category: "Property Exhibition",
+    description: "Held during the challenging business climate following demonetization and the implementation of GST reforms, the 2017 Property Exhibition emerged as a resilient platform for the real estate industry. Despite market uncertainty, the event successfully brought together developers, investors, and serious homebuyers, creating opportunities for direct engagement and transparent discussions around evolving regulations and investment strategies.",
     photos: [
       {
         id: 1,
@@ -81,27 +81,27 @@ const events = [
       }
     ],
     highlights: [
-      "8 Sports Disciplines",
-      "500+ Athletes",
-      "Live Commentary",
-      "Prize Distribution"
-    ],
+  "Supported by SKD Group",
+  "Grand Inauguration by Shrenik Karnawat",
+  "Celebrity Presence – Prarthna Behere",
+  "Leading Real Estate Brands"
+],
     results: {
-      satisfaction: "98%",
-      participants: "500+ Athletes",
-      media: "18+ Sports Media",
-      social: "800K+ Social Reach"
+      satisfaction: "100%",
+      participants: "6500+",
+      media: "35+ Media",
+      social: "1.5M+ Reach"
     }
   },
    {
     id: 5,
-    eventName: "CBRE PropFest",
-    clientName: "GlobalTech Solutions",
-    eventDate: "July 8, 2024",
-    venue: "The Westin, Pune",
+    eventName: "CBRE Propfest 2019",
+    clientName: "CBRE",
+    eventDate: "OCT 4 to 6, 2019",
+    venue: "East- Hotel Hyatt Regency -Viman Nagar and West- Hotel Taj Vivanta-Hinjewadi",
     attendees: "1200+",
-    category: "Corporate Event",
-    description: "Annual company meeting featuring team building activities, awards ceremony, and strategic planning sessions.",
+    category: "Property Exhibition",
+    description: "CBRE Propfest showcased a diverse range of exclusive, affordable, and luxurious homes from leading residential developers across East and West Pune. The event brought together top projects under one platform, offering homebuyers and investors an opportunity to explore premium residences, discover attractive deals, and connect directly with trusted developers across Pune’s rapidly growing residential corridors.",
     photos: [
       {
         id: 1,
@@ -123,38 +123,43 @@ const events = [
       }
     ],
     highlights: [
-      "CEO Keynote",
-      "Team Building Sessions",
-      "Awards Ceremony",
-      "Strategic Planning Workshop"
-    ],
+  "Leading Pune Developers",
+  "Luxury & Affordable Homes",
+  "Exclusive Property Deals",
+  "East & West Pune Projects"
+],
     results: {
-      satisfaction: "95%",
-      engagement: "88% Employee Engagement",
-      feedback: "4.8/5 Average Rating",
-      social: "150K+ Internal Reach"
+      satisfaction: "100%",
+      engagement: "1200+",
+      feedback: "75+ Media",
+      social: "3M+ Reach"
     }
   },
   {
   id: 8,
   eventName: "Blessing Tree",
-  clientName: "InnovateX Hub",
-  eventDate: "October 10, 2024",
-  venue: "Symbiosis Auditorium, Pune",
+  clientName: "InHouse",
+  eventDate: "October 25 to 29, 2017",
+  venue: "Ganesh Kala krida manch Swargate",
   attendees: "1200+",
-  category: "Startup Event",
-  description: "High-energy startup pitch competition with venture capitalists and angel investors.",
+  category: "Sprutial Expo",
+description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition that brought together renowned astrologers, numerologists, tarot readers, palm readers, and holistic practitioners under one roof. The event created a vibrant platform for visitors to explore spiritual guidance, positive energy products, and alternative healing practices. The expo featured personalized consultations, spiritual merchandise, and interactive sessions focused on self-discovery, mindfulness, and holistic living, successfully establishing itself as a distinctive gathering for the spiritual and metaphysical community.",
   photos: [
     { id: 1, url: "/event/bt/bt.jpeg", caption: "Startup pitch presentation", engagement: "420 likes, 70 comments" },
     { id: 2, url: "/event/bt/bt2.jpeg", caption: "Investor panel", engagement: "380 likes, 55 comments" },
     { id: 3, url: "/event/bt/bt3.jpeg", caption: "Winner announcement", engagement: "500 likes, 88 comments" }
   ],
-  highlights: ["50+ Startups", "VC Investors", "Funding Announcements", "Award Ceremony"],
+ highlights: [
+  "Renowned Spiritual Experts",
+  "Personalized Consultations",
+  "Holistic & Wellness Expo",
+  "Interactive Healing Sessions"
+],
   results: {
-    satisfaction: "97%",
-    leads: "25+ Funded Startups",
-    media: "15+ Tech Media",
-    social: "900K+ Social Reach"
+    satisfaction: "200%",
+    leads: "45000+",
+    media: "30+ Media",
+    social: "5M Reach"
   }
 },
    {
@@ -712,8 +717,7 @@ export default function EventExpoPortfolio() {
             href="/work"
             className="inline-flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors mb-8"
           >
-            <X size={20} />
-            Back to Our Work
+            ← Back to Our Work
           </Link>
           
           <motion.div

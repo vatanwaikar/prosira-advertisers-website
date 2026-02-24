@@ -6,27 +6,48 @@ import Link from "next/link";
 
 const channelPartners = {
   television: [
-    { name: "Zee TV", logo: "/partners/tv/zee.webp" },
-    { name: "Star Plus", logo: "/partners/tv/star.webp" },
-    { name: "Sony Entertainment", logo: "/partners/tv/sony.webp" },
-    { name: "Colors TV", logo: "/partners/tv/colors.webp" },
+    { name: "Zee TV", logo: "/partners/tv1.jpg" },
+    { name: "Star Plus", logo: "/partners/tv2.jpg" },
+    { name: "Sony Entertainment", logo: "/partners/tv3.jpg" },
+    { name: "Colors TV", logo: "/partners/tv4.jpg" },
+    { name: "Zee TV", logo: "/partners/tv5.jpg" },
+    { name: "Star Plus", logo: "/partners/tv6.jpg" },
+    { name: "Sony Entertainment", logo: "/partners/tv7.jpg" },
+    { name: "Colors TV", logo: "/partners/tv8.jpg" },
+    { name: "Zee TV", logo: "/partners/tv9.jpg" },
+    { name: "Star Plus", logo: "/partners/tv10.jpg" },
+   
   ],
   newspaper: [
-    { name: "Times of India", logo: "/partners/newspaper/toi.webp" },
-    { name: "Indian Express", logo: "/partners/newspaper/ie.webp" },
-    { name: "Sakal", logo: "/partners/newspaper/sakal.webp" },
-    { name: "Lokmat", logo: "/partners/newspaper/lokmat.webp" },
+    { name: "Times of India", logo: "/partners/news1.jpg" },
+    { name: "Indian Express", logo: "/partners/news2.jpg" },
+    { name: "Sakal", logo: "/partners/news3.jpg" },
+    { name: "Lokmat", logo: "/partners/news4.jpg" },
+    { name: "Indian Express", logo: "/partners/news5.jpg" },
+    { name: "Sakal", logo: "/partners/news6.jpg" },
+    { name: "Lokmat", logo: "/partners/news7.jpg" },
+
   ],
   cinema: [
-    { name: "PVR", logo: "/partners/cinema/pvr.webp" },
-    { name: "INOX", logo: "/partners/cinema/inox.webp" },
-    { name: "Cinepolis", logo: "/partners/cinema/cinepolis.webp" },
+    { name: "PVR", logo: "/partners/cine1.jpg" },
+    { name: "INOX", logo: "/partners/cine2.jpg" },
+    { name: "Cinepolis", logo: "/partners/cine3.jpg" },
+    { name: "Carnival Cinemas", logo: "/partners/cine4.jpg" },
+        { name: "Carnival Cinemas", logo: "/partners/cine5.jpg" },
+    { name: "Carnival Cinemas", logo: "/partners/cine6.jpg" },
+
   ],
   radio: [
-    { name: "Radio Mirchi", logo: "/partners/radio/mirchi.webp" },
-    { name: "Red FM", logo: "/partners/radio/redfm.webp" },
-    { name: "Radio City", logo: "/partners/radio/radiocity.webp" },
-    { name: "BIG FM", logo: "/partners/radio/bigfm.webp" },
+    { name: "Radio Mirchi", logo: "/partners/radio1.jpg" },
+    { name: "Red FM", logo: "/partners/radio2.jpg" },
+    { name: "Radio City", logo: "/partners/radio3.jpg" },
+    { name: "BIG FM", logo: "/partners/radio4.jpg" },
+    { name: "Radio Mirchi", logo: "/partners/radio5.jpg" },
+    { name: "Red FM", logo: "/partners/radio6.jpg" },
+    { name: "Radio City", logo: "/partners/radio7.jpg" },
+    { name: "BIG FM", logo: "/partners/radio8.jpg" },
+    { name: "BIG FM", logo: "/partners/radio9.jpg" },
+
   ],
 };
 
@@ -56,8 +77,7 @@ const Section = ({ title, partners }: any) => {
               alt={partner.name}
               width={140}
               height={60}
-              className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
-              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+className="object-contain transition-all duration-300"              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             />
           </motion.div>
         ))}

@@ -91,7 +91,7 @@ export default function TraditionalMediaPortfolio() {
       <section className="relative py-20 lg:py-24">
         <div className="site-container">
           <Link href="/work" className="inline-flex items-center gap-2 text-gray-400 hover:text-primary transition-colors mb-8">
-            ←Back to Our Work
+            ← Back to Our Work
           </Link>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>

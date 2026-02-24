@@ -11,7 +11,7 @@
       title: "Services",
       description:
         "Traditional & media advertising solutions including radio, print, outdoor & branding.",
-      image: "/images/as.webp",
+      image: "/images/ad1.jpeg",
       href: "/services",
     },
     {
