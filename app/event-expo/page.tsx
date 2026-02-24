@@ -8,56 +8,13 @@ import Link from "next/link";
 
 // Your Real Event Work Data
 const events = [
-
-   {
-    id: 3,
-    eventName: "Great Home & Land Expo 2018",
-    clientName: "InHouse",
-    eventDate: "Jan 5 to 8, 2018",
-    venue: "Shivgorksh Maidan Katraj Kondhwa Road, Katraj",
-    attendees: "800+",
-    category: "Property Exhibition",
-    description:"Following the successful 2017 edition held during a challenging market phase, the 2nd edition of the Property Exhibition was organized in 2018, building on renewed industry confidence and positive buyer sentiment. The event witnessed stronger participation from leading developers, increased footfall, and a wider showcase of residential and commercial projects aligned with the evolving regulatory environment.",
-    photos: [
-      {
-        id: 1,
-        url: "/event/gh18/gh18.webp",
-        caption: "Product unveiling ceremony",
-        engagement: "340 likes, 78 comments"
-      },
-      {
-        id: 2,
-        url: "/event/gh18/gh182.webp",
-        caption: "Live product demonstration",
-        engagement: "280 likes, 56 comments"
-      },
-      {
-        id: 3,
-        url: "/event/gh18/gh183.webp",
-        caption: "Press conference with media",
-        engagement: "190 likes, 34 comments"
-      }
-    ],
-    highlights: [
-  "Sponsored by Ceratec Group",
-  "Inaugurated by Aanand Agarwal",
-  "Celebrity Guest – Prajakta Mali",
-  "Top Real Estate Participation"
-],
-    results: {
-      satisfaction: "100%",
-      orders: "8500+",
-      media: "45+ Media",
-      social: "2M+  Reach"
-    }
-  },
-  {
+{
     id: 4,
     eventName: "Great Home & Land Expo 2017",
     clientName: "InHouse",
     eventDate: "March 3-5, 2017",
     venue: "Shivgorksh Maidan Katraj Kondhwa Road, Katraj",
-    attendees: "5000+",
+    stalls: "30+",
     category: "Property Exhibition",
     description: "Held during the challenging business climate following demonetization and the implementation of GST reforms, the 2017 Property Exhibition emerged as a resilient platform for the real estate industry. Despite market uncertainty, the event successfully brought together developers, investors, and serious homebuyers, creating opportunities for direct engagement and transparent discussions around evolving regulations and investment strategies.",
     photos: [
@@ -93,13 +50,83 @@ const events = [
       social: "1.5M+ Reach"
     }
   },
+  {
+  id: 8,
+  eventName: "Blessing Tree",
+  clientName: "InHouse",
+  eventDate: "October 25 to 29, 2017",
+  venue: "Ganesh Kala krida manch Swargate",
+  stalls: "100+",
+  category: "Sprutial Expo",
+description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition that brought together renowned astrologers, numerologists, tarot readers, palm readers, and holistic practitioners under one roof. The event created a vibrant platform for visitors to explore spiritual guidance, positive energy products, and alternative healing practices. The expo featured personalized consultations, spiritual merchandise, and interactive sessions focused on self-discovery, mindfulness, and holistic living, successfully establishing itself as a distinctive gathering for the spiritual and metaphysical community.",
+  photos: [
+    { id: 1, url: "/event/bt/bt.jpeg", caption: "Startup pitch presentation", engagement: "420 likes, 70 comments" },
+    { id: 2, url: "/event/bt/bt2.jpeg", caption: "Investor panel", engagement: "380 likes, 55 comments" },
+    { id: 3, url: "/event/bt/bt3.jpeg", caption: "Winner announcement", engagement: "500 likes, 88 comments" }
+  ],
+ highlights: [
+  "Renowned Spiritual Experts",
+  "Personalized Consultations",
+  "Holistic & Wellness Expo",
+  "Interactive Healing Sessions"
+],
+  results: {
+    satisfaction: "200%",
+    leads: "45000+",
+    media: "30+ Media",
+    social: "5M Reach"
+  }
+},
+   {
+    id: 3,
+    eventName: "Great Home & Land Expo 2018",
+    clientName: "InHouse",
+    eventDate: "Jan 5 to 8, 2018",
+    venue: "Shivgorksh Maidan Katraj Kondhwa Road, Katraj",
+    stalls: "200+",
+    category: "Property Exhibition",
+    description:"Following the successful 2017 edition held during a challenging market phase, the 2nd edition of the Property Exhibition was organized in 2018, building on renewed industry confidence and positive buyer sentiment. The event witnessed stronger participation from leading developers, increased footfall, and a wider showcase of residential and commercial projects aligned with the evolving regulatory environment.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/gh18/gh18.webp",
+        caption: "Product unveiling ceremony",
+        engagement: "340 likes, 78 comments"
+      },
+      {
+        id: 2,
+        url: "/event/gh18/gh182.webp",
+        caption: "Live product demonstration",
+        engagement: "280 likes, 56 comments"
+      },
+      {
+        id: 3,
+        url: "/event/gh18/gh183.webp",
+        caption: "Press conference with media",
+        engagement: "190 likes, 34 comments"
+      }
+    ],
+    highlights: [
+  "Sponsored by Ceratec Group",
+  "Inaugurated by Aanand Agarwal",
+  "Celebrity Guest – Prajakta Mali",
+  "Top Real Estate Participation"
+],
+    results: {
+      satisfaction: "100%",
+      orders: "8500+",
+      media: "45+ Media",
+      social: "2M+  Reach"
+    }
+  },
+  
    {
     id: 5,
     eventName: "CBRE Propfest 2019",
     clientName: "CBRE",
     eventDate: "OCT 4 to 6, 2019",
     venue: "East- Hotel Hyatt Regency -Viman Nagar and West- Hotel Taj Vivanta-Hinjewadi",
-    attendees: "1200+",
+    stalls: "60+",
     category: "Property Exhibition",
     description: "CBRE Propfest showcased a diverse range of exclusive, affordable, and luxurious homes from leading residential developers across East and West Pune. The event brought together top projects under one platform, offering homebuyers and investors an opportunity to explore premium residences, discover attractive deals, and connect directly with trusted developers across Pune’s rapidly growing residential corridors.",
     photos: [
@@ -131,46 +158,20 @@ const events = [
     results: {
       satisfaction: "100%",
       engagement: "1200+",
-      feedback: "75+ Media",
+       media: "40+",
       social: "3M+ Reach"
     }
   },
-  {
-  id: 8,
-  eventName: "Blessing Tree",
-  clientName: "InHouse",
-  eventDate: "October 25 to 29, 2017",
-  venue: "Ganesh Kala krida manch Swargate",
-  attendees: "1200+",
-  category: "Sprutial Expo",
-description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition that brought together renowned astrologers, numerologists, tarot readers, palm readers, and holistic practitioners under one roof. The event created a vibrant platform for visitors to explore spiritual guidance, positive energy products, and alternative healing practices. The expo featured personalized consultations, spiritual merchandise, and interactive sessions focused on self-discovery, mindfulness, and holistic living, successfully establishing itself as a distinctive gathering for the spiritual and metaphysical community.",
-  photos: [
-    { id: 1, url: "/event/bt/bt.jpeg", caption: "Startup pitch presentation", engagement: "420 likes, 70 comments" },
-    { id: 2, url: "/event/bt/bt2.jpeg", caption: "Investor panel", engagement: "380 likes, 55 comments" },
-    { id: 3, url: "/event/bt/bt3.jpeg", caption: "Winner announcement", engagement: "500 likes, 88 comments" }
-  ],
- highlights: [
-  "Renowned Spiritual Experts",
-  "Personalized Consultations",
-  "Holistic & Wellness Expo",
-  "Interactive Healing Sessions"
-],
-  results: {
-    satisfaction: "200%",
-    leads: "45000+",
-    media: "30+ Media",
-    social: "5M Reach"
-  }
-},
+  
    {
     id: 2,
     eventName: "Udyog Dindi By Saturday Club",
-    clientName: "Maharashtra Tourism",
-    eventDate: "April 20-22, 2024",
-    venue: "Shaniwarwada Ground, Pune",
-    attendees: "15000+",
-    category: "Cultural Festival",
-    description: "Three-day cultural festival celebrating Maharashtra's rich heritage with traditional music, dance, art, and cuisine.",
+    clientName: "Saturday Club Global Trust",
+    eventDate: "18th Nov 2019",
+    venue: "JW Marriott Hotel Pune",
+    stalls: "45+",
+    category: "Business Conclave",
+    description: "UDYOG DINDI – Business Conclave Pune, brought together Maharashtra’s dynamic entrepreneurs, business owners, manufacturers, service providers, and startups on a powerful networking platform. The event featured experiential learning sessions from renowned speakers and self-made industry leaders, offering valuable business insights and growth strategies. With participation from over 800 entrepreneurs and organizations across the state, the conclave enabled meaningful connections, potential collaborations, and opportunities for business tie-ups, mergers, and strategic partnerships, making it a high-impact milestone for the regional business ecosystem.",
     photos: [
       {
         id: 1,
@@ -191,30 +192,29 @@ description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition 
         engagement: "670 likes, 98 comments"
       }
     ],
-    highlights: [
-      "100+ Cultural Performances",
-      "50+ Food Stalls",
-      "Art & Craft Exhibition",
-      "Traditional Fashion Show"
-    ],
+   highlights: [
+  "800+ Participants",
+  "Entrepreneurs & Startups",
+  "Business Owners Network",
+  "Across Maharashtra"
+],
     results: {
-      satisfaction: "94%",
-      visitors: "50K+ Total Visitors",
-      media: "25+ Media Coverages",
-      social: "2M+ Social Reach"
+      satisfaction: "100%",
+      visitors: "2500+ Total Visitors",
+      media: "NA",
+      social: "NA"
     }
   },
  
   {
     id: 1,
-    eventName: "Sanam Consert",
-    clientName: "Sanam",
-    eventDate: "March 15-16, 2024",
-    venue: "Pune Convention Center",
-    attendees: "2500+",
-    category: "Technology Conference",
-    description: "Annual technology summit featuring keynote speakers, workshops, and networking sessions for tech professionals.",
-    photos: [
+    eventName: "Sanam Concert",
+    clientName: "Fuel Nation",
+    eventDate: "9th Feb 2020",
+    venue: "Sunny's World Pune",
+    stalls: "NA",
+    category: "Music Concert",
+    description: "FUEL–SANAM Fundraising Musical Concert 2020 is a special fundraising event hosted by FUEL (Friends Union for Energising Lives), where India’s leading band SANAM performed to support the education of girl children of Army Jawans while celebrating the success of FUEL Aptitude Champions.",    photos: [
       {
         id: 1,
         url: "/event/sanam/1.webp",
@@ -235,131 +235,181 @@ description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition 
       }
     ],
     highlights: [
-      "25+ Industry Speakers",
-      "15+ Technical Workshops", 
-      "50+ Exhibition Stalls",
-      "Live Streaming to 10K+ Online Viewers"
-    ],
+  "Live by Band SANAM",
+  "Education for Army Jawans’ Daughters",
+  "FUEL Fundraising Event",
+  "Celebrating Aptitude Champions"
+],
     results: {
-      satisfaction: "96%",
-      leads: "850+ Qualified Leads",
-      media: "15+ Media Mentions",
-      social: "500K+ Social Reach"
+      satisfaction: "100%",
+      leads: "3000+ visitors ",
+      media: "10+ Media Mentions",
+      social: "1M Reach"
     }
   },
- 
- 
-  {
-  id: 6,
-  eventName: "Varad Property Festival Season 1",
-  clientName: "Velocity Motors",
-  eventDate: "August 12-14, 2024",
-  venue: "Auto Cluster Exhibition Center, Pune",
-  attendees: "10000+",
-  category: "Exhibition",
-  description: "Grand automobile expo showcasing latest electric vehicles and performance cars.",
+ {
+  id: 12,
+  eventName: "Success Party",
+  clientName: "Varad Property Solutions Pvt Ltd",
+  eventDate: "7th April 2022",
+  venue: "JW Marriott Hotel Pune",
+  stalls: "NA",
+  category: "Channel Partner Meet",
+  description: "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
   photos: [
-    { id: 1, url: "/event/varad/varad1.webp", caption: "Luxury car showcase", engagement: "780 likes, 120 comments" },
-    { id: 2, url: "/event/varad/varad2.webp", caption: "EV launch ceremony", engagement: "640 likes, 98 comments" },
-    { id: 3, url: "/event/varad/varad3.webp", caption: "Test drive zone", engagement: "520 likes, 76 comments" }
+    { id: 1, url: "/event/cp/cp1.webp", caption: "Live cooking demo", engagement: "950 likes, 160 comments" },
+    { id: 2, url: "/event/cp/cp2.webp", caption: "Crowd enjoying food", engagement: "1.3K likes, 240 comments" },
+    { id: 3, url: "/event/cp/cp3.webp", caption: "Music performance", engagement: "870 likes, 140 comments" }
   ],
-  highlights: ["30+ Auto Brands", "Live Test Drives", "EV Launch", "Celebrity Appearance"],
-  results: {
-    satisfaction: "95%",
-    visitors: "40K+ Visitors",
-    media: "20+ Media Coverages",
-    social: "1.5M+ Social Reach"
+highlights: [
+  "Top Booking Achievers Awarded",
+  "1st Edition Recognition",
+  "Outstanding Sales Performance",
+  "Builders & Channel Partners Honored"
+],  results: {
+    satisfaction: "100%",
+    visitors: "2000+ Visitors",
+    media: "NA",
+    social: "NA"
+  }
+},
+{
+  id: 11,
+  eventName: "Channel Partner Summit",
+  clientName: "Varad Property Solutions Pvt Ltd",
+  eventDate: "7th April 2023",
+  venue: "JW Marriott Hotel Pune",
+  stalls: "NA",
+  category: "Channel Partner Meet",
+  description: "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
+  photos: [
+    { id: 1, url: "/event/cp/cp1.webp", caption: "Live cooking demo", engagement: "950 likes, 160 comments" },
+    { id: 2, url: "/event/cp/cp2.webp", caption: "Crowd enjoying food", engagement: "1.3K likes, 240 comments" },
+    { id: 3, url: "/event/cp/cp3.webp", caption: "Music performance", engagement: "870 likes, 140 comments" }
+  ],
+highlights: [
+  "Top Booking Achievers Awarded",
+  "1st Edition Recognition",
+  "Outstanding Sales Performance",
+  "Builders & Channel Partners Honored"
+],  results: {
+    satisfaction: "100%",
+    visitors: "2000+ Visitors",
+    media: "NA",
+    social: "NA"
   }
 },
 {
   id: 7,
   eventName: "Chandramukhi",
-  clientName: "Prime Infra Group",
-  eventDate: "September 5, 2024",
-  venue: "JW Marriott, Pune",
-  attendees: "1500+",
-  category: "Business Conference",
+  clientName: "Varad Property Solutions Pvt Ltd",
+  eventDate: "29th April 2022",
+  venue: "Kothrud City Pride",
+  stalls: "NA",
+  category: "Movie Premier",
   description: "Premium real estate summit with top developers and investors.",
   photos: [
     { id: 1, url: "/event/chandra/chnd.webp", caption: "Panel discussion", engagement: "310 likes, 54 comments" },
     { id: 2, url: "/event/chandra/chnad2.webp", caption: "Networking session", engagement: "280 likes, 40 comments" },
     { id: 3, url: "/event/chandra/chnad3.webp", caption: "Project unveiling", engagement: "350 likes, 60 comments" }
   ],
-  highlights: ["Top Developers Panel", "Investment Insights", "Live Q&A", "VIP Networking"],
+  highlights: [
+  "Star-Studded Movie Premiere",
+  "Presence of Amruta Khanvilkar",
+  "Celebrity Guest – Aditya Kothare",
+  "Grand Media & Glamour Evening"
+],
   results: {
-    satisfaction: "93%",
-    leads: "600+ Qualified Leads",
-    media: "10+ Media Mentions",
-    social: "400K+ Social Reach"
+    satisfaction: "100%",
+    leads: "500+ Visitors",
+    media: "NA",
+    social: "NA"
+  }
+},
+
+ 
+  {
+  id: 6,
+  eventName: "Varad Property Festival 2022",
+  clientName: "Varad Property Solutions Pvt Ltd",
+  eventDate: " March 11 to 12 2022",
+  venue: "Shubharambh Lawns, Pune",
+  stalls: "50+",
+  category: "Property Exhibition",
+  description:"At the Varad Property Festival, we introduced a first-of-its-kind revenue model to the market. Instead of traditional exhibition fees, builders were invited to showcase their projects at our property expo and pay a brokerage only after successful sales bookings — up to 5% per transaction. This performance-driven approach created strong builder participation and buyer engagement. With the dedicated on-ground team of our client, Varad Property Solutions Pvt. Ltd., the festival successfully achieved 100+ confirmed property bookings, establishing the event as a results-focused real estate sales platform.",
+  photos: [
+    { id: 1, url: "/event/varad/varad1.webp", caption: "Luxury car showcase", engagement: "780 likes, 120 comments" },
+    { id: 2, url: "/event/varad/varad2.webp", caption: "EV launch ceremony", engagement: "640 likes, 98 comments" },
+    { id: 3, url: "/event/varad/varad3.webp", caption: "Test drive zone", engagement: "520 likes, 76 comments" }
+  ],
+ highlights: [
+  "Leading Real Estate Brands",
+  "Celebrity Guest – Sai Tamhankar",
+  "Dignitaries Murlidhar Mohol & Medha Kulkarni",
+  "Varad Properties Director Presence"
+],
+  results: {
+    satisfaction: "200%",
+    visitors: "6500+ Visitors",
+    media: "60+ Media Coverages",
+    social: "2M+ Reach"
   }
 },
 
 {
   id: 9,
-  eventName: "Varad Property Festival Season 2",
-  clientName: "StyleWave",
-  eventDate: "November 18-19, 2024",
-  venue: "Phoenix Mall, Pune",
-  attendees: "7000+",
-  category: "Fashion Show",
-  description: "Luxury fashion showcase featuring top designers and celebrity models.",
+  eventName: "Varad Property Festival 2022",
+  clientName: "Varad Property Solutions Pvt Ltd",
+  eventDate: "15th & 16th Oct 2022",
+  venue: "Pandit Farm Pune",
+  stalls: "60+",
+  category: "Property Exhibition",
+  description: "Following the successful execution of the first edition of the Varad Property Festival, we strategically launched the second edition to build on the strong market response and proven performance-based model. The continued collaboration with builders and the growing trust of homebuyers enabled us to scale participation, enhance buyer engagement, and further position the festival as a high-conversion real estate exhibition platform driven by measurable sales outcomes.",
   photos: [
     { id: 1, url: "/event/varad/varad4.webp", caption: "Ramp walk highlight", engagement: "1K likes, 210 comments" },
     { id: 2, url: "/event/varad/varad5.webp", caption: "Designer showcase", engagement: "890 likes, 180 comments" },
     { id: 3, url: "/event/varad/varad6.webp", caption: "Closing ceremony", engagement: "760 likes, 150 comments" }
   ],
-  highlights: ["20+ Designers", "Celebrity Showstopper", "Luxury Brands", "Live Media Coverage"],
-  results: {
-    satisfaction: "94%",
-    visitors: "20K+ Visitors",
-    media: "30+ Media Coverages",
-    social: "2.2M+ Social Reach"
+highlights: [
+  "2nd Successful Edition",
+  "Reputed Real Estate Brands",
+  "High Buyer Footfall",
+  "Strong Booking Momentum"
+],  results: {
+    satisfaction: "100%",
+    visitors: "4500+ Visitors",
+    media: "60+ Media Coverages",
+    social: "2M+ Reach"
   }
 },
 {
   id: 10,
-  eventName: "Varad Property Festival Season 3",
-  clientName: "EduFuture India",
-  eventDate: "December 2-3, 2024",
-  venue: "Balewadi Stadium, Pune",
-  attendees: "9000+",
-  category: "Education Expo",
-  description: "Mega education fair connecting students with universities and institutions.",
+  eventName: "Varad Property Festival 2023",
+  clientName: "Varad Property Solutions Pvt Ltd",
+  eventDate: "15th & 16th April 2023",
+  venue: "Center Pune- Pandit Farm & West Pune - The Orchid Hotel",
+  stalls: "85+",
+  category: "Property Exhibition",
+  description: "Building on the success of the third Grand Property Expo across Central Pune and West Pune, we introduced a new addition — the Real Estate Conclave — designed as a thought-leadership platform to discuss Pune’s urban growth, infrastructure development, investment potential, and future real estate trends. The conclave brought together developers, industry experts, and key stakeholders, creating a knowledge-driven environment that complemented the exhibition while strengthening credibility, networking opportunities, and market insights for all participants.",
   photos: [
     { id: 1, url: "/event/varad/varad7.webp", caption: "University stalls", engagement: "500 likes, 90 comments" },
     { id: 2, url: "/event/varad/varad8.webp", caption: "Career counseling session", engagement: "450 likes, 75 comments" },
     { id: 3, url: "/event/varad/varad9.webp", caption: "Student registration desk", engagement: "380 likes, 60 comments" }
   ],
-  highlights: ["100+ Universities", "Career Counseling", "Scholarship Info", "Workshops"],
-  results: {
-    satisfaction: "96%",
-    visitors: "35K+ Visitors",
-    media: "18+ Media Mentions",
-    social: "1M+ Social Reach"
+highlights: [
+  "Key Policymakers & Industry Leaders",
+  "Shri Chandrakantdada Patil Presence",
+  "MLAs & Civic Dignitaries Attended",
+  "Infrastructure & Real Estate Dialogue"
+],  results: {
+    satisfaction: "100%",
+    visitors: "8500+ Visitors",
+    media: "60+ Media Mentions",
+    social: "3M+ Social Reach"
   }
 },
-{
-  id: 11,
-  eventName: "Channel Partner Summit",
-  clientName: "Taste Maharashtra",
-  eventDate: "January 15-17, 2025",
-  venue: "Amanora Park, Pune",
-  attendees: "12000+",
-  category: "Food Festival",
-  description: "Grand food carnival featuring street food, gourmet dishes, and live music.",
-  photos: [
-    { id: 1, url: "/event/cp/cp1.webp", caption: "Live cooking demo", engagement: "950 likes, 160 comments" },
-    { id: 2, url: "/event/cp/cp2.webp", caption: "Crowd enjoying food", engagement: "1.3K likes, 240 comments" },
-    { id: 3, url: "/event/cp/cp3.webp", caption: "Music performance", engagement: "870 likes, 140 comments" }
-  ],
-  highlights: ["150+ Food Stalls", "Celebrity Chefs", "Live Music", "Family Activities"],
-  results: {
-    satisfaction: "98%",
-    visitors: "45K+ Visitors",
-    media: "22+ Media Coverages",
-    social: "2.5M+ Social Reach"
-  }
-}
+
+
   
 ];
 
@@ -470,8 +520,7 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
             </div>
             <div className="flex items-center gap-1">
               <Users size={14} />
-              <span>{event.attendees}</span>
-            </div>
+<span>{event.stalls}</span>            </div>
           </div>
 
           <p className="text-gray-300 text-sm mb-4 line-clamp-2">{event.description}</p>
@@ -636,9 +685,8 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
                   <span className="text-gray-300">{event.venue}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Users className="h-5 w-5 text-green-400" />
-                  <span className="text-gray-300">{event.attendees} Attendees</span>
-                </div>
+<MapPin className="h-5 w-5 text-green-400" />
+<span className="text-gray-300">{event.stalls} Stalls</span>                </div>
               </div>
             </div>
 
@@ -666,7 +714,11 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
               </div>
               <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-600/10 border border-blue-500/30">
                 <Users className="h-6 w-6 text-blue-400 mb-2" />
-                <p className="text-2xl font-bold text-white">{event.results.leads || event.results.visitors || event.results.participants || event.results.engagement}</p>
+                <p className="text-2xl font-bold text-white">{event.results.leads || 
+ event.results.visitors || 
+ event.results.participants || 
+ event.results.engagement || 
+ event.results.orders}</p>
                 <p className="text-sm text-gray-400">Impact</p>
               </div>
               <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-600/20 to-purple-600/10 border border-purple-500/30">
@@ -677,7 +729,7 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
               <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-600/20 to-orange-600/10 border border-orange-500/30">
                 <Heart className="h-6 w-6 text-orange-400 mb-2" />
                 <p className="text-2xl font-bold text-white">{event.results.social}</p>
-                <p className="text-sm text-gray-400">Social Reach</p>
+                <p className="text-sm text-gray-400">Reach</p>
               </div>
             </div>
           </div>

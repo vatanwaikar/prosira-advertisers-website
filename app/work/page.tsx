@@ -19,7 +19,7 @@
       title: "Digital",
       description:
         "Performance marketing, social media growth, paid ads & website solutions.",
-      image: "/images/ds.webp",
+      image: "/images/d2.jpeg",
       href: "/digital",
     },
     {
@@ -27,7 +27,7 @@
       title: "Event & Expo",
       description:
         "Experiential marketing, exhibitions, activations & on-ground branding.",
-      image: "/images/ee.webp",
+      image: "/images/ev.jpeg",
       href: "/event-expo",
     },
   ];

@@ -80,7 +80,7 @@ const teamMembers = [
   {
     name: "Shourya Shinde",
     role: "Social Media Intern",
-    image: "/team/shourya.png",
+    image: "/team/Shaurya.png",
     bio: "Creative social media manager building brand presence and engagement across platforms.",
     expandedBio: "Shaurya has successfully grown social media presence for multiple brands, creating engaging content and community management strategies that drive brand loyalty and customer engagement.",
     linkedin: "https://www.linkedin.com/in/11shourya-shinde/"
