@@ -70,21 +70,6 @@ export function Footer() {
 
           {/* BRAND */}
           <div className="space-y-6">
-            <Link href="/" className="inline-block" aria-label="Prosira Advertisers Home">
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold tracking-tight text-primary font-serif">
-                  PROSIRA
-                </span>
-                <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
-                  Advertisers
-                </span>
-              </div>
-            </Link>
-
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              A comprehensive advertising and event company delivering
-              360° media solutions with strategic and creative campaigns.
-            </p>
 
             {/* Newsletter */}
             <div className="space-y-3">
@@ -125,10 +110,27 @@ export function Footer() {
                 Get latest advertising insights and updates
               </p>
             </div>
+
+            <Link href="/" className="inline-block" aria-label="Prosira Advertisers Home">
+              <div className="flex flex-col">
+                {/* <span className="text-2xl font-bold tracking-tight text-primary font-serif">
+                  PROSIRA
+                </span>
+                <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
+                  Advertisers
+                </span> */}
+              </div>
+            </Link>
+
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Prosira Advertisers is a comprehensive advertising and event company delivering
+              360° media solutions with strategic and creative campaigns.
+            </p>
+
           </div>
 
           {/* SERVICES */}
-          <div>
+          <div className="lg:pl-20">
             <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-6">
               Services
             </h3>
@@ -147,7 +149,7 @@ export function Footer() {
           </div>
 
           {/* COMPANY */}
-          <div>
+          <div className="lg:pl-12">
             <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-6">
               Quick Links
             </h3>
@@ -166,7 +168,7 @@ export function Footer() {
           </div>
 
           {/* CONTACT */}
-          <div>
+          <div className="lg:pl-16">
             <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-6">
               Contact Us
             </h3>

@@ -166,12 +166,12 @@ export function HeroSection() {
       </div>
 
       {/* Right Social Column */}
-      <div className="hidden lg:flex flex-col items-center gap-6 z-20">
-        <span className="rotate-90 text-xs tracking-widest text-gray-400">
-          FOLLOW US
-        </span>
+      <div className="hidden lg:flex flex-col items-center gap-6 absolute right-10 top-17 z-20">
+  <span className="text-xs tracking-widest text-gray-400 [writing-mode:vertical-rl]">
+    FOLLOW&nbsp;US
+  </span>
 
-        <div className="w-px h-16 bg-gray-600" />
+  <div className="w-px h-16 bg-gray-600" />
 
         <Link
           href="https://www.facebook.com/share/1DnoEvbjBx/"
