@@ -153,7 +153,7 @@ export function CustomCursor() {
         )}
       >
         <Image
-          src="/prosra-icon-black-png.png"
+          src="/icon.png"
           alt="Prosira cursor icon"
           width={ICON_SIZE}
           height={ICON_SIZE}

@@ -4,12 +4,16 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import Script from "next/script";
 
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CustomCursor } from "@/components/custom-cursor";
 import { Providers } from "./Providers";
 import ScrollToTop from "@/components/ScrollToTop";
+
+/* ---------- GA4 ---------- */
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 /* ---------- FONTS ---------- */
 const inter = Inter({
@@ -23,6 +27,7 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
   display: "swap",
 });
+
 
 /* ---------- VIEWPORT ---------- */
 export const viewport: Viewport = {
@@ -113,6 +118,25 @@ export default function RootLayout({
           </div>
 
           <ScrollToTop />
+
+          {/* ---------- GA4 SCRIPT ---------- */}
+          {GA_ID && (
+            <>
+              <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+                strategy="afterInteractive"
+              />
+              <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_ID}');
+                `}
+              </Script>
+            </>
+          )}
+
           <Analytics />
 
           {/* LOCAL BUSINESS SCHEMA */}

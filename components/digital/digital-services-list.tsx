@@ -384,36 +384,6 @@ export function DigitalServicesList() {
     return () => observer.disconnect();
   }, []);
 
-  /* ---------- INFINITE SCROLL LOOP ---------- */
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const setInitialPosition = () => {
-      const half = container.scrollWidth / 2;
-      container.scrollLeft = half / 2;
-    };
-
-    requestAnimationFrame(setInitialPosition);
-    setTimeout(setInitialPosition, 50);
-
-    const handleScroll = () => {
-      const half = container.scrollWidth / 2;
-      const current = container.scrollLeft;
-
-      if (current > half + 200) {
-        container.scrollLeft = current - half;
-      }
-
-      if (current < 200) {
-        container.scrollLeft = current + half;
-      }
-    };
-
-    container.addEventListener("scroll", handleScroll, { passive: true });
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section ref={sectionRef} className="py-24 bg-background">
       <div className="site-container">
@@ -424,8 +394,9 @@ export function DigitalServicesList() {
             relative flex gap-6 overflow-x-auto pb-6
             scrollbar-hide
             scroll-smooth
+            snap-x snap-mandatory
           "
-          style={{ willChange: "scroll-position" }}
+          style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {/* LEFT FADE */}
           <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-background to-transparent z-20" />
@@ -433,23 +404,21 @@ export function DigitalServicesList() {
           {/* RIGHT FADE */}
           <div className="pointer-events-none absolute right-0 top-0 h-full w-14 bg-gradient-to-l from-background to-transparent z-20" />
 
-          {[...services, ...services].map((service, index) => {
+          {services.map((service, index) => {
             const isOpen = openId === service.id;
 
             return (
               <Card
-                key={`${service.id}-${index}`}
+                key={service.id}
                 data-animate
                 style={{
                   animationDelay: `${index * 120}ms`,
-                  willChange: "transform",
                 }}
                 className="
-                  w-full sm:w-1/2 lg:w-1/2 flex-shrink-0
+                  w-full sm:w-1/2 lg:w-1/2 flex-shrink-0 snap-start
                   group relative bg-card border border-border overflow-hidden
                   transition-all duration-700 ease-out
-                  hover:-translate-y-2 hover:scale-[1.02]
-                  hover:shadow-[0_20px_50px_-20px_rgba(212,175,55,0.35)]
+                  hover:-translate-y-2 hover:shadow-lg
                 "
               >
                 {/* GOLD LIGHT */}
@@ -457,7 +426,7 @@ export function DigitalServicesList() {
 
                 <CardContent className="relative z-10 p-8 space-y-5">
                   {/* ICON */}
-                  <div className="p-4 rounded-xl w-fit mb-4 bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-black group-hover:-translate-y-1 group-hover:scale-110">
+                  <div className="p-4 rounded-xl w-fit mb-4 bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-black">
                     <service.icon className="h-6 w-6" />
                   </div>
 
