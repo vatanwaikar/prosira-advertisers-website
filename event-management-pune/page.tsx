@@ -19,7 +19,7 @@ export default function EventManagementPunePage() {
         corporate experiences across Pune.
       </p>
 
-      <Link href="/contact" className="bg-primary px-8 py-4 rounded-lg text-primary-foreground">
+      <Link href="/contact" className="bg-primary px-12 py-4 rounded-lg text-primary-foreground">
         Plan an Event with Us
       </Link>
     </main>

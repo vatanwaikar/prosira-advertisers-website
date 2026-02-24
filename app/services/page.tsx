@@ -127,7 +127,7 @@ export default function TraditionalMediaPortfolio() {
                         <h3 className="font-semibold text-white">{campaign.client}</h3>
                       </div>
                     </div>
-                    <button onClick={() => toggleAudio(campaign.id)} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">
+                    <button onClick={() => toggleAudio(campaign.id)} className="flex items-center gap-2 px-6 py-2 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">
                       {activeAudio === campaign.id ? <Pause size={16}/> : <Play size={16}/>}
                       {activeAudio === campaign.id ? "Pause" : "Play"}
                     </button>
@@ -153,7 +153,7 @@ export default function TraditionalMediaPortfolio() {
                         <p className="text-sm text-gray-400">{campaign.description}</p>
                       </div>
                     </div>
-                    <button onClick={() => setSelectedAd(campaign)} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">
+                    <button onClick={() => setSelectedAd(campaign)} className="flex items-center gap-2 px-6 py-2 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">
                       <ExternalLink size={16} /> View Ad
                     </button>
                   </motion.div>
@@ -183,7 +183,7 @@ export default function TraditionalMediaPortfolio() {
                         <h3 className="font-semibold text-white">{campaign.client}</h3>
                       </div>
                     </div>
-                    <button onClick={() => setSelectedVideo(campaign)} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">
+                    <button onClick={() => setSelectedVideo(campaign)} className="flex items-center gap-2 px-6 py-2 rounded-lg bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">
                       <ExternalLink size={16} /> Watch Video
                     </button>
                   </motion.div>

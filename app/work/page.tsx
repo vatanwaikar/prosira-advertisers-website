@@ -137,7 +137,7 @@
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 bg-primary text-black px-8 py-4 rounded-lg font-semibold hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-3 bg-primary text-black px-12 py-4 rounded-lg font-semibold hover:scale-105 transition-all duration-300"
               >
                 Get Started
                 <ArrowRight size={20} />
@@ -145,7 +145,7 @@
 
               <Link
                 href="/team"
-                className="inline-flex items-center gap-3 border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-black transition-all duration-300"
+                className="inline-flex items-center gap-3 border-2 border-primary text-primary px-12 py-4 rounded-lg font-semibold hover:bg-primary hover:text-black transition-all duration-300"
               >
                 Meet Our Team
               </Link>

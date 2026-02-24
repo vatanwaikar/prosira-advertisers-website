@@ -185,7 +185,7 @@ export function Header() {
                   setMobileMenuOpen(false);
                 }}
                 className={cn(
-                  "flex items-center justify-between px-4 py-4 text-lg font-medium rounded-xl transition-all duration-500 group",
+                  "flex items-center justify-between px-6 py-4 text-lg font-medium rounded-xl transition-all duration-500 group",
                   isActive(item.href)
                     ? "bg-primary/10 text-primary"
                     : "text-foreground/80 hover:bg-primary/5 hover:text-primary"
@@ -204,7 +204,7 @@ export function Header() {
             <div className="pt-6 mt-6 border-t border-border/50">
               <a
                 href="tel:+919028815714"
-                className="flex items-center gap-4 px-4 py-4 rounded-xl bg-secondary/50"
+                className="flex items-center gap-4 px-6 py-4 rounded-xl bg-secondary/50"
               >
                 <div className="w-12 h-12 rounded-full glass-gold flex items-center justify-center">
                   <Phone className="h-5 w-5 text-primary" />

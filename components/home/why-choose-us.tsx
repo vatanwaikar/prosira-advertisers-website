@@ -126,7 +126,7 @@ export function WhyChooseUs() {
           {/* Content Side */}
           <div>
             <span
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-gold text-primary text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-gold text-primary text-sm font-medium mb-6"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "translateY(0)" : "translateY(20px)",
@@ -234,7 +234,7 @@ export function WhyChooseUs() {
               <Button
                 asChild
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 magnetic-btn h-12 px-6 group"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 magnetic-btn h-12 px-12 group"
               >
                 <Link href="/about-prosira-advertisers">
                   Learn More About Us

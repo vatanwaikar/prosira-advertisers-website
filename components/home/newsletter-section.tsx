@@ -37,7 +37,7 @@ export function NewsletterSection() {
   if (isSubscribed) {
     return (
       <section className="py-16 sm:py-20 bg-gradient-to-br from-primary/10 via-background to-primary/5">
-        <div className="site-container px-4 sm:px-6">
+        <div className="site-container px-6 sm:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <div className="mx-auto mb-6 h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center">
               <CheckCircle className="h-8 w-8 text-primary" />
@@ -88,12 +88,12 @@ export function NewsletterSection() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 h-12 sm:h-14 px-4 sm:px-6 text-base sm:text-lg bg-background/50 border-border/50 rounded-xl sm:rounded-2xl focus:border-primary/50"
+                className="flex-1 h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg bg-background/50 border-border/50 rounded-xl sm:rounded-2xl focus:border-primary/50"
               />
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg font-bold bg-primary text-primary-foreground rounded-xl sm:rounded-2xl hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2"
+                className="h-12 sm:h-14 px-6 sm:px-10 text-base sm:text-lg font-bold bg-primary text-primary-foreground rounded-xl sm:rounded-2xl hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>

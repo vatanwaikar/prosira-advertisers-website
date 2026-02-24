@@ -189,7 +189,7 @@ export function ServicesOverview() {
       <div className="site-container relative">
         <div className="text-center max-w-3xl site-container mb-20">
           <span
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-gold text-primary text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-gold text-primary text-sm font-medium mb-6"
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible
@@ -258,7 +258,7 @@ export function ServicesOverview() {
           <Button
             asChild
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 magnetic-btn h-14 px-8 text-base relative overflow-hidden group"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 magnetic-btn h-14 px-12 text-base relative overflow-hidden group"
           >
             <Link href="/traditional-services">
               <span className="relative z-10 flex items-center gap-2">

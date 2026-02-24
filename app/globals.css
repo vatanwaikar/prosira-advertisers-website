@@ -36,8 +36,8 @@
 
   /* ---------- LAYOUT / CONTAINER (Single Source of Truth) ---------- */
   --site-container-max-width: 1280px; /* single max-width for all content */
-  --site-container-side-padding: 1rem; /* default side padding */
-  --site-container-side-padding-lg: 2rem; /* larger side padding on wide screens */
+  --site-container-side-padding: 1.5rem; /* default side padding */
+  --site-container-side-padding-lg: 3rem; /* larger side padding on wide screens */
 }
 
 @theme inline {
@@ -375,21 +375,21 @@ h1, h2, h3 {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 @media (min-width: 640px) {
   .site-container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
   }
 }
 
 @media (min-width: 1024px) {
   .site-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 /* Gold Animated Border Line */

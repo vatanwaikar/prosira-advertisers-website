@@ -67,7 +67,7 @@ export function AboutContent() {
             <div className="prose prose-lg prose-invert max-w-none">
 
               {/* Who We Are */}
-              <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
+              <h3 className="inline-flex items-center gap-2 px-6 py-1.5 mb-3
                 rounded-full border border-primary/30 bg-primary/10
                 text-xs md:text-sm font-medium text-primary
                 shadow-[0_0_14px_rgba(212,175,55,0.15)]">
@@ -86,7 +86,7 @@ export function AboutContent() {
               </p>
 
               {/* What We Do */}
-              <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
+              <h3 className="inline-flex items-center gap-2 px-6 py-1.5 mb-3
                 rounded-full border border-primary/30 bg-primary/10
                 text-xs md:text-sm font-medium text-primary
                 shadow-[0_0_14px_rgba(212,175,55,0.15)]">
@@ -120,7 +120,7 @@ export function AboutContent() {
               </div>
 
               {/* How We Work */}
-              <h3 className="inline-flex items-center gap-2 px-4 py-1.5 mb-3
+              <h3 className="inline-flex items-center gap-2 px-6 py-1.5 mb-3
                 rounded-full border border-primary/30 bg-primary/10
                 text-xs md:text-sm font-medium text-primary
                 shadow-[0_0_14px_rgba(212,175,55,0.15)]">

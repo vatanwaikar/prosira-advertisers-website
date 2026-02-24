@@ -201,7 +201,7 @@ export function ContactInfo() {
   <Button
     asChild
     className="
-      h-8 px-4
+      h-8 px-6
       bg-green-600 hover:bg-green-700
       text-white text-xs font-medium
       rounded-full

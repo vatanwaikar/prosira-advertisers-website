@@ -101,7 +101,7 @@ export function HeroSection() {
       </div>
 
       {/* Content Grid */}
-      <div className="relative z-10 site-container px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 site-container py-24 grid lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT TEXT */}
         <div className="space-y-8">
@@ -128,14 +128,14 @@ export function HeroSection() {
           <div className="flex gap-4 flex-wrap">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-primary text-black px-6 py-3 rounded-lg font-medium hover:scale-105 transition"
+              className="inline-flex items-center gap-2 bg-primary text-black px-12 py-3 rounded-lg font-medium hover:scale-105 transition"
             >
               Get Started <ArrowRight size={18} />
             </Link>
 
             <Link
               href="/about-prosira-advertisers"
-              className="inline-flex items-center gap-2 border border-white/30 px-6 py-3 rounded-lg hover:bg-white/10 transition"
+              className="inline-flex items-center gap-2 border border-white/30 px-12 py-3 rounded-lg hover:bg-white/10 transition"
             >
               <Play size={18} />
               Our Story
