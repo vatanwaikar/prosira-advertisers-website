@@ -19,7 +19,7 @@
       title: "Digital",
       description:
         "Performance marketing, social media growth, paid ads & website solutions.",
-      image: "/images/d2.jpeg",
+      image: "/images/dd22.jpeg",
       href: "/digital",
     },
     {

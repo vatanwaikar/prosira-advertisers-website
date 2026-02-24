@@ -128,7 +128,7 @@ export function Header() {
               <Phone className="h-4 w-4 text-primary" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xs text-muted-foreground">Call Us</span>
+              {/* <span className="text-xs text-muted-foreground">Call Us</span> */}
               <span className="font-medium text-foreground group-hover:text-primary transition-colors">
                 +91 90288 15714
               </span>
