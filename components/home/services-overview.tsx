@@ -19,7 +19,7 @@ const services = [
     title: "Television Advertising",
     description:
       "Reach millions through strategic TV campaigns with premium placements across leading channels.",
-    href: "/traditional-services#tv",
+    href: "/advertising-services#tv",
     category: "Television",
     gradient: "from-amber-500/20 to-orange-500/20",
   },
@@ -28,7 +28,7 @@ const services = [
     title: "Radio Advertising",
     description:
       "Connect with your audience through engaging audio campaigns on top radio stations.",
-    href: "/traditional-services#radio",
+    href: "/advertising-services#radio",
     category: "Radio",
     gradient: "from-primary/20 to-yellow-500/20",
   },
@@ -37,7 +37,7 @@ const services = [
     title: "Outdoor & Hoardings",
     description:
       "High-impact outdoor advertising solutions including billboards, transit ads, and more.",
-    href: "/traditional-services#outdoor",
+    href: "/advertising-services#outdoor",
     category: "Hoardings",
     gradient: "from-yellow-500/20 to-amber-500/20",
   },
@@ -46,7 +46,7 @@ const services = [
     title: "Digital Marketing",
     description:
       "Data-driven digital campaigns including SEO, social media, and performance marketing.",
-    href: "/digital-services",
+    href: "/digital-marketing",
     category: "Digital",
     gradient: "from-primary/20 to-amber-500/20",
   },
@@ -64,7 +64,7 @@ const services = [
     title: "Brand Strategy",
     description:
       "Comprehensive brand development from creative design to full brand identity systems.",
-    href: "/traditional-services#creative",
+    href: "/advertising-services#creative",
     category: "Creative",
     gradient: "from-amber-500/20 to-yellow-500/20",
   },
@@ -260,7 +260,7 @@ export function ServicesOverview() {
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 magnetic-btn h-14 px-12 text-base relative overflow-hidden group"
           >
-            <Link href="/traditional-services">
+            <Link href="/advertising-services">
               <span className="relative z-10 flex items-center gap-2">
                 View All Services
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />

@@ -6,27 +6,28 @@ import { useEffect, useRef } from "react";
 
 const clients = [
   { name: "Client 1", logo: "/clogo1.webp" },
-  { name: "Client 5", logo: "/clogo5.webp" },
   { name: "Client 2", logo: "/clogo2.webp" },
-  { name: "Client 6", logo: "/clogo6.webp" },
-  { name: "Client 3", logo: "/clogo3.webp" },
-  { name: "Client 8", logo: "/clogo8.webp" },
   { name: "Client 4", logo: "/clogo4.webp" },
-  { name: "Client 9", logo: "/clogo9.webp" },
+  { name: "Client 3", logo: "/clogo3.webp" },
+  { name: "Client 5", logo: "/clogo5.webp" },
   { name: "Client 7", logo: "/clogo7.webp" },
-  { name: "Client 10", logo: "/clogo10.webp" },
-  { name: "Client 11", logo: "/clogo11.webp" },
+  { name: "Client 6", logo: "/clogo6.webp" },
   { name: "Client 12", logo: "/clogo12.webp" },
-  { name: "Client 15", logo: "/clogo15.webp" },
+  { name: "Client 8", logo: "/clogo8.webp" },
   { name: "Client 13", logo: "/clogo13.webp" },
+  { name: "Client 9", logo: "/clogo9.webp" },
+  { name: "Client 15", logo: "/clogo15.webp" },
+  { name: "Client 10", logo: "/clogo10.webp" },
+  { name: "Client 16", logo: "/clogo16.webp" },
+  { name: "Client 11", logo: "/clogo11.webp" },
   { name: "Client 17", logo: "/clogo17.webp" },
+  { name: "Client 18", logo: "/clogo18.webp" },
+  { name: "Client 19", logo: "/clogo19.webp" },
+  { name: "Client 22", logo: "/clogo22.webp" },
+  { name: "Client 23", logo: "/clogo23.webp" },
   { name: "Client 14", logo: "/clogo14.webp" },
   { name: "Client 20", logo: "/clogo20.webp" },
-  { name: "Client 16", logo: "/clogo16.webp" },
   { name: "Client 21", logo: "/clogo21.webp" },
-  { name: "Client 18", logo: "/clogo18.webp" },
-  { name: "Client 22", logo: "/clogo22.webp" },
-  { name: "Client 19", logo: "/clogo19.webp" },
 ];
 
 export function ClientsSection() {
@@ -84,8 +85,7 @@ export function ClientsSection() {
                   height={80}
                   sizes="(max-width: 768px) 120px, 160px"
                   loading="lazy"
-                  className="h-12 md:h-16 w-auto object-contain"
-                />
+                  className="marquee-track flex items-center gap-20 py-6"                />
               </div>
             ))}
           </div>

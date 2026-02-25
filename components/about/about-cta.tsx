@@ -29,11 +29,11 @@ export function AboutCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 overflow-hidden bg-gradient-to-r from-primary/10 via-background to-primary/10"
+      className="relative py-24 overflow-hidden bg-linear-to-r from-primary/10 via-background to-primary/10"
     >
       {/* Spotlight glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl float-slow" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary/20 rounded-full blur-3xl float-slow" />
       </div>
 
       <div className="relative site-container text-center">
@@ -74,7 +74,7 @@ export function AboutCTA() {
             variant="outline"
             className="hover-lift border-primary/30 text-foreground hover:bg-primary/10 hover:text-primary"
           >
-            <Link href="/traditional-services">Explore Our Services</Link>
+            <Link href="/advertising-services">Explore Our Services</Link>
           </Button>
         </div>
       </div>

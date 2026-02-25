@@ -171,7 +171,7 @@ export function AboutContent() {
 
               <div className="flex flex-wrap gap-6">
                 <Link
-                  href="/traditional-services"
+                  href="/advertising-services"
                   className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
                 >
                   Advertising Services
@@ -179,7 +179,7 @@ export function AboutContent() {
                 </Link>
 
                 <Link
-                  href="/digital-services"
+                  href="/digital-marketing"
                   className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
                 >
                   Digital Services
@@ -203,7 +203,7 @@ export function AboutContent() {
             data-animate
             className="f-reveal relative hover-lift lg:order-2"
           >
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+            <div className="relative aspect-4/3 rounded-xl overflow-hidden">
               <Image
                 src="/images/team-meeting.jpg"
                 alt="Prosira Advertisers team collaborating on campaign strategy"

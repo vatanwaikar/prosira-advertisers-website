@@ -10,8 +10,8 @@ import Image from "next/image";
 
 const navigation = [
   { name: "About Us", href: "/about-prosira-advertisers" },
-  { name: "Services", href: "/traditional-services" },
-  { name: "Digital", href: "/digital-services" },
+  { name: "Services", href: "/advertising-services" },
+  { name: "Digital", href: "/digital-marketing" },
   { name: "Events & Expo", href: "/events-expo" },
   { name: "Our Work", href: "/work" },
   { name: "Contact Us", href: "/contact" },
