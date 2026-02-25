@@ -93,7 +93,6 @@ export function Header() {
               alt="Prosira Advertisers Logo"
               width={140}
               height={50}
-              priority
               sizes="(max-width: 768px) 110px, 140px"
               className="
                 h-7 w-auto

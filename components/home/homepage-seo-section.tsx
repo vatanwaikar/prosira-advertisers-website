@@ -27,11 +27,11 @@ export function HomepageSEOSection() {
 
         <p className="text-muted-foreground leading-relaxed mb-6">
           We provide end-to-end solutions across{" "}
-          <Link href="/advertising-services" className="text-primary hover:underline">
+          <Link href="/advertising-services" className="text-primary hover:underline" aria-label="Advertising services including television, radio, outdoor hoardings and print media">
             television advertising, radio advertising, outdoor hoardings, print media
           </Link>
           , and high-impact offline branding. Alongside this, our{" "}
-          <Link href="/digital-marketing" className="text-primary hover:underline">
+          <Link href="/digital-marketing" className="text-primary hover:underline" aria-label="Digital marketing services including SEO, Google Ads, social media marketing and performance campaigns">
             digital marketing services
           </Link>{" "}
           include SEO, Google Ads, social media marketing, performance campaigns, 

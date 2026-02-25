@@ -93,6 +93,7 @@ export function NewsletterSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
+                aria-label="Subscribe to newsletter"
                 className="h-12 sm:h-14 px-6 sm:px-10 text-base sm:text-lg font-bold bg-primary text-primary-foreground rounded-xl sm:rounded-2xl hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (

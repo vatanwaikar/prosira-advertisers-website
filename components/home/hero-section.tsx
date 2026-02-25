@@ -65,6 +65,7 @@ export function HeroSection() {
   ];
 
   useEffect(() => {
+     if (window.innerWidth < 768) return;
     const interval = setInterval(() => {
       setIsAnimating(true);
       setTimeout(() => {
@@ -79,15 +80,18 @@ export function HeroSection() {
   const activeSlide = slides.find((s) => s.id === currentHeading);
 
   return (
-<section className="relative bg-black text-white overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
+<section className="relative bg-black text-white overflow-hidden min-h-[75vh] md:min-h-screen">      {/* Background */}
+  <div className="absolute inset-0 -z-10 bg-black md:hidden" />
+      <div className="absolute inset-0 -z-10 hidden md:block">
         <Image
           src="/images/hero-bg.jpg"
           alt="Prosira background"
-          fill
+          fill 
+          priority
           sizes="100vw"
+          quality={75}
           className="object-cover opacity-50"
+           fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black/70" />
       </div>
@@ -103,7 +107,7 @@ export function HeroSection() {
           <h1
             className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-500 ${
               isAnimating
-                ? "blur-sm opacity-0 translate-y-2"
+                ? "md:blur-sm opacity-0 translate-y-2"
                 : "opacity-100 translate-y-0"
             }`}
           >
@@ -134,7 +138,7 @@ export function HeroSection() {
 
         {/* RIGHT IMAGE */}
         <div className="flex justify-center">
-<div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] h-auto overflow-hidden rounded-xl shadow-2xl">
+<div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] h-auto overflow-hidden rounded-xl md:shadow-2xl">
             {activeSlide && (
               <Image
   key={activeSlide.image}

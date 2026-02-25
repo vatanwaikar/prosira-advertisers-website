@@ -260,7 +260,8 @@ export function ServicesOverview() {
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 magnetic-btn h-14 px-12 text-base relative overflow-hidden group"
           >
-            <Link href="/advertising-services">
+            <Link href="/advertising-services" aria-label="View all advertising services" className="inline-flex items-center gap-2">
+            
               <span className="relative z-10 flex items-center gap-2">
                 View All Services
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />

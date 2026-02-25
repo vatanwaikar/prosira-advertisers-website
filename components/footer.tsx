@@ -99,6 +99,7 @@ export function Footer() {
                     type="submit"
                     disabled={isSubmitting}
                     size="sm"
+                    aria-label="Subscribe to newsletter"
                     className="h-10 px-3 bg-primary text-primary-foreground hover:bg-primary/90"
                   >
                     <Send className="h-4 w-4" />

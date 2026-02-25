@@ -254,6 +254,7 @@ export function ContactForm() {
         <div className="mt-12 flex justify-center">
           <Button
             type="submit"
+            aria-label="Send message"
             disabled={isSubmitting || !isValid}
             className="h-16 px-12 w-full max-w-md rounded-3xl text-xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-500 text-black flex items-center gap-4 justify-center"
           >

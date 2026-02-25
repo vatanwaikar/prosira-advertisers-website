@@ -88,7 +88,7 @@ export function CTASection() {
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 group"
             >
-              <Link href="/contact">
+              <Link href="/contact " aria-label="Contact Prosira Advertisers for a free quote" className="inline-flex items-center gap-2">
                 Get a Free Quote
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
