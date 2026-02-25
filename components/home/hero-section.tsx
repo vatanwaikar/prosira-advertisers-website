@@ -65,17 +65,16 @@ export function HeroSection() {
   ];
 
   useEffect(() => {
-     if (window.innerWidth < 768) return;
-    const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentHeading((prev) => (prev % 3) + 1);
-        setIsAnimating(false);
-      }, 300);
-    }, 4000);
+  const interval = setInterval(() => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentHeading((prev) => (prev % 3) + 1);
+      setIsAnimating(false);
+    }, 300);
+  }, 4000);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, []);
 
   const activeSlide = slides.find((s) => s.id === currentHeading);
 
