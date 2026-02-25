@@ -114,6 +114,7 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
+                  prefetch={false}
                 onClick={() => setClickedPath(item.href)}
                 className={cn(
                   "relative px-5 py-3 text-sm font-medium transition-all duration-300 rounded-lg group",
@@ -196,6 +197,7 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
+                  prefetch={false}
                 onClick={() => {
                   setClickedPath(item.href);
                   setMobileMenuOpen(false);
