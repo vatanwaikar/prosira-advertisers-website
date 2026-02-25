@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Play,
   Facebook,
-  Twitter,
   Linkedin,
   Instagram,
   ArrowDown,
@@ -28,7 +27,7 @@ export function HeroSection() {
     {
       id: 1,
       heading: (
-        <div className={`${kanit.className}`}>
+        <div className={kanit.className}>
           MORE THAN AN <br />
           <span className="gold-fill" data-text="ADVERTISING">
             ADVERTISING
@@ -37,12 +36,11 @@ export function HeroSection() {
         </div>
       ),
       image: "/images/shashikantsirr.webp",
-      touchMarquee: true,
     },
     {
       id: 2,
       heading: (
-        <div className={`${kanit.className}`}>
+        <div className={kanit.className}>
           IMPROVE YOUR <br />
           <span className="gold-fill" data-text="BUSINESS">
             BUSINESS
@@ -51,12 +49,11 @@ export function HeroSection() {
         </div>
       ),
       image: "/images/Vijayantsir.webp",
-      touchMarquee: true,
     },
     {
       id: 3,
       heading: (
-        <div className={`${kanit.className}`}>
+        <div className={kanit.className}>
           WE ARE <br />
           <span className="gold-fill" data-text="ENERGETIC">
             ENERGETIC
@@ -64,15 +61,12 @@ export function HeroSection() {
         </div>
       ),
       image: "/images/neetamadamm.webp",
-      touchMarquee: true,
     },
   ];
 
-  /* Auto Rotation */
   useEffect(() => {
     const interval = setInterval(() => {
       setIsAnimating(true);
-
       setTimeout(() => {
         setCurrentHeading((prev) => (prev % 3) + 1);
         setIsAnimating(false);
@@ -85,32 +79,30 @@ export function HeroSection() {
   const activeSlide = slides.find((s) => s.id === currentHeading);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-black text-white">
-
-      {/* Background Pattern */}
-      <div className="absolute inset-0">
+<section className="relative bg-black text-white overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 -z-10">
         <Image
           src="/images/hero-bg.jpg"
-          alt="Prosira Advertisers abstract background"
+          alt="Prosira background"
           fill
           priority
           sizes="100vw"
-          className="object-contain object-right opacity-60"
+          className="object-cover opacity-50"
         />
         <div className="absolute inset-0 bg-black/70" />
       </div>
 
-      {/* Content Grid */}
-<div className="relative z-10 site-container pt-12 pb-24 grid lg:grid-cols-2 gap-12 items-center">
-        {/* LEFT TEXT */}
-        <div className="space-y-8">
+      {/* Main Content */}
+<div className="site-container pt-14 pb-0 grid lg:grid-cols-2 gap-12 items-end">        {/* LEFT TEXT */}
+        <div className="space-y-8 text-center lg:text-left">
 
           <span className="inline-flex px-5 py-2 rounded-full border border-primary/40 text-primary text-sm tracking-wide">
             ✦ Leading Advertising Agency in Pune
           </span>
 
           <h1
-            className={`text-3xl md:text-4xl lg:text-6xl font-bold leading-tight transition-all duration-500 ${
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-500 ${
               isAnimating
                 ? "blur-sm opacity-0 translate-y-2"
                 : "opacity-100 translate-y-0"
@@ -119,22 +111,21 @@ export function HeroSection() {
             {activeSlide?.heading}
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-400 max-w-xl">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-xl mx-auto lg:mx-0">
             Prosira Advertisers delivers powerful TV, radio, outdoor,
             digital marketing and branding solutions that grow businesses.
           </p>
 
-          <div className="flex gap-4 flex-wrap">
-            <Link
+<div className="flex gap-4 flex-wrap justify-center lg:justify-start mb-10">            <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-primary text-black px-12 py-3 rounded-lg font-medium hover:scale-105 transition"
+              className="inline-flex items-center gap-2 bg-primary text-black px-8 md:px-12 py-3 rounded-lg font-medium hover:scale-105 transition"
             >
               Get Started <ArrowRight size={18} />
             </Link>
 
             <Link
               href="/about-prosira-advertisers"
-              className="inline-flex items-center gap-2 border border-white/30 px-12 py-3 rounded-lg hover:bg-white/10 transition"
+              className="inline-flex items-center gap-2 border border-white/30 px-8 md:px-12 py-3 rounded-lg hover:bg-white/10 transition"
             >
               <Play size={18} />
               Our Story
@@ -143,20 +134,19 @@ export function HeroSection() {
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="hidden lg:flex justify-center relative h-screen">
-          <div className="relative w-full max-w-[400px] h-full overflow-hidden rounded-xl shadow-2xl transition-all duration-700">
-
+        <div className="flex justify-center">
+<div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] h-auto overflow-hidden rounded-xl shadow-2xl">
             {activeSlide && (
               <Image
-                key={activeSlide.image}
-                src={activeSlide.image}
-                alt="Prosira team member"
-                fill
-                sizes="(max-width: 1024px) 100vw, 400px"
-                className={`object-contain transition-all duration-700 ${
-                  isAnimating ? "opacity-0 scale-105" : "opacity-100 scale-100"
-                }`}
-              />
+  key={activeSlide.image}
+  src={activeSlide.image}
+  alt="Prosira team member"
+  width={420}
+  height={560}
+  className={`object-contain w-full h-auto transition-all duration-700 ${
+    isAnimating ? "opacity-0 scale-105" : "opacity-100 scale-100"
+  }`}
+/>
             )}
 
             <div className="absolute inset-0 rounded-xl ring-2 ring-primary/30" />
@@ -164,56 +154,27 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Right Social Column */}
-      <div className="hidden lg:flex flex-col items-center gap-6 absolute right-10 top-17 z-20">
-  <span className="text-xs tracking-widest text-gray-400 [writing-mode:vertical-rl]">
-    FOLLOW&nbsp;US
-  </span>
+      {/* SOCIAL COLUMN */}
+<div className="hidden lg:flex flex-col items-center gap-6 absolute right-10 top-8">        <span className="text-xs tracking-widest text-gray-400 [writing-mode:vertical-rl]">
+          FOLLOW&nbsp;US
+        </span>
+        <div className="w-px h-16 bg-gray-600" />
 
-  <div className="w-px h-16 bg-gray-600" />
-
-        <Link
-          href="https://www.facebook.com/share/1DnoEvbjBx/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-        >
-          <Facebook size={18} />
-        </Link>
-
-        <Link
-          href="https://www.youtube.com/@Prosira"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-        >
-          <Youtube size={18} />
-        </Link>
-
-        <Link
-          href="https://www.linkedin.com/company/prosiraadvertisers/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-        >
-          <Linkedin size={18} />
-        </Link>
-
-        <Link
-          href="https://www.instagram.com/prosira_advertisers?igsh=MXc3bjkwb2h3aThq"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
-        >
-          <Instagram size={18} />
-        </Link>
+        {[Facebook, Youtube, Linkedin, Instagram].map((Icon, i) => (
+          <div
+            key={i}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition cursor-pointer"
+          >
+            <Icon size={18} />
+          </div>
+        ))}
 
         <div className="w-px h-16 bg-gray-600" />
         <ArrowDown className="animate-bounce text-gray-400" />
       </div>
 
-      {/* Bottom Marquee */}
-      <div className="absolute bottom-8 sm:bottom-12 lg:bottom-14 left-0 w-full bg-primary text-black py-2 sm:py-3 lg:py-4 z-30">
+      {/* MARQUEE (NO ABSOLUTE) */}
+      <div className="w-full bg-primary text-black py-3">
         <div className="marquee-track whitespace-nowrap text-sm sm:text-base lg:text-lg font-semibold tracking-wide">
           UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
           &nbsp;&nbsp;&nbsp;
