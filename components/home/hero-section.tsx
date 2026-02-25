@@ -79,6 +79,10 @@ export function HeroSection() {
 
   const activeSlide = slides.find((s) => s.id === currentHeading);
 
+  
+
+  
+
   return (
 <section className="relative bg-black text-white overflow-hidden min-h-[75vh] md:min-h-screen">      {/* Background */}
   <div className="absolute inset-0 -z-10 bg-black md:hidden" />
@@ -107,7 +111,7 @@ export function HeroSection() {
           <h1
             className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-500 ${
               isAnimating
-                ? "md:blur-sm opacity-0 translate-y-2"
+                ? "md:blur-sm md:opacity-0 md:translate-y-2"
                 : "opacity-100 translate-y-0"
             }`}
           >
