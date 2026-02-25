@@ -51,23 +51,39 @@ export function Header() {
   };
 
   /* Lock body scroll when mobile menu open */
-  useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+ useEffect(() => {
+  if (mobileMenuOpen) {
+    const scrollY = window.scrollY;
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+
     return () => {
-      document.body.style.overflow = "";
+      const storedScrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+
+      window.scrollTo(0, parseInt(storedScrollY || "0") * -1);
     };
-  }, [mobileMenuOpen]);
+  }
+}, [mobileMenuOpen]);
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled
-          ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 py-6 shadow-lg shadow-black/10"
-          : "bg-transparent py-6"
+       scrolled
+  ? "bg-background/95 backdrop-blur-xl border-b border-primary/10 pt-6 pb-3 shadow-lg shadow-black/10"
+  : "bg-transparent pt-6 pb-3"
       )}
     >
-      <nav className="site-container flex min-h-[72px] items-center justify-between">
+      <nav className="site-container flex min-h-[20px] items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">

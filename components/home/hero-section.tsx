@@ -101,8 +101,7 @@ export function HeroSection() {
       </div>
 
       {/* Content Grid */}
-      <div className="relative z-10 site-container py-24 grid lg:grid-cols-2 gap-12 items-center">
-
+<div className="relative z-10 site-container pt-12 pb-24 grid lg:grid-cols-2 gap-12 items-center">
         {/* LEFT TEXT */}
         <div className="space-y-8">
 
