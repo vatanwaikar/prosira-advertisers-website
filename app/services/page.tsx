@@ -97,9 +97,7 @@ export default function TraditionalMediaPortfolio() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-white">Traditional Media </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-400">
-                Portfolio
-              </span>
+               <span className="text-primary font-serif ">Portfolio</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
               Award-winning campaigns across radio, print, TV, outdoor & corporate gifting.
@@ -239,10 +237,9 @@ export default function TraditionalMediaPortfolio() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
+                 
                   viewport={{ once: true }}
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-black/30 border-2 border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-500 cursor-pointer aspect-square"
-                  onClick={() => setSelectedGiftImage(gift)}
+                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-black/30 border-2 border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-500  aspect-square"
                 >
                   <div className="relative w-full h-full">
                     <Image 

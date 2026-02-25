@@ -73,9 +73,9 @@ export function Footer() {
 
             {/* Newsletter */}
             <div className="space-y-3">
-              <h4 className="text-sm font-semibold text-foreground">
+             <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-6">
                 Subscribe to Newsletter
-              </h4>
+              </h3>
 
               {isSubscribed ? (
                 <div className="text-sm text-green-600 bg-green-50 dark:bg-green-900/20 p-3 rounded-lg border border-green-200 dark:border-green-800">
