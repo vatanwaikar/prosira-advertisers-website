@@ -86,7 +86,7 @@ export function ContactHero() {
   return (
     <section
       ref={heroRef}
-      className="relative pt-32 pb-24 bg-gradient-to-b from-secondary to-background overflow-hidden"
+  className="relative pt-16 lg:pt-24 pb-20 bg-gradient-to-b from-secondary to-background overflow-hidden"
     >
       {/* AMBIENT BLOBS */}
       <div className="absolute inset-0 pointer-events-none">

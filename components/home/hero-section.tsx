@@ -86,7 +86,6 @@ export function HeroSection() {
           src="/images/hero-bg.jpg"
           alt="Prosira background"
           fill
-          priority
           sizes="100vw"
           className="object-cover opacity-50"
         />
@@ -155,7 +154,7 @@ export function HeroSection() {
       </div>
 
       {/* SOCIAL COLUMN */}
-<div className="hidden lg:flex flex-col items-center gap-6 absolute right-10 top-8">        <span className="text-xs tracking-widest text-gray-400 [writing-mode:vertical-rl]">
+<div className="hidden lg:flex flex-col items-center gap-6 absolute right-10 top-12">        <span className="text-xs tracking-widest text-gray-400 [writing-mode:vertical-rl]">
           FOLLOW&nbsp;US
         </span>
         <div className="w-px h-16 bg-gray-600" />

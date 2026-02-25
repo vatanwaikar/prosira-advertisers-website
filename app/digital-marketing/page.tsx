@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Digital Marketing Services - Prosira Advertisers",
     description:
       "Data-driven digital marketing solutions including Google Ads, SEO, social media, and performance marketing in Pune.",
-    url: "https://prosira.in/digital-services",
+    url: "https://prosira.in/advertising-services",
   },
 };
 
