@@ -442,7 +442,7 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-green-600/10 to-emerald-600/10 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-green-500/20">
+      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-yellow-600/10 to-yellow-600/10 border border-yellow-500/20 hover:border-yellow-400/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-yellow-500/20">
         
         {/* Photo Carousel */}
         <div className="relative h-64 md:h-80">
@@ -504,8 +504,8 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
               <h3 className="text-xl font-bold text-white mb-1">{event.eventName}</h3>
               <p className="text-sm text-gray-400">{event.clientName}</p>
             </div>
-            <div className="px-3 py-1 rounded-full bg-green-500/20 border border-green-500/30">
-              <span className="text-xs text-green-400 font-medium">{event.category}</span>
+            <div className="px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30">
+              <span className="text-xs text-yellow-400 font-medium">{event.category}</span>
             </div>
           </div>
 
@@ -537,7 +537,7 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
                 <span>{event.photos[currentPhotoIndex].engagement.split(', ')[1]}</span>
               </div>
             </div>
-            <div className="flex items-center gap-1 text-green-400 group-hover:text-green-300 transition-colors">
+            <div className="flex items-center gap-1 text-yellow-400 group-hover:text-yellow-300 transition-colors">
               <span className="text-sm">View Details</span>
               <ExternalLink size={14} />
             </div>
@@ -573,7 +573,7 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-3xl bg-gray-900 border border-green-400/30 shadow-2xl"
+        className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-3xl bg-gray-900 border border-yellow-400/30 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -598,7 +598,7 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
 
           {/* Photo Gallery */}
           <div className="mb-8">
-            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-green-600/10 to-emerald-600/10">
+            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-yellow-600/10 to-yellow-600/10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentPhotoIndex}
@@ -652,7 +652,7 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
                   key={photo.id}
                   onClick={() => setCurrentPhotoIndex(index)}
                   className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    index === currentPhotoIndex ? 'border-green-400' : 'border-transparent'
+                    index === currentPhotoIndex ? 'border-yellow-400' : 'border-transparent'
                   }`}
                 >
                   <Image
@@ -677,15 +677,15 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
               
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <Calendar className="h-5 w-5 text-green-400" />
+                  <Calendar className="h-5 w-5 text-yellow-400" />
                   <span className="text-gray-300">{event.eventDate}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin className="h-5 w-5 text-green-400" />
+                  <MapPin className="h-5 w-5 text-yellow-400" />
                   <span className="text-gray-300">{event.venue}</span>
                 </div>
                 <div className="flex items-center gap-3">
-<MapPin className="h-5 w-5 text-green-400" />
+<MapPin className="h-5 w-5 text-yellow-400" />
 <span className="text-gray-300">{event.stalls} Stalls</span>                </div>
               </div>
             </div>
@@ -707,13 +707,13 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
           <div>
             <h3 className="text-xl font-bold text-white mb-4">Event Results</h3>
             <div className="grid md:grid-cols-4 gap-4">
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-green-600/20 to-green-600/10 border border-green-500/30">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-yellow-600/20 to-yellow-600/10 border border-yellow-500/30">
                 <Star className="h-6 w-6 text-yellow-400 mb-2" />
                 <p className="text-2xl font-bold text-white">{event.results.satisfaction}</p>
                 <p className="text-sm text-gray-400">Satisfaction</p>
               </div>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-600/10 border border-blue-500/30">
-                <Users className="h-6 w-6 text-blue-400 mb-2" />
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-yellow-600/20 to-yellow-600/10 border border-yellow-500/30">
+                <Users className="h-6 w-6 text-yellow-400 mb-2" />
                 <p className="text-2xl font-bold text-white">{event.results.leads || 
  event.results.visitors || 
  event.results.participants || 
@@ -721,8 +721,8 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
  event.results.orders}</p>
                 <p className="text-sm text-gray-400">Impact</p>
               </div>
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-600/20 to-purple-600/10 border border-purple-500/30">
-                <Share2 className="h-6 w-6 text-purple-400 mb-2" />
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-600/20 to-orange-600/10 border border-orange-500/30">
+                <Share2 className="h-6 w-6 text-orange-400 mb-2" />
                 <p className="text-2xl font-bold text-white">{event.results.media}</p>
                 <p className="text-sm text-gray-400">Media Coverage</p>
               </div>
@@ -745,12 +745,12 @@ export default function EventExpoPortfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Animated Background */}
-<div className="fixed inset-0 opacity-20 pointer-events-none">        <div className="absolute inset-0 bg-gradient-to-br from-green-600/30 via-emerald-600/20 to-teal-400/30 animate-pulse" />
+<div className="fixed inset-0 opacity-20 pointer-events-none">        <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/30 via-yellow-600/20 to-yellow-400/30 animate-pulse" />
         <div className="absolute inset-0">
           {[...Array(15)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-green-400 rounded-full animate-pulse"
+              className="absolute w-1 h-1 bg-yellow-400 rounded-full animate-pulse"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -767,7 +767,7 @@ export default function EventExpoPortfolio() {
         <div className="site-container">
           <Link 
             href="/work"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-green-400 transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-yellow-400 transition-colors mb-8"
           >
             ← Back to Our Work
           </Link>
@@ -779,9 +779,7 @@ export default function EventExpoPortfolio() {
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-white">Event & Expo </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400">
-                Portfolio
-              </span>
+              <span className="text-primary font-serif">Portfolio</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
               Spectacular events and memorable experiences. From tech conferences to cultural festivals, we create unforgettable moments that leave lasting impressions.
@@ -831,12 +829,19 @@ export default function EventExpoPortfolio() {
             </p>
             
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 hover:scale-105 transition-all duration-300 shadow-lg shadow-green-500/25"
-            >
-              Plan Your Event
-              <Calendar size={20} />
-            </Link>
+  href="/contact"
+  className="inline-flex items-center gap-3 
+  bg-primary 
+  text-primary-foreground 
+  px-8 py-4 rounded-lg font-semibold 
+  hover:bg-primary/90 
+  hover:scale-105 
+  transition-all duration-300 
+  shadow-lg shadow-primary/30"
+>
+  Plan Your Event
+  <Calendar size={20} />
+</Link>
           </motion.div>
         </div>
       </section>

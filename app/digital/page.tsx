@@ -305,7 +305,7 @@ const SocialPostCard = ({ post, index }: { post: any, index: number }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-600/10 to-purple-600/10 border-2 border-blue-500/20 hover:border-blue-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/25">
+      <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-yellow-600/10 to-orange-600/10 border-2 border-yellow-500/20 hover:border-yellow-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/25">
         
         {/* Video Post - Check if it's a video by file extension or type */}
         {post.video && (
@@ -375,10 +375,10 @@ const SocialPostCard = ({ post, index }: { post: any, index: number }) => {
 
 // Chart Component (unchanged)
 const PieChartComponent = ({ data, label }: { data: any[], label: string }) => {
-  const colors = ["#3B82F6", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6"];
+  const colors = ["#F59E0B", "#10B981", "#F59E0B", "#EF4444", "#8B5CF6"];
   
   return (
-    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20">
+    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/20">
       <h4 className="text-white font-semibold mb-4">{label}</h4>
       <div className="flex items-center justify-center">
         <div className="relative w-32 h-32">
@@ -430,12 +430,12 @@ export default function DigitalMarketingPortfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Animated Background */}
-<div className="fixed inset-0 opacity-20 pointer-events-none">        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 via-purple-600/20 to-cyan-400/30 animate-pulse" />
+<div className="fixed inset-0 opacity-20 pointer-events-none">        <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/30 via-orange-600/20 to-yellow-400/30 animate-pulse" />
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-blue-400 rounded-full animate-pulse"
+              className="absolute w-1 h-1 bg-yellow-400 rounded-full animate-pulse"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -452,7 +452,7 @@ export default function DigitalMarketingPortfolio() {
         <div className="site-container">
           <Link 
             href="/work"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-yellow-400 transition-colors mb-8"
           >
            
             ← Back to Our Work
@@ -465,9 +465,7 @@ export default function DigitalMarketingPortfolio() {
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-white">Digital Marketing </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400">
-                Success Stories
-              </span>
+              <span className="text-primary font-serif ">Success Stories</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
               Real results from real clients. Data-driven social media campaigns that deliver measurable growth and exceptional ROI.
@@ -490,7 +488,7 @@ export default function DigitalMarketingPortfolio() {
                 onClick={() => setSelectedClient(client.id)}
                 className="group cursor-pointer"
               >
-                <div className="relative h-80 rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/30">
+                <div className="relative h-80 rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-yellow-500/30">
                   {/* Background Image */}
                   <Image
                     src={client.backgroundImage}
@@ -519,7 +517,7 @@ export default function DigitalMarketingPortfolio() {
                     {/* Middle Stats */}
                     <div className="grid grid-cols-2 gap-4">
                       <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
-                        <p className="text-2xl font-bold text-blue-300 drop-shadow-lg">{client.results.reach}</p>
+                        <p className="text-2xl font-bold text-yellow-300 drop-shadow-lg">{client.results.reach}</p>
                         <p className="text-xs text-gray-200">Reach</p>
                       </div>
                       <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
@@ -562,7 +560,7 @@ export default function DigitalMarketingPortfolio() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-3xl bg-gray-900 border border-blue-400/30 shadow-2xl"
+              className="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto rounded-3xl bg-gray-900 border border-yellow-400/30 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -594,13 +592,13 @@ export default function DigitalMarketingPortfolio() {
                 </div>
 
                 {/* Results Grid */}
-<div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">                  <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-600/10 border border-blue-500/30">
-                    <Eye className="h-6 w-6 text-blue-400 mb-2" />
+<div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">                  <div className="p-4 rounded-2xl bg-gradient-to-br from-yellow-600/20 to-yellow-600/10 border border-yellow-500/30">
+                    <Eye className="h-6 w-6 text-yellow-400 mb-2" />
                     <p className="text-2xl font-bold text-white">{selectedClientData.results.reach}</p>
                     <p className="text-sm text-gray-400">Total Reach</p>
                   </div>
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-600/20 to-purple-600/10 border border-purple-500/30">
-                    <Users className="h-6 w-6 text-purple-400 mb-2" />
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-600/20 to-orange-600/10 border border-orange-500/30">
+                    <Users className="h-6 w-6 text-orange-400 mb-2" />
                     <p className="text-2xl font-bold text-white">{selectedClientData.results.engagement}</p>
                     <p className="text-sm text-gray-400">Engagement</p>
                   </div>
@@ -631,16 +629,16 @@ export default function DigitalMarketingPortfolio() {
                     ]}
                     label="Metrics Breakdown"
                   />
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20">
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-yellow-500/20">
                     <h4 className="text-white font-semibold mb-4">Key Metrics</h4>
                     <div className="space-y-3">
                       <div className="flex justify-between">
                         <span className="text-gray-400">Engagement Rate</span>
-                        <span className="text-blue-400 font-medium">{selectedClientData.metrics.engagementRate}</span>
+                        <span className="text-yellow-400 font-medium">{selectedClientData.metrics.engagementRate}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-400">Click-Through Rate</span>
-                        <span className="text-purple-400 font-medium">{selectedClientData.metrics.clickThroughRate}</span>
+                        <span className="text-orange-400 font-medium">{selectedClientData.metrics.clickThroughRate}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-400">Conversion Rate</span>
@@ -676,13 +674,20 @@ export default function DigitalMarketingPortfolio() {
               Let us create data-driven social media campaigns that deliver real results for your brand.
             </p>
             
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 hover:scale-105 transition-all duration-300 shadow-lg shadow-blue-500/25"
-            >
-              Start Your Campaign
-              <Zap size={20} />
-            </Link>
+           <Link
+  href="/contact"
+  className="inline-flex items-center gap-3 
+  bg-primary 
+  text-primary-foreground 
+  px-8 py-4 rounded-lg font-semibold 
+  hover:bg-primary/90 
+  hover:scale-105 
+  transition-all duration-300 
+  shadow-lg shadow-primary/30"
+>
+  Start Your <span className="font-serif">Campaign</span>
+  <Zap size={20} />
+</Link>
           </motion.div>
         </div>
       </section>
