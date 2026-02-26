@@ -10,7 +10,7 @@ import Link from "next/link";
 const events = [
 {
     id: 4,
-    eventName: "Great Home & Land Expo 2017",
+    eventName: "Great Home and Land Expo 2017",
     clientName: "InHouse",
     eventDate: "March 3-5, 2017",
     venue: "Shivgorksh Maidan Katraj Kondhwa Road, Katraj",
@@ -79,7 +79,7 @@ description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition 
 },
    {
     id: 3,
-    eventName: "Great Home & Land Expo 2018",
+    eventName: "Great Home and Land Expo 2018",
     clientName: "InHouse",
     eventDate: "Jan 5 to 8, 2018",
     venue: "Shivgorksh Maidan Katraj Kondhwa Road, Katraj",
@@ -504,9 +504,19 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
               <h3 className="text-xl font-bold text-white mb-1">{event.eventName}</h3>
               <p className="text-sm text-gray-400">{event.clientName}</p>
             </div>
-            <div className="px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30">
-              <span className="text-xs text-yellow-400 font-medium">{event.category}</span>
-            </div>
+            <div className="px-3 py-1 rounded-full 
+                bg-yellow-500/20 
+                border border-yellow-500/30 
+                whitespace-nowrap 
+                max-w-[140px] 
+                text-center">
+  <span className="text-[11px] md:text-xs 
+                   text-yellow-400 
+                   font-medium 
+                   truncate block">
+    {event.category}
+  </span>
+</div>
           </div>
 
           <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">

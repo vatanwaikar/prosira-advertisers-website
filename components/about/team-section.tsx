@@ -18,12 +18,13 @@ const highlights = [
   {
     icon: TrendingUp,
     title: "Proven Track Record",
-    description: "1503+ successful campaigns delivered across industries",
+    description:
+      "1503+ successful marketing and brand campaigns delivered consistently across diverse industries",
   },
   {
     icon: Heart,
     title: "100% Client Satisfaction Rate",
-    description: "Long-term partnerships built on trust and results",
+    description: "A strong long-term partnerships built on trust and results",
   },
 ];
 

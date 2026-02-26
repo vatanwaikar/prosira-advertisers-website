@@ -16,11 +16,11 @@ const radioCampaigns = [
 ];
 
 const newspaperCampaigns = [
-  { id: 1, client: "Ashwamedh", logo: "/clients/Ashwamedh.webp", adImage: "/portfolio/ash.jpg", description: "Front Page Premium Placement" },
-  { id: 2, client: "Circle of Crust", logo: "/clients/crust.jpg", adImage: "/portfolio/crust.jpg", description: "Regional Language Campaign" },
-  { id: 3, client: "Parth", logo: "/clients/Parth.jpg", adImage: "/portfolio/parth.jpg", description: "Business Section Spotlight" },
-  { id: 4, client: "CityOne", logo: "/clients/cityone.jpg", adImage: "/portfolio/city.jpg", description: "Marathi Daily Campaign" },
-  { id: 5, client: "Kocuonut Tree", logo: "/clients/cck.jpg", adImage: "/portfolio/koconuttree.jpg", description: "City Lifestyle Feature" }
+  { id: 1, client: "Ashwamedh", logo: "/clients/Ashwamedh.webp", adImage: "/portfolio/ash.jpg", description: "Premium Real Estate Ad" },
+  { id: 2, client: "Circle of Crust", logo: "/clients/crust.jpg", adImage: "/portfolio/crust.jpg", description: "Full-Page Food Campaign" },
+  { id: 3, client: "Parth", logo: "/clients/Parth.jpg", adImage: "/portfolio/parth.jpg", description: "Property Supplement Ad" },
+  { id: 4, client: "CityOne", logo: "/clients/cityone.jpg", adImage: "/portfolio/city.jpg", description: "Front Page Campaign" },
+  { id: 5, client: "Kocuonut Tree", logo: "/clients/cck.jpg", adImage: "/portfolio/koconuttree.jpg", description: "Restaurant Ad" }
 ];
 
 const tvCampaigns = [
