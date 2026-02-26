@@ -415,8 +415,7 @@ export function DigitalServicesList() {
                   animationDelay: `${index * 120}ms`,
                 }}
                 className="
-                  w-full sm:w-1/2 lg:w-1/2 flex-shrink-0 snap-start
-                  group relative bg-card border border-border overflow-hidden
+w-[340px] sm:w-[380px] lg:w-[420px] flex-shrink-0 snap-start                  group relative bg-card border border-border overflow-hidden
                   transition-all duration-700 ease-out
                   hover:-translate-y-2 hover:shadow-lg
                 "

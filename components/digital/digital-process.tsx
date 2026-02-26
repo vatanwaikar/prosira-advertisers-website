@@ -189,8 +189,7 @@ useEffect(() => {
         ref={containerRef}
         className="relative z-10 w-full max-w-6xl mx-auto h-[520px] flex items-start justify-center perspective-[1400px] cursor-grab"
       >
-        <div className="relative w-0 h-0 preserve-3d">
-          {steps.map((step, i) => (
+<div className="relative w-full h-full preserve-3d flex items-center justify-center">          {steps.map((step, i) => (
             <article
               key={i}
               ref={(el) => {

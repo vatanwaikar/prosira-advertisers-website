@@ -37,12 +37,25 @@ const features = [
     description:
       "Deep understanding of Pune and Maharashtra markets for targeted regional campaigns.",
   },
+  {
+    title: "Pan-India Network",
+    description:
+      "Extensive media network across major cities ensuring wider brand visibility and reach.",
+  },
+  {
+    title: "Transparent Reporting",
+    description:
+      "Detailed campaign reports with clear insights, performance metrics, and ROI tracking.",
+  },
 ];
 
 export function WhyChooseUs() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
+
+  const topFeatures = features.slice(0, 2);
+  const bottomFeatures = features.slice(2);
 
   useEffect(() => {
     const element = sectionRef.current;
@@ -52,81 +65,85 @@ export function WhyChooseUs() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target); // trigger once only
+          observer.unobserve(entry.target);
         }
       },
       { threshold: 0.1 }
     );
 
     observer.observe(element);
-
     return () => observer.disconnect();
   }, []);
+
+  const FeatureCard = ({
+    feature,
+    index,
+  }: {
+    feature: (typeof features)[0];
+    index: number;
+  }) => (
+    <div
+      className="group relative"
+      onMouseEnter={() => setActiveFeature(index)}
+      onMouseLeave={() => setActiveFeature(null)}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(30px)",
+        transition: `all 0.6s ease-out ${index * 100}ms`,
+      }}
+    >
+      <div
+        className={`p-4 rounded-xl transition-all duration-300 cursor-default ${
+          activeFeature === index
+            ? "bg-card border border-primary/30"
+            : "hover:bg-card/50"
+        }`}
+      >
+        <div className="flex gap-3">
+          <div
+            className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
+              activeFeature === index
+                ? "bg-primary scale-110"
+                : "bg-primary/20"
+            }`}
+          >
+            <Check
+              className={`w-4 h-4 transition-colors duration-300 ${
+                activeFeature === index
+                  ? "text-primary-foreground"
+                  : "text-primary"
+              }`}
+            />
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors">
+              {feature.title}
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {feature.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section
       ref={sectionRef}
       className="py-32 bg-secondary relative overflow-hidden"
     >
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float-slow" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float delay-700" />
-      </div>
-
-      <div className="site-container relative">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-
-          {/* Image Side */}
-          <div
-            className="relative will-change-transform"
-            style={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateX(0)" : "translateX(-60px)",
-              transition: "all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-            }}
-          >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden group">
-              <Image
-                src="/images/services-bg.jpg"   // convert to webp if possible
-                alt="Professional advertising team at work"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-contain transition-transform duration-700 group-hover:scale-110"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-tr from-background/90 via-background/40 to-primary/20" />
-
-              {/* Overlay */}
-              <div className="absolute inset-0 flex items-end p-8">
-                <div className="glass rounded-xl p-6 w-full max-w-sm">
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 rounded-full flex items-center justify-center bg-primary/90 backdrop-blur-[2px] ring-1 ring-primary/30 shadow-[0_0_20px_rgba(212,175,55,0.25)]">
-                      <span className="relative z-10 text-2xl font-bold text-primary-foreground">
-                        10+
-                      </span>
-                    </div>
-
-                    <div>
-                      <div className="font-semibold text-lg text-foreground">
-                        Years of Excellence
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Serving brands since 2016
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-primary/30 rounded-2xl animate-spin-slow" />
-          </div>
-
-          {/* Content Side */}
-          <div>
+      <div className="site-container relative space-y-16">
+        
+        {/* TOP SECTION */}
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
+          
+          {/* LEFT CONTENT */}
+          <div className="space-y-8">
+            
             <span
-              className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-gold text-primary text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-gold text-primary text-sm font-medium"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "translateY(0)" : "translateY(20px)",
@@ -138,7 +155,7 @@ export function WhyChooseUs() {
             </span>
 
             <h2
-              className="text-4xl md:text-5xl font-bold mb-6"
+              className="text-4xl md:text-5xl font-bold"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "translateY(0)" : "translateY(30px)",
@@ -153,7 +170,7 @@ export function WhyChooseUs() {
             </h2>
 
             <p
-              className="text-lg text-muted-foreground mb-10 leading-relaxed"
+              className="text-lg text-muted-foreground leading-relaxed max-w-lg"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? "translateY(0)" : "translateY(30px)",
@@ -166,84 +183,73 @@ export function WhyChooseUs() {
               brand stories.
             </p>
 
+            {/* TOP 2 FEATURES */}
             <div className="grid sm:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div
+              {topFeatures.map((feature, index) => (
+                <FeatureCard
                   key={feature.title}
-                  className="group relative will-change-transform"
-                  onMouseEnter={() => setActiveFeature(index)}
-                  onMouseLeave={() => setActiveFeature(null)}
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "translateY(0)" : "translateY(30px)",
-                    transition: `all 0.6s ease-out ${500 + index * 100}ms`,
-                  }}
-                >
-                  <div
-                    className={`p-4 rounded-xl transition-all duration-300 cursor-default ${
-                      activeFeature === index
-                        ? "bg-card border border-primary/30"
-                        : "hover:bg-card/50"
-                    }`}
-                  >
-                    <div className="flex gap-3">
-                      <div
-                        className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
-                          activeFeature === index
-                            ? "bg-primary scale-110"
-                            : "bg-primary/20"
-                        }`}
-                      >
-                        <Check
-                          className={`w-4 h-4 transition-colors duration-300 ${
-                            activeFeature === index
-                              ? "text-primary-foreground"
-                              : "text-primary"
-                          }`}
-                        />
-                      </div>
-
-                      <div>
-                        <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors">
-                          {feature.title}
-                        </h3>
-                        <p
-                          className={`text-sm text-muted-foreground transition-all duration-300 ${
-                            activeFeature === index
-                              ? "max-h-20 opacity-100"
-                              : "max-h-0 opacity-0 overflow-hidden sm:max-h-20 sm:opacity-100"
-                          }`}
-                        >
-                          {feature.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  feature={feature}
+                  index={index}
+                />
               ))}
             </div>
-
-            <div
-              className="mt-10 ml-6"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(20px)",
-                transition: "all 0.8s ease-out 1100ms",
-              }}
-            >
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 magnetic-btn h-12 px-12 group"
-              >
-                <Link href="/about-prosira-advertisers">
-                  Learn More About Us
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-            </div>
           </div>
+
+          {/* RIGHT IMAGE */}
+{/* RIGHT IMAGE */}
+<div
+  className="relative flex justify-center"
+  style={{
+    opacity: isVisible ? 1 : 0,
+    transform: isVisible ? "translateX(0)" : "translateX(60px)",
+    transition: "all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+  }}
+>
+  <div className="relative group w-full max-w-[500px]">
+    
+    {/* Square Ring Behind */}
+    <div className="absolute -top-6 -right-6 w-28 h-28 border-2 border-primary/40 rounded-xl -z-10" />
+
+    {/* Main Image */}
+<div className="relative h-[420px] md:h-[480px] lg:h-[520px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-background">      <Image
+        src="/images/services-bg.jpg"
+        alt="Professional advertising team at work"
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-primary/20" />
+    </div>
+
+  </div>
+</div>
         </div>
+
+        {/* BOTTOM FEATURES FULL WIDTH */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {bottomFeatures.map((feature, index) => (
+            <FeatureCard
+              key={feature.title}
+              feature={feature}
+              index={index + 2}
+            />
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="pt-6">
+          <Button
+            asChild
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-12 group"
+          >
+            <Link href="/about-prosira-advertisers">
+              Learn More About Us
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
+        </div>
+
       </div>
     </section>
   );
