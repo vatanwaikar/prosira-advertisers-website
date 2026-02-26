@@ -27,8 +27,8 @@ const tvCampaigns = [
   { id: 1, client: "Inifinity Acedemy", thumbnail: "/clients/Infinity.jpg", video: "/video/infinity.mp4" },
   { id: 2, client: "Ekvira Nuro", thumbnail: "/clients/EkviraEuro.jpg", video: "/video/EkviraNuro.mp4" },
   { id: 3, client: "Windsor Shelter", thumbnail: "/clients/Windsorshelter.jpg", video: "/video/windsorshelter.mp4" },
-  { id: 4, client: "Mangalam", thumbnail: "/clients/Mangalam.jpg", video: "/video/mangalam.mp4" },
-  { id: 5, client: "Helios", thumbnail: "/clients/helios.jpg", video: "/video/helios.mp4" }
+  { id: 4, client: "Mangalam Landmarks", thumbnail: "/clients/Mangalam.jpg", video: "/video/mangalam.mp4" },
+  { id: 5, client: "Helios Orthojoint", thumbnail: "/clients/helios.jpg", video: "/video/helios.mp4" }
 ];
 
 const outdoorCampaigns = [

@@ -410,7 +410,7 @@ export function DigitalServicesList() {
           <div
             ref={scrollRef}
             className="
-              flex gap-6 overflow-x-auto pb-12 lg:pb-16
+              flex gap-6 overflow-x-auto pb-6 lg:pb-8
               scrollbar-hide
               scroll-smooth
               snap-x snap-mandatory
@@ -530,7 +530,7 @@ export function DigitalServicesList() {
           </div>
 
           {/* SCROLL BUTTONS - Desktop */}
-          <div className="hidden lg:flex absolute -bottom-14 left-1/2 -translate-x-1/2 gap-3 z-30">
+          <div className="hidden lg:flex absolute -bottom-8 left-1/2 -translate-x-1/2 gap-3 z-30">
             <Button
               variant="outline"
               size="sm"
