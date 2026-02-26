@@ -15,8 +15,12 @@ import {
   ShoppingCart,
   RefreshCcw,
   Wrench,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
 
 const services = [
   {
@@ -360,6 +364,7 @@ export function DigitalServicesList() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [openId, setOpenId] = useState<string | null>(null);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   /* ---------- REVEAL ANIMATION ---------- */
   useEffect(() => {
@@ -384,138 +389,176 @@ export function DigitalServicesList() {
     return () => observer.disconnect();
   }, []);
 
+  // Scroll functions
+  const scrollLeftHandler = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -350, behavior: "smooth" });
+    }
+  };
+
+  const scrollRightHandler = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 350, behavior: "smooth" });
+    }
+  };
+
   return (
     <section ref={sectionRef} className="py-24 bg-background">
       <div className="site-container">
+        <div className="relative">
+          {/* Scroll Container */}
+          <div
+            ref={scrollRef}
+            className="
+              flex gap-6 overflow-x-auto pb-12 lg:pb-16
+              scrollbar-hide
+              scroll-smooth
+              snap-x snap-mandatory
+            "
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
+            {/* LEFT FADE */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 lg:w-24 bg-gradient-to-r from-background to-transparent z-20 lg:-ml-4" />
 
-        <div
-          ref={scrollRef}
-          className="
-            relative flex gap-6 overflow-x-auto pb-6
-            scrollbar-hide
-            scroll-smooth
-            snap-x snap-mandatory
-          "
-          style={{ WebkitOverflowScrolling: 'touch' }}
-        >
-          {/* LEFT FADE */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-background to-transparent z-20" />
+            {/* RIGHT FADE */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 lg:w-24 bg-gradient-to-l from-background to-transparent z-20 lg:-mr-4" />
 
-          {/* RIGHT FADE */}
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-14 bg-gradient-to-l from-background to-transparent z-20" />
+            {services.map((service, index) => {
+              const isOpen = openId === service.id;
 
-          {services.map((service, index) => {
-            const isOpen = openId === service.id;
+              return (
+                <Card
+                  key={service.id}
+                  data-animate
+                  style={{
+                    animationDelay: `${index * 120}ms`,
+                  }}
+                  className="
+                    w-[340px] sm:w-[380px] lg:w-[420px] flex-shrink-0 snap-start
+                    group relative bg-card border border-border overflow-hidden
+                    transition-all duration-700 ease-out
+                    hover:-translate-y-2 hover:shadow-lg
+                  "
+                >
+                  {/* GOLD LIGHT */}
+                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
 
-            return (
-              <Card
-                key={service.id}
-                data-animate
-                style={{
-                  animationDelay: `${index * 120}ms`,
-                }}
-                className="
-w-[340px] sm:w-[380px] lg:w-[420px] flex-shrink-0 snap-start                  group relative bg-card border border-border overflow-hidden
-                  transition-all duration-700 ease-out
-                  hover:-translate-y-2 hover:shadow-lg
-                "
-              >
-                {/* GOLD LIGHT */}
-                <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-primary/15 to-transparent" />
+                  <CardContent className="relative z-10 p-8 space-y-5">
+                    {/* ICON */}
+                    <div className="p-4 rounded-xl w-fit mb-4 bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-black">
+                      <service.icon className="h-6 w-6" />
+                    </div>
 
-                <CardContent className="relative z-10 p-8 space-y-5">
-                  {/* ICON */}
-                  <div className="p-4 rounded-xl w-fit mb-4 bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-black">
-                    <service.icon className="h-6 w-6" />
-                  </div>
+                    {/* TITLE */}
+                    <h2 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h2>
 
-                  {/* TITLE */}
-                  <h2 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h2>
+                    {/* DESCRIPTION */}
+                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                      {service.description}
+                    </p>
 
-                  {/* DESCRIPTION */}
-                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                    {service.description}
-                  </p>
+                    {/* TOGGLE */}
+                    <button
+                      onClick={() => setOpenId(isOpen ? null : service.id)}
+                      className="
+                        inline-flex items-center justify-center
+                        h-7 w-7 rounded-full
+                        text-primary border border-primary/30
+                        transition-all hover:bg-primary hover:text-black
+                        mt-2
+                      "
+                      aria-label="Toggle details"
+                    >
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
 
-                  {/* TOGGLE */}
-                  <button
-                    onClick={() => setOpenId(isOpen ? null : service.id)}
-                    className="
-                      inline-flex items-center justify-center
-                      h-7 w-7 rounded-full
-                      text-primary border border-primary/30
-                      transition-all hover:bg-primary hover:text-black
-                      mt-2
-                    "
-                    aria-label="Toggle details"
-                  >
-                    <ChevronDown
-                      className={`h-4 w-4 transition-transform ${
-                        isOpen ? "rotate-180" : ""
+                    {/* ACCORDION */}
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ease-out ${
+                        isOpen
+                          ? "max-h-[700px] opacity-100"
+                          : "max-h-0 opacity-0"
                       }`}
-                    />
-                  </button>
+                      style={{ willChange: "max-height, opacity" }}
+                    >
+                      <div className="pt-4 border-t border-border space-y-4">
+                        <p className="text-sm text-muted-foreground">
+                          {service.details.whatItDoes}
+                        </p>
 
-                  {/* ACCORDION */}
-                  <div
-                    className={`overflow-hidden transition-all duration-500 ease-out ${
-                      isOpen
-                        ? "max-h-[700px] opacity-100"
-                        : "max-h-0 opacity-0"
-                    }`}
-                    style={{ willChange: "max-height, opacity" }}
-                  >
-                    <div className="pt-4 border-t border-border space-y-4">
-                      <p className="text-sm text-muted-foreground">
-                        {service.details.whatItDoes}
-                      </p>
+                        <ul className="space-y-2 text-sm">
+                          {service.details.strengths.map((s) => (
+                            <li key={s}>✔ {s}</li>
+                          ))}
+                        </ul>
 
-                      <ul className="space-y-2 text-sm">
-                        {service.details.strengths.map((s) => (
-                          <li key={s}>✔ {s}</li>
-                        ))}
-                      </ul>
+                        <ul className="space-y-2 text-sm text-muted-foreground">
+                          {service.details.considerations.map((c) => (
+                            <li key={c}>• {c}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
 
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        {service.details.considerations.map((c) => (
-                          <li key={c}>• {c}</li>
+                    {/* FEATURES */}
+                    <div className="pt-4 border-t border-border mt-6">
+                      <h3 className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
+                        What We Offer
+                      </h3>
+                      <ul className="space-y-2">
+                        {service.features.map((feature) => (
+                          <li
+                            key={feature}
+                            className="flex items-center gap-2 text-sm text-muted-foreground"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {feature}
+                          </li>
                         ))}
                       </ul>
                     </div>
-                  </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
 
-                  {/* FEATURES */}
-                  <div className="pt-4 border-t border-border mt-6">
-                    <h3 className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                      What We Offer
-                    </h3>
-                    <ul className="space-y-2">
-                      {service.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center gap-2 text-sm text-muted-foreground"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+          {/* SCROLL BUTTONS - Desktop */}
+          <div className="hidden lg:flex absolute -bottom-14 left-1/2 -translate-x-1/2 gap-3 z-30">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-10 w-10 p-0 rounded-full border-2 hover:bg-primary hover:border-primary hover:text-primary-foreground shadow-lg"
+              onClick={scrollLeftHandler}
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-10 w-10 p-0 rounded-full border-2 hover:bg-primary hover:border-primary hover:text-primary-foreground shadow-lg"
+              onClick={scrollRightHandler}
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
+
+          {/* MOBILE DOTS */}
+          <div className="flex justify-center gap-2 mt-8 sm:hidden lg:hidden">
+            <span className="h-2 w-8 bg-primary rounded-full cursor-pointer hover:w-10 transition-all" />
+            <span className="h-2 w-6 bg-primary/30 rounded-full cursor-pointer hover:w-8 transition-all" />
+            <span className="h-2 w-6 bg-primary/30 rounded-full cursor-pointer hover:w-8 transition-all" />
+            <span className="h-2 w-6 bg-primary/30 rounded-full cursor-pointer hover:w-8 transition-all" />
+          </div>
         </div>
-
-        {/* MOBILE DOTS */}
-        <div className="flex justify-center gap-2 mt-6 sm:hidden">
-          <span className="h-1.5 w-8 bg-primary rounded-full" />
-          <span className="h-1.5 w-5 bg-primary/30 rounded-full" />
-          <span className="h-1.5 w-5 bg-primary/30 rounded-full" />
-        </div>
-
       </div>
     </section>
   );
