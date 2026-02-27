@@ -76,7 +76,7 @@ export function StatsSection() {
           observer.unobserve(entry.target); // ✅ trigger once only
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(element);
@@ -109,7 +109,6 @@ export function StatsSection() {
               <div className="absolute -inset-0.5 z-0 rounded-2xl bg-gradient-to-r from-primary/30 to-primary/10 blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10 bg-card/60 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-border/50 transition-all duration-500 min-h-[220px] flex flex-col group-hover:-translate-y-3 group-hover:scale-[1.03] group-hover:border-primary/40">
-                
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                   <stat.icon className="w-7 h-7 text-primary" />
                 </div>
