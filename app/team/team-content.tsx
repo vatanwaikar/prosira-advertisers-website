@@ -83,11 +83,11 @@ const teamMembers = [
     image: "/team/Shaurya.png",
     bio: "Emerging social media executive supporting content strategy and engagement growth.",
     expandedBio:
-      "Shourya assists in content planning, social media management, and community engagement. He supports campaign execution, trend analysis, and platform optimization to enhance brand interaction and digital reach.",
+      "Shourya assists in content planning, social media management, and community engagement. She supports campaign execution, trend analysis, and platform optimization to enhance brand interaction and digital reach.",
     linkedin: "https://www.linkedin.com/in/11shourya-shinde/",
   },
   {
-    name: "Sayaji Teji",
+    name: "Sayaji Teji",  
     role: "Activation Head",
     image: "/team/sayjisir.png",
     bio: "Experiential marketing leader managing on-ground activations and brand promotions.",

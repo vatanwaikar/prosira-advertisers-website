@@ -65,6 +65,13 @@ export default function TraditionalMediaPortfolio() {
   const [selectedGiftImage, setSelectedGiftImage] = useState<typeof corporateGiftingImages[0] | null>(null);
   const audioRefs = useRef<{ [key: number]: HTMLAudioElement }>({});
 
+  useEffect(() => {
+  newspaperCampaigns.forEach((campaign) => {
+    const img = new window.Image();
+    img.src = campaign.adImage;
+  });
+}, []);
+
   const toggleAudio = (campaignId: number) => {
     if (activeAudio === campaignId) {
       audioRefs.current[campaignId]?.pause();

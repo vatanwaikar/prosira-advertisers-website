@@ -9,7 +9,6 @@ const channelPartners = {
     { name: "Zee TV", logo: "/partners/tv1.jpg" },
     { name: "Star Plus", logo: "/partners/tv2.jpg" },
     { name: "Sony Entertainment", logo: "/partners/tv3.jpg" },
-    { name: "Colors TV", logo: "/partners/tv4.jpg" },
     { name: "Zee TV", logo: "/partners/tv5.jpg" },
     { name: "Star Plus", logo: "/partners/tv6.jpg" },
     { name: "Sony Entertainment", logo: "/partners/tv7.jpg" },

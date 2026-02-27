@@ -15,7 +15,7 @@ const footerLinks = {
   services: [
     { name: "Traditional Media", href: "/advertising-services" },
     { name: "Digital Marketing", href: "/digital-marketing" },
-    { name: "Event & Expo", href: "/event-expo" },
+    { name: "Event & Expo", href: "/events-expo" },
     { name: "Services Portfolio", href: "/services" },
     { name: "Digital Portfolio", href: "/digital" },
     { name: "Event Portfolio", href: "/event-expo" },

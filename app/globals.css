@@ -338,24 +338,33 @@ h1, h2, h3 {
 }
 
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
+
+
+/* ================= ULTRA SMOOTH MARQUEE ================= */
 
 .marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.marquee-inner {
   display: flex;
   width: max-content;
-  animation: marquee 20s linear infinite;
+  animation: marqueeScroll 30s linear infinite;
+  will-change: transform;
+}
+
+.marquee-inner span {
+  white-space: nowrap;
+  padding-right: 5rem;
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 18px);
 }
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marqueeMove 35s linear infinite;
+  animation: marqueeMove 55s linear infinite;
 }
 
 @keyframes marqueeMove {
@@ -366,7 +375,15 @@ h1, h2, h3 {
     transform: translateX(-100%);
   }
 }
-
+/* Perfect seamless loop */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
 
 /* ---------- */
 /* ================= UNIVERSAL CONTAINER ================= */
@@ -440,4 +457,16 @@ h1, h2, h3 {
 
 .animate-lineGrow {
   animation: lineGrow 0.8s ease-out forwards;
+}
+
+.rotate-x-0 {
+  transform: rotateX(0deg);
+}
+
+.-rotate-x-90 {
+  transform: rotateX(-90deg);
+}
+
+.relative {
+  perspective: 1000px;
 }

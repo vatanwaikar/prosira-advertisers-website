@@ -106,16 +106,20 @@ export function HeroSection() {
           <span className="inline-flex px-5 py-2 rounded-full border border-primary/40 text-primary text-sm tracking-wide">
             ✦ Leading Advertising Agency in Pune
           </span>
-
-          <h1
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-500 ${
-              isAnimating
-                ? "md:blur-sm md:opacity-0 md:translate-y-2"
-                : "opacity-100 translate-y-0"
-            }`}
-          >
-            {activeSlide?.heading}
-          </h1>
+<div className="relative min-h-[140px] sm:min-h-[170px] md:min-h-[200px] overflow-hidden">
+  <div
+    key={currentHeading}
+    className={`absolute inset-0 transition-all duration-700 ease-in-out transform-gpu ${
+      isAnimating
+        ? "opacity-0 translate-y-4 scale-95"
+        : "opacity-100 translate-y-0 scale-100"
+    }`}
+  >
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+      {activeSlide?.heading}
+    </h1>
+  </div>
+</div>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-xl mx-auto lg:mx-0">
             Prosira Advertisers delivers powerful TV, radio, outdoor,
@@ -179,14 +183,19 @@ export function HeroSection() {
         <ArrowDown className="animate-bounce text-gray-400" />
       </div>
 
-      {/* MARQUEE (NO ABSOLUTE) */}
-      <div className="w-full bg-primary text-black py-3">
-        <div className="marquee-track whitespace-nowrap text-sm sm:text-base lg:text-lg font-semibold tracking-wide">
-          UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
-          &nbsp;&nbsp;&nbsp;
-          UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
-        </div>
-      </div>
+      {/* MARQUEE */}
+<div className="w-full bg-primary text-black py-3 overflow-hidden">
+  <div className="marquee">
+    <div className="marquee-inner">
+      <span>
+        UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
+      </span>
+      <span>
+        UI/UX Design ✳ Website Design ✳ Mobile Application ✳ Digital Marketing ✳ Branding ✳ Outdoor Advertising ✳
+      </span>
+    </div>
+  </div>
+</div>
 
     </section>
   );
