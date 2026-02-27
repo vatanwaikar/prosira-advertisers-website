@@ -8,11 +8,11 @@ import Link from "next/link";
 
 /* ================= RADIO DATA ================= */
 const radioCampaigns = [
-  { id: 1, client: "Shubh Developers", logo: "/clients/shubh.webp", audioFile: "/audio/shubh.mp4"  },
-  { id: 2, client: "SSPL Group", logo: "/clients/SSPL.webp", audioFile: "/audio/sspl.mp4"  },
-  { id: 3, client: "Ceratec Group", logo: "/clients/ceratec.webp", audioFile: "/audio/ceratec.mp4" },
-  { id: 4, client: "RRLunkad", logo: "/clients/rrlunkad.webp", audioFile: "/audio/rrlunkadaudio.mp4"},
-  { id: 5, client: "Tulip Group", logo: "/clients/tulip.webp", audioFile: "/audio/tulip.mp4" }
+  { id: 1, client: "Shubh Developers", logo: "/clients/shubh.webp", audioFile: "/audio/shubh.mp3"  },
+  { id: 2, client: "SSPL Group", logo: "/clients/SSPL.webp", audioFile: "/audio/sspl.mp3"  },
+  { id: 3, client: "Ceratec Group", logo: "/clients/ceratec.webp", audioFile: "/audio/ceratec.mp3" },
+  { id: 4, client: "RRLunkad", logo: "/clients/rrlunkad.webp", audioFile: "/audio/rrlunkadaudio.mp3"},
+  { id: 5, client: "Tulip Group", logo: "/clients/tulip.webp", audioFile: "/audio/tulip.mp3" }
 ];
 
 const newspaperCampaigns = [
@@ -136,7 +136,14 @@ export default function TraditionalMediaPortfolio() {
                       {activeAudio === campaign.id ? <Pause size={16}/> : <Play size={16}/>}
                       {activeAudio === campaign.id ? "Pause" : "Play"}
                     </button>
-                    <audio ref={(el) => { if (el) audioRefs.current[campaign.id] = el; }} src={campaign.audioFile} onEnded={() => setActiveAudio(null)} />
+                    <audio
+  ref={(el) => { if (el) audioRefs.current[campaign.id] = el; }}
+  preload="auto"
+  playsInline
+  controls={false}
+  src={campaign.audioFile}
+  onEnded={() => setActiveAudio(null)}
+/>
                   </motion.div>
                 ))}
               </div>
