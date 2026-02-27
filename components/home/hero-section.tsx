@@ -106,8 +106,7 @@ export function HeroSection() {
           <span className="inline-flex px-5 py-2 rounded-full border border-primary/40 text-primary text-sm tracking-wide">
             ✦ Leading Advertising Agency in Pune
           </span>
-<div className="relative min-h-[140px] sm:min-h-[170px] md:min-h-[200px] overflow-hidden">
-  <div
+<div className="relative min-h-[180px] sm:min-h-[220px] md:min-h-[260px]">  <div
     key={currentHeading}
     className={`absolute inset-0 transition-all duration-700 ease-in-out transform-gpu ${
       isAnimating
