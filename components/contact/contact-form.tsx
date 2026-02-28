@@ -15,13 +15,14 @@ import {
 import { Send, Loader2, CheckCircle } from "lucide-react";
 
 const services = [
+  "Media Planning",
+  "Media Buying",
   "TV Advertising",
   "Radio Advertising",
   "Outdoor Advertising",
   "Digital Marketing",
   "Event Management",
   "Brand Development",
-  "Multiple Services",
   "Other",
 ];
 
