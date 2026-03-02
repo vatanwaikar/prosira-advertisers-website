@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://prosira.in/sitemap.xml",
+sitemap: "https://www.prosira.in/sitemap.xml",
   };
 }
