@@ -136,8 +136,7 @@ export function AboutContent() {
         </div>
 
         {/* ===== BOTTOM FULL WIDTH ===== */}
-        <div data-animate className="f-reveal max-w-4xl">
-
+<div data-animate className="f-reveal w-full lg:max-w-none">
           {/* How We Work */}
           <h3 className="inline-flex items-center gap-2 px-6 py-1.5 mb-3 rounded-full border border-primary/30 bg-primary/10 text-xs md:text-sm font-medium text-primary shadow-[0_0_14px_rgba(212,175,55,0.15)]">
             ✦ How We Work

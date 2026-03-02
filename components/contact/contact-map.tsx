@@ -50,7 +50,7 @@ export function ContactMap() {
               
               sizes="(max-width: 768px) 100vw, 1200px"
               className="w-full h-auto object-contain brightness-[0.82] contrast-[1.04] saturate-[0.75] transition-transform duration-700 group-hover:scale-[1.02]"
-            />
+            /> 
 
             {/* DARK OVERLAY */}
             <div className="absolute inset-0 bg-black/25 pointer-events-none" />
