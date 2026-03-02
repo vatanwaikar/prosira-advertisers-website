@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-const baseUrl = "https://www.prosira.in";
+const baseUrl = "https://prosira.in";
   return [
     {
       url: baseUrl,
