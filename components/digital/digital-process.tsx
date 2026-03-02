@@ -84,7 +84,11 @@ export default function DigitalProcess() {
 
   /* ================= CARD POSITION ================= */
   const updateCards = () => {
-    const radius = window.innerWidth < 768 ? 230 : 350;
+    const radius = window.innerWidth < 480
+    ? 160
+    : window.innerWidth < 768
+    ? 200
+    : 350;
 
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
@@ -195,20 +199,22 @@ useEffect(() => {
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="
-                absolute w-[340px] md:w-[420px]
-                p-10 rounded-3xl
-                bg-black/60 backdrop-blur-xl
-                border border-primary/30
-                shadow-[0_20px_60px_-10px_rgba(212,175,55,0.35)]
-                text-center
-              "
-            >
-              <h3 className="text-2xl font-bold text-primary mb-4">
-                {step.title}
+             className="
+  absolute
+  w-[260px] sm:w-[300px] md:w-[380px] lg:w-[420px]
+  p-6 sm:p-8 md:p-10
+  rounded-2xl md:rounded-3xl
+  bg-black/60 backdrop-blur-xl
+  border border-primary/30
+  shadow-[0_10px_30px_-5px_rgba(212,175,55,0.25)]
+  md:shadow-[0_20px_60px_-10px_rgba(212,175,55,0.35)]
+  text-center
+  transition-all duration-300
+"
+>
+<h3 className="text-lg sm:text-xl md:text-2xl font-bold text-primary mb-3 sm:mb-4">                {step.title}
               </h3>
-              <p className="text-base text-gray-300 leading-relaxed">
-                {step.description}
+<p className="text-sm sm:text-base text-gray-300 leading-relaxed">                {step.description}
               </p>
             </article>
           ))}
