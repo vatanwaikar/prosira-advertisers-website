@@ -85,10 +85,10 @@ export default function DigitalProcess() {
   /* ================= CARD POSITION ================= */
   const updateCards = () => {
     const radius = window.innerWidth < 480
-    ? 160
-    : window.innerWidth < 768
-    ? 200
-    : 350;
+  ? 120
+  : window.innerWidth < 768
+  ? 160
+  : 260;
 
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
@@ -101,9 +101,9 @@ export default function DigitalProcess() {
       gsap.to(card, {
         x,
         z,
-        scale: isFront ? 1.15 : 0.85,
-        opacity: isFront ? 1 : 0.35,
-        filter: `blur(${isFront ? 0 : 4}px)`,
+       scale: isFront ? 1.08 : 0.75,
+opacity: isFront ? 1 : 0.25,
+filter: `blur(${isFront ? 0 : 6}px)`,
         duration: 0.6,
         overwrite: true,
       });
@@ -191,7 +191,7 @@ useEffect(() => {
 
       <div
         ref={containerRef}
-        className="relative z-10 w-full max-w-6xl mx-auto h-[520px] flex items-start justify-center perspective-[1400px] cursor-grab"
+        className="relative z-10 w-full max-w-6xl mx-auto h-[520px] flex items-start justify-center perspective-[1400px] cursor-grab active:cursor-grabbing"
       >
 <div className="relative w-full h-full preserve-3d flex items-center justify-center">          {steps.map((step, i) => (
             <article
@@ -200,21 +200,20 @@ useEffect(() => {
                 cardsRef.current[i] = el;
               }}
              className="
-  absolute
-  w-[260px] sm:w-[300px] md:w-[380px] lg:w-[420px]
-  p-6 sm:p-8 md:p-10
-  rounded-2xl md:rounded-3xl
-  bg-black/60 backdrop-blur-xl
-  border border-primary/30
-  shadow-[0_10px_30px_-5px_rgba(212,175,55,0.25)]
-  md:shadow-[0_20px_60px_-10px_rgba(212,175,55,0.35)]
-  text-center
-  transition-all duration-300
+absolute
+w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px]
+p-5 sm:p-6 md:p-7
+rounded-2xl
+bg-black/55 backdrop-blur-lg
+border border-primary/20
+shadow-[0_8px_25px_-5px_rgba(212,175,55,0.18)]
+text-center
+transition-all duration-300
 "
 >
-<h3 className="text-lg sm:text-xl md:text-2xl font-bold text-primary mb-3 sm:mb-4">                {step.title}
+<h3 className="text-base sm:text-lg md:text-xl font-semibold text-primary mb-2">                {step.title}
               </h3>
-<p className="text-sm sm:text-base text-gray-300 leading-relaxed">                {step.description}
+<p className="text-xs sm:text-sm text-gray-300 leading-relaxed">                {step.description}
               </p>
             </article>
           ))}
