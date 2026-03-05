@@ -1,223 +1,99 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import * as THREE from "three";
-
 const steps = [
-  { title: "Discovery & Research", description: "Understanding business, competitors & target audience before launching campaign." },
-  { title: "Strategy Development", description: "Building a KPI-focused roadmap aligned with ROI, lead generation &  growth." },
-  { title: "Implementation", description: "Executing high-performance campaigns across search, social, and web platforms." },
-  { title: "Monitor & Optimize", description: "Continuous performance tuning using real-time analytics and conversion tracking." },
-  { title: "Report & Scale", description: "Detailed reporting, insights, and smart scaling strategies for long-term success." },
+  {
+    title: "Discovery & Research",
+    description:
+      "Understanding your business, market landscape, and audience behavior before launching campaigns.",
+  },
+  {
+    title: "Strategy Development",
+    description:
+      "Crafting a KPI-driven digital strategy focused on ROI, conversions, and long-term growth.",
+  },
+  {
+    title: "Implementation",
+    description:
+      "Executing high-performance campaigns across paid ads, SEO, and digital platforms.",
+  },
+  {
+    title: "Monitor & Optimize",
+    description:
+      "Real-time analytics monitoring with continuous performance optimization.",
+  },
+  {
+    title: "Report & Scale",
+    description:
+      "Transparent reporting with insights and scaling strategies for sustainable growth.",
+  },
 ];
 
 export default function DigitalProcess() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const cardsRef = useRef<(HTMLElement | null)[]>([]);
-
-  const angleRef = useRef(0);
-  const draggingRef = useRef(false);
-  const lastXRef = useRef(0);
-
-  /* ================= THREE PARTICLES ================= */
-  useEffect(() => {
-    if (!canvasRef.current || !containerRef.current) return;
-
-    const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 120 : 260;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, 1, 1, 1000);
-    camera.position.z = 200;
-
-    const renderer = new THREE.WebGLRenderer({
-      canvas: canvasRef.current,
-      alpha: true,
-      antialias: false,
-      powerPreference: "low-power",
-    });
-
-    const resize = () => {
-      const w = containerRef.current!.offsetWidth || 300;
-      const h = containerRef.current!.offsetHeight || 500;
-      renderer.setSize(w, h);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-    };
-
-    resize();
-    window.addEventListener("resize", resize);
-
-    const geometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
-    for (let i = 0; i < positions.length; i++) {
-      positions[i] = (Math.random() - 0.5) * 300;
-    }
-    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-    const material = new THREE.PointsMaterial({
-      color: 0xd4af37,
-      size: isMobile ? 1.2 : 1.8,
-    });
-
-    const points = new THREE.Points(geometry, material);
-    scene.add(points);
-
-    let raf: number;
-    const animate = () => {
-      points.rotation.y += 0.0005;
-      renderer.render(scene, camera);
-      raf = requestAnimationFrame(animate);
-    };
-    animate();
-
-    return () => {
-      cancelAnimationFrame(raf);
-      geometry.dispose();
-      material.dispose();
-      renderer.dispose();
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
-  /* ================= CARD POSITION ================= */
-  const updateCards = () => {
-    const radius = window.innerWidth < 480
-  ? 120
-  : window.innerWidth < 768
-  ? 160
-  : 260;
-
-    cardsRef.current.forEach((card, i) => {
-      if (!card) return;
-
-      const a = (i / steps.length) * Math.PI * 2 + angleRef.current;
-      const x = Math.cos(a) * radius;
-      const z = Math.sin(a) * radius;
-      const isFront = z > 0;
-
-      gsap.to(card, {
-        x,
-        z,
-       scale: isFront ? 1.08 : 0.75,
-opacity: isFront ? 1 : 0.25,
-filter: `blur(${isFront ? 0 : 6}px)`,
-        duration: 0.6,
-        overwrite: true,
-      });
-    });
-  };
-
-  /* ================= AUTO ROTATE ================= */
-  useEffect(() => {
-    let raf: number;
-    const loop = () => {
-      if (!draggingRef.current) {
-        angleRef.current -= 0.0025; // faster
-        updateCards();
-      }
-      raf = requestAnimationFrame(loop);
-    };
-    loop();
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
-  /* ================= DRAG (SCROLL SAFE) ================= */
-useEffect(() => {
-  const el = containerRef.current;
-  if (!el) return;
-
-  let isHorizontalDrag = false;
-
-  const start = (e: PointerEvent) => {
-    draggingRef.current = false; // not immediately true
-    lastXRef.current = e.clientX;
-  };
-
-  const move = (e: PointerEvent) => {
-    const deltaX = e.clientX - lastXRef.current;
-    const deltaY = Math.abs(e.movementY);
-
-    // Detect horizontal intent only
-    if (Math.abs(deltaX) > 5 && Math.abs(deltaX) > deltaY) {
-      isHorizontalDrag = true;
-      draggingRef.current = true;
-    }
-
-    if (!isHorizontalDrag) return;
-
-    angleRef.current += deltaX * 0.004;
-    lastXRef.current = e.clientX;
-    updateCards();
-  };
-
-  const end = () => {
-    draggingRef.current = false;
-    isHorizontalDrag = false;
-  };
-
-  el.addEventListener("pointerdown", start);
-  el.addEventListener("pointermove", move);
-  el.addEventListener("pointerup", end);
-  el.addEventListener("pointerleave", end);
-
-  return () => {
-    el.removeEventListener("pointerdown", start);
-    el.removeEventListener("pointermove", move);
-    el.removeEventListener("pointerup", end);
-    el.removeEventListener("pointerleave", end);
-  };
-}, []);
-
-
-  /* ================= RENDER ================= */
   return (
-    <section className="relative bg-secondary py-28 overflow-hidden">
-      <header className="text-center mb-16 z-10 relative">
-        <h2 className="text-4xl md:text-5xl font-bold">
-          Our <span className="text-primary font-serif">Digital Process</span>
-        </h2>
-        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-          A premium, performance-driven approach designed to maximize ROI and accelerate digital growth.
-        </p>
-      </header>
+    <section className="bg-secondary py-28 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Heading */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Our <span className="text-primary font-serif">Digital Process</span>
+          </h2>
 
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-50"
-      />
-
-      <div
-        ref={containerRef}
-        className="relative z-10 w-full max-w-6xl mx-auto h-[520px] flex items-start justify-center perspective-[1400px] cursor-grab active:cursor-grabbing"
-      >
-<div className="relative w-full h-full preserve-3d flex items-center justify-center">          {steps.map((step, i) => (
-            <article
-              key={i}
-              ref={(el) => {
-                cardsRef.current[i] = el;
-              }}
-             className="
-absolute
-w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px]
-p-5 sm:p-6 md:p-7
-rounded-2xl
-bg-black/55 backdrop-blur-lg
-border border-primary/20
-shadow-[0_8px_25px_-5px_rgba(212,175,55,0.18)]
-text-center
-transition-all duration-300
-"
->
-<h3 className="text-base sm:text-lg md:text-xl font-semibold text-primary mb-2">                {step.title}
-              </h3>
-<p className="text-xs sm:text-sm text-gray-300 leading-relaxed">                {step.description}
-              </p>
-            </article>
-          ))}
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            A structured and performance-focused digital marketing framework
+            designed to generate leads and accelerate business growth.
+          </p>
         </div>
+
+        {/* Timeline */}
+        <div className="relative">
+
+          {/* Line */}
+          <div className="hidden md:block absolute top-8 left-0 w-full h-[2px] bg-primary/20"></div>
+
+          {/* Steps */}
+          <div className="grid md:grid-cols-5 gap-10 items-stretch relative">
+
+            {steps.map((step, index) => (
+              <div key={index} className="text-center group">
+
+                {/* Circle */}
+                <div className="relative z-10 w-16 h-16 mx-auto mb-6 rounded-full bg-black border border-primary/30 flex items-center justify-center text-primary text-lg font-bold group-hover:bg-primary group-hover:text-black transition">
+                  {index + 1}
+                </div>
+
+                {/* Card */}
+                <div
+                  className="
+                  p-6
+                  rounded-2xl
+                  bg-black/60
+                  backdrop-blur-lg
+                  border border-primary/20
+                  shadow-lg
+                  hover:border-primary/40
+                  transition
+                  h-[230px]
+                  flex
+                  flex-col
+                  justify-between
+                  "
+                >
+                  <h3 className="text-lg font-semibold text-primary">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+        </div>
+
       </div>
     </section>
   );
