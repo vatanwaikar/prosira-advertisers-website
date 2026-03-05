@@ -183,19 +183,23 @@ const VideoPlayer = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
+  const isMobile =
+  typeof window !== "undefined" &&
+  /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   // Handle video play/pause on hover
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+  const video = videoRef.current;
+  if (!video) return;
 
-    if (isHovered && isLoaded) {
-      video.muted = true;
-      video.play().catch(() => {});
-    } else {
-      video.pause();
-    }
-  }, [isHovered, isLoaded]);
+  video.muted = true;
+
+  if ((isHovered || isMobile) && isLoaded) {
+    video.play().catch(() => {});
+  } else {
+    video.pause();
+  }
+}, [isHovered, isLoaded]);
 
   const togglePlayPause = useCallback(() => {
     const video = videoRef.current;
@@ -219,22 +223,19 @@ const VideoPlayer = ({
   return (
     <div className="relative w-full h-full rounded-2xl overflow-hidden bg-black">
       <video
-        ref={videoRef}
-        src={video}
-        poster={poster}
-        className="w-full h-full object-cover"
-        loop
-        muted={isMuted}
-        playsInline
-        preload="metadata"
-        onLoadedData={() => setIsLoaded(true)}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        onError={(e) => {
-          console.log('Video load error:', e);
-          // Fallback to poster image
-        }}
-      />
+  ref={videoRef}
+  src={video}
+  poster={poster}
+  className="w-full h-full object-cover"
+  loop
+  muted
+  autoPlay
+  playsInline
+  preload="metadata"
+  onLoadedData={() => setIsLoaded(true)}
+  onPlay={() => setIsPlaying(true)}
+  onPause={() => setIsPlaying(false)}
+/>
       
       {/* Play Button Overlay */}
       {!isPlaying && isLoaded && (
