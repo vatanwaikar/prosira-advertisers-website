@@ -414,6 +414,7 @@ export function DigitalServicesList() {
               scrollbar-hide
               scroll-smooth
               snap-x snap-mandatory
+              scroll-px-6
             "
             style={{ WebkitOverflowScrolling: "touch" }}
           >
@@ -530,12 +531,11 @@ export function DigitalServicesList() {
           </div>
 
           {/* SCROLL BUTTONS - Desktop */}
-          <div className="hidden lg:flex absolute -bottom-8 left-1/2 -translate-x-1/2 gap-3 z-30">
-            <Button
+<div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 left-0 right-0 justify-between px-4 z-30 pointer-events-none">     
+       <Button
               variant="outline"
               size="sm"
-              className="h-10 w-10 p-0 rounded-full border-2 hover:bg-primary hover:border-primary hover:text-primary-foreground shadow-lg"
-              onClick={scrollLeftHandler}
+  className="h-10 w-10 p-0 rounded-full border-2 hover:bg-primary hover:border-primary hover:text-primary-foreground shadow-lg pointer-events-auto bg-background"              onClick={scrollLeftHandler}
               aria-label="Scroll left"
             >
               <ChevronLeft className="h-4 w-4" />
@@ -543,8 +543,7 @@ export function DigitalServicesList() {
             <Button
               variant="outline"
               size="sm"
-              className="h-10 w-10 p-0 rounded-full border-2 hover:bg-primary hover:border-primary hover:text-primary-foreground shadow-lg"
-              onClick={scrollRightHandler}
+  className="h-10 w-10 p-0 rounded-full border-2 hover:bg-primary hover:border-primary hover:text-primary-foreground shadow-lg pointer-events-auto bg-background"              onClick={scrollRightHandler}
               aria-label="Scroll right"
             >
               <ChevronRight className="h-4 w-4" />
