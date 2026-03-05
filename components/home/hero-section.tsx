@@ -64,6 +64,25 @@ export function HeroSection() {
     },
   ];
 
+const socialLinks = [
+  {
+    icon: Facebook,
+    url: "https://www.facebook.com/share/1DnoEvbjBx/",
+  },
+  {
+    icon: Youtube,
+    url: "https://www.youtube.com/@Prosira",
+  },
+  {
+    icon: Linkedin,
+    url: "https://www.linkedin.com/company/prosiraadvertisers/",
+  },
+  {
+    icon: Instagram,
+    url: "https://www.instagram.com/prosira_advertisers?igsh=MXc3bjkwb2h3aThq",
+  },
+];
+
   useEffect(() => {
   const interval = setInterval(() => {
     setIsAnimating(true);
@@ -169,14 +188,20 @@ export function HeroSection() {
         </span>
         <div className="w-px h-16 bg-gray-600" />
 
-        {[Facebook, Youtube, Linkedin, Instagram].map((Icon, i) => (
-          <div
-            key={i}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition cursor-pointer"
-          >
-            <Icon size={18} />
-          </div>
-        ))}
+        {socialLinks.map((item, i) => {
+  const Icon = item.icon;
+  return (
+    <Link
+      key={i}
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-primary hover:text-black transition"
+    >
+      <Icon size={18} />
+    </Link>
+  );
+})}
 
         <div className="w-px h-16 bg-gray-600" />
         <ArrowDown className="animate-bounce text-gray-400" />
