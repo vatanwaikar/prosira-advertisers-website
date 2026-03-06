@@ -19,7 +19,7 @@ const footerLinks = {
     { name: "Services Portfolio", href: "/services" },
     { name: "Digital Portfolio", href: "/digital" },
     { name: "Event Portfolio", href: "/event-expo" },
-
+{ name: "Download Portfolio", href: "/portfolio/prosira-advertisers-company-profile.pdf", download: true },
   ],
   company: [
     { name: "About Us", href: "/about-prosira-advertisers" },
@@ -138,12 +138,22 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.services.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {item.name}
-                  </Link>
+                  {item.download ? (
+  <a
+    href={item.href}
+    download
+    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+  >
+    {item.name}
+  </a>
+) : (
+  <Link
+    href={item.href}
+    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+  >
+    {item.name}
+  </Link>
+)}
                 </li>
               ))}
             </ul>
