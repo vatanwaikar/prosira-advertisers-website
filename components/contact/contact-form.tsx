@@ -51,12 +51,12 @@ export function ContactForm() {
             entry.target.classList.add(
               "animate-in",
               "fade-in",
-              "slide-in-from-bottom-6"
+              "slide-in-from-bottom-6",
             );
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     const elements = formRef.current?.querySelectorAll("[data-animate]");
@@ -130,9 +130,7 @@ export function ContactForm() {
           <div className="mx-auto mb-6 h-20 w-20 rounded-full bg-yellow-400/20 flex items-center justify-center border-4 border-yellow-400/40">
             <CheckCircle className="h-12 w-12 text-yellow-400" />
           </div>
-          <h3 className="text-3xl font-bold mb-4 text-white">
-            Thank You! ✨
-          </h3>
+          <h3 className="text-3xl font-bold mb-4 text-white">Thank You! ✨</h3>
           <p className="text-xl text-zinc-300">
             Your enquiry has been received. Our team will contact you shortly.
           </p>
@@ -155,10 +153,8 @@ export function ContactForm() {
         className="rounded-3xl p-12 bg-gradient-to-b from-zinc-900/95 to-zinc-800/90 backdrop-blur-xl shadow-[0_50px_140px_-60px_rgba(212,175,55,0.45)] border border-zinc-700/50"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
           {/* LEFT */}
           <div className="space-y-6">
-
             <div className="space-y-2">
               <Label className="text-white">Company Name</Label>
               <Input

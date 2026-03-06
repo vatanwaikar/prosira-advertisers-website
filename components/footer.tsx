@@ -142,14 +142,14 @@ export function Footer() {
   <a
     href={item.href}
     download
-    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+    className="text-sm text-muted-foreground hover:text-yellow-500 hover:underline underline-offset-4 transition-all duration-300 cursor-pointer"
   >
     {item.name}
   </a>
 ) : (
   <Link
     href={item.href}
-    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+    className="text-sm text-muted-foreground hover:text-yellow-500 hover:underline underline-offset-4 transition-all duration-300 cursor-pointer"
   >
     {item.name}
   </Link>
@@ -169,7 +169,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-muted-foreground hover:text-yellow-500 hover:underline underline-offset-4 transition-all duration-300 cursor-pointer"
                   >
                     {item.name}
                   </Link>
@@ -189,7 +189,7 @@ export function Footer() {
                 <a
                   href="tel:+919028815714"
                   aria-label="Call Prosira Advertisers"
-                  className="flex gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex gap-3 text-sm text-muted-foreground hover:text-yellow-500 hover:underline underline-offset-4 transition-all duration-300 cursor-pointer"
                 >
                   <Phone className="h-4 w-4 text-primary" />
                   +91 90288 15714
@@ -200,7 +200,7 @@ export function Footer() {
                 <a
                   href="mailto:connect@prosira.in"
                   aria-label="Email Prosira Advertisers"
-                  className="flex gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex gap-3 text-sm text-muted-foreground hover:text-yellow-500 hover:underline underline-offset-4 transition-all duration-300 cursor-pointer"
                 >
                   <Mail className="h-4 w-4 text-primary" />
                   connect@prosira.in
