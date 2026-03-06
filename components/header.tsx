@@ -196,10 +196,12 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
+                scroll={true}
                   prefetch={false}
                 onClick={() => {
                   setClickedPath(item.href);
                   setMobileMenuOpen(false);
+                   window.scrollTo({ top: 0, behavior: "instant" });
                 }}
                 className={cn(
                   "flex items-center justify-between px-6 py-4 text-lg font-medium rounded-xl transition-all duration-500 group",
