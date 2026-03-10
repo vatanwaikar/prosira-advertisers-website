@@ -3,12 +3,25 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, ExternalLink, Calendar, MapPin, Users, Clock, Star, ChevronLeft, ChevronRight, Heart, MessageCircle, Share2 } from "lucide-react";
+import {
+  X,
+  ExternalLink,
+  Calendar,
+  MapPin,
+  Users,
+  Clock,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  Heart,
+  MessageCircle,
+  Share2,
+} from "lucide-react";
 import Link from "next/link";
 
 // Your Real Event Work Data
 const events = [
-{
+  {
     id: 4,
     eventName: "Great Home and Land Expo 2017",
     clientName: "InHouse",
@@ -16,68 +29,85 @@ const events = [
     venue: "Shivgorksh Maidan Katraj Kondhwa Road, Katraj",
     stalls: "30+",
     category: "Property Exhibition",
-    description: "Held during the challenging business climate following demonetization and the implementation of GST reforms, the 2017 Property Exhibition emerged as a resilient platform for the real estate industry. Despite market uncertainty, the event successfully brought together developers, investors, and serious homebuyers, creating opportunities for direct engagement and transparent discussions around evolving regulations and investment strategies.",
+    description:
+      "Held during the challenging business climate following demonetization and the implementation of GST reforms, the 2017 Property Exhibition emerged as a resilient platform for the real estate industry. Despite market uncertainty, the event successfully brought together developers, investors, and serious homebuyers, creating opportunities for direct engagement and transparent discussions around evolving regulations and investment strategies.",
     photos: [
       {
         id: 1,
         url: "/event/gh17/gh171.webp",
         caption: "Opening ceremony with march past",
-        engagement: "560 likes, 89 comments"
+        engagement: "560 likes, 89 comments",
       },
       {
         id: 2,
         url: "/event/gh17/gh172.webp",
         caption: "Cricket finals match",
-        engagement: "890 likes, 167 comments"
+        engagement: "890 likes, 167 comments",
       },
       {
         id: 3,
         url: "/event/gh17/gh173.webp",
         caption: "Award ceremony for winners",
-        engagement: "450 likes, 78 comments"
-      }
+        engagement: "450 likes, 78 comments",
+      },
     ],
     highlights: [
-  "Supported by SKD Group",
-  "Grand Inauguration by Shrenik Karnawat",
-  "Celebrity Presence – Prarthna Behere",
-  "Leading Real Estate Brands"
-],
+      "Supported by SKD Group",
+      "Grand Inauguration by Shrenik Karnawat",
+      "Celebrity Presence – Prarthna Behere",
+      "Leading Real Estate Brands",
+    ],
     results: {
       satisfaction: "100%",
       participants: "6500+",
       media: "35+ Media",
-      social: "1.5M+ Reach"
-    }
+      social: "1.5M+ Reach",
+    },
   },
   {
-  id: 8,
-  eventName: "Blessing Tree",
-  clientName: "InHouse",
-  eventDate: "October 25 to 29, 2017",
-  venue: "Ganesh Kala krida manch Swargate",
-  stalls: "100+",
-  category: "Sprutial Expo",
-description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition that brought together renowned astrologers, numerologists, tarot readers, palm readers, and holistic practitioners under one roof. The event created a vibrant platform for visitors to explore spiritual guidance, positive energy products, and alternative healing practices. The expo featured personalized consultations, spiritual merchandise, and interactive sessions focused on self-discovery, mindfulness, and holistic living, successfully establishing itself as a distinctive gathering for the spiritual and metaphysical community.",
-  photos: [
-    { id: 1, url: "/event/bt/bt.jpeg", caption: "Startup pitch presentation", engagement: "420 likes, 70 comments" },
-    { id: 2, url: "/event/bt/bt2.jpeg", caption: "Investor panel", engagement: "380 likes, 55 comments" },
-    { id: 3, url: "/event/bt/bt3.jpeg", caption: "Winner announcement", engagement: "500 likes, 88 comments" }
-  ],
- highlights: [
-  "Renowned Spiritual Experts",
-  "Personalized Consultations",
-  "Holistic & Wellness Expo",
-  "Interactive Healing Sessions"
-],
-  results: {
-    satisfaction: "200%",
-    leads: "45000+",
-    media: "30+ Media",
-    social: "5M Reach"
-  }
-},
-   {
+    id: 8,
+    eventName: "Blessing Tree",
+    clientName: "InHouse",
+    eventDate: "October 25 to 29, 2017",
+    venue: "Ganesh Kala krida manch Swargate",
+    stalls: "100+",
+    category: "Sprutial Expo",
+    description:
+      "Blessing Tree 2017 was a unique spiritual and wellness exhibition that brought together renowned astrologers, numerologists, tarot readers, palm readers, and holistic practitioners under one roof. The event created a vibrant platform for visitors to explore spiritual guidance, positive energy products, and alternative healing practices. The expo featured personalized consultations, spiritual merchandise, and interactive sessions focused on self-discovery, mindfulness, and holistic living, successfully establishing itself as a distinctive gathering for the spiritual and metaphysical community.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/bt/bt.jpeg",
+        caption: "Startup pitch presentation",
+        engagement: "420 likes, 70 comments",
+      },
+      {
+        id: 2,
+        url: "/event/bt/bt2.jpeg",
+        caption: "Investor panel",
+        engagement: "380 likes, 55 comments",
+      },
+      {
+        id: 3,
+        url: "/event/bt/bt3.jpeg",
+        caption: "Winner announcement",
+        engagement: "500 likes, 88 comments",
+      },
+    ],
+    highlights: [
+      "Renowned Spiritual Experts",
+      "Personalized Consultations",
+      "Holistic & Wellness Expo",
+      "Interactive Healing Sessions",
+    ],
+    results: {
+      satisfaction: "200%",
+      leads: "45000+",
+      media: "30+ Media",
+      social: "5M Reach",
+    },
+  },
+  {
     id: 3,
     eventName: "Great Home and Land Expo 2018",
     clientName: "InHouse",
@@ -85,85 +115,88 @@ description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition 
     venue: "Shivgorksh Maidan Katraj Kondhwa Road, Katraj",
     stalls: "200+",
     category: "Property Exhibition",
-    description:"Following the successful 2017 edition held during a challenging market phase, the 2nd edition of the Property Exhibition was organized in 2018, building on renewed industry confidence and positive buyer sentiment. The event witnessed stronger participation from leading developers, increased footfall, and a wider showcase of residential and commercial projects aligned with the evolving regulatory environment.",
+    description:
+      "Following the successful 2017 edition held during a challenging market phase, the 2nd edition of the Property Exhibition was organized in 2018, building on renewed industry confidence and positive buyer sentiment. The event witnessed stronger participation from leading developers, increased footfall, and a wider showcase of residential and commercial projects aligned with the evolving regulatory environment.",
     photos: [
       {
         id: 1,
         url: "/event/gh18/gh18.webp",
         caption: "Product unveiling ceremony",
-        engagement: "340 likes, 78 comments"
+        engagement: "340 likes, 78 comments",
       },
       {
         id: 2,
         url: "/event/gh18/gh182.webp",
         caption: "Live product demonstration",
-        engagement: "280 likes, 56 comments"
+        engagement: "280 likes, 56 comments",
       },
       {
         id: 3,
         url: "/event/gh18/gh183.webp",
         caption: "Press conference with media",
-        engagement: "190 likes, 34 comments"
-      }
+        engagement: "190 likes, 34 comments",
+      },
     ],
     highlights: [
-  "Sponsored by Ceratec Group",
-  "Inaugurated by Aanand Agarwal",
-  "Celebrity Guest – Prajakta Mali",
-  "Top Real Estate Participation"
-],
+      "Sponsored by Ceratec Group",
+      "Inaugurated by Aanand Agarwal",
+      "Celebrity Guest – Prajakta Mali",
+      "Top Real Estate Participation",
+    ],
     results: {
       satisfaction: "100%",
       orders: "8500+",
       media: "45+ Media",
-      social: "2M+  Reach"
-    }
+      social: "2M+  Reach",
+    },
   },
-  
-   {
+
+  {
     id: 5,
     eventName: "CBRE Propfest 2019",
     clientName: "CBRE",
     eventDate: "OCT 4 to 6, 2019",
-    venue: "East- Hotel Hyatt Regency -Viman Nagar and West- Hotel Taj Vivanta-Hinjewadi",
+    venue:
+      "East- Hotel Hyatt Regency -Viman Nagar and West- Hotel Taj Vivanta-Hinjewadi",
     stalls: "60+",
     category: "Property Exhibition",
-    description: "CBRE Propfest showcased a diverse range of exclusive, affordable, and luxurious homes from leading residential developers across East and West Pune. The event brought together top projects under one platform, offering homebuyers and investors an opportunity to explore premium residences, discover attractive deals, and connect directly with trusted developers across Pune’s rapidly growing residential corridors.",
+    description:
+      "CBRE Propfest showcased a diverse range of exclusive, affordable, and luxurious homes from leading residential developers across East and West Pune. The event brought together top projects under one platform, offering homebuyers and investors an opportunity to explore premium residences, discover attractive deals, and connect directly with trusted developers across Pune’s rapidly growing residential corridors.",
     photos: [
       {
         id: 1,
         url: "/event/cbre/cbre1.webp",
         caption: "CEO's keynote address",
-        engagement: "230 likes, 45 comments"
+        engagement: "230 likes, 45 comments",
       },
       {
         id: 2,
         url: "/event/cbre/cbre2.webp",
         caption: "Team building activities",
-        engagement: "180 likes, 34 comments"
+        engagement: "180 likes, 34 comments",
       },
       {
         id: 3,
         url: "/event/cbre/cbre3.webp",
         caption: "Awards ceremony for top performers",
-        engagement: "290 likes, 56 comments"
-      }
+        engagement: "290 likes, 56 comments",
+      },
     ],
     highlights: [
-  "Leading Pune Developers",
-  "Luxury & Affordable Homes",
-  "Exclusive Property Deals",
-  "East & West Pune Projects"
-],
+      "Leading Pune Developers",
+      "Luxury & Affordable Homes",
+      "Exclusive Property Deals",
+      "East & West Pune Projects",
+    ],
     results: {
       satisfaction: "100%",
       engagement: "1200+",
-       media: "40+",
-      social: "3M+ Reach"
-    }
+      media: "40+",
+      social: "3M+ Reach",
+    },
   },
-  
-   {
+
+  {
     id: 2,
     eventName: "Udyog Dindi By Saturday Club",
     clientName: "Saturday Club Global Trust",
@@ -171,41 +204,42 @@ description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition 
     venue: "JW Marriott Hotel Pune",
     stalls: "45+",
     category: "Business Conclave",
-    description: "UDYOG DINDI – Business Conclave Pune, brought together Maharashtra’s dynamic entrepreneurs, business owners, manufacturers, service providers, and startups on a powerful networking platform. The event featured experiential learning sessions from renowned speakers and self-made industry leaders, offering valuable business insights and growth strategies. With participation from over 800 entrepreneurs and organizations across the state, the conclave enabled meaningful connections, potential collaborations, and opportunities for business tie-ups, mergers, and strategic partnerships, making it a high-impact milestone for the regional business ecosystem.",
+    description:
+      "UDYOG DINDI – Business Conclave Pune, brought together Maharashtra’s dynamic entrepreneurs, business owners, manufacturers, service providers, and startups on a powerful networking platform. The event featured experiential learning sessions from renowned speakers and self-made industry leaders, offering valuable business insights and growth strategies. With participation from over 800 entrepreneurs and organizations across the state, the conclave enabled meaningful connections, potential collaborations, and opportunities for business tie-ups, mergers, and strategic partnerships, making it a high-impact milestone for the regional business ecosystem.",
     photos: [
       {
         id: 1,
         url: "/event/saturday/sat1.webp",
         caption: "Traditional Lavani performance",
-        engagement: "890 likes, 156 comments"
+        engagement: "890 likes, 156 comments",
       },
       {
         id: 2,
         url: "/event/saturday/sat2.webp",
         caption: "Food festival with local delicacies",
-        engagement: "1.2K likes, 234 comments"
+        engagement: "1.2K likes, 234 comments",
       },
       {
         id: 3,
         url: "/event/saturday/sat3.webp",
         caption: "Art exhibition featuring local artists",
-        engagement: "670 likes, 98 comments"
-      }
+        engagement: "670 likes, 98 comments",
+      },
     ],
-   highlights: [
-  "800+ Participants",
-  "Entrepreneurs & Startups",
-  "Business Owners Network",
-  "Across Maharashtra"
-],
+    highlights: [
+      "800+ Participants",
+      "Entrepreneurs & Startups",
+      "Business Owners Network",
+      "Across Maharashtra",
+    ],
     results: {
       satisfaction: "100%",
       visitors: "2500+ Total Visitors",
       media: "NA",
-      social: "NA"
-    }
+      social: "NA",
+    },
   },
- 
+
   {
     id: 1,
     eventName: "Sanam Concert",
@@ -214,207 +248,311 @@ description: "Blessing Tree 2017 was a unique spiritual and wellness exhibition 
     venue: "Sunny's World Pune",
     stalls: "NA",
     category: "Music Concert",
-    description: "FUEL–SANAM Fundraising Musical Concert 2020 is a special fundraising event hosted by FUEL (Friends Union for Energising Lives), where India’s leading band SANAM performed to support the education of girl children of Army Jawans while celebrating the success of FUEL Aptitude Champions.",    photos: [
+    description:
+      "FUEL–SANAM Fundraising Musical Concert 2020 is a special fundraising event hosted by FUEL (Friends Union for Energising Lives), where India’s leading band SANAM performed to support the education of girl children of Army Jawans while celebrating the success of FUEL Aptitude Champions.",
+    photos: [
       {
         id: 1,
         url: "/event/sanam/1.webp",
         caption: "Main stage with keynote speaker",
-        engagement: "450 likes, 89 comments"
+        engagement: "450 likes, 89 comments",
       },
       {
         id: 2,
         url: "/event/sanam/2.webp",
         caption: "Networking session during break",
-        engagement: "320 likes, 67 comments"
+        engagement: "320 likes, 67 comments",
       },
       {
         id: 3,
         url: "/event/sanam/3.webp",
         caption: "Workshop on AI and Machine Learning",
-        engagement: "280 likes, 45 comments"
-      }
+        engagement: "280 likes, 45 comments",
+      },
     ],
     highlights: [
-  "Live by Band SANAM",
-  "Education for Army Jawans’ Daughters",
-  "FUEL Fundraising Event",
-  "Celebrating Aptitude Champions"
-],
+      "Live by Band SANAM",
+      "Education for Army Jawans’ Daughters",
+      "FUEL Fundraising Event",
+      "Celebrating Aptitude Champions",
+    ],
     results: {
       satisfaction: "100%",
       leads: "3000+ visitors ",
       media: "10+ Media Mentions",
-      social: "1M Reach"
-    }
+      social: "1M Reach",
+    },
   },
- {
-  id: 12,
-  eventName: "Success Party",
-  clientName: "Varad Property Solutions Pvt Ltd",
-  eventDate: "7th April 2022",
-  venue: "JW Marriott Hotel Pune",
-  stalls: "NA",
-  category: "Channel Partner Meet",
-  description: "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
-  photos: [
-    { id: 1, url: "/event/cp/cp1.webp", caption: "Live cooking demo", engagement: "950 likes, 160 comments" },
-    { id: 2, url: "/event/cp/cp2.webp", caption: "Crowd enjoying food", engagement: "1.3K likes, 240 comments" },
-    { id: 3, url: "/event/cp/cp3.webp", caption: "Music performance", engagement: "870 likes, 140 comments" }
-  ],
-highlights: [
-  "Top Booking Achievers Awarded",
-  "1st Edition Recognition",
-  "Outstanding Sales Performance",
-  "Builders & Channel Partners Honored"
-],  results: {
-    satisfaction: "100%",
-    visitors: "2000+ Visitors",
-    media: "NA",
-    social: "NA"
-  }
-},
-{
-  id: 11,
-  eventName: "Channel Partner Summit",
-  clientName: "Varad Property Solutions Pvt Ltd",
-  eventDate: "7th April 2023",
-  venue: "JW Marriott Hotel Pune",
-  stalls: "NA",
-  category: "Channel Partner Meet",
-  description: "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
-  photos: [
-    { id: 1, url: "/event/cp/cp1.webp", caption: "Live cooking demo", engagement: "950 likes, 160 comments" },
-    { id: 2, url: "/event/cp/cp2.webp", caption: "Crowd enjoying food", engagement: "1.3K likes, 240 comments" },
-    { id: 3, url: "/event/cp/cp3.webp", caption: "Music performance", engagement: "870 likes, 140 comments" }
-  ],
-highlights: [
-  "Top Booking Achievers Awarded",
-  "1st Edition Recognition",
-  "Outstanding Sales Performance",
-  "Builders & Channel Partners Honored"
-],  results: {
-    satisfaction: "100%",
-    visitors: "2000+ Visitors",
-    media: "NA",
-    social: "NA"
-  }
-},
-{
-  id: 7,
-  eventName: "Chandramukhi",
-  clientName: "Varad Property Solutions Pvt Ltd",
-  eventDate: "29th April 2022",
-  venue: "Kothrud City Pride",
-  stalls: "NA",
-  category: "Movie Premier",
-  description: "Premium real estate summit with top developers and investors.",
-  photos: [
-    { id: 1, url: "/event/chandra/chnd.webp", caption: "Panel discussion", engagement: "310 likes, 54 comments" },
-    { id: 2, url: "/event/chandra/chnad2.webp", caption: "Networking session", engagement: "280 likes, 40 comments" },
-    { id: 3, url: "/event/chandra/chnad3.webp", caption: "Project unveiling", engagement: "350 likes, 60 comments" }
-  ],
-  highlights: [
-  "Star-Studded Movie Premiere",
-  "Presence of Amruta Khanvilkar",
-  "Celebrity Guest – Aditya Kothare",
-  "Grand Media & Glamour Evening"
-],
-  results: {
-    satisfaction: "100%",
-    leads: "500+ Visitors",
-    media: "NA",
-    social: "NA"
-  }
-},
-
- 
   {
-  id: 6,
-  eventName: "Varad Property Festival 2022",
-  clientName: "Varad Property Solutions Pvt Ltd",
-  eventDate: " March 11 to 12 2022",
-  venue: "Shubharambh Lawns, Pune",
-  stalls: "50+",
-  category: "Property Exhibition",
-  description:"At the Varad Property Festival, we introduced a first-of-its-kind revenue model to the market. Instead of traditional exhibition fees, builders were invited to showcase their projects at our property expo and pay a brokerage only after successful sales bookings — up to 5% per transaction. This performance-driven approach created strong builder participation and buyer engagement. With the dedicated on-ground team of our client, Varad Property Solutions Pvt. Ltd., the festival successfully achieved 100+ confirmed property bookings, establishing the event as a results-focused real estate sales platform.",
-  photos: [
-    { id: 1, url: "/event/varad/varad1.webp", caption: "Luxury car showcase", engagement: "780 likes, 120 comments" },
-    { id: 2, url: "/event/varad/varad2.webp", caption: "EV launch ceremony", engagement: "640 likes, 98 comments" },
-    { id: 3, url: "/event/varad/varad3.webp", caption: "Test drive zone", engagement: "520 likes, 76 comments" }
-  ],
- highlights: [
-  "Leading Real Estate Brands",
-  "Celebrity Guest – Sai Tamhankar",
-  "Dignitaries Murlidhar Mohol & Medha Kulkarni",
-  "Varad Properties Director Presence"
-],
-  results: {
-    satisfaction: "200%",
-    visitors: "6500+ Visitors",
-    media: "60+ Media Coverages",
-    social: "2M+ Reach"
-  }
-},
+    id: 12,
+    eventName: "Success Party",
+    clientName: "Varad Property Solutions Pvt Ltd",
+    eventDate: "7th April 2022",
+    venue: "JW Marriott Hotel Pune",
+    stalls: "NA",
+    category: "Channel Partner Meet",
+    description:
+      "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/sucess/s1.webp",
+        caption: "Live cooking demo",
+        engagement: "950 likes, 160 comments",
+      },
+      {
+        id: 2,
+        url: "/event/sucess/s2.webp",
+        caption: "Crowd enjoying food",
+        engagement: "1.3K likes, 240 comments",
+      },
+      {
+        id: 3,
+        url: "/event/sucess/s3.webp",
+        caption: "Music performance",
+        engagement: "870 likes, 140 comments",
+      },
+    ],
+    highlights: [
+      "Top Booking Achievers Awarded",
+      "1st Edition Recognition",
+      "Outstanding Sales Performance",
+      "Builders & Channel Partners Honored",
+    ],
+    results: {
+      satisfaction: "100%",
+      visitors: "2000+ Visitors",
+      media: "NA",
+      social: "NA",
+    },
+  },
+  {
+    id: 11,
+    eventName: "Channel Partner Summit",
+    clientName: "Varad Property Solutions Pvt Ltd",
+    eventDate: "7th April 2023",
+    venue: "JW Marriott Hotel Pune",
+    stalls: "NA",
+    category: "Channel Partner Meet",
+    description:
+      "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/cp/cp1.webp",
+        caption: "Live cooking demo",
+        engagement: "950 likes, 160 comments",
+      },
+      {
+        id: 2,
+        url: "/event/cp/cp2.webp",
+        caption: "Crowd enjoying food",
+        engagement: "1.3K likes, 240 comments",
+      },
+      {
+        id: 3,
+        url: "/event/cp/cp3.webp",
+        caption: "Music performance",
+        engagement: "870 likes, 140 comments",
+      },
+    ],
+    highlights: [
+      "Top Booking Achievers Awarded",
+      "1st Edition Recognition",
+      "Outstanding Sales Performance",
+      "Builders & Channel Partners Honored",
+    ],
+    results: {
+      satisfaction: "100%",
+      visitors: "2000+ Visitors",
+      media: "NA",
+      social: "NA",
+    },
+  },
+  {
+    id: 7,
+    eventName: "Chandramukhi",
+    clientName: "Varad Property Solutions Pvt Ltd",
+    eventDate: "29th April 2022",
+    venue: "Kothrud City Pride",
+    stalls: "NA",
+    category: "Movie Premier",
+    description:
+      "Premium real estate summit with top developers and investors.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/chandra/chnd.webp",
+        caption: "Panel discussion",
+        engagement: "310 likes, 54 comments",
+      },
+      {
+        id: 2,
+        url: "/event/chandra/chnad2.webp",
+        caption: "Networking session",
+        engagement: "280 likes, 40 comments",
+      },
+      {
+        id: 3,
+        url: "/event/chandra/chnad3.webp",
+        caption: "Project unveiling",
+        engagement: "350 likes, 60 comments",
+      },
+    ],
+    highlights: [
+      "Star-Studded Movie Premiere",
+      "Presence of Amruta Khanvilkar",
+      "Celebrity Guest – Aditya Kothare",
+      "Grand Media & Glamour Evening",
+    ],
+    results: {
+      satisfaction: "100%",
+      leads: "500+ Visitors",
+      media: "NA",
+      social: "NA",
+    },
+  },
 
-{
-  id: 9,
-  eventName: "Varad Property Festival 2022",
-  clientName: "Varad Property Solutions Pvt Ltd",
-  eventDate: "15th & 16th Oct 2022",
-  venue: "Pandit Farm Pune",
-  stalls: "60+",
-  category: "Property Exhibition",
-  description: "Following the successful execution of the first edition of the Varad Property Festival, we strategically launched the second edition to build on the strong market response and proven performance-based model. The continued collaboration with builders and the growing trust of homebuyers enabled us to scale participation, enhance buyer engagement, and further position the festival as a high-conversion real estate exhibition platform driven by measurable sales outcomes.",
-  photos: [
-    { id: 1, url: "/event/varad/varad4.webp", caption: "Ramp walk highlight", engagement: "1K likes, 210 comments" },
-    { id: 2, url: "/event/varad/varad5.webp", caption: "Designer showcase", engagement: "890 likes, 180 comments" },
-    { id: 3, url: "/event/varad/varad6.webp", caption: "Closing ceremony", engagement: "760 likes, 150 comments" }
-  ],
-highlights: [
-  "2nd Successful Edition",
-  "Reputed Real Estate Brands",
-  "High Buyer Footfall",
-  "Strong Booking Momentum"
-],  results: {
-    satisfaction: "100%",
-    visitors: "4500+ Visitors",
-    media: "60+ Media Coverages",
-    social: "2M+ Reach"
-  }
-},
-{
-  id: 10,
-  eventName: "Varad Property Festival 2023",
-  clientName: "Varad Property Solutions Pvt Ltd",
-  eventDate: "15th & 16th April 2023",
-  venue: "Center Pune- Pandit Farm & West Pune - The Orchid Hotel",
-  stalls: "85+",
-  category: "Property Exhibition",
-  description: "Building on the success of the third Grand Property Expo across Central Pune and West Pune, we introduced a new addition — the Real Estate Conclave — designed as a thought-leadership platform to discuss Pune’s urban growth, infrastructure development, investment potential, and future real estate trends. The conclave brought together developers, industry experts, and key stakeholders, creating a knowledge-driven environment that complemented the exhibition while strengthening credibility, networking opportunities, and market insights for all participants.",
-  photos: [
-    { id: 1, url: "/event/varad/varad7.webp", caption: "University stalls", engagement: "500 likes, 90 comments" },
-    { id: 2, url: "/event/varad/varad8.webp", caption: "Career counseling session", engagement: "450 likes, 75 comments" },
-    { id: 3, url: "/event/varad/varad9.webp", caption: "Student registration desk", engagement: "380 likes, 60 comments" }
-  ],
-highlights: [
-  "Key Policymakers & Industry Leaders",
-  "Shri Chandrakantdada Patil Presence",
-  "MLAs & Civic Dignitaries Attended",
-  "Infrastructure & Real Estate Dialogue"
-],  results: {
-    satisfaction: "100%",
-    visitors: "8500+ Visitors",
-    media: "60+ Media Mentions",
-    social: "3M+ Social Reach"
-  }
-},
+  {
+    id: 6,
+    eventName: "Varad Property Festival 2022",
+    clientName: "Varad Property Solutions Pvt Ltd",
+    eventDate: " March 11 to 12 2022",
+    venue: "Shubharambh Lawns, Pune",
+    stalls: "50+",
+    category: "Property Exhibition",
+    description:
+      "At the Varad Property Festival, we introduced a first-of-its-kind revenue model to the market. Instead of traditional exhibition fees, builders were invited to showcase their projects at our property expo and pay a brokerage only after successful sales bookings — up to 5% per transaction. This performance-driven approach created strong builder participation and buyer engagement. With the dedicated on-ground team of our client, Varad Property Solutions Pvt. Ltd., the festival successfully achieved 100+ confirmed property bookings, establishing the event as a results-focused real estate sales platform.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/varad/varad1.webp",
+        caption: "Luxury car showcase",
+        engagement: "780 likes, 120 comments",
+      },
+      {
+        id: 2,
+        url: "/event/varad/varad2.webp",
+        caption: "EV launch ceremony",
+        engagement: "640 likes, 98 comments",
+      },
+      {
+        id: 3,
+        url: "/event/varad/varad3.webp",
+        caption: "Test drive zone",
+        engagement: "520 likes, 76 comments",
+      },
+    ],
+    highlights: [
+      "Leading Real Estate Brands",
+      "Celebrity Guest – Sai Tamhankar",
+      "Dignitaries Murlidhar Mohol & Medha Kulkarni",
+      "Varad Properties Director Presence",
+    ],
+    results: {
+      satisfaction: "200%",
+      visitors: "6500+ Visitors",
+      media: "60+ Media Coverages",
+      social: "2M+ Reach",
+    },
+  },
 
-
-  
+  {
+    id: 9,
+    eventName: "Varad Property Festival 2022",
+    clientName: "Varad Property Solutions Pvt Ltd",
+    eventDate: "15th & 16th Oct 2022",
+    venue: "Pandit Farm Pune",
+    stalls: "60+",
+    category: "Property Exhibition",
+    description:
+      "Following the successful execution of the first edition of the Varad Property Festival, we strategically launched the second edition to build on the strong market response and proven performance-based model. The continued collaboration with builders and the growing trust of homebuyers enabled us to scale participation, enhance buyer engagement, and further position the festival as a high-conversion real estate exhibition platform driven by measurable sales outcomes.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/varad/varad4.webp",
+        caption: "Ramp walk highlight",
+        engagement: "1K likes, 210 comments",
+      },
+      {
+        id: 2,
+        url: "/event/varad/varad5.webp",
+        caption: "Designer showcase",
+        engagement: "890 likes, 180 comments",
+      },
+      {
+        id: 3,
+        url: "/event/varad/varad6.webp",
+        caption: "Closing ceremony",
+        engagement: "760 likes, 150 comments",
+      },
+    ],
+    highlights: [
+      "2nd Successful Edition",
+      "Reputed Real Estate Brands",
+      "High Buyer Footfall",
+      "Strong Booking Momentum",
+    ],
+    results: {
+      satisfaction: "100%",
+      visitors: "4500+ Visitors",
+      media: "60+ Media Coverages",
+      social: "2M+ Reach",
+    },
+  },
+  {
+    id: 10,
+    eventName: "Varad Property Festival 2023",
+    clientName: "Varad Property Solutions Pvt Ltd",
+    eventDate: "15th & 16th April 2023",
+    venue: "Center Pune- Pandit Farm & West Pune - The Orchid Hotel",
+    stalls: "85+",
+    category: "Property Exhibition",
+    description:
+      "Building on the success of the third Grand Property Expo across Central Pune and West Pune, we introduced a new addition — the Real Estate Conclave — designed as a thought-leadership platform to discuss Pune’s urban growth, infrastructure development, investment potential, and future real estate trends. The conclave brought together developers, industry experts, and key stakeholders, creating a knowledge-driven environment that complemented the exhibition while strengthening credibility, networking opportunities, and market insights for all participants.",
+    photos: [
+      {
+        id: 1,
+        url: "/event/varad/varad7.webp",
+        caption: "University stalls",
+        engagement: "500 likes, 90 comments",
+      },
+      {
+        id: 2,
+        url: "/event/varad/varad8.webp",
+        caption: "Career counseling session",
+        engagement: "450 likes, 75 comments",
+      },
+      {
+        id: 3,
+        url: "/event/varad/varad9.webp",
+        caption: "Student registration desk",
+        engagement: "380 likes, 60 comments",
+      },
+    ],
+    highlights: [
+      "Key Policymakers & Industry Leaders",
+      "Shri Chandrakantdada Patil Presence",
+      "MLAs & Civic Dignitaries Attended",
+      "Infrastructure & Real Estate Dialogue",
+    ],
+    results: {
+      satisfaction: "100%",
+      visitors: "8500+ Visitors",
+      media: "60+ Media Mentions",
+      social: "3M+ Social Reach",
+    },
+  },
 ];
 
 // Event Card Component
-const EventCard = ({ event, index }: { event: typeof events[0], index: number }) => {
+const EventCard = ({
+  event,
+  index,
+}: {
+  event: (typeof events)[0];
+  index: number;
+}) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -423,7 +561,9 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
   };
 
   const prevPhoto = () => {
-    setCurrentPhotoIndex((prev) => (prev - 1 + event.photos.length) % event.photos.length);
+    setCurrentPhotoIndex(
+      (prev) => (prev - 1 + event.photos.length) % event.photos.length,
+    );
   };
 
   useEffect(() => {
@@ -443,7 +583,6 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-yellow-600/10 to-yellow-600/10 border border-yellow-500/20 hover:border-yellow-400/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-yellow-500/20">
-        
         {/* Photo Carousel */}
         <div className="relative h-64 md:h-80">
           <AnimatePresence mode="wait">
@@ -464,31 +603,39 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
                   e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.eventName)}&background=0d1117&color=ffffff&size=400`;
                 }}
               />
-              
+
               {/* Photo Navigation */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              
+
               {/* Navigation Buttons */}
               <button
-                onClick={(e) => { e.stopPropagation(); prevPhoto(); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevPhoto();
+                }}
                 className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
-                onClick={(e) => { e.stopPropagation(); nextPhoto(); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextPhoto();
+                }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
               >
                 <ChevronRight size={20} />
               </button>
-              
+
               {/* Photo Indicators */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                 {event.photos.map((_, index) => (
                   <div
                     key={index}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentPhotoIndex ? 'bg-white w-6' : 'bg-white/50'
+                      index === currentPhotoIndex
+                        ? "bg-white w-6"
+                        : "bg-white/50"
                     }`}
                   />
                 ))}
@@ -501,50 +648,63 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
         <div className="p-6">
           <div className="flex items-start justify-between mb-4">
             <div>
-              <h3 className="text-xl font-bold text-white mb-1">{event.eventName}</h3>
+              <h3 className="text-xl font-bold text-white mb-1">
+                {event.eventName}
+              </h3>
               <p className="text-sm text-gray-400">{event.clientName}</p>
             </div>
-            <div className="px-3 py-1 rounded-full 
+            <div
+              className="px-3 py-1 rounded-full 
                 bg-yellow-500/20 
                 border border-yellow-500/30 
                 whitespace-nowrap 
                 max-w-[140px] 
-                text-center">
-  <span className="text-[11px] md:text-xs 
+                text-center"
+            >
+              <span
+                className="text-[11px] md:text-xs 
                    text-yellow-400 
                    font-medium 
-                   truncate block">
-    {event.category}
-  </span>
-</div>
+                   truncate block"
+              >
+                {event.category}
+              </span>
+            </div>
           </div>
 
           <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
             <div className="flex items-center gap-1">
               <Calendar size={14} />
-              <span>{event.eventDate.split(',')[0]}</span>
+              <span>{event.eventDate.split(",")[0]}</span>
             </div>
             <div className="flex items-center gap-1">
               <MapPin size={14} />
-              <span>{event.venue.split(',')[0]}</span>
+              <span>{event.venue.split(",")[0]}</span>
             </div>
             <div className="flex items-center gap-1">
               <Users size={14} />
-<span>{event.stalls}</span>            </div>
+              <span>{event.stalls}</span>{" "}
+            </div>
           </div>
 
-          <p className="text-gray-300 text-sm mb-4 line-clamp-2">{event.description}</p>
+          <p className="text-gray-300 text-sm mb-4 line-clamp-2">
+            {event.description}
+          </p>
 
           {/* Engagement Stats */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 text-gray-400 text-xs">
               <div className="flex items-center gap-1">
                 <Heart size={12} />
-                <span>{event.photos[currentPhotoIndex].engagement.split(' ')[0]}</span>
+                <span>
+                  {event.photos[currentPhotoIndex].engagement.split(" ")[0]}
+                </span>
               </div>
               <div className="flex items-center gap-1">
                 <MessageCircle size={12} />
-                <span>{event.photos[currentPhotoIndex].engagement.split(', ')[1]}</span>
+                <span>
+                  {event.photos[currentPhotoIndex].engagement.split(", ")[1]}
+                </span>
               </div>
             </div>
             <div className="flex items-center gap-1 text-yellow-400 group-hover:text-yellow-300 transition-colors">
@@ -559,7 +719,13 @@ const EventCard = ({ event, index }: { event: typeof events[0], index: number })
 };
 
 // Event Detail Modal Component
-const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose: () => void }) => {
+const EventDetailModal = ({
+  event,
+  onClose,
+}: {
+  event: (typeof events)[0];
+  onClose: () => void;
+}) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   const nextPhoto = () => {
@@ -567,7 +733,9 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
   };
 
   const prevPhoto = () => {
-    setCurrentPhotoIndex((prev) => (prev - 1 + event.photos.length) % event.photos.length);
+    setCurrentPhotoIndex(
+      (prev) => (prev - 1 + event.photos.length) % event.photos.length,
+    );
   };
 
   return (
@@ -596,7 +764,9 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
         <div className="p-6 lg:p-8">
           {/* Event Header */}
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-white mb-2">{event.eventName}</h2>
+            <h2 className="text-3xl font-bold text-white mb-2">
+              {event.eventName}
+            </h2>
             <div className="flex items-center gap-6 text-gray-400">
               <span>{event.clientName}</span>
               <span>•</span>
@@ -627,13 +797,17 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
                       e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.photos[currentPhotoIndex].caption)}&background=0d1117&color=ffffff&size=800`;
                     }}
                   />
-                  
+
                   <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                    <p className="text-white text-lg mb-2">{event.photos[currentPhotoIndex].caption}</p>
+                    <p className="text-white text-lg mb-2">
+                      {event.photos[currentPhotoIndex].caption}
+                    </p>
                     <div className="flex items-center gap-4 text-white/80">
                       <div className="flex items-center gap-1">
                         <Heart size={16} />
-                        <span>{event.photos[currentPhotoIndex].engagement}</span>
+                        <span>
+                          {event.photos[currentPhotoIndex].engagement}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -662,7 +836,9 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
                   key={photo.id}
                   onClick={() => setCurrentPhotoIndex(index)}
                   className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    index === currentPhotoIndex ? 'border-yellow-400' : 'border-transparent'
+                    index === currentPhotoIndex
+                      ? "border-yellow-400"
+                      : "border-transparent"
                   }`}
                 >
                   <Image
@@ -682,9 +858,11 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
           {/* Event Details Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-bold text-white mb-4">Event Details</h3>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Event Details
+              </h3>
               <p className="text-gray-300 mb-6">{event.description}</p>
-              
+
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <Calendar className="h-5 w-5 text-yellow-400" />
@@ -695,13 +873,18 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
                   <span className="text-gray-300">{event.venue}</span>
                 </div>
                 <div className="flex items-center gap-3">
-<MapPin className="h-5 w-5 text-yellow-400" />
-<span className="text-gray-300">{event.stalls} Stalls</span>                </div>
+                  <MapPin className="h-5 w-5 text-yellow-400" />
+                  <span className="text-gray-300">
+                    {event.stalls} Stalls
+                  </span>{" "}
+                </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-white mb-4">Event Highlights</h3>
+              <h3 className="text-xl font-bold text-white mb-4">
+                Event Highlights
+              </h3>
               <ul className="space-y-2">
                 {event.highlights.map((highlight, index) => (
                   <li key={index} className="flex items-start gap-2">
@@ -719,26 +902,34 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
             <div className="grid md:grid-cols-4 gap-4">
               <div className="p-4 rounded-2xl bg-gradient-to-br from-yellow-600/20 to-yellow-600/10 border border-yellow-500/30">
                 <Star className="h-6 w-6 text-yellow-400 mb-2" />
-                <p className="text-2xl font-bold text-white">{event.results.satisfaction}</p>
+                <p className="text-2xl font-bold text-white">
+                  {event.results.satisfaction}
+                </p>
                 <p className="text-sm text-gray-400">Satisfaction</p>
               </div>
               <div className="p-4 rounded-2xl bg-gradient-to-br from-yellow-600/20 to-yellow-600/10 border border-yellow-500/30">
                 <Users className="h-6 w-6 text-yellow-400 mb-2" />
-                <p className="text-2xl font-bold text-white">{event.results.leads || 
- event.results.visitors || 
- event.results.participants || 
- event.results.engagement || 
- event.results.orders}</p>
+                <p className="text-2xl font-bold text-white">
+                  {event.results.leads ||
+                    event.results.visitors ||
+                    event.results.participants ||
+                    event.results.engagement ||
+                    event.results.orders}
+                </p>
                 <p className="text-sm text-gray-400">Impact</p>
               </div>
               <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-600/20 to-orange-600/10 border border-orange-500/30">
                 <Share2 className="h-6 w-6 text-orange-400 mb-2" />
-                <p className="text-2xl font-bold text-white">{event.results.media}</p>
+                <p className="text-2xl font-bold text-white">
+                  {event.results.media}
+                </p>
                 <p className="text-sm text-gray-400">Media Coverage</p>
               </div>
               <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-600/20 to-orange-600/10 border border-orange-500/30">
                 <Heart className="h-6 w-6 text-orange-400 mb-2" />
-                <p className="text-2xl font-bold text-white">{event.results.social}</p>
+                <p className="text-2xl font-bold text-white">
+                  {event.results.social}
+                </p>
                 <p className="text-sm text-gray-400">Reach</p>
               </div>
             </div>
@@ -750,12 +941,16 @@ const EventDetailModal = ({ event, onClose }: { event: typeof events[0], onClose
 };
 
 export default function EventExpoPortfolio() {
-  const [selectedEvent, setSelectedEvent] = useState<typeof events[0] | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<(typeof events)[0] | null>(
+    null,
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Animated Background */}
-<div className="fixed inset-0 opacity-20 pointer-events-none">        <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/30 via-yellow-600/20 to-yellow-400/30 animate-pulse" />
+      <div className="fixed inset-0 opacity-20 pointer-events-none">
+        {" "}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/30 via-yellow-600/20 to-yellow-400/30 animate-pulse" />
         <div className="absolute inset-0">
           {[...Array(15)].map((_, i) => (
             <div
@@ -765,7 +960,7 @@ export default function EventExpoPortfolio() {
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`
+                animationDuration: `${3 + Math.random() * 4}s`,
               }}
             />
           ))}
@@ -775,13 +970,13 @@ export default function EventExpoPortfolio() {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-24">
         <div className="site-container">
-          <Link 
+          <Link
             href="/work"
             className="inline-flex items-center gap-2 text-gray-400 hover:text-yellow-400 transition-colors mb-8"
           >
             ← Back to Our Work
           </Link>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -792,7 +987,9 @@ export default function EventExpoPortfolio() {
               <span className="text-primary font-serif">Portfolio</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl">
-              Spectacular events and memorable experiences. From tech conferences to cultural festivals, we create unforgettable moments that leave lasting impressions.
+              Spectacular events and memorable experiences. From tech
+              conferences to cultural festivals, we create unforgettable moments
+              that leave lasting impressions.
             </p>
           </motion.div>
         </div>
@@ -814,9 +1011,9 @@ export default function EventExpoPortfolio() {
       {/* Event Detail Modal */}
       <AnimatePresence>
         {selectedEvent && (
-          <EventDetailModal 
-            event={selectedEvent} 
-            onClose={() => setSelectedEvent(null)} 
+          <EventDetailModal
+            event={selectedEvent}
+            onClose={() => setSelectedEvent(null)}
           />
         )}
       </AnimatePresence>
@@ -835,12 +1032,13 @@ export default function EventExpoPortfolio() {
               Ready to Create Your Next Event?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Let us design and execute exceptional events that bring your vision to life and create unforgettable experiences.
+              Let us design and execute exceptional events that bring your
+              vision to life and create unforgettable experiences.
             </p>
-            
+
             <Link
-  href="/contact"
-  className="inline-flex items-center gap-3 
+              href="/contact"
+              className="inline-flex items-center gap-3 
   bg-primary 
   text-primary-foreground 
   px-8 py-4 rounded-lg font-semibold 
@@ -848,10 +1046,10 @@ export default function EventExpoPortfolio() {
   hover:scale-105 
   transition-all duration-300 
   shadow-lg shadow-primary/30"
->
-  Plan Your Event
-  <Calendar size={20} />
-</Link>
+            >
+              Plan Your Event
+              <Calendar size={20} />
+            </Link>
           </motion.div>
         </div>
       </section>
