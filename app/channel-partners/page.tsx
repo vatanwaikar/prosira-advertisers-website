@@ -5,7 +5,7 @@ export const metadata = {
   description:
     "Explore our trusted television, newspaper, cinema and radio advertising channel partners across India.",
 };
-
+ 
 export default function Page() {
   return <ChannelPartnersClient />;
 }

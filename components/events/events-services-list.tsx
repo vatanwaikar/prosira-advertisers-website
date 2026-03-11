@@ -25,7 +25,7 @@ const services = [
     title: "Trade Show & B2B Expo Management",
     description:
       "End-to-end trade show management solutions covering exhibitor onboarding, branding, logistics, sponsorship integration, and marketing support. Our structured approach ensures successful participation and strong networking opportunities for businesses.",
-    image: "/images/events/exhibition.jpg",
+    image: "/images/events/tradeshow.webp",
     features: [
       "Exhibitor onboarding",
       "Logistics & branding setup",
@@ -39,7 +39,7 @@ const services = [
     title: "Event Concept & Creative Design",
     description:
       "Strategic event concept development with innovative themes, stage design, branding elements, and audience engagement ideas. We focus on creating memorable brand experiences that align with marketing goals.",
-    image: "/images/events/product-launch.jpg",
+    image: "/images/events/eventdesign.webp",
     features: [
       "Theme development",
       "Stage & set design",
@@ -53,7 +53,7 @@ const services = [
     title: "Stall Design & Fabrication",
     description:
       "Custom exhibition stall design and fabrication that enhances brand presence and attracts footfall. Our designs combine creative aesthetics with functional layouts to deliver high-impact visual branding.",
-    image: "/images/events/exhibition.jpg",
+    image: "/images/events/stalldesign.webp",
     features: [
       "Custom stall design",
       "3D visualization",

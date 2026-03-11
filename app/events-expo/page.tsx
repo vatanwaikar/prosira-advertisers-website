@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { EventsHero } from "@/components/events/events-hero";
 import { EventsServicesList } from "@/components/events/events-services-list";
-import { EventsGallery } from "@/components/events/events-gallery";
 import { EventsCTA } from "@/components/events/events-cta";
 
 export const metadata: Metadata = {
@@ -29,7 +28,7 @@ export default function EventsExpoPage() {
     <>
       <EventsHero />
       <EventsServicesList />
-      <EventsGallery />
+     
       <EventsCTA />
     </>
   );
