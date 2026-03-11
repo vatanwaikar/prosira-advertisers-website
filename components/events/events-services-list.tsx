@@ -95,7 +95,7 @@ const services = [
     title: "Sponsorship & Media Integration",
     description:
       "Integrated event marketing strategies including media partnerships, sponsorship planning, promotional campaigns, and digital amplification to maximize event reach and visibility.",
-    image: "/images/events/product-launch.jpg",
+    image: "/images/events/sponser.webp",
     features: [
       "Media partnerships",
       "Sponsorship strategy",
@@ -109,7 +109,7 @@ const services = [
     title: "Exhibition Marketing & Lead Generation",
     description:
       "Targeted event promotion and lead generation strategies using digital marketing, social media campaigns, and database outreach to attract the right audience before, during, and after the event.",
-    image: "/images/events/brand-activation.jpg",
+    image: "/images/events/pop.webp",
     features: [
       "Pre-event promotion",
       "Social media campaigns",
