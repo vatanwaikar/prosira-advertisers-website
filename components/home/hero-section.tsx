@@ -35,7 +35,7 @@ export function HeroSection() {
           AGENCY
         </div>
       ),
-      image: "/images/ceo.webp",
+      image: "/images/founder.webp",
     },
     {
       id: 2,
@@ -104,17 +104,16 @@ export function HeroSection() {
       <div className="absolute inset-0 -z-10 bg-black md:hidden" />
       <div className="absolute inset-0 -z-10 hidden md:block">
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/heroi.webp"
           alt="Prosira background"
           fill
           priority
           sizes="100vw"
-          quality={75}
-          className="object-cover opacity-50"
+          quality={90}
+          className="object-cover"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-black/70" />
-      </div>
+<div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent" />    </div>
       {/* Main Content */}
       <div className="site-container pt-14 pb-0 grid lg:grid-cols-2 gap-12 items-end">
         {" "}
