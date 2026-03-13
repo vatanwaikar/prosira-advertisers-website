@@ -35,7 +35,7 @@ export function HeroSection() {
           AGENCY
         </div>
       ),
-      image: "/images/shashikantsirr.webp",
+      image: "/images/ceo.webp",
     },
     {
       id: 2,
@@ -97,7 +97,7 @@ export function HeroSection() {
 
   const activeSlide = slides.find((s) => s.id === currentHeading);
 
-  return (
+  return ( 
     <section className="relative bg-black text-white overflow-hidden min-h-[75vh] md:min-h-screen">
       {" "}
       {/* Background */}
