@@ -110,10 +110,10 @@ export function HeroSection() {
           priority
           sizes="100vw"
           quality={90}
-          className="object-cover"
+          className="object-cover brightness-125 contrast-110"
           fetchPriority="high"
         />
-<div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent" />    </div>
+<div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent" />   </div>
       {/* Main Content */}
       <div className="site-container pt-14 pb-0 grid lg:grid-cols-2 gap-12 items-end">
         {" "}
@@ -171,8 +171,8 @@ export function HeroSection() {
                 width={420}
                 height={560}
                 className={`object-contain w-full h-auto transition-all duration-700 ${
-                  isAnimating ? "opacity-0 scale-105" : "opacity-100 scale-100"
-                }`}
+    isAnimating ? "opacity-0 scale-105" : "opacity-100"
+  } ${activeSlide.id === 1 ? "scale-90" : "scale-100"}`}
               />
             )}
 
