@@ -35,7 +35,7 @@ export function HeroSection() {
           AGENCY
         </div>
       ),
-      image: "/images/founder.webp",
+      image: "/images/spc.webp",
     },
     {
       id: 2,
@@ -172,7 +172,7 @@ export function HeroSection() {
                 height={560}
                 className={`object-contain w-full h-auto transition-all duration-700 ${
     isAnimating ? "opacity-0 scale-105" : "opacity-100"
-  } ${activeSlide.id === 1 ? "scale-90" : "scale-100"}`}
+  } `}
               />
             )}
 
