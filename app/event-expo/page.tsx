@@ -35,20 +35,14 @@ const events = [
       {
         id: 1,
         url: "/event/gh17/gh171.webp",
-        caption: "Opening ceremony with march past",
-        engagement: "560 likes, 89 comments",
       },
       {
         id: 2,
         url: "/event/gh17/gh172.webp",
-        caption: "Cricket finals match",
-        engagement: "890 likes, 167 comments",
       },
       {
         id: 3,
         url: "/event/gh17/gh173.webp",
-        caption: "Award ceremony for winners",
-        engagement: "450 likes, 78 comments",
       },
     ],
     highlights: [
@@ -78,20 +72,14 @@ const events = [
       {
         id: 1,
         url: "/event/bt/bt.jpeg",
-        caption: "Startup pitch presentation",
-        engagement: "420 likes, 70 comments",
       },
       {
         id: 2,
         url: "/event/bt/bt2.jpeg",
-        caption: "Investor panel",
-        engagement: "380 likes, 55 comments",
       },
       {
         id: 3,
         url: "/event/bt/bt3.jpeg",
-        caption: "Winner announcement",
-        engagement: "500 likes, 88 comments",
       },
     ],
     highlights: [
@@ -121,20 +109,14 @@ const events = [
       {
         id: 1,
         url: "/event/gh18/gh18.webp",
-        caption: "Product unveiling ceremony",
-        engagement: "340 likes, 78 comments",
       },
       {
         id: 2,
         url: "/event/gh18/gh182.webp",
-        caption: "Live product demonstration",
-        engagement: "280 likes, 56 comments",
       },
       {
         id: 3,
         url: "/event/gh18/gh183.webp",
-        caption: "Press conference with media",
-        engagement: "190 likes, 34 comments",
       },
     ],
     highlights: [
@@ -166,20 +148,14 @@ const events = [
       {
         id: 1,
         url: "/event/cbre/cbre1.webp",
-        caption: "CEO's keynote address",
-        engagement: "230 likes, 45 comments",
       },
       {
         id: 2,
         url: "/event/cbre/cbre2.webp",
-        caption: "Team building activities",
-        engagement: "180 likes, 34 comments",
       },
       {
         id: 3,
         url: "/event/cbre/cbre3.webp",
-        caption: "Awards ceremony for top performers",
-        engagement: "290 likes, 56 comments",
       },
     ],
     highlights: [
@@ -210,20 +186,14 @@ const events = [
       {
         id: 1,
         url: "/event/saturday/sat1.webp",
-        caption: "Traditional Lavani performance",
-        engagement: "890 likes, 156 comments",
       },
       {
         id: 2,
         url: "/event/saturday/sat2.webp",
-        caption: "Food festival with local delicacies",
-        engagement: "1.2K likes, 234 comments",
       },
       {
         id: 3,
         url: "/event/saturday/sat3.webp",
-        caption: "Art exhibition featuring local artists",
-        engagement: "670 likes, 98 comments",
       },
     ],
     highlights: [
@@ -254,20 +224,14 @@ const events = [
       {
         id: 1,
         url: "/event/sanam/1.webp",
-        caption: "Main stage with keynote speaker",
-        engagement: "450 likes, 89 comments",
       },
       {
         id: 2,
         url: "/event/sanam/2.webp",
-        caption: "Networking session during break",
-        engagement: "320 likes, 67 comments",
       },
       {
         id: 3,
         url: "/event/sanam/3.webp",
-        caption: "Workshop on AI and Machine Learning",
-        engagement: "280 likes, 45 comments",
       },
     ],
     highlights: [
@@ -297,20 +261,14 @@ const events = [
       {
         id: 1,
         url: "/event/sucess/s1.webp",
-        caption: "Live cooking demo",
-        engagement: "950 likes, 160 comments",
       },
       {
         id: 2,
         url: "/event/sucess/s2.webp",
-        caption: "Crowd enjoying food",
-        engagement: "1.3K likes, 240 comments",
       },
       {
         id: 3,
         url: "/event/sucess/s3.webp",
-        caption: "Music performance",
-        engagement: "870 likes, 140 comments",
       },
     ],
     highlights: [
@@ -340,20 +298,14 @@ const events = [
       {
         id: 1,
         url: "/event/cp/cp1.webp",
-        caption: "Live cooking demo",
-        engagement: "950 likes, 160 comments",
       },
       {
         id: 2,
         url: "/event/cp/cp2.webp",
-        caption: "Crowd enjoying food",
-        engagement: "1.3K likes, 240 comments",
       },
       {
         id: 3,
         url: "/event/cp/cp3.webp",
-        caption: "Music performance",
-        engagement: "870 likes, 140 comments",
       },
     ],
     highlights: [
@@ -383,20 +335,14 @@ const events = [
       {
         id: 1,
         url: "/event/chandra/chnd.webp",
-        caption: "Panel discussion",
-        engagement: "310 likes, 54 comments",
       },
       {
         id: 2,
         url: "/event/chandra/chnad2.webp",
-        caption: "Networking session",
-        engagement: "280 likes, 40 comments",
       },
       {
         id: 3,
         url: "/event/chandra/chnad3.webp",
-        caption: "Project unveiling",
-        engagement: "350 likes, 60 comments",
       },
     ],
     highlights: [
@@ -427,20 +373,14 @@ const events = [
       {
         id: 1,
         url: "/event/varad/varad1.webp",
-        caption: "Luxury car showcase",
-        engagement: "780 likes, 120 comments",
       },
       {
         id: 2,
         url: "/event/varad/varad2.webp",
-        caption: "EV launch ceremony",
-        engagement: "640 likes, 98 comments",
       },
       {
         id: 3,
         url: "/event/varad/varad3.webp",
-        caption: "Test drive zone",
-        engagement: "520 likes, 76 comments",
       },
     ],
     highlights: [
@@ -471,20 +411,14 @@ const events = [
       {
         id: 1,
         url: "/event/varad/varad4.webp",
-        caption: "Ramp walk highlight",
-        engagement: "1K likes, 210 comments",
       },
       {
         id: 2,
         url: "/event/varad/varad5.webp",
-        caption: "Designer showcase",
-        engagement: "890 likes, 180 comments",
       },
       {
         id: 3,
         url: "/event/varad/varad6.webp",
-        caption: "Closing ceremony",
-        engagement: "760 likes, 150 comments",
       },
     ],
     highlights: [
@@ -514,20 +448,14 @@ const events = [
       {
         id: 1,
         url: "/event/varad/varad7.webp",
-        caption: "University stalls",
-        engagement: "500 likes, 90 comments",
       },
       {
         id: 2,
         url: "/event/varad/varad8.webp",
-        caption: "Career counseling session",
-        engagement: "450 likes, 75 comments",
       },
       {
         id: 3,
         url: "/event/varad/varad9.webp",
-        caption: "Student registration desk",
-        engagement: "380 likes, 60 comments",
       },
     ],
     highlights: [
@@ -596,7 +524,7 @@ const EventCard = ({
             >
               <Image
                 src={event.photos[currentPhotoIndex].url}
-                alt={event.photos[currentPhotoIndex].caption}
+                alt={event.eventName}
                 fill
                 className="object-cover"
                 onError={(e) => {
@@ -691,27 +619,10 @@ const EventCard = ({
             {event.description}
           </p>
 
-          {/* Engagement Stats */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 text-gray-400 text-xs">
-              <div className="flex items-center gap-1">
-                <Heart size={12} />
-                <span>
-                  {event.photos[currentPhotoIndex].engagement.split(" ")[0]}
-                </span>
-              </div>
-              <div className="flex items-center gap-1">
-                <MessageCircle size={12} />
-                <span>
-                  {event.photos[currentPhotoIndex].engagement.split(", ")[1]}
-                </span>
-              </div>
-            </div>
             <div className="flex items-center gap-1 text-yellow-400 group-hover:text-yellow-300 transition-colors">
               <span className="text-sm">View Details</span>
               <ExternalLink size={14} />
             </div>
-          </div>
         </div>
       </div>
     </motion.div>
@@ -790,26 +701,18 @@ const EventDetailModal = ({
                 >
                   <Image
                     src={event.photos[currentPhotoIndex].url}
-                    alt={event.photos[currentPhotoIndex].caption}
+                    alt={event.eventName}
                     fill
                     className="object-cover"
                     onError={(e) => {
-                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.photos[currentPhotoIndex].caption)}&background=0d1117&color=ffffff&size=800`;
+                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.eventName)}&background=0d1117&color=ffffff&size=800`;
                     }}
                   />
 
                   <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                     <p className="text-white text-lg mb-2">
-                      {event.photos[currentPhotoIndex].caption}
+                      {event.eventName}
                     </p>
-                    <div className="flex items-center gap-4 text-white/80">
-                      <div className="flex items-center gap-1">
-                        <Heart size={16} />
-                        <span>
-                          {event.photos[currentPhotoIndex].engagement}
-                        </span>
-                      </div>
-                    </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -843,11 +746,11 @@ const EventDetailModal = ({
                 >
                   <Image
                     src={photo.url}
-                    alt={photo.caption}
+                    alt={event.eventName}
                     fill
                     className="object-cover"
                     onError={(e) => {
-                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(photo.caption)}&background=0d1117&color=ffffff&size=80`;
+                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.eventName)}&background=0d1117&color=ffffff&size=80`;
                     }}
                   />
                 </button>
