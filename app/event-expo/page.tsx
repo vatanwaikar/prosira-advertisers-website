@@ -36,14 +36,14 @@ const events = [
         id: 1,
         url: "/event/gh17/gh171.webp",
       },
-      {
-        id: 2,
-        url: "/event/gh17/gh172.webp",
-      },
-      {
-        id: 3,
-        url: "/event/gh17/gh173.webp",
-      },
+      // {
+      //   id: 2,
+      //   url: "/event/gh17/gh172.webp",
+      // },
+      // {
+      //   id: 3,
+      //   url: "/event/gh17/gh173.webp",
+      // },
       {
         id: 4,
         url: "/event/gh17/gh174.webp",
@@ -128,9 +128,13 @@ const events = [
     description:
       "Following the successful 2017 edition held during a challenging market phase, the 2nd edition of the Property Exhibition was organized in 2018, building on renewed industry confidence and positive buyer sentiment. The event witnessed stronger participation from leading developers, increased footfall, and a wider showcase of residential and commercial projects aligned with the evolving regulatory environment.",
     photos: [
+      // {
+      //   id: 1,
+      //   url: "/event/gh18/gh18.webp",
+      // },
       {
-        id: 1,
-        url: "/event/gh18/gh18.webp",
+        id: 4,
+        url: "/event/gh18/gh184.webp",
       },
       {
         id: 2,
@@ -140,10 +144,7 @@ const events = [
         id: 3,
         url: "/event/gh18/gh183.webp",
       },
-       {
-        id: 4,
-        url: "/event/gh18/gh184.webp",
-      },
+       
        {
         id: 5,
         url: "/event/gh18/gh185.webp",
@@ -187,6 +188,10 @@ const events = [
         id: 1,
         url: "/event/cbre/cbre1.webp",
       },
+       {
+        id: 4,
+        url: "/event/cbre/cbre4.JPG",
+      },
       {
         id: 2,
         url: "/event/cbre/cbre2.webp",
@@ -195,10 +200,7 @@ const events = [
         id: 3,
         url: "/event/cbre/cbre3.webp",
       },
-      {
-        id: 4,
-        url: "/event/cbre/cbre4.JPG",
-      },
+     
       {
         id: 5,
         url: "/event/cbre/cbre5.webp",
@@ -304,18 +306,18 @@ const events = [
     description:
       "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
     photos: [
-      {
-        id: 1,
-        url: "/event/sucess/s1.webp",
-      },
+      // {
+      //   id: 1,
+      //   url: "/event/sucess/s1.webp",
+      // },
       {
         id: 2,
         url: "/event/sucess/s2.webp",
       },
-      {
-        id: 3,
-        url: "/event/sucess/s3.webp",
-      },
+      // {
+      //   id: 3,
+      //   url: "/event/sucess/s3.webp",
+      // },
         {
         id: 4,
         url: "/event/sucess/s4.webp",
@@ -448,9 +450,13 @@ const events = [
     description:
       "At the Varad Property Festival, we introduced a first-of-its-kind revenue model to the market. Instead of traditional exhibition fees, builders were invited to showcase their projects at our property expo and pay a brokerage only after successful sales bookings — up to 5% per transaction. This performance-driven approach created strong builder participation and buyer engagement. With the dedicated on-ground team of our client, Varad Property Solutions Pvt. Ltd., the festival successfully achieved 100+ confirmed property bookings, establishing the event as a results-focused real estate sales platform.",
     photos: [
-      {
-        id: 1,
-        url: "/event/varad/varad1.webp",
+      // {
+      //   id: 1,
+      //   url: "/event/varad/varad1.webp",
+      // },
+       {
+        id: 5,
+        url: "/event/varad/varad55.webp",
       },
       {
         id: 2,
@@ -464,10 +470,7 @@ const events = [
         id: 4,
         url: "/event/varad/varad44.webp",
       },
-       {
-        id: 5,
-        url: "/event/varad/varad55.webp",
-      },
+      
        {
         id: 6,
         url: "/event/varad/varad66.webp",
@@ -506,14 +509,14 @@ const events = [
         id: 1,
         url: "/event/varad/varad4.webp",
       },
-      {
-        id: 2,
-        url: "/event/varad/varad5.webp",
-      },
-      {
-        id: 3,
-        url: "/event/varad/varad6.webp",
-      },
+      // {
+      //   id: 2,
+      //   url: "/event/varad/varad5.webp",
+      // },
+      // {
+      //   id: 3,
+      //   url: "/event/varad/varad6.webp",
+      // },
       {
         id: 4,
         url: "/event/varad/varad33.webp",
@@ -581,7 +584,7 @@ const events = [
         url: "/event/varad/varad5654.webp",
       },
       {
-        id: 3,
+        id: 4,
         url: "/event/varad/varad7654.webp",
       },
     ],
