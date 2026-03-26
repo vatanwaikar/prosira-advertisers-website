@@ -44,6 +44,28 @@ const events = [
         id: 3,
         url: "/event/gh17/gh173.webp",
       },
+      {
+        id: 4,
+        url: "/event/gh17/gh174.webp",
+      },
+
+        {
+        id: 5,
+        url: "/event/gh17/gh175.webp",
+      },
+
+        
+        {
+        id: 6,
+        url: "/event/gh17/gh176.webp",
+      },
+      
+        {
+        id: 7,
+        url: "/event/gh17/gh177.webp",
+      },
+
+
     ],
     highlights: [
       "Supported by SKD Group",
@@ -118,6 +140,22 @@ const events = [
         id: 3,
         url: "/event/gh18/gh183.webp",
       },
+       {
+        id: 4,
+        url: "/event/gh18/gh184.webp",
+      },
+       {
+        id: 5,
+        url: "/event/gh18/gh185.webp",
+      },
+       {
+        id: 6,
+        url: "/event/gh18/gh186.webp",
+      },
+       {
+        id: 7,
+        url: "/event/gh18/gh187.webp",
+      },
     ],
     highlights: [
       "Sponsored by Ceratec Group",
@@ -156,6 +194,14 @@ const events = [
       {
         id: 3,
         url: "/event/cbre/cbre3.webp",
+      },
+      {
+        id: 4,
+        url: "/event/cbre/cbre4.JPG",
+      },
+      {
+        id: 5,
+        url: "/event/cbre/cbre5.webp",
       },
     ],
     highlights: [
@@ -270,6 +316,14 @@ const events = [
         id: 3,
         url: "/event/sucess/s3.webp",
       },
+        {
+        id: 4,
+        url: "/event/sucess/s4.webp",
+      },
+      {
+        id: 5,
+        url: "/event/sucess/s5.webp ", 
+      },
     ],
     highlights: [
       "Top Booking Achievers Awarded",
@@ -307,6 +361,18 @@ const events = [
         id: 3,
         url: "/event/cp/cp3.webp",
       },
+      {
+        id: 4,
+        url: "/event/cp/cp4.webp",
+      },
+      {
+        id: 5,
+        url: "/event/cp/cp5.webp",
+      },
+      {
+        id: 6,
+        url: "/event/cp/cp6.webp",
+      },
     ],
     highlights: [
       "Top Booking Achievers Awarded",
@@ -343,6 +409,18 @@ const events = [
       {
         id: 3,
         url: "/event/chandra/chnad3.webp",
+      },
+      {
+        id: 4,
+        url: "/event/chandra/chnad4.webp",
+      },
+      {
+        id: 5,
+        url: "/event/chandra/chnad5.webp",
+      },
+      {
+        id: 6,
+        url: "/event/chandra/chnad6.webp",
       },
     ],
     highlights: [
@@ -382,6 +460,22 @@ const events = [
         id: 3,
         url: "/event/varad/varad3.webp",
       },
+       {
+        id: 4,
+        url: "/event/varad/varad44.webp",
+      },
+       {
+        id: 5,
+        url: "/event/varad/varad55.webp",
+      },
+       {
+        id: 6,
+        url: "/event/varad/varad66.webp",
+      },
+       {
+        id: 7,
+        url: "/event/varad/varad77.webp",
+      },
     ],
     highlights: [
       "Leading Real Estate Brands",
@@ -420,6 +514,35 @@ const events = [
         id: 3,
         url: "/event/varad/varad6.webp",
       },
+      {
+        id: 4,
+        url: "/event/varad/varad33.webp",
+      },
+      {
+        id: 5,
+        url: "/event/varad/varad88.webp",
+      },
+      {
+        id: 6,
+        url: "/event/varad/varad99.webp",
+      },
+      {
+        id: 7,
+        url: "/event/varad/varad876.webp",
+      },
+      {
+        id: 8,
+        url: "/event/varad/varad123.webp",
+      },
+      {
+        id: 9,
+        url: "/event/varad/varad345.webp",
+      },
+      {
+        id: 10,
+        url: "/event/varad/varad657.webp",
+      },
+
     ],
     highlights: [
       "2nd Successful Edition",
@@ -455,7 +578,11 @@ const events = [
       },
       {
         id: 3,
-        url: "/event/varad/varad9.webp",
+        url: "/event/varad/varad5654.webp",
+      },
+      {
+        id: 3,
+        url: "/event/varad/varad7654.webp",
       },
     ],
     highlights: [
