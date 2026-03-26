@@ -30,8 +30,8 @@ const clientWork = [
         id: 1,
         type: "Post",
         image: "/digital/seasecret.webp",
-        caption: "New Collection Launch - Summer 2024 🌟",
-        engagement: "12.5K likes, 890 comments",
+        // caption: "New Collection Launch - Summer 2024 🌟",
+        // engagement: "12.5K likes, 890 comments",
         reach: "450K+"
       },
       {
@@ -39,16 +39,16 @@ const clientWork = [
         type: "reel",
         video: "/reel/seascretreel.mp4",
         poster: "/digital/seasecret.jpeg",
-        caption: "Behind the scenes - Fashion shoot 📸",
-        engagement: "25.8K likes, 1.2K comments",
+        // caption: "Behind the scenes - Fashion shoot 📸",
+        // engagement: "25.8K likes, 1.2K comments",
         reach: "680K+"
       },
       {
         id: 3,
         type: "story",
          image: "/digital/seastory.jpeg",
-        caption: "Limited time offer - 30% OFF! 🔥",
-        engagement: "8.9K views, 450 shares",
+        // caption: "Limited time offer - 30% OFF! 🔥",
+        // engagement: "8.9K views, 450 shares",
         reach: "120K+"
       }
     ],
@@ -81,8 +81,8 @@ const clientWork = [
         id: 1,
         type: "Post",
         image: "/digital/stargaed.webp",
-        caption: "New Menu Launch - Authentic Maharashtrian 🍛",
-        engagement: "8.2K likes, 567 comments",
+        // caption: "New Menu Launch - Authentic Maharashtrian 🍛",
+        // engagement: "8.2K likes, 567 comments",
         reach: "320K+"
       },
       {
@@ -90,16 +90,16 @@ const clientWork = [
         type: "reel",
         video: "/reel/stargae2.mp4",
         poster: "/digital/stargaed.jpeg",
-        caption: "Chef Special Recipe - Behind the scenes 👨‍🍳",
-        engagement: "15.6K likes, 890 comments",
+        // caption: "Chef Special Recipe - Behind the scenes 👨‍🍳",
+        // engagement: "15.6K likes, 890 comments",
         reach: "520K+"
       },
       {
         id: 3,
         type: "story",
         image: "/digital/starstory.jpeg",
-        caption: "Today's Special Offer - 20% OFF! 🔥",
-        engagement: "6.5K views, 320 shares",
+        // caption: "Today's Special Offer - 20% OFF! 🔥",
+        // engagement: "6.5K views, 320 shares",
         reach: "210K+"
       }
     ],
@@ -132,8 +132,8 @@ const clientWork = [
         id: 1,
         type: "Post",
         image: "/digital/ventex.webp",
-        caption: "Product Launch - Revolutionary AI Solution 🚀",
-        engagement: "5.6K likes, 445 comments",
+        // caption: "Product Launch - Revolutionary AI Solution 🚀",
+        // engagement: "5.6K likes, 445 comments",
         reach: "180K+"
       },
       {
@@ -141,16 +141,16 @@ const clientWork = [
         type: "reel",
         video: "/reel/stargagereel.mp4",
         poster: "/digital/ventex.jpeg",
-        caption: "How our AI transforms agriculture 🌱🤖",
-        engagement: "9.8K likes, 1.2K comments",
+        // caption: "How our AI transforms agriculture 🌱🤖",
+        // engagement: "9.8K likes, 1.2K comments",
         reach: "245K+"
       },
       {
         id: 2,
         type: "story",
         image: "/digital/vinstory.jpeg",
-        caption: "What's your biggest tech challenge? 🤔",
-        engagement: "3.2K responses, 890 shares",
+        // caption: "What's your biggest tech challenge? 🤔",
+        // engagement: "3.2K responses, 890 shares",
         reach: "95K+"
       },
     ],
@@ -271,21 +271,11 @@ const VideoPlayer = ({
           exit={{ opacity: 0 }}
           className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 flex flex-col justify-end"
         >
-          <p className="text-white text-sm mb-4 line-clamp-2 font-medium leading-relaxed">{caption}</p>
-          <div className="flex items-center gap-4 text-white/90 text-xs">
-            <div className="flex items-center gap-1">
-              <Heart size={12} />
-              <span>{engagement.split(' ')[0]}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <MessageCircle size={12} />
-              <span>{engagement.split(', ')[1]?.split(' ')[0] || 'N/A'}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Eye size={12} />
-              <span>{reach}</span>
-            </div>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
+  <span className="text-white text-sm font-medium">
+    {reach}
+  </span>
+</div>
         </motion.div>
       )}
     </div>
@@ -325,7 +315,7 @@ const SocialPostCard = ({ post, index }: { post: any, index: number }) => {
           <>
             <Image
               src={post.image}
-              alt={post.caption}
+alt={`${post.type} social media post`}
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -342,22 +332,12 @@ const SocialPostCard = ({ post, index }: { post: any, index: number }) => {
                 exit={{ opacity: 0 }}
                 className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 flex flex-col justify-end"
               >
-                <p className="text-white text-sm mb-4 line-clamp-2 font-medium leading-relaxed">{post.caption}</p>
-                <div className="flex items-center gap-4 text-white/90 text-xs">
-                  <div className="flex items-center gap-1">
-                    <Heart size={12} />
-                    <span>{post.engagement.split(' ')[0]}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <MessageCircle size={12} />
-                    <span>{post.engagement.split(', ')[1]?.split(' ')[0] || 'N/A'}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Eye size={12} />
-                    <span>{post.reach}</span>
-                  </div>
-                </div>
-              </motion.div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
+  <span className="text-white text-sm font-medium">
+    {post.type} • {post.reach}
+  </span>
+</div>
+    </motion.div>
             )}
           </>
         )}

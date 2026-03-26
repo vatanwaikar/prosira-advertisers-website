@@ -494,12 +494,7 @@ const EventCard = ({
     );
   };
 
-  useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(nextPhoto, 3000);
-    return () => clearInterval(interval);
-  }, [isHovered, event.photos.length]);
-
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
