@@ -586,7 +586,7 @@ const events = [
       {
         id: 4,
         url: "/event/varad/varad7654.webp",
-      },
+      },  
     ],
     highlights: [
       "Key Policymakers & Industry Leaders",
