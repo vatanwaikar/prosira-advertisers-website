@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function ContactMap() {
   const mapLink =
-    "https://maps.app.goo.gl/7igP69Dd7r3iD2B98?g_st=ic";
+    "https://www.google.com/maps/place/Prosira+Advertisers/@18.4982918,73.8545822,704m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8d3140898a8cbe7d:0x7550defc4c7ebfd6!8m2!3d18.4982918!4d73.8545822!16s%2Fg%2F11ys9p4d__?hl=en&entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D";
 
   return (
     <section
