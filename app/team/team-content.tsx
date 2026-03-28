@@ -79,11 +79,11 @@ const teamMembers = [
   },
   {
     name: "Pragati Wagaskar",
-    role: "Content & Social Media Executive",
+    role: "Content creator ",
     image: "/team/pragati.png",
-    bio: "Content strategist supporting social media management, content planning, and community engagement.",
+    bio: "Content specialist supporting social media strategy, content scheduling, and audience engagement.",
     expandedBio:
-      "Pragati assists in content creation, social media scheduling, and audience engagement. She supports campaign execution by managing content calendars, coordinating with design teams, and analyzing social media trends to optimize brand presence and interaction across platforms.",
+      "Pragati assists in content creation, social media management, and community engagement. She supports campaign execution, trend analysis, and platform optimization to enhance brand interaction and digital reach.",
       linkedin: "https://www.linkedin.com/in/pragati-wagaskar/",
   },
   {
