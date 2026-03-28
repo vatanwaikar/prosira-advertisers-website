@@ -78,8 +78,17 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/vatanwaikar/",
   },
   {
+    name: "Pragati Wagaskar",
+    role: "Content & Social Media Executive",
+    image: "/team/pragati.png",
+    bio: "Content strategist supporting social media management, content planning, and community engagement.",
+    expandedBio:
+      "Pragati assists in content creation, social media scheduling, and audience engagement. She supports campaign execution by managing content calendars, coordinating with design teams, and analyzing social media trends to optimize brand presence and interaction across platforms.",
+      linkedin: "https://www.linkedin.com/in/pragati-wagaskar/",
+  },
+  {
     name: "Shourya Shinde",
-    role: "Social Media Intern",
+    role: "Social Media Executive",
     image: "/team/Shaurya.png",
     bio: "Emerging social media executive supporting content strategy and engagement growth.",
     expandedBio:
@@ -104,6 +113,7 @@ const teamMembers = [
     expandedBio:
       "Vishal manages field logistics, vendor coordination, and execution support for outdoor and activation campaigns. His role ensures timely implementation, quality control, and smooth coordination between clients and operational teams.",
   },
+
 ];
 
 export default function TeamContent() {

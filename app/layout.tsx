@@ -172,7 +172,8 @@ export default function RootLayout({
             }}
           />
         </Providers>
-      </body>
+           
+       </body>
     </html>
   );
 }
