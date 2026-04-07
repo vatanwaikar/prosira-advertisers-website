@@ -12,6 +12,8 @@ import { CustomCursor } from "@/components/custom-cursor";
 import { Providers } from "./Providers";
 import ScrollToTop from "@/components/ScrollToTop";
 
+import PremiumChatBot from "@/components/PremiumChatBot";
+
 /* ---------- GA4 ---------- */
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -172,6 +174,7 @@ export default function RootLayout({
             }}
           />
         </Providers>
+        <PremiumChatBot />
            
        </body>
     </html>

@@ -16,10 +16,10 @@ const radioCampaigns = [
 ];
 
 const newspaperCampaigns = [
-  { id: 1, client: "Ashwamedh", logo: "/clients/Ashwamedh.webp", adImage: "/portfolio/ash.jpg", description: "Premium Real Estate Ad" },
+  { id: 1, client: "SVG Group", logo: "/clients/svgg.png", adImage: "/portfolio/svgg.webp", description: "Premium Real Estate Ad" },
   { id: 2, client: "Circle of Crust", logo: "/clients/crust.jpg", adImage: "/portfolio/crust.jpg", description: "Full-Page Food Campaign" },
-  { id: 3, client: "Parth", logo: "/clients/Parth.jpg", adImage: "/portfolio/parth.jpg", description: "Property Supplement Ad" },
-  { id: 4, client: "CityOne", logo: "/clients/cityone.jpg", adImage: "/portfolio/city.jpg", description: "Front Page Campaign" },
+  { id: 3, client: "SSPL", logo: "/clients/SSPL.webp", adImage: "/portfolio/sspll.jpeg", description: "Property Supplement Ad" },
+  { id: 4, client: "Garve Group", logo: "/clients/garve.jpg", adImage: "/portfolio/garve.webp", description: "Front Page Campaign" },
   { id: 5, client: "Kocuonut Tree", logo: "/clients/cck.jpg", adImage: "/portfolio/koconuttree.jpg", description: "Restaurant Ad" }
 ];
 
