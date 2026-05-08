@@ -192,7 +192,7 @@ export function WhyChooseUs() {
               <div className="relative h-[320px] md:h-[360px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-background">
                 {" "}
                 <Image
-                  src="/images/services-bg.jpg"
+                  src="/images/digi.png"
                   alt="Professional advertising team at work"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"

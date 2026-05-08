@@ -87,7 +87,7 @@ const events = [
     eventDate: "October 25 to 29, 2017",
     venue: "Ganesh Kala krida manch Swargate",
     stalls: "100+",
-    category: "Sprutial Expo",
+    category: "spiritual Expo",
     description:
       "Blessing Tree 2017 was a unique spiritual and wellness exhibition that brought together renowned astrologers, numerologists, tarot readers, palm readers, and holistic practitioners under one roof. The event created a vibrant platform for visitors to explore spiritual guidance, positive energy products, and alternative healing practices. The expo featured personalized consultations, spiritual merchandise, and interactive sessions focused on self-discovery, mindfulness, and holistic living, successfully establishing itself as a distinctive gathering for the spiritual and metaphysical community.",
     photos: [
