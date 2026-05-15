@@ -650,17 +650,18 @@ const EventCard = ({
           {event.video ? (
             <div className="relative w-full h-full">
               <video
-                src={event.video}
-                poster={event.poster}
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls={false}
-                preload="metadata"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+  src={event.video}
+  poster={event.poster}
+  className="w-full h-full object-cover"
+  autoPlay
+  
+  loop
+  playsInline
+  controls
+  preload="metadata"
+/>
+
+<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
           ) : (
             <AnimatePresence mode="wait">
