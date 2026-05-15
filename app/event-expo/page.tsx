@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
@@ -9,12 +9,10 @@ import {
   Calendar,
   MapPin,
   Users,
-  Clock,
   Star,
   ChevronLeft,
   ChevronRight,
   Heart,
-  MessageCircle,
   Share2,
 } from "lucide-react";
 import Link from "next/link";
@@ -36,36 +34,22 @@ const events = [
         id: 1,
         url: "/event/gh17/gh171.webp",
       },
-      // {
-      //   id: 2,
-      //   url: "/event/gh17/gh172.webp",
-      // },
-      // {
-      //   id: 3,
-      //   url: "/event/gh17/gh173.webp",
-      // },
       {
         id: 4,
         url: "/event/gh17/gh174.webp",
       },
-
-        {
+      {
         id: 5,
         url: "/event/gh17/gh175.webp",
       },
-
-        
-        {
+      {
         id: 6,
         url: "/event/gh17/gh176.webp",
       },
-      
-        {
+      {
         id: 7,
         url: "/event/gh17/gh177.webp",
       },
-
-
     ],
     highlights: [
       "Supported by SKD Group",
@@ -128,10 +112,6 @@ const events = [
     description:
       "Following the successful 2017 edition held during a challenging market phase, the 2nd edition of the Property Exhibition was organized in 2018, building on renewed industry confidence and positive buyer sentiment. The event witnessed stronger participation from leading developers, increased footfall, and a wider showcase of residential and commercial projects aligned with the evolving regulatory environment.",
     photos: [
-      // {
-      //   id: 1,
-      //   url: "/event/gh18/gh18.webp",
-      // },
       {
         id: 4,
         url: "/event/gh18/gh184.webp",
@@ -144,16 +124,15 @@ const events = [
         id: 3,
         url: "/event/gh18/gh183.webp",
       },
-       
-       {
+      {
         id: 5,
         url: "/event/gh18/gh185.webp",
       },
-       {
+      {
         id: 6,
         url: "/event/gh18/gh186.webp",
       },
-       {
+      {
         id: 7,
         url: "/event/gh18/gh187.webp",
       },
@@ -168,10 +147,9 @@ const events = [
       satisfaction: "100%",
       orders: "8500+",
       media: "45+ Media",
-      social: "2M+  Reach",
+      social: "2M+ Reach",
     },
   },
-
   {
     id: 5,
     eventName: "CBRE Propfest 2019",
@@ -188,7 +166,7 @@ const events = [
         id: 1,
         url: "/event/cbre/cbre1.webp",
       },
-       {
+      {
         id: 4,
         url: "/event/cbre/cbre4.JPG",
       },
@@ -200,7 +178,6 @@ const events = [
         id: 3,
         url: "/event/cbre/cbre3.webp",
       },
-     
       {
         id: 5,
         url: "/event/cbre/cbre5.webp",
@@ -219,7 +196,6 @@ const events = [
       social: "3M+ Reach",
     },
   },
-
   {
     id: 2,
     eventName: "Udyog Dindi By Saturday Club",
@@ -257,7 +233,6 @@ const events = [
       social: "NA",
     },
   },
-
   {
     id: 1,
     eventName: "Sanam Concert",
@@ -306,25 +281,17 @@ const events = [
     description:
       "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
     photos: [
-      // {
-      //   id: 1,
-      //   url: "/event/sucess/s1.webp",
-      // },
       {
         id: 2,
         url: "/event/sucess/s2.webp",
       },
-      // {
-      //   id: 3,
-      //   url: "/event/sucess/s3.webp",
-      // },
-        {
+      {
         id: 4,
         url: "/event/sucess/s4.webp",
       },
       {
         id: 5,
-        url: "/event/sucess/s5.webp ", 
+        url: "/event/sucess/s5.webp",
       },
     ],
     highlights: [
@@ -438,7 +405,6 @@ const events = [
       social: "NA",
     },
   },
-
   {
     id: 6,
     eventName: "Varad Property Festival 2022",
@@ -450,11 +416,7 @@ const events = [
     description:
       "At the Varad Property Festival, we introduced a first-of-its-kind revenue model to the market. Instead of traditional exhibition fees, builders were invited to showcase their projects at our property expo and pay a brokerage only after successful sales bookings — up to 5% per transaction. This performance-driven approach created strong builder participation and buyer engagement. With the dedicated on-ground team of our client, Varad Property Solutions Pvt. Ltd., the festival successfully achieved 100+ confirmed property bookings, establishing the event as a results-focused real estate sales platform.",
     photos: [
-      // {
-      //   id: 1,
-      //   url: "/event/varad/varad1.webp",
-      // },
-       {
+      {
         id: 5,
         url: "/event/varad/varad55.webp",
       },
@@ -466,16 +428,15 @@ const events = [
         id: 3,
         url: "/event/varad/varad3.webp",
       },
-       {
+      {
         id: 4,
         url: "/event/varad/varad44.webp",
       },
-      
-       {
+      {
         id: 6,
         url: "/event/varad/varad66.webp",
       },
-       {
+      {
         id: 7,
         url: "/event/varad/varad77.webp",
       },
@@ -493,7 +454,6 @@ const events = [
       social: "2M+ Reach",
     },
   },
-
   {
     id: 9,
     eventName: "Varad Property Festival 2022",
@@ -509,14 +469,6 @@ const events = [
         id: 1,
         url: "/event/varad/varad4.webp",
       },
-      // {
-      //   id: 2,
-      //   url: "/event/varad/varad5.webp",
-      // },
-      // {
-      //   id: 3,
-      //   url: "/event/varad/varad6.webp",
-      // },
       {
         id: 4,
         url: "/event/varad/varad33.webp",
@@ -545,7 +497,6 @@ const events = [
         id: 10,
         url: "/event/varad/varad657.webp",
       },
-
     ],
     highlights: [
       "2nd Successful Edition",
@@ -586,7 +537,7 @@ const events = [
       {
         id: 4,
         url: "/event/varad/varad7654.webp",
-      },  
+      },
     ],
     highlights: [
       "Key Policymakers & Industry Leaders",
@@ -601,6 +552,60 @@ const events = [
       social: "3M+ Social Reach",
     },
   },
+
+  // NEW VIDEO EVENT
+  {
+    id: 13,
+    eventName: "Darshan Raval Concert",
+    clientName: "purple corp",
+    eventDate: "10th May 2026",
+    venue: "Pandit Farm, Pune",
+    stalls: "NA",
+    category: "Music Concert",
+    description:
+      "A spectacular live concert experience featuring Darshan Raval, bringing music, energy, and a memorable audience atmosphere to one of Pune’s prominent event venues.",
+    video: "/event/darshan-raval/darshan-raval-1.mp4",
+    poster: "/event/darshan-raval/darshan-raval-poster.webp",
+    highlights: [
+      "Live Performance by Darshan Raval",
+      "High-Energy Concert Experience",
+      "Crowd Engagement & Stage Production",
+      "Hosted at Pandit Farm, Pune",
+    ],
+    results: {
+      satisfaction: "100%",
+      visitors: "10-11K+ Visitors",
+      media: "NA",
+      social: "NA",
+    },
+  },
+
+  // NEW VIDEO EVENT
+  {
+    id: 14,
+    eventName: "Sonu Nigam Concert",
+    clientName: "ghabadkund",
+    eventDate: "09th May 2026",
+    venue: "Pandit Farm, Pune",
+    stalls: "NA",
+    category: "Music Concert",
+    description:
+      "A grand musical evening featuring Sonu Nigam, designed to deliver a premium concert experience with soulful performances, audience connection, and memorable event execution.",
+    video: "/event/sonu-nigam/sonu-nigam-1.mp4",
+    poster: "/event/sonu-nigam/sonu-nigam-poster.webp",
+    highlights: [
+      "Live Performance by Sonu Nigam",
+      "Premium Musical Experience",
+      "Strong Audience Connect",
+      "Hosted at Pandit Farm, Pune",
+    ],
+    results: {
+      satisfaction: "100%",
+      visitors: "7-8K+ visitors",
+      media: "NA",
+      social: "NA",
+    },
+  },
 ];
 
 // Event Card Component
@@ -613,18 +618,22 @@ const EventCard = ({
 }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const photos = event.photos ?? [];
 
   const nextPhoto = () => {
-    setCurrentPhotoIndex((prev) => (prev + 1) % event.photos.length);
+    if (!event.video && photos.length > 0) {
+      setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
+    }
   };
 
   const prevPhoto = () => {
-    setCurrentPhotoIndex(
-      (prev) => (prev - 1 + event.photos.length) % event.photos.length,
-    );
+    if (!event.video && photos.length > 0) {
+      setCurrentPhotoIndex(
+        (prev) => (prev - 1 + photos.length) % photos.length,
+      );
+    }
   };
 
-  
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -636,65 +645,83 @@ const EventCard = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-yellow-600/10 to-yellow-600/10 border border-yellow-500/20 hover:border-yellow-400/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-yellow-500/20">
-        {/* Photo Carousel */}
+        {/* Photo / Video */}
         <div className="relative h-64 md:h-80">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentPhotoIndex}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="relative w-full h-full"
-            >
-              <Image
-                src={event.photos[currentPhotoIndex].url}
-                alt={event.eventName}
-                fill
-                className="object-cover"
-                onError={(e) => {
-                  e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.eventName)}&background=0d1117&color=ffffff&size=400`;
-                }}
+          {event.video ? (
+            <div className="relative w-full h-full">
+              <video
+                src={event.video}
+                poster={event.poster}
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls={false}
+                preload="metadata"
               />
-
-              {/* Photo Navigation */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-              {/* Navigation Buttons */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  prevPhoto();
-                }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
+            </div>
+          ) : (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentPhotoIndex}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                className="relative w-full h-full"
               >
-                <ChevronLeft size={20} />
-              </button>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  nextPhoto();
-                }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
-              >
-                <ChevronRight size={20} />
-              </button>
-
-              {/* Photo Indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                {event.photos.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentPhotoIndex
-                        ? "bg-white w-6"
-                        : "bg-white/50"
-                    }`}
+                {photos[currentPhotoIndex] && (
+                  <Image
+                    src={photos[currentPhotoIndex].url}
+                    alt={event.eventName}
+                    fill
+                    className="object-cover"
                   />
-                ))}
-              </div>
-            </motion.div>
-          </AnimatePresence>
+                )}
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                {photos.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        prevPhoto();
+                      }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
+                    >
+                      <ChevronLeft size={20} />
+                    </button>
+
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        nextPhoto();
+                      }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors opacity-0 group-hover:opacity-100"
+                    >
+                      <ChevronRight size={20} />
+                    </button>
+
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                      {photos.map((_, index) => (
+                        <div
+                          key={index}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            index === currentPhotoIndex
+                              ? "bg-white w-6"
+                              : "bg-white/50"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          )}
         </div>
 
         {/* Event Details */}
@@ -736,7 +763,7 @@ const EventCard = ({
             </div>
             <div className="flex items-center gap-1">
               <Users size={14} />
-              <span>{event.stalls}</span>{" "}
+              <span>{event.stalls}</span>
             </div>
           </div>
 
@@ -744,10 +771,10 @@ const EventCard = ({
             {event.description}
           </p>
 
-            <div className="flex items-center gap-1 text-yellow-400 group-hover:text-yellow-300 transition-colors">
-              <span className="text-sm">View Details</span>
-              <ExternalLink size={14} />
-            </div>
+          <div className="flex items-center gap-1 text-yellow-400 group-hover:text-yellow-300 transition-colors">
+            <span className="text-sm">View Details</span>
+            <ExternalLink size={14} />
+          </div>
         </div>
       </div>
     </motion.div>
@@ -763,15 +790,20 @@ const EventDetailModal = ({
   onClose: () => void;
 }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const photos = event.photos ?? [];
 
   const nextPhoto = () => {
-    setCurrentPhotoIndex((prev) => (prev + 1) % event.photos.length);
+    if (!event.video && photos.length > 0) {
+      setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
+    }
   };
 
   const prevPhoto = () => {
-    setCurrentPhotoIndex(
-      (prev) => (prev - 1 + event.photos.length) % event.photos.length,
-    );
+    if (!event.video && photos.length > 0) {
+      setCurrentPhotoIndex(
+        (prev) => (prev - 1 + photos.length) % photos.length,
+      );
+    }
   };
 
   return (
@@ -812,75 +844,94 @@ const EventDetailModal = ({
             </div>
           </div>
 
-          {/* Photo Gallery */}
+          {/* Photo / Video Gallery */}
           <div className="mb-8">
             <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-yellow-600/10 to-yellow-600/10">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentPhotoIndex}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.05 }}
-                  transition={{ duration: 0.5 }}
-                  className="relative w-full h-full"
-                >
-                  <Image
-                    src={event.photos[currentPhotoIndex].url}
-                    alt={event.eventName}
-                    fill
-                    className="object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.eventName)}&background=0d1117&color=ffffff&size=800`;
-                    }}
+              {event.video ? (
+                <div className="relative w-full h-full">
+                  <video
+                    src={event.video}
+                    poster={event.poster}
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                    preload="metadata"
                   />
-
                   <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                    <p className="text-white text-lg mb-2">
-                      {event.eventName}
-                    </p>
+                    <p className="text-white text-lg mb-2">{event.eventName}</p>
                   </div>
-                </motion.div>
-              </AnimatePresence>
+                </div>
+              ) : (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentPhotoIndex}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.05 }}
+                    transition={{ duration: 0.5 }}
+                    className="relative w-full h-full"
+                  >
+                    {photos[currentPhotoIndex] && (
+                      <Image
+                        src={photos[currentPhotoIndex].url}
+                        alt={event.eventName}
+                        fill
+                        className="object-cover"
+                      />
+                    )}
 
-              {/* Gallery Navigation */}
-              <button
-                onClick={prevPhoto}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <button
-                onClick={nextPhoto}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
-              >
-                <ChevronRight size={24} />
-              </button>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                      <p className="text-white text-lg mb-2">
+                        {event.eventName}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              )}
+
+              {!event.video && photos.length > 1 && (
+                <>
+                  <button
+                    onClick={prevPhoto}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button
+                    onClick={nextPhoto}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </>
+              )}
             </div>
 
-            {/* Photo Thumbnails */}
-            <div className="flex gap-2 mt-4">
-              {event.photos.map((photo, index) => (
-                <button
-                  key={photo.id}
-                  onClick={() => setCurrentPhotoIndex(index)}
-                  className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    index === currentPhotoIndex
-                      ? "border-yellow-400"
-                      : "border-transparent"
-                  }`}
-                >
-                  <Image
-                    src={photo.url}
-                    alt={event.eventName}
-                    fill
-                    className="object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(event.eventName)}&background=0d1117&color=ffffff&size=80`;
-                    }}
-                  />
-                </button>
-              ))}
-            </div>
+            {!event.video && photos.length > 0 && (
+              <div className="flex gap-2 mt-4">
+                {photos.map((photo, index) => (
+                  <button
+                    key={photo.id}
+                    onClick={() => setCurrentPhotoIndex(index)}
+                    className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                      index === currentPhotoIndex
+                        ? "border-yellow-400"
+                        : "border-transparent"
+                    }`}
+                  >
+                    <Image
+                      src={photo.url}
+                      alt={event.eventName}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Event Details Grid */}
@@ -902,9 +953,7 @@ const EventDetailModal = ({
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="h-5 w-5 text-yellow-400" />
-                  <span className="text-gray-300">
-                    {event.stalls} Stalls
-                  </span>{" "}
+                  <span className="text-gray-300">{event.stalls} Stalls</span>
                 </div>
               </div>
             </div>
@@ -935,6 +984,7 @@ const EventDetailModal = ({
                 </p>
                 <p className="text-sm text-gray-400">Satisfaction</p>
               </div>
+
               <div className="p-4 rounded-2xl bg-gradient-to-br from-yellow-600/20 to-yellow-600/10 border border-yellow-500/30">
                 <Users className="h-6 w-6 text-yellow-400 mb-2" />
                 <p className="text-2xl font-bold text-white">
@@ -946,6 +996,7 @@ const EventDetailModal = ({
                 </p>
                 <p className="text-sm text-gray-400">Impact</p>
               </div>
+
               <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-600/20 to-orange-600/10 border border-orange-500/30">
                 <Share2 className="h-6 w-6 text-orange-400 mb-2" />
                 <p className="text-2xl font-bold text-white">
@@ -953,6 +1004,7 @@ const EventDetailModal = ({
                 </p>
                 <p className="text-sm text-gray-400">Media Coverage</p>
               </div>
+
               <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-600/20 to-orange-600/10 border border-orange-500/30">
                 <Heart className="h-6 w-6 text-orange-400 mb-2" />
                 <p className="text-2xl font-bold text-white">
@@ -977,7 +1029,6 @@ export default function EventExpoPortfolio() {
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Animated Background */}
       <div className="fixed inset-0 opacity-20 pointer-events-none">
-        {" "}
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/30 via-yellow-600/20 to-yellow-400/30 animate-pulse" />
         <div className="absolute inset-0">
           {[...Array(15)].map((_, i) => (
@@ -1067,13 +1118,13 @@ export default function EventExpoPortfolio() {
             <Link
               href="/contact"
               className="inline-flex items-center gap-3 
-  bg-primary 
-  text-primary-foreground 
-  px-8 py-4 rounded-lg font-semibold 
-  hover:bg-primary/90 
-  hover:scale-105 
-  transition-all duration-300 
-  shadow-lg shadow-primary/30"
+              bg-primary 
+              text-primary-foreground 
+              px-8 py-4 rounded-lg font-semibold 
+              hover:bg-primary/90 
+              hover:scale-105 
+              transition-all duration-300 
+              shadow-lg shadow-primary/30"
             >
               Plan Your Event
               <Calendar size={20} />
