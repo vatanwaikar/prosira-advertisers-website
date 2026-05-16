@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
@@ -30,26 +30,11 @@ const events = [
     description:
       "Held during the challenging business climate following demonetization and the implementation of GST reforms, the 2017 Property Exhibition emerged as a resilient platform for the real estate industry. Despite market uncertainty, the event successfully brought together developers, investors, and serious homebuyers, creating opportunities for direct engagement and transparent discussions around evolving regulations and investment strategies.",
     photos: [
-      {
-        id: 1,
-        url: "/event/gh17/gh171.webp",
-      },
-      {
-        id: 4,
-        url: "/event/gh17/gh174.webp",
-      },
-      {
-        id: 5,
-        url: "/event/gh17/gh175.webp",
-      },
-      {
-        id: 6,
-        url: "/event/gh17/gh176.webp",
-      },
-      {
-        id: 7,
-        url: "/event/gh17/gh177.webp",
-      },
+      { id: 1, url: "/event/gh17/gh171.webp" },
+      { id: 4, url: "/event/gh17/gh174.webp" },
+      { id: 5, url: "/event/gh17/gh175.webp" },
+      { id: 6, url: "/event/gh17/gh176.webp" },
+      { id: 7, url: "/event/gh17/gh177.webp" },
     ],
     highlights: [
       "Supported by SKD Group",
@@ -75,18 +60,9 @@ const events = [
     description:
       "Blessing Tree 2017 was a unique spiritual and wellness exhibition that brought together renowned astrologers, numerologists, tarot readers, palm readers, and holistic practitioners under one roof. The event created a vibrant platform for visitors to explore spiritual guidance, positive energy products, and alternative healing practices. The expo featured personalized consultations, spiritual merchandise, and interactive sessions focused on self-discovery, mindfulness, and holistic living, successfully establishing itself as a distinctive gathering for the spiritual and metaphysical community.",
     photos: [
-      {
-        id: 1,
-        url: "/event/bt/bt.jpeg",
-      },
-      {
-        id: 2,
-        url: "/event/bt/bt2.jpeg",
-      },
-      {
-        id: 3,
-        url: "/event/bt/bt3.jpeg",
-      },
+      { id: 1, url: "/event/bt/bt.jpeg" },
+      { id: 2, url: "/event/bt/bt2.jpeg" },
+      { id: 3, url: "/event/bt/bt3.jpeg" },
     ],
     highlights: [
       "Renowned Spiritual Experts",
@@ -112,30 +88,12 @@ const events = [
     description:
       "Following the successful 2017 edition held during a challenging market phase, the 2nd edition of the Property Exhibition was organized in 2018, building on renewed industry confidence and positive buyer sentiment. The event witnessed stronger participation from leading developers, increased footfall, and a wider showcase of residential and commercial projects aligned with the evolving regulatory environment.",
     photos: [
-      {
-        id: 4,
-        url: "/event/gh18/gh184.webp",
-      },
-      {
-        id: 2,
-        url: "/event/gh18/gh182.webp",
-      },
-      {
-        id: 3,
-        url: "/event/gh18/gh183.webp",
-      },
-      {
-        id: 5,
-        url: "/event/gh18/gh185.webp",
-      },
-      {
-        id: 6,
-        url: "/event/gh18/gh186.webp",
-      },
-      {
-        id: 7,
-        url: "/event/gh18/gh187.webp",
-      },
+      { id: 4, url: "/event/gh18/gh184.webp" },
+      { id: 2, url: "/event/gh18/gh182.webp" },
+      { id: 3, url: "/event/gh18/gh183.webp" },
+      { id: 5, url: "/event/gh18/gh185.webp" },
+      { id: 6, url: "/event/gh18/gh186.webp" },
+      { id: 7, url: "/event/gh18/gh187.webp" },
     ],
     highlights: [
       "Sponsored by Ceratec Group",
@@ -162,26 +120,11 @@ const events = [
     description:
       "CBRE Propfest showcased a diverse range of exclusive, affordable, and luxurious homes from leading residential developers across East and West Pune. The event brought together top projects under one platform, offering homebuyers and investors an opportunity to explore premium residences, discover attractive deals, and connect directly with trusted developers across Pune’s rapidly growing residential corridors.",
     photos: [
-      {
-        id: 1,
-        url: "/event/cbre/cbre1.webp",
-      },
-      {
-        id: 4,
-        url: "/event/cbre/cbre4.JPG",
-      },
-      {
-        id: 2,
-        url: "/event/cbre/cbre2.webp",
-      },
-      {
-        id: 3,
-        url: "/event/cbre/cbre3.webp",
-      },
-      {
-        id: 5,
-        url: "/event/cbre/cbre5.webp",
-      },
+      { id: 1, url: "/event/cbre/cbre1.webp" },
+      { id: 4, url: "/event/cbre/cbre4.JPG" },
+      { id: 2, url: "/event/cbre/cbre2.webp" },
+      { id: 3, url: "/event/cbre/cbre3.webp" },
+      { id: 5, url: "/event/cbre/cbre5.webp" },
     ],
     highlights: [
       "Leading Pune Developers",
@@ -207,18 +150,9 @@ const events = [
     description:
       "UDYOG DINDI – Business Conclave Pune, brought together Maharashtra’s dynamic entrepreneurs, business owners, manufacturers, service providers, and startups on a powerful networking platform. The event featured experiential learning sessions from renowned speakers and self-made industry leaders, offering valuable business insights and growth strategies. With participation from over 800 entrepreneurs and organizations across the state, the conclave enabled meaningful connections, potential collaborations, and opportunities for business tie-ups, mergers, and strategic partnerships, making it a high-impact milestone for the regional business ecosystem.",
     photos: [
-      {
-        id: 1,
-        url: "/event/saturday/sat1.webp",
-      },
-      {
-        id: 2,
-        url: "/event/saturday/sat2.webp",
-      },
-      {
-        id: 3,
-        url: "/event/saturday/sat3.webp",
-      },
+      { id: 1, url: "/event/saturday/sat1.webp" },
+      { id: 2, url: "/event/saturday/sat2.webp" },
+      { id: 3, url: "/event/saturday/sat3.webp" },
     ],
     highlights: [
       "800+ Participants",
@@ -244,18 +178,9 @@ const events = [
     description:
       "FUEL–SANAM Fundraising Musical Concert 2020 is a special fundraising event hosted by FUEL (Friends Union for Energising Lives), where India’s leading band SANAM performed to support the education of girl children of Army Jawans while celebrating the success of FUEL Aptitude Champions.",
     photos: [
-      {
-        id: 1,
-        url: "/event/sanam/1.webp",
-      },
-      {
-        id: 2,
-        url: "/event/sanam/2.webp",
-      },
-      {
-        id: 3,
-        url: "/event/sanam/3.webp",
-      },
+      { id: 1, url: "/event/sanam/1.webp" },
+      { id: 2, url: "/event/sanam/2.webp" },
+      { id: 3, url: "/event/sanam/3.webp" },
     ],
     highlights: [
       "Live by Band SANAM",
@@ -281,18 +206,9 @@ const events = [
     description:
       "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
     photos: [
-      {
-        id: 2,
-        url: "/event/sucess/s2.webp",
-      },
-      {
-        id: 4,
-        url: "/event/sucess/s4.webp",
-      },
-      {
-        id: 5,
-        url: "/event/sucess/s5.webp",
-      },
+      { id: 2, url: "/event/sucess/s2.webp" },
+      { id: 4, url: "/event/sucess/s4.webp" },
+      { id: 5, url: "/event/sucess/s5.webp" },
     ],
     highlights: [
       "Top Booking Achievers Awarded",
@@ -318,30 +234,12 @@ const events = [
     description:
       "Following the successful execution of the first edition of the Varad Property Festival, we strategically initiated plans for the second edition with a stronger vision and expanded industry participation. As a key step toward this growth, we organized an exclusive Channel Partner Meet to strengthen relationships, extend new collaboration opportunities, and align our partners with the upcoming edition’s roadmap. The meet served as a platform to share event success insights, discuss market strategies, and build a more powerful sales and distribution network ahead of the next festival.",
     photos: [
-      {
-        id: 1,
-        url: "/event/cp/cp1.webp",
-      },
-      {
-        id: 2,
-        url: "/event/cp/cp2.webp",
-      },
-      {
-        id: 3,
-        url: "/event/cp/cp3.webp",
-      },
-      {
-        id: 4,
-        url: "/event/cp/cp4.webp",
-      },
-      {
-        id: 5,
-        url: "/event/cp/cp5.webp",
-      },
-      {
-        id: 6,
-        url: "/event/cp/cp6.webp",
-      },
+      { id: 1, url: "/event/cp/cp1.webp" },
+      { id: 2, url: "/event/cp/cp2.webp" },
+      { id: 3, url: "/event/cp/cp3.webp" },
+      { id: 4, url: "/event/cp/cp4.webp" },
+      { id: 5, url: "/event/cp/cp5.webp" },
+      { id: 6, url: "/event/cp/cp6.webp" },
     ],
     highlights: [
       "Top Booking Achievers Awarded",
@@ -367,30 +265,12 @@ const events = [
     description:
       "Premium real estate summit with top developers and investors.",
     photos: [
-      {
-        id: 1,
-        url: "/event/chandra/chnd.webp",
-      },
-      {
-        id: 2,
-        url: "/event/chandra/chnad2.webp",
-      },
-      {
-        id: 3,
-        url: "/event/chandra/chnad3.webp",
-      },
-      {
-        id: 4,
-        url: "/event/chandra/chnad4.webp",
-      },
-      {
-        id: 5,
-        url: "/event/chandra/chnad5.webp",
-      },
-      {
-        id: 6,
-        url: "/event/chandra/chnad6.webp",
-      },
+      { id: 1, url: "/event/chandra/chnd.webp" },
+      { id: 2, url: "/event/chandra/chnad2.webp" },
+      { id: 3, url: "/event/chandra/chnad3.webp" },
+      { id: 4, url: "/event/chandra/chnad4.webp" },
+      { id: 5, url: "/event/chandra/chnad5.webp" },
+      { id: 6, url: "/event/chandra/chnad6.webp" },
     ],
     highlights: [
       "Star-Studded Movie Premiere",
@@ -416,30 +296,12 @@ const events = [
     description:
       "At the Varad Property Festival, we introduced a first-of-its-kind revenue model to the market. Instead of traditional exhibition fees, builders were invited to showcase their projects at our property expo and pay a brokerage only after successful sales bookings — up to 5% per transaction. This performance-driven approach created strong builder participation and buyer engagement. With the dedicated on-ground team of our client, Varad Property Solutions Pvt. Ltd., the festival successfully achieved 100+ confirmed property bookings, establishing the event as a results-focused real estate sales platform.",
     photos: [
-      {
-        id: 5,
-        url: "/event/varad/varad55.webp",
-      },
-      {
-        id: 2,
-        url: "/event/varad/varad2.webp",
-      },
-      {
-        id: 3,
-        url: "/event/varad/varad3.webp",
-      },
-      {
-        id: 4,
-        url: "/event/varad/varad44.webp",
-      },
-      {
-        id: 6,
-        url: "/event/varad/varad66.webp",
-      },
-      {
-        id: 7,
-        url: "/event/varad/varad77.webp",
-      },
+      { id: 5, url: "/event/varad/varad55.webp" },
+      { id: 2, url: "/event/varad/varad2.webp" },
+      { id: 3, url: "/event/varad/varad3.webp" },
+      { id: 4, url: "/event/varad/varad44.webp" },
+      { id: 6, url: "/event/varad/varad66.webp" },
+      { id: 7, url: "/event/varad/varad77.webp" },
     ],
     highlights: [
       "Leading Real Estate Brands",
@@ -465,38 +327,14 @@ const events = [
     description:
       "Following the successful execution of the first edition of the Varad Property Festival, we strategically launched the second edition to build on the strong market response and proven performance-based model. The continued collaboration with builders and the growing trust of homebuyers enabled us to scale participation, enhance buyer engagement, and further position the festival as a high-conversion real estate exhibition platform driven by measurable sales outcomes.",
     photos: [
-      {
-        id: 1,
-        url: "/event/varad/varad4.webp",
-      },
-      {
-        id: 4,
-        url: "/event/varad/varad33.webp",
-      },
-      {
-        id: 5,
-        url: "/event/varad/varad88.webp",
-      },
-      {
-        id: 6,
-        url: "/event/varad/varad99.webp",
-      },
-      {
-        id: 7,
-        url: "/event/varad/varad876.webp",
-      },
-      {
-        id: 8,
-        url: "/event/varad/varad123.webp",
-      },
-      {
-        id: 9,
-        url: "/event/varad/varad345.webp",
-      },
-      {
-        id: 10,
-        url: "/event/varad/varad657.webp",
-      },
+      { id: 1, url: "/event/varad/varad4.webp" },
+      { id: 4, url: "/event/varad/varad33.webp" },
+      { id: 5, url: "/event/varad/varad88.webp" },
+      { id: 6, url: "/event/varad/varad99.webp" },
+      { id: 7, url: "/event/varad/varad876.webp" },
+      { id: 8, url: "/event/varad/varad123.webp" },
+      { id: 9, url: "/event/varad/varad345.webp" },
+      { id: 10, url: "/event/varad/varad657.webp" },
     ],
     highlights: [
       "2nd Successful Edition",
@@ -522,22 +360,10 @@ const events = [
     description:
       "Building on the success of the third Grand Property Expo across Central Pune and West Pune, we introduced a new addition — the Real Estate Conclave — designed as a thought-leadership platform to discuss Pune’s urban growth, infrastructure development, investment potential, and future real estate trends. The conclave brought together developers, industry experts, and key stakeholders, creating a knowledge-driven environment that complemented the exhibition while strengthening credibility, networking opportunities, and market insights for all participants.",
     photos: [
-      {
-        id: 1,
-        url: "/event/varad/varad7.webp",
-      },
-      {
-        id: 2,
-        url: "/event/varad/varad8.webp",
-      },
-      {
-        id: 3,
-        url: "/event/varad/varad5654.webp",
-      },
-      {
-        id: 4,
-        url: "/event/varad/varad7654.webp",
-      },
+      { id: 1, url: "/event/varad/varad7.webp" },
+      { id: 2, url: "/event/varad/varad8.webp" },
+      { id: 3, url: "/event/varad/varad5654.webp" },
+      { id: 4, url: "/event/varad/varad7654.webp" },
     ],
     highlights: [
       "Key Policymakers & Industry Leaders",
@@ -552,8 +378,6 @@ const events = [
       social: "3M+ Social Reach",
     },
   },
-
-  // NEW VIDEO EVENT
   {
     id: 13,
     eventName: "Darshan Raval Concert",
@@ -579,8 +403,6 @@ const events = [
       social: "NA",
     },
   },
-
-  // NEW VIDEO EVENT
   {
     id: 14,
     eventName: "Sonu Nigam Concert",
@@ -608,6 +430,58 @@ const events = [
   },
 ];
 
+// Custom date parser for your mixed eventDate formats
+const monthMap: Record<string, number> = {
+  jan: 0,
+  january: 0,
+  feb: 1,
+  february: 1,
+  mar: 2,
+  march: 2,
+  apr: 3,
+  april: 3,
+  may: 4,
+  jun: 5,
+  june: 5,
+  jul: 6,
+  july: 6,
+  aug: 7,
+  august: 7,
+  sep: 8,
+  sept: 8,
+  september: 8,
+  oct: 9,
+  october: 9,
+  nov: 10,
+  november: 10,
+  dec: 11,
+  december: 11,
+};
+
+const parseEventDate = (dateStr: string) => {
+  const clean = dateStr
+    .toLowerCase()
+    .replace(/,/g, " ")
+    .replace(/&/g, " ")
+    .replace(/\bto\b/g, " ")
+    .replace(/(\d+)(st|nd|rd|th)/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const yearMatch = clean.match(/\b(20\d{2})\b/);
+  const year = yearMatch ? Number(yearMatch[1]) : 0;
+
+  const monthKey = Object.keys(monthMap).find((month) =>
+    clean.includes(month),
+  );
+  const month = monthKey ? monthMap[monthKey] : 0;
+
+  const dayMatch = clean.match(/\b(\d{1,2})\b/);
+  const day = dayMatch ? Number(dayMatch[1]) : 1;
+
+  return new Date(year, month, day).getTime();
+};
+
 // Event Card Component
 const EventCard = ({
   event,
@@ -628,9 +502,7 @@ const EventCard = ({
 
   const prevPhoto = () => {
     if (!event.video && photos.length > 0) {
-      setCurrentPhotoIndex(
-        (prev) => (prev - 1 + photos.length) % photos.length,
-      );
+      setCurrentPhotoIndex((prev) => (prev - 1 + photos.length) % photos.length);
     }
   };
 
@@ -640,26 +512,24 @@ const EventCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="group "
+      className="group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-yellow-600/10 to-yellow-600/10 border border-yellow-500/20 hover:border-yellow-400/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-yellow-500/20">
-        {/* Photo / Video */}
         <div className="relative h-64 md:h-80">
           {event.video ? (
             <div className="relative w-full h-full">
-             <video
-  src={event.video}
-  poster={event.poster}
-  className="w-full h-full object-cover z-10 relative"
-  playsInline
-  controls
-  preload="metadata"
-  onClick={(e) => e.stopPropagation()}
-/>
-
-<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-0" />
+              <video
+                src={event.video}
+                poster={event.poster}
+                className="w-full h-full object-cover z-10 relative"
+                playsInline
+                controls
+                preload="metadata"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-0" />
             </div>
           ) : (
             <AnimatePresence mode="wait">
@@ -723,7 +593,6 @@ const EventCard = ({
           )}
         </div>
 
-        {/* Event Details */}
         <div className="p-6">
           <div className="flex items-start justify-between mb-4">
             <div>
@@ -799,9 +668,7 @@ const EventDetailModal = ({
 
   const prevPhoto = () => {
     if (!event.video && photos.length > 0) {
-      setCurrentPhotoIndex(
-        (prev) => (prev - 1 + photos.length) % photos.length,
-      );
+      setCurrentPhotoIndex((prev) => (prev - 1 + photos.length) % photos.length);
     }
   };
 
@@ -829,7 +696,6 @@ const EventDetailModal = ({
         </button>
 
         <div className="p-6 lg:p-8">
-          {/* Event Header */}
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-2">
               {event.eventName}
@@ -843,7 +709,6 @@ const EventDetailModal = ({
             </div>
           </div>
 
-          {/* Photo / Video Gallery */}
           <div className="mb-8">
             <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gradient-to-br from-yellow-600/10 to-yellow-600/10">
               {event.video ? (
@@ -852,7 +717,6 @@ const EventDetailModal = ({
                     src={event.video}
                     poster={event.poster}
                     className="w-full h-full object-cover"
-                    
                     loop
                     playsInline
                     controls
@@ -932,7 +796,6 @@ const EventDetailModal = ({
             )}
           </div>
 
-          {/* Event Details Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
               <h3 className="text-xl font-bold text-white mb-4">
@@ -971,7 +834,6 @@ const EventDetailModal = ({
             </div>
           </div>
 
-          {/* Results Grid */}
           <div>
             <h3 className="text-xl font-bold text-white mb-4">Event Results</h3>
             <div className="grid md:grid-cols-4 gap-4">
@@ -1022,6 +884,12 @@ export default function EventExpoPortfolio() {
   const [selectedEvent, setSelectedEvent] = useState<(typeof events)[0] | null>(
     null,
   );
+
+  const sortedEvents = useMemo(() => {
+    return [...events].sort(
+      (a, b) => parseEventDate(b.eventDate) - parseEventDate(a.eventDate),
+    );
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black">
@@ -1076,7 +944,7 @@ export default function EventExpoPortfolio() {
       <section className="py-12">
         <div className="site-container">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event, index) => (
+            {sortedEvents.map((event, index) => (
               <div key={event.id} onClick={() => setSelectedEvent(event)}>
                 <EventCard event={event} index={index} />
               </div>
