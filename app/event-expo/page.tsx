@@ -318,9 +318,9 @@ const events = [
   },
   {
     id: 9,
-    eventName: "Varad Property Festival 2022",
+    eventName: "Varad Property Festival 2023",
     clientName: "Varad Property Solutions Pvt Ltd",
-    eventDate: "15th & 16th Oct 2022",
+    eventDate: "15th & 16th Oct 2023",
     venue: "Pandit Farm Pune",
     stalls: "60+",
     category: "Property Exhibition",
@@ -335,6 +335,14 @@ const events = [
       { id: 8, url: "/event/varad/varad123.webp" },
       { id: 9, url: "/event/varad/varad345.webp" },
       { id: 10, url: "/event/varad/varad657.webp" },
+      { id: 11, url: "/event/varad/varad456.jpeg" },
+      { id: 12, url: "/event/varad/varad234.jpeg" },
+      { id: 13, url: "/event/varad/varad323.jpeg" },
+      { id: 14, url: "/event/varad/varad656.jpeg" },
+      { id: 15, url: "/event/varad/varad789.jpeg" },
+      { id: 16, url: "/event/varad/varad890.jpeg" },
+      
+
     ],
     highlights: [
       "2nd Successful Edition",
@@ -406,7 +414,7 @@ const events = [
   {
     id: 14,
     eventName: "Sonu Nigam Concert",
-    clientName: "ghabadkund",
+    clientName: "Ghabad-Kund",
     eventDate: "09th May 2026",
     venue: "Pandit Farm, Pune",
     stalls: "NA",
