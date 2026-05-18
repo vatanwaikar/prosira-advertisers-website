@@ -381,7 +381,7 @@ const events = [
   {
     id: 13,
     eventName: "Darshan Raval Concert",
-    clientName: "purple corp",
+    clientName: "Purple Corp",
     eventDate: "10th May 2026",
     venue: "Pandit Farm, Pune",
     stalls: "NA",
@@ -517,13 +517,13 @@ const EventCard = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-yellow-600/10 to-yellow-600/10 border border-yellow-500/20 hover:border-yellow-400/40 transition-all duration-500 hover:scale-[1.02] hover:shadow-yellow-500/20">
-        <div className="relative h-64 md:h-80">
+       <div className="relative h-[420px] md:h-[520px] bg-black">
           {event.video ? (
             <div className="relative w-full h-full">
               <video
                 src={event.video}
                 poster={event.poster}
-                className="w-full h-full object-cover z-10 relative"
+                className="w-full h-full object-contain bg-black z-10 relative"
                 playsInline
                 controls
                 preload="metadata"
