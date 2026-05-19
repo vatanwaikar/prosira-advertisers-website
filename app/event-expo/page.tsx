@@ -350,6 +350,35 @@ const events = [
       "High Buyer Footfall",
       "Strong Booking Momentum",
     ],
+
+    youtubeLinks: [
+ {
+    title: "Pune Real Estate Conclave",
+    url: "https://www.youtube.com/live/jFY71GoXruY?si=CM09oj1jeo7mYYa0",
+  },
+  {
+    title: "Event Walkthrough",
+    url: "https://youtu.be/iOX5E1bmUg0?si=u4-UOExMDanVyJb8",
+  },
+  {
+    title: "Smita Patil and Makrand Adkar's Speech",
+    url: "https://youtu.be/qPGrMBXUO2g?si=JbL9fexdWZJKd6uv",
+  },
+  {
+    title: "Chandrakant Patil's Speech",
+    url: "https://youtu.be/CBPaBGakrKw?si=p7NPHeCXFrkS5sGU",
+  },
+   {
+    title: "Murlidhar Mohol's Speech",
+    url: "https://youtu.be/rwIXlTDAmDI?si=lTNV5BNqp1LIraHp",
+  },
+  {
+    title: "Mahesh Landge's Speech",
+    url: "https://youtu.be/WuCsfsVT4yk?si=VWXhs9iJki1HVG7Q",
+  },
+],
+
+
     results: {
       satisfaction: "100%",
       visitors: "4500+ Visitors",
@@ -359,19 +388,53 @@ const events = [
   },
   {
     id: 10,
-    eventName: "Varad Property Festival 2023",
+    eventName: "Varad Property Festival 2022",
     clientName: "Varad Property Solutions Pvt Ltd",
-    eventDate: "15th & 16th April 2023",
+    eventDate: "15th & 16th oct 2022",
     venue: "Center Pune- Pandit Farm & West Pune - The Orchid Hotel",
     stalls: "85+",
     category: "Property Exhibition",
     description:
       "Building on the success of the third Grand Property Expo across Central Pune and West Pune, we introduced a new addition — the Real Estate Conclave — designed as a thought-leadership platform to discuss Pune’s urban growth, infrastructure development, investment potential, and future real estate trends. The conclave brought together developers, industry experts, and key stakeholders, creating a knowledge-driven environment that complemented the exhibition while strengthening credibility, networking opportunities, and market insights for all participants.",
     photos: [
-      { id: 1, url: "/event/varad/varad7.webp" },
-      { id: 2, url: "/event/varad/varad8.webp" },
-      { id: 3, url: "/event/varad/varad5654.webp" },
-      { id: 4, url: "/event/varad/varad7654.webp" },
+      { id: 1, url: "/event/varad/varad611.jpeg" },
+      { id: 2, url: "/event/varad/varad544.jpeg" },
+      { id: 3, url: "/event/varad/varad533.jpeg" },
+      { id: 4, url: "/event/varad/varad522.jpeg" },
+      { id: 5, url: "/event/varad/varad511.jpeg" },
+    ],
+    highlights: [
+      "Key Policymakers & Industry Leaders",
+      "Shri Chandrakantdada Patil Presence",
+      "MLAs & Civic Dignitaries Attended",
+      "Infrastructure & Real Estate Dialogue",
+    ],
+    results: {
+      satisfaction: "100%",
+      visitors: "8500+ Visitors",
+      media: "60+ Media Mentions",
+      social: "3M+ Social Reach",
+    },
+  },
+   {
+    id: 10,
+    eventName: "Varad Property Festival 2022",
+    clientName: "Varad Property Solutions Pvt Ltd",
+    eventDate: "11th, 12th & 13th oct 2022",
+    venue: "Shubharambh Lawns, Pune",
+    stalls: "85+",
+    category: "Property Exhibition",
+    description:
+      "Building on the success of the 2nd Grand Property Expo across Central Pune and West Pune, we introduced a new addition — the Real Estate Conclave — designed as a thought-leadership platform to discuss Pune’s urban growth, infrastructure development, investment potential, and future real estate trends. The conclave brought together developers, industry experts, and key stakeholders, creating a knowledge-driven environment that complemented the exhibition while strengthening credibility, networking opportunities, and market insights for all participants.",
+    photos: [
+      { id: 1, url: "/event/varad/varad711.jpeg" },
+      { id: 2, url: "/event/varad/varad788.jpeg" },
+      { id: 3, url: "/event/varad/varad755.jpeg" },
+      { id: 4, url: "/event/varad/varad744.jpeg" },
+      { id: 5, url: "/event/varad/varad733.jpeg" },
+      { id: 6, url: "/event/varad/varad722.jpeg" },
+      { id: 7, url: "/event/varad/varad799.jpeg" },
+      
     ],
     highlights: [
       "Key Policymakers & Industry Leaders",
@@ -839,6 +902,29 @@ const EventDetailModal = ({
                   </li>
                 ))}
               </ul>
+
+              {event.youtubeLinks && (
+  <div className="mt-6 space-y-3">
+    {event.youtubeLinks.map((link, index) => (
+      <a
+        key={index}
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-3 p-3 rounded-xl bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition-all duration-300"
+      >
+        <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white font-bold">
+          ▶
+        </div>
+
+        <div>
+          <p className="text-white font-medium">{link.title}</p>
+          <p className="text-xs text-gray-400">Watch on YouTube</p>
+        </div>
+      </a>
+    ))}
+  </div>
+)}
             </div>
           </div>
 
