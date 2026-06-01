@@ -14,7 +14,7 @@ import { CTA } from "@/components/ai-seo/cta";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "AI SEO Services in Pune | GEO & AEO Agency | Prosira",
+  title: "AI SEO Services | GEO & AEO Experts",
   description:
     "Prosira offers AI SEO services in Pune including GEO, AEO, AI search optimization, ChatGPT visibility, Google AI Overviews optimization, and semantic SEO strategies.",
 };

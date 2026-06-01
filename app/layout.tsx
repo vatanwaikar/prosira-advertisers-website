@@ -44,13 +44,12 @@ export const metadata: Metadata = {
 
   title: {
     default:
-      "Prosira Advertisers - Top Digital Marketing & Advertising Agency in Pune | SEO & Ads",
+      "AI SEO & Digital Marketing Agency in Pune",
     template: "%s | Prosira Advertisers",
   },
 
   description:
-    "Trusted Digital Marketing & Advertising Experts in Pune delivering leads, visibility & brand growth through SEO, Google Ads, performance marketing and 360° advertising solutions.",
-
+  "AI-first digital marketing agency in Pune offering SEO, Google Ads, AI SEO, branding, website development and performance marketing.",
   keywords: [
     "digital marketing agency in Pune",
     "advertising agency Pune",
