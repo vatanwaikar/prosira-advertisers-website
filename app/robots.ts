@@ -7,7 +7,38 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
       },
+
+      // AI Crawlers
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+      },
+      {
+        userAgent: "CCBot",
+        allow: "/",
+      },
+      {
+        userAgent: "anthropic-ai",
+        allow: "/",
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: "/",
+      },
     ],
-sitemap: "https://www.prosira.in/sitemap.xml",
+
+    sitemap: "https://www.prosira.in/sitemap.xml",
   };
 }

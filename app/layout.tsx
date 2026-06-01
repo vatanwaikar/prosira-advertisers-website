@@ -101,12 +101,79 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+  const organizationSchema = {
+  "@context": "https://schema.org",
+
+  "@type": "Organization",
+
+  name: "Prosira Advertisers",
+
+  url: "https://prosira.in",
+
+  logo: "https://prosira.in/logo.png",
+
+  description:
+    "Prosira Advertisers is an AI-first digital marketing and advertising agency offering AI SEO, GEO, AEO, SEO, Google Ads, branding, website development and performance marketing services.",
+
+  sameAs: [
+    "https://www.instagram.com/prosira_advertisers",
+    "https://www.linkedin.com/company/prosiraadvertisers",
+    "https://www.facebook.com/share/1DnoEvbjBx/",
+  ],
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+
+  "@type": "Service",
+
+  serviceType: [
+    "AI SEO",
+    "SEO",
+    "Google Ads",
+    "Branding",
+    "Website Development",
+    "Digital Marketing",
+    "Performance Marketing",
+  ],
+
+  provider: {
+    "@type": "Organization",
+    name: "Prosira Advertisers",
+    url: "https://prosira.in",
+  },
+
+  areaServed: {
+    "@type": "Country",
+    name: "India",
+  },
+
+  url: "https://prosira.in/ai-seo-services",
+
+  description:
+    "Prosira Advertisers provides AI SEO, GEO, AEO, SEO, Google Ads, branding, website development and digital marketing services.",
+};
   return (
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable}`}
     >
       <body className="font-sans antialiased bg-background text-foreground min-h-screen overflow-x-hidden">
+       <Script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(organizationSchema),
+  }}
+/>
+
+<Script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(serviceSchema),
+  }}
+/>
+
         <Providers>
           <CustomCursor />
 

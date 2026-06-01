@@ -1,0 +1,23 @@
+# Prosira Advertisers
+
+Prosira Advertisers is an AI-first advertising and digital marketing agency based in India.
+
+Services:
+- AI SEO
+- GEO (Generative Engine Optimization)
+- AEO (Answer Engine Optimization)
+- SEO
+- Google Ads
+- Branding
+- Website Development
+- Social Media Marketing
+- Outdoor Advertising
+- Event Marketing
+
+Key Pages:
+https://www.prosira.in/ai-seo-services
+https://www.prosira.in/case-studies
+https://www.prosira.in/industries
+https://www.prosira.in/blog
+
+The website allows AI crawlers and LLM systems to access public content for indexing, citation, and discovery.
