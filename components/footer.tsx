@@ -32,6 +32,8 @@ const footerLinks = {
     { name: "Testimonials", href: "/testimonials" },
     { name: "Channel Partners", href: "/channel-partners" },
     { name: "Case Studies", href: "/case-studies" },
+    { name: "Industries", href: "/industries" },
+    
   ],
 };
 
