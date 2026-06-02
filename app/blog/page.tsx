@@ -112,7 +112,7 @@ export default function BlogPage() {
 
         {blogs.map((blog, index) => (
 
-          <Link href={blog.href || "#"}>
+          <Link key={index} href={blog.href || "#"} >
           <article
             key={index}
             className="group rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:-translate-y-1"

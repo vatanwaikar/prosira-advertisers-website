@@ -33,6 +33,7 @@ const footerLinks = {
     { name: "Channel Partners", href: "/channel-partners" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "Industries", href: "/industries" },
+    {name: "FAQs", href: "/faq" },
     
   ],
 };

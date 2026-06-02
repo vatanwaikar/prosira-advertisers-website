@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   Stethoscope,
   Building2,
@@ -126,13 +125,13 @@ export function IndustriesGrid() {
                 {industry.description}
               </p>
 
-              <Link
+              {/* <Link
                 href={industry.href}
                 className="mt-6 inline-flex items-center text-sm font-medium text-[#D4AF37] transition-all duration-300 hover:translate-x-1"
               >
                 Explore Industry
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </Link> */}
             </motion.div>
           ))}
         </div>
