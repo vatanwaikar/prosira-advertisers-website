@@ -99,13 +99,13 @@ export function FeaturedCaseStudies() {
                 {study.description}
               </p>
 
-              <Link
+              {/* <Link
                 href={study.href}
                 className="mt-8 inline-flex items-center text-sm font-medium text-cyan-400 transition-all duration-300 hover:translate-x-1"
               >
                 View Case Study
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </Link> */}
             </motion.div>
           ))}
         </div>
