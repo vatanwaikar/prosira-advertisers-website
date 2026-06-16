@@ -47,26 +47,29 @@ export function DigitalHero() {
         <div className="max-w-4xl">
           
           <span
-            data-animate
-            className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
-          >
-            Digital Marketing, Performance   & Website Development Services
-          </span>
+  data-animate
+  className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
+>
+  DIGITAL SERVICES
+</span>
 
-          <h1
-            data-animate
-            className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance"
-          >
-            End-to-End Digital Marketing & Performance Advertising Solutions
-          </h1>
+<h1
+  data-animate
+  className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+>
+  Digital Growth{" "}
+  <span className="text-primary font-serif">
+    That Performs
+  </span>
+</h1>
 
-          <p
-            data-animate
-            className="f-reveal text-xl text-muted-foreground leading-relaxed"
-          >
-           From SEO and paid advertising to social media marketing and website development,
-we help businesses attract customers, generate leads, and achieve sustainable digital growth.
-          </p>
+<p
+  data-animate
+  className="f-reveal text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl"
+>
+  From SEO and paid advertising to websites and social media,
+  we help brands grow online.
+</p>
 
         </div>
       </div>

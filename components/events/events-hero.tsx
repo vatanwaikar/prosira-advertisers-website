@@ -118,30 +118,29 @@ export function EventsHero() {
 
         <div className="max-w-4xl">
           <span
-            data-animate
-            className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
-          >
-            Event & Exhibition Planning Services
-          </span>
+  data-animate
+  className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
+>
+  EVENTS & EXHIBITIONS
+</span>
 
-          <h1
-            data-animate
-            className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-          >
-            Experiences That Engage
-            <span className="block mt-2 text-primary font-serif text-2xl md:text-3xl lg:text-4xl">
-              Events, Exhibitions & Brand Activations That Create Impact
-            </span>
-          </h1>
+<h1
+  data-animate
+  className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+>
+  Experiences That{" "}
+  <span className="text-primary font-serif">
+    Engage
+  </span>
+</h1>
 
-          <p
-            data-animate
-            className="f-reveal text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl"
-          >
-            From corporate events and trade shows to brand activations and
-            exhibitions, we create memorable experiences that strengthen brand
-            presence, engage audiences, and drive meaningful business results.
-          </p>
+<p
+  data-animate
+  className="f-reveal text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl"
+>
+  Creating impactful events, exhibitions and brand activations
+  that connect audiences with brands.
+</p>
         </div>
       </div>
     </section>

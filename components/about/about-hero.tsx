@@ -111,26 +111,29 @@ export function AboutHero() {
 
         <div className="max-w-4xl">
           <span
-            data-animate
-            className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
-          >
-            About Prosira
-          </span>
+  data-animate
+  className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
+>
+  ABOUT PROSIRA
+</span>
 
-          <h1
-            data-animate
-            className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-          >
-            Helping Brands Grow
-            <span className="block mt-2 text-primary font-serif text-2xl md:text-3xl lg:text-4xl">
-              Through Strategic Advertising & Media Excellence
-            </span>
-          </h1>
+<h1
+  data-animate
+  className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+>
+  Helping Brands{" "}
+  <span className="text-primary font-serif">
+    Grow
+  </span>
+</h1>
 
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            We combine strategy, media planning, media buying, and performance
-            marketing to deliver measurable business growth.
-          </p>
+<p
+  data-animate
+  className="f-reveal text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl"
+>
+  We combine strategy, media planning, media buying and performance
+  marketing to drive measurable business growth.
+</p>
         </div>
       </div>
     </section>
