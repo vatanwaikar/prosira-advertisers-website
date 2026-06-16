@@ -50,7 +50,7 @@ export function DigitalHero() {
             data-animate
             className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
-            Digital Marketing, Performance Advertising & Website Development Services
+            Digital Marketing, Performance   & Website Development Services
           </span>
 
           <h1
@@ -64,9 +64,8 @@ export function DigitalHero() {
             data-animate
             className="f-reveal text-xl text-muted-foreground leading-relaxed"
           >
-            We provide integrated digital marketing services including SEO, paid advertising,
-            social media strategy, and high-performance website development to improve
-            Google visibility, generate quality leads, and deliver measurable ROI.
+           From SEO and paid advertising to social media marketing and website development,
+we help businesses attract customers, generate leads, and achieve sustainable digital growth.
           </p>
 
         </div>

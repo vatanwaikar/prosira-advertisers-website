@@ -64,7 +64,7 @@ export function TraditionalHero() {
       {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
-      }
+      },
     );
 
     const elements = heroRef.current?.querySelectorAll("[data-animate]");
@@ -114,9 +114,7 @@ export function TraditionalHero() {
             Home
           </Link>
           <span>/</span>
-          <span className="text-foreground">
-            Advertising Services
-          </span>
+          <span className="text-foreground">Advertising Services</span>
         </nav>
 
         <div className="max-w-4xl">
@@ -131,17 +129,19 @@ export function TraditionalHero() {
             data-animate
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            We are a full-service media planning, buying, and advertising agency
+            Advertising That Delivers
+            <span className="block mt-2 text-primary font-serif text-2xl md:text-3xl lg:text-4xl">
+              Strategy, Media & Performance Under One Roof
+            </span>
           </h1>
 
           <p
             data-animate
-            className="f-reveal text-xl text-muted-foreground leading-relaxed"
+            className="f-reveal text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl"
           >
-            Delivering integrated campaigns across traditional, digital,
-            and on-ground platforms. Our strategies are designed to maximize
-            reach, improve brand visibility, and generate measurable
-            business growth through high-impact media execution.
+            From media planning and buying to digital marketing and brand
+            campaigns, we help businesses reach the right audience and achieve
+            measurable growth.
           </p>
         </div>
       </div>

@@ -62,7 +62,7 @@ export function EventsHero() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const elements = heroRef.current?.querySelectorAll("[data-animate]");
@@ -128,15 +128,19 @@ export function EventsHero() {
             data-animate
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            We provide end-to-end event marketing and exhibition management services{" "}
-            {/* <span className="text-primary font-serif ">Pune</span> */}
+            Experiences That Engage
+            <span className="block mt-2 text-primary font-serif text-2xl md:text-3xl lg:text-4xl">
+              Events, Exhibitions & Brand Activations That Create Impact
+            </span>
           </h1>
 
           <p
             data-animate
-            className="f-reveal text-xl text-muted-foreground leading-relaxed"
+            className="f-reveal text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl"
           >
-            designed to help brands create impactful on-ground experiences, generate business leads, and build strong industry presence. From concept development to execution, our team delivers strategic planning, creative design, and seamless management for corporate events, trade shows, and brand activations.
+            From corporate events and trade shows to brand activations and
+            exhibitions, we create memorable experiences that strengthen brand
+            presence, engage audiences, and drive meaningful business results.
           </p>
         </div>
       </div>

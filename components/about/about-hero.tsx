@@ -56,7 +56,7 @@ export function AboutHero() {
         left: Math.random() * 100,
         duration: 18 + Math.random() * 10,
       })),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export function AboutHero() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const elements = heroRef.current?.querySelectorAll("[data-animate]");
@@ -114,19 +114,23 @@ export function AboutHero() {
             data-animate
             className="f-reveal inline-block text-primary text-sm font-medium uppercase tracking-wider mb-4"
           >
-            About Our Advertising Agency
+            About Prosira
           </span>
 
           <h1
             data-animate
             className="f-reveal text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            We are a full-service advertising agency –
+            Helping Brands Grow
             <span className="block mt-2 text-primary font-serif text-2xl md:text-3xl lg:text-4xl">
-              helping brands grow through strategy, effective media planning,
-              right media buying and performance-driven marketing.
+              Through Strategic Advertising & Media Excellence
             </span>
           </h1>
+
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            We combine strategy, media planning, media buying, and performance
+            marketing to deliver measurable business growth.
+          </p>
         </div>
       </div>
     </section>
