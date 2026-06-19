@@ -5,15 +5,31 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const contactPerson = body.contactPerson || body.name; // ✅ SAFE
+    const contactPerson = body.contactPerson || body.name;
     const email = body.email;
     const phone = body.phone;
     const company = body.company;
     const service = body.service;
     const message = body.message;
 
-    // ✅ HARD LOG (debug sathi)
+    // ✅ Visitor Info
+    const forwardedFor = req.headers.get("x-forwarded-for");
+    const ip =
+      forwardedFor?.split(",")[0]?.trim() ||
+      req.headers.get("x-real-ip") ||
+      "Unknown";
+
+    const userAgent = req.headers.get("user-agent") || "Unknown";
+    const referer = req.headers.get("referer") || "Direct";
+    const submittedAt = new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+    });
+
+    // ✅ HARD LOG
     console.log("CONTACT BODY 👉", body);
+    console.log("IP 👉", ip);
+    console.log("USER AGENT 👉", userAgent);
+    console.log("REFERER 👉", referer);
 
     if (!contactPerson || !email || !phone || !service || !message) {
       return NextResponse.json(
@@ -44,6 +60,15 @@ export async function POST(req: Request) {
         <b>Company:</b> ${company || "N/A"}<br/>
         <b>Service:</b> ${service}<br/>
         <b>Message:</b><br/>${message}
+
+        <br/><br/>
+        <hr/>
+        <h3>Visitor Information</h3>
+
+        <b>IP Address:</b> ${ip}<br/>
+        <b>User Agent:</b> ${userAgent}<br/>
+        <b>Referer:</b> ${referer}<br/>
+        <b>Submitted At:</b> ${submittedAt}<br/>
       `,
     });
 
@@ -59,6 +84,10 @@ export async function POST(req: Request) {
         company,
         service,
         message,
+        ip,
+        userAgent,
+        referer,
+        submittedAt,
       }),
     });
 
