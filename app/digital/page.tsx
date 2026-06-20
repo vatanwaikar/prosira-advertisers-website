@@ -46,7 +46,7 @@ const clientWork = [
       {
         id: 3,
         type: "story",
-         image: "/digital/seasec22.webp",
+         image: "/digital/seasecccjpeg.webp",
         // caption: "Limited time offer - 30% OFF! 🔥",
         // engagement: "8.9K views, 450 shares",
         reach: "120K+"
