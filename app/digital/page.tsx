@@ -24,12 +24,12 @@ const clientWork = [
       followers: "+115",
       sales: "1,374 Paid Clicks"
     },
-    backgroundImage: "/digital/seasecret.webp",
+    backgroundImage: "/digital/seasec.webp",
     posts: [
       {
         id: 1,
         type: "Post",
-        image: "/digital/seasecret.webp",
+        image: "/digital/seasec.webp",
         // caption: "New Collection Launch - Summer 2024 🌟",
         // engagement: "12.5K likes, 890 comments",
         reach: "450K+"
@@ -160,7 +160,114 @@ const clientWork = [
       conversionRate: "2.6%",
       roi: "285%"
     }
+  },
+
+  {
+    id: 4,
+    clientName: "Wood Winds",
+    industry: "Real Estate",
+    duration: "Last Months",
+    platforms: ["Instagram", "Facebook", "LinkedIn", "YouTube"],
+    platformPerformance: [
+      { label: "Instagram", value: 68 },
+    { label: "Facebook", value: 20 },
+    { label: "LinkedIn", value: 8 },
+    { label: "YouTube", value: 4 },
+    ],
+     results: {
+    reach: "175.2K+",
+    engagement: "1.7K+",
+    followers: "+123",
+    sales: "3.3K Link Clicks"
+  },
+    backgroundImage: "/digital/woodwinds.webp",
+    posts: [
+      {
+        id: 1,
+        type: "Post",
+        image: "/digital/woodwinds.webp",
+        // caption: "New Collection Launch - Summer 2024 🌟",
+        // engagement: "12.5K likes, 890 comments",
+         reach: "175.2K+"
+      },
+      {
+        id: 2,
+        type: "reel",
+        video: "/reel/Woodwindreell.mp4",
+        poster: "/digital/woodwinds.webp",
+        // caption: "Behind the scenes - Fashion shoot 📸",
+        // engagement: "25.8K likes, 1.2K comments",
+        reach: "69.5K+"
+      },
+      {
+        id: 3,
+        type: "story",
+         image: "/digital/woodwinds2.webp",
+        // caption: "Limited time offer - 30% OFF! 🔥",
+        // engagement: "8.9K views, 450 shares",
+         reach: "20.9K+"
+      }
+    ],
+    metrics: {
+    engagementRate: "0.92%",
+    clickThroughRate: "1.88%",
+    conversionRate: "4.6%",
+    roi: "620%"
   }
+  },
+
+  {
+  id: 5,
+  clientName: "Flora City",
+  industry: "Real Estate",
+  duration: "May 2026",
+  platforms: ["Instagram", "Facebook"],
+
+  platformPerformance: [
+    { label: "Facebook", value: 78 },
+    { label: "Instagram", value: 22 }
+  ],
+
+  results: {
+    reach: "2.5K+",
+    engagement: "8+",
+    followers: "+1",
+    sales: "11 Profile Visits"
+  },
+
+  backgroundImage: "/digital/floracityjpeg.webp",
+
+  posts: [
+    {
+      id: 1,
+      type: "Post",
+      image: "/digital/floracityjpeg.webp",
+      reach: "2.2K+"
+    },
+    {
+      id: 2,
+      type: "reel",
+      video: "/reel/floracityreel.mp4",
+      poster: "/digital/floracity.webp",
+      reach: "481+"
+    },
+    {
+      id: 3,
+      type: "story",
+      image: "/digital/floracity2.webp",
+      reach: "259+"
+    }
+  ],
+
+  metrics: {
+    engagementRate: "0.36%",
+    clickThroughRate: "0.50%",
+    conversionRate: "2.1%",
+    roi: "180%"
+  }
+}
+
+
 ];
 
 // Video Player Component - Fully Responsive & Optimized
