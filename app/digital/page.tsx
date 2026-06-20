@@ -46,7 +46,7 @@ const clientWork = [
       {
         id: 3,
         type: "story",
-         image: "/digital/seastory.jpeg",
+         image: "/digital/seasec22.webp",
         // caption: "Limited time offer - 30% OFF! 🔥",
         // engagement: "8.9K views, 450 shares",
         reach: "120K+"
@@ -75,12 +75,12 @@ const clientWork = [
       followers: "100+",
       sales: "2.9K Link Clicks"
     },
-    backgroundImage: "/digital/stargaed.webp",
+    backgroundImage: "/digital/starg.webp",
     posts: [
       {
         id: 1,
         type: "Post",
-        image: "/digital/stargaed.webp",
+        image: "/digital/starg.webp",
         // caption: "New Menu Launch - Authentic Maharashtrian 🍛",
         // engagement: "8.2K likes, 567 comments",
         reach: "320K+"
@@ -88,8 +88,8 @@ const clientWork = [
       {
         id: 2,
         type: "reel",
-        video: "/reel/stargae2.mp4",
-        poster: "/digital/stargaed.jpeg",
+        video: "/reel/medosreel.mp4",
+        poster: "/digital/starg.webp",
         // caption: "Chef Special Recipe - Behind the scenes 👨‍🍳",
         // engagement: "15.6K likes, 890 comments",
         reach: "520K+"
@@ -97,7 +97,7 @@ const clientWork = [
       {
         id: 3,
         type: "story",
-        image: "/digital/starstory.jpeg",
+        image: "/digital/medos.webp",
         // caption: "Today's Special Offer - 20% OFF! 🔥",
         // engagement: "6.5K views, 320 shares",
         reach: "210K+"
@@ -139,7 +139,7 @@ const clientWork = [
       {
         id: 3,
         type: "reel",
-        video: "/reel/stargagereel.mp4",
+        video: "/reel/vintexx.mp4",
         poster: "/digital/ventex.jpeg",
         // caption: "How our AI transforms agriculture 🌱🤖",
         // engagement: "9.8K likes, 1.2K comments",
@@ -148,7 +148,7 @@ const clientWork = [
       {
         id: 2,
         type: "story",
-        image: "/digital/vinstory.jpeg",
+        image: "/digital/vintex33.webp",
         // caption: "What's your biggest tech challenge? 🤔",
         // engagement: "3.2K responses, 890 shares",
         reach: "95K+"

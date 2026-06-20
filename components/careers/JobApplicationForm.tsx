@@ -244,6 +244,19 @@ export default function JobApplicationForm({
                 </div>
               )}
 
+              {position.id === 4 && (
+  <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
+    <p className="text-sm font-semibold text-primary mb-2">
+      Important Note
+    </p>
+
+    <p className="text-sm text-gray-300">
+      This is a Field Sales role and requires regular client visits across Pune.
+      Candidate must have a two-wheeler and willingness to travel within Pune.
+    </p>
+  </div>
+)}
+
               {/* Qualification & Salary */}
               <div className="grid grid-cols-2 gap-4 pt-4">
                 <div className="bg-white/5 border border-primary/20 rounded-lg p-4">

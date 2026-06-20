@@ -149,6 +149,59 @@ export default function CareerContent() {
         "Opportunity for full-time role based on performance",
       ],
     },
+    
+{
+  id: 4,
+
+  title: "Digital Sales Executive (Field Sales)",
+
+  type: "Full-Time",
+
+  experience: "1–2 Years Experience",
+
+  location: "Pune",
+
+  
+
+  qualification: "MBA (Marketing) / Any Graduate",
+
+  salary: "As per industry standards + Attractive Incentives",
+
+  description:
+    "Prosira Advertisers is looking for a highly motivated and result-oriented Digital Sales Executive to drive business growth through client acquisition and field sales activities across Pune.",
+
+  highlights: [
+    "Identify and acquire new clients across Pune",
+    "Conduct client meetings, presentations, and business pitches",
+    "Generate leads and convert prospects into long-term clients",
+    "Promote SEO, Google Ads, Social Media Marketing, Website Development and Lead Generation services",
+    "Build and maintain strong client relationships",
+    "Achieve monthly sales and revenue targets",
+    "Coordinate with internal marketing and creative teams for project execution",
+    "Stay updated with industry trends and competitor activities",
+  ],
+
+  skills: [
+    "Digital Marketing Agency Sales",
+    "Google Ads",
+    "Social Media Marketing",
+    "SEO",
+    "Lead Generation",
+    "Website Development Services",
+    "Communication Skills",
+    "Presentation Skills",
+    "Negotiation Skills",
+    "Client Acquisition",
+  ],
+
+  benefits: [
+    "Attractive incentive structure",
+    "Work with businesses across Pune",
+    "Career growth in digital marketing & advertising",
+    "Direct client interaction and field exposure",
+    "Opportunity to work with a growing agency",
+  ],
+}
   ];
 
   const handleApplyClick = (position: typeof positions[0]) => {
