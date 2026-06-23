@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-
 const clients = [
   { name: "Client 1", logo: "/clogo1.webp" },
   { name: "Client 2", logo: "/clogo2.webp" },
@@ -28,6 +27,8 @@ const clients = [
   { name: "Client 14", logo: "/clogo14.webp" },
   { name: "Client 20", logo: "/clogo20.webp" },
   { name: "Client 21", logo: "/clogo21.webp" },
+  { name: "Client 25", logo: "/clogo25.png" },
+  { name: "Client 24", logo: "/clogo24.png" },
 ];
 
 export function ClientsSection() {
@@ -53,7 +54,6 @@ export function ClientsSection() {
   return (
     <section className="py-20 bg-background overflow-hidden">
       <div className="site-container">
-
         {/* Heading */}
         <div className="text-center mb-12">
           <span className="text-primary text-sm font-medium uppercase tracking-wider">
@@ -61,9 +61,7 @@ export function ClientsSection() {
           </span>
           <h2 className="mt-2 text-2xl md:text-3xl font-bold">
             Trusted by{" "}
-            <span className="text-primary font-serif">
-              Industry Leaders
-            </span>
+            <span className="text-primary font-serif">Industry Leaders</span>
           </h2>
         </div>
 
@@ -85,12 +83,12 @@ export function ClientsSection() {
                   height={80}
                   sizes="(max-width: 768px) 120px, 160px"
                   loading="lazy"
-                  className="marquee-track flex items-center gap-20 py-6"                />
+                  className="h-auto w-auto object-contain"
+                />
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
