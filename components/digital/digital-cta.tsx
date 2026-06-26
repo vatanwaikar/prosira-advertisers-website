@@ -177,7 +177,7 @@ function Field({
 }
 
 const inputClass =
-  "w-full bg-[#0a0e14] border border-white/12 rounded-xl px-4 py-3.5 text-[14px] text-[#e8e4dc] placeholder:text-white/25 outline-none transition-all duration-200 focus:border-[#d4af37]/50 focus:bg-[#0d121a] focus:shadow-[0_0_0_4px_rgba(212,175,55,0.08)] hover:border-white/20";
+  "w-full bg-[#0a0e14] border border-white/12 rounded-xl px-4 py-3 sm:py-3.5 text-[14px] text-[#e8e4dc] placeholder:text-white/25 outline-none transition-all duration-200 focus:border-[#d4af37]/50 focus:bg-[#0d121a] focus:shadow-[0_0_0_4px_rgba(212,175,55,0.08)] hover:border-white/20";
 
 function CheckItem({
   label,
@@ -288,14 +288,14 @@ export function DigitalCTA() {
   }
 
   return (
-    <section className="bg-[#080b10] min-h-screen py-20 px-6 relative overflow-hidden">
+    <section className="bg-[#080b10] min-h-screen py-14 sm:py-16 lg:py-20 px-4 sm:px-6 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-10 w-96 h-96 bg-[#d4af37]/3 rounded-full blur-[120px]" />
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#d4af37]/2 rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-[540px] mx-auto relative z-10">
+      <div className="w-full max-w-4xl mx-auto relative z-10">
         {/* Top bar */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-2">
@@ -315,7 +315,7 @@ export function DigitalCTA() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-[32px] font-bold text-[#f0ebe0] leading-[1.2] mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f0ebe0] leading-[1.2] mb-3">
             Let&apos;s discuss your{" "}
             <span className="text-[#d4af37]">growth goals</span>
           </h2>
@@ -333,7 +333,7 @@ export function DigitalCTA() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="bg-[#0e1219] border border-white/8 rounded-2xl p-8 relative overflow-hidden shadow-2xl shadow-black/30"
+          className="bg-[#0e1219] border border-white/8 rounded-2xl p-5 sm:p-6 lg:p-8 relative overflow-hidden shadow-2xl shadow-black/30"
         >
           {/* Card glow effect */}
           <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-[#d4af37]/5 blur-[80px] pointer-events-none" />
@@ -343,7 +343,7 @@ export function DigitalCTA() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="flex flex-col items-center text-center py-16 gap-5"
+              className="flex flex-col items-center text-center py-10 sm:py-16 gap-5"
             >
               <motion.div
                 initial={{ scale: 0, rotate: -180 }}
@@ -376,8 +376,7 @@ export function DigitalCTA() {
                     transition={{ duration: 0.22 }}
                   >
                     <SectionTitle icon={User}>Contact Details</SectionTitle>
-                    <div className="grid grid-cols-2 gap-4">
-                      <Field label="Full name" error={errors.name?.message}>
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-4">                      <Field label="Full name" error={errors.name?.message}>
                         <input
                           {...register("name")}
                           placeholder="Jane Smith"
@@ -395,8 +394,7 @@ export function DigitalCTA() {
                         />
                       </Field>
                     </div>
-                    <div className="grid grid-cols-3 gap-4">
-                      <Field
+<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">                      <Field
                         label="Email address"
                         error={errors.email?.message}
                       >
@@ -427,15 +425,14 @@ export function DigitalCTA() {
                         />
                       </Field>
                     </div>
-                    <div className="flex justify-end mt-8">
-                      <motion.button
+<div className="flex flex-col sm:flex-row justify-end mt-8 gap-3 gap-3">                      <motion.button
                         type="button"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() =>
                           nextStep(["name", "company", "email", "phone"])
                         }
-                        className="flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#e8c84a] hover:from-[#e8c84a] hover:to-[#d4af37] text-[#080b10] text-[14px] font-bold rounded-xl transition-all shadow-lg shadow-[#d4af37]/20 hover:shadow-xl hover:shadow-[#d4af37]/30"
+                        className="flex items-center gap-2.5 w-full sm:w-auto px-7 py-3 sm:py-3.5 bg-gradient-to-r from-[#d4af37] to-[#e8c84a] hover:from-[#e8c84a] hover:to-[#d4af37] text-[#080b10] text-[14px] font-bold rounded-xl transition-all shadow-lg shadow-[#d4af37]/20 hover:shadow-xl hover:shadow-[#d4af37]/30"
                       >
                         Next: Business <ArrowRight size={17} />
                       </motion.button>
@@ -469,20 +466,17 @@ export function DigitalCTA() {
                     >
                       <textarea
                         {...register("description")}
-                        rows={4}
-                        placeholder="What do you sell, who do you serve, and what makes you different?"
+rows={3}                        placeholder="What do you sell, who do you serve, and what makes you different?"
                         className={inputClass}
                       />
                     </Field>
 
                     <SectionTitle>Platforms &amp; Services</SectionTitle>
-                    <div className="grid grid-cols-2 gap-6 mb-4">
-                      <div>
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">                      <div>
                         <p className="text-[12px] font-semibold text-white/40 uppercase tracking-wider mb-3">
                           Platforms you&apos;re active on
                         </p>
-                        <div className="grid grid-cols-2 gap-2">
-                          {PLATFORMS.map((p) => (
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">                          {PLATFORMS.map((p) => (
                             <CheckItem
                               key={p}
                               label={p}
@@ -509,8 +503,7 @@ export function DigitalCTA() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between mt-8">
-                      <motion.button
+<div className="flex flex-col-reverse sm:flex-row gap-3 justify-between mt-8">                      <motion.button
                         type="button"
                         whileHover={{ x: -2 }}
                         onClick={() => setStep(1)}
@@ -523,7 +516,7 @@ export function DigitalCTA() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => nextStep(["description"])}
-                        className="flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#e8c84a] hover:from-[#e8c84a] hover:to-[#d4af37] text-[#080b10] text-[14px] font-bold rounded-xl transition-all shadow-lg shadow-[#d4af37]/20 hover:shadow-xl hover:shadow-[#d4af37]/30"
+                        className="flex items-center gap-2.5  w-full sm:w-auto px-7 py-3 sm:py-3.5 bg-gradient-to-r from-[#d4af37] to-[#e8c84a] hover:from-[#e8c84a] hover:to-[#d4af37] text-[#080b10] text-[14px] font-bold rounded-xl transition-all shadow-lg shadow-[#d4af37]/20 hover:shadow-xl hover:shadow-[#d4af37]/30"
                       >
                         Next: Goals <ArrowRight size={17} />
                       </motion.button>
@@ -541,11 +534,10 @@ export function DigitalCTA() {
                     transition={{ duration: 0.22 }}
                   >
                     <SectionTitle icon={Target}>Goals &amp; Context</SectionTitle>
-                    <div className="grid grid-cols-2 gap-4">
-                      <Field label="Competitors or similar brands" optional>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">                      <Field label="Competitors or similar brands" optional>
                         <textarea
                           {...register("competitors")}
-                          rows={4}
+                         rows={3}
                           placeholder="Name any brands you admire or compete with"
                           className={inputClass}
                         />
@@ -553,7 +545,7 @@ export function DigitalCTA() {
                       <Field label="Specific expectations or ideas" optional>
                         <textarea
                           {...register("expectations")}
-                          rows={4}
+                          rows={3}
                           placeholder="Any goals, KPIs, or campaign ideas you have in mind"
                           className={inputClass}
                         />
@@ -571,8 +563,7 @@ export function DigitalCTA() {
                       </motion.p>
                     )}
 
-                    <div className="flex items-center justify-between mt-8">
-                      <motion.button
+<div className="flex flex-col-reverse sm:flex-row gap-3 justify-between mt-8">                      <motion.button
                         type="button"
                         whileHover={{ x: -2 }}
                         onClick={() => setStep(2)}
@@ -585,7 +576,7 @@ export function DigitalCTA() {
                         disabled={loading}
                         whileHover={{ scale: loading ? 1 : 1.02 }}
                         whileTap={{ scale: loading ? 1 : 0.98 }}
-                        className="flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-[#d4af37] to-[#e8c84a] hover:from-[#e8c84a] hover:to-[#d4af37] disabled:opacity-50 disabled:cursor-not-allowed text-[#080b10] text-[14px] font-bold rounded-xl transition-all shadow-lg shadow-[#d4af37]/20 hover:shadow-xl hover:shadow-[#d4af37]/30 disabled:shadow-none"
+                        className="flex items-center gap-2.5 w-full sm:w-auto px-7   py-3 sm:py-3.5 bg-gradient-to-r from-[#d4af37] to-[#e8c84a] hover:from-[#e8c84a] hover:to-[#d4af37] disabled:opacity-50 disabled:cursor-not-allowed text-[#080b10] text-[14px] font-bold rounded-xl transition-all shadow-lg shadow-[#d4af37]/20 hover:shadow-xl hover:shadow-[#d4af37]/30 disabled:shadow-none"
                       >
                         <Send size={16} />
                         {loading ? "Submitting…" : "Get My Free Strategy"}
