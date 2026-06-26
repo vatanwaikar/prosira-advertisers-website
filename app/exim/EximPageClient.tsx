@@ -464,7 +464,7 @@ export default function EXIMPage() {
               >
                 <span style={{ fontSize: "1.4rem" }}>🌍</span>
                 <div>
-                  <div className="gold" style={{ fontWeight: 700, fontSize: "0.95rem" }}>50+ Countries</div>
+                  <div className="gold" style={{ fontWeight: 700, fontSize: "0.95rem" }}>100+ Countries</div>
                   <div style={{ fontSize: "0.72rem", color: "rgba(240,240,240,0.5)" }}>Global Reach</div>
                 </div>
               </motion.div>
@@ -541,7 +541,7 @@ export default function EXIMPage() {
             style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}
           >
             {[
-              { icon: "🌐", title: "Reach Global Buyers", desc: "Access decision-makers and procurement teams in 50+ countries who are actively searching for your products right now." },
+              { icon: "🌐", title: "Reach Global Buyers", desc: "Access decision-makers and procurement teams in 100+ countries who are actively searching for your products right now." },
               { icon: "📩", title: "Generate RFQs Consistently", desc: "Move beyond sporadic inquiries. Build a predictable pipeline of qualified Request For Quotations every month." },
               { icon: "🚫", title: "Reduce Trade Fair Dependency", desc: "Trade fairs cost lakhs and deliver seasonal results. Digital marketing works 365 days a year at a fraction of the cost." },
               { icon: "🏆", title: "Build International Authority", desc: "Position your brand as a trusted global supplier through content, SEO, and thought leadership that converts." },
@@ -765,7 +765,7 @@ export default function EXIMPage() {
               {[
                 { icon: "✅", text: "Always-On Lead Generation" },
                 { icon: "✅", text: "Consistent Year-Round Leads" },
-                { icon: "✅", text: "50+ Countries Reach" },
+                { icon: "✅", text: "100+ Countries Reach" },
                 { icon: "✅", text: "Scalable & Trackable Growth" },
                 { icon: "✅", text: "Verified Buyer Leads" },
               ].map((row) => (
@@ -796,7 +796,7 @@ export default function EXIMPage() {
             style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "48px", textAlign: "center" }}
           >
             {[
-              { value: c50, suffix: "+", label: "Countries Reach" },
+              { value: c100, suffix: "+", label: "Countries Reach" },
               { value: c1000, suffix: "+", label: "Target Keywords" },
               { value: "24/7", suffix: "", label: "Lead Generation" },
               { value: c100, suffix: "%", label: "Conversion Tracking" },
