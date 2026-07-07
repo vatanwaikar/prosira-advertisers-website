@@ -12,7 +12,7 @@ const navigation = [
   { name: "About Us", href: "/about-prosira-advertisers" },
   { name: "Services", href: "/advertising-services" },
   { name: "Digital", href: "/digital-marketing" },
-  { name: "AI SEO", href: "/ai-seo-services" },
+  { name: "Exim", href: "/exim" },
   { name: "Events & Expo", href: "/events-expo" },
   { name: "Our Work", href: "/work" },
   { name: "Contact Us", href: "/contact" },
@@ -177,7 +177,7 @@ export function Header() {
           </div>
         </button>
       </nav>
-
+            
       {/* Mobile Menu */}
       <div
         className={cn(

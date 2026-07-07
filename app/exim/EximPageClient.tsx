@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
@@ -290,6 +291,34 @@ export default function EXIMPage() {
           width: 6px; height: 6px; border-radius: 50%; background: #D4AF37; flex-shrink: 0;
         }
 
+        /* Lead section styles */
+        .lead-section { padding-top: 6rem; padding-bottom: 6rem; }
+        .lead-grid { display: grid; gap: 28px; grid-template-columns: 1fr; align-items: start; }
+        .lead-left { padding-right: 8px; }
+        .lead-right { display: flex; justify-content: center; }
+        .lead-card {
+          width: 100%; max-width: 720px; border-radius: 1rem; padding: 28px; position: relative;
+          background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+          border: 1px solid rgba(212,175,55,0.12);
+          box-shadow: 0 20px 60px rgba(3,6,12,0.6);
+          backdrop-filter: blur(12px) saturate(120%);
+          transition: transform 0.28s ease, box-shadow 0.28s ease;
+        }
+        .lead-card:hover { transform: translateY(-6px); box-shadow: 0 30px 90px rgba(3,6,12,0.7); }
+        .lead-field { width: 100%; border-radius: 8px; padding: 10px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: #f0f0f0; }
+        .lead-label { font-size: 0.95rem; color: #f0f0f0; margin-bottom: 6px; display: block; font-weight: 600; }
+        .radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .radio-item { display: flex; gap: 10px; align-items: center; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); cursor: pointer; }
+        .radio-item input { accent-color: #D4AF37; }
+        .secure-note { font-size: 0.92rem; color: rgba(240,240,240,0.7); margin-top: 10px; }
+
+        @media (min-width: 980px) {
+          .lead-grid { grid-template-columns: 45% 55%; }
+          .lead-card { padding: 36px; }
+          .radio-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+
         /* Timeline */
         .timeline-step {
           display: flex; gap: 28px; align-items: flex-start;
@@ -497,6 +526,55 @@ export default function EXIMPage() {
             </motion.div>
 
           </div>
+        </div>
+      </section>
+
+      
+
+      {/* ── NEW: LEAD GENERATION / CONSULTATION FORM (after FAQ) ───────────────── */}
+      <section className="lead-section section-mid">
+        <div className="container">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ marginBottom: 22 }}>
+            <motion.h2 variants={fadeUp} className="display-font" style={{ fontSize: "1.9rem", fontWeight: 700, marginBottom: 8 }}>
+              Get Export-Import Consultation
+            </motion.h2>
+            <motion.p variants={fadeUp} style={{ color: "rgba(240,240,240,0.72)", maxWidth: 760 }}>
+              Fill in your details and our export experts will contact you shortly.
+            </motion.p>
+          </motion.div>
+
+          <motion.div className="lead-grid" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={stagger}>
+            <motion.div className="lead-left" variants={fadeUp}>
+              <div style={{ display: "grid", gap: 14 }}>
+                {[
+                  { title: "International Lead Generation", icon: "🌐" },
+                  { title: "Google Certified Experts", icon: "🔎" },
+                  { title: "Export Marketing Specialists", icon: "💼" },
+                  { title: "Free Business Audit", icon: "📋" },
+                  { title: "24 Hour Response", icon: "⚡" },
+                ].map((it) => (
+                  <div key={it.title} className="service-card" style={{ display: "flex", gap: 12, alignItems: "center" }}>
+                    <div style={{ width: 56, height: 56, borderRadius: 12, background: "rgba(212,175,55,0.08)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(212,175,55,0.12)" }}>
+                      <span style={{ fontSize: 20 }}>{it.icon}</span>
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 700, color: "#f0f0f0" }}>{it.title}</div>
+                      <div style={{ color: "rgba(240,240,240,0.6)", fontSize: "0.92rem" }}>Premium support tailored for exporters.</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div className="lead-right" variants={fadeUp}>
+              <div className="lead-card glass" role="region" aria-labelledby="lead-form-heading">
+                <h3 id="lead-form-heading" style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: 8 }}>Get Export-Import Consultation</h3>
+                <p style={{ color: "rgba(240,240,240,0.7)", marginBottom: 12 }}>Fill in your details and our export experts will contact you shortly.</p>
+
+                <LeadConsultationForm />
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -913,6 +991,183 @@ export default function EXIMPage() {
         </motion.div>
       </section>
 
+    </div>
+  );
+}
+
+
+
+// ─── LEAD CONSULTATION FORM (detailed premium form) ─────────────────────
+function LeadConsultationForm() {
+  type Values = {
+    fullName: string;
+    phone: string;
+    email: string;
+    company: string;
+    targetCountries: string;
+    businessType: string;
+    category: string;
+  };
+
+  const businessTypes = ['Exporter', 'Importer', 'Manufacturer', 'Merchant Exporter', 'Trading Company', 'Service Provider', 'Other'];
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<Values>({
+    defaultValues: { businessType: 'Exporter', targetCountries: '' },
+  });
+  const [ok, setOk] = useState(false);
+  const [errMsg, setErrMsg] = useState<string | null>(null);
+
+  const onSubmit = async (vals: Values) => {
+    setErrMsg(null);
+
+    if (!vals.targetCountries?.trim()) {
+      setErrMsg('Please enter at least one target country.');
+      return;
+    }
+
+    try {
+      const payload = {
+        fullName: vals.fullName,
+        phone: vals.phone,
+        email: vals.email,
+        company: vals.company,
+        targetCountries: vals.targetCountries,
+        businessType: vals.businessType,
+        category: vals.category,
+      };
+
+      const res = await fetch('/api/exim-leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      if (!res.ok) {
+        const j = await res.json().catch(() => null);
+        throw new Error(j?.message || 'Submission failed');
+      }
+
+      setOk(true);
+      reset({ fullName: '', phone: '', email: '', company: '', targetCountries: '', businessType: 'Exporter', category: '' });
+      setTimeout(() => setOk(false), 7000);
+    } catch (e: any) {
+      setErrMsg(e?.message || 'Unable to submit.');
+    }
+  };
+
+  return (
+    <div>
+      {!ok ? (
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+          <div style={{ display: 'grid', gap: 12 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+              <div>
+                <label className="lead-label" htmlFor="fullName">Full Name *</label>
+                <input
+                  id="fullName"
+                  type="text"
+                  placeholder="Enter your full name"
+                  aria-invalid={errors.fullName ? 'true' : 'false'}
+                  {...register('fullName', { required: 'Full name is required', minLength: { value: 2, message: 'Enter at least 2 characters' } })}
+                  className="lead-field"
+                />
+                {errors.fullName && <div className="text-sm text-red-400">{errors.fullName.message}</div>}
+              </div>
+
+              <div>
+                <label className="lead-label" htmlFor="phone">Phone Number *</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  placeholder="Enter your phone number"
+                  aria-invalid={errors.phone ? 'true' : 'false'}
+                  {...register('phone', { required: 'Phone is required', minLength: { value: 6, message: 'Enter a valid phone number' } })}
+                  className="lead-field"
+                />
+                {errors.phone && <div className="text-sm text-red-400">{errors.phone.message}</div>}
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+              <div>
+                <label className="lead-label" htmlFor="email">Email Address *</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email address"
+                  aria-invalid={errors.email ? 'true' : 'false'}
+                  {...register('email', { required: 'Email is required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email address' } })}
+                  className="lead-field"
+                />
+                {errors.email && <div className="text-sm text-red-400">{errors.email.message}</div>}
+              </div>
+
+              <div>
+                <label className="lead-label" htmlFor="company">Company Name *</label>
+                <input id="company" type="text" placeholder="Enter your company name" {...register('company', { required: 'Company is required' })} className="lead-field" />
+                {errors.company && <div className="text-sm text-red-400">{errors.company.message}</div>}
+              </div>
+            </div>
+
+            <div>
+              <label className="lead-label" htmlFor="targetCountries">Targeted Countries *</label>
+              <input
+                id="targetCountries"
+                type="text"
+                placeholder="Enter country names separated by commas (e.g. USA, UAE, Germany, Australia)"
+                aria-invalid={errors.targetCountries ? 'true' : 'false'}
+                {...register('targetCountries', { required: 'Please enter at least one target country' })}
+                className="lead-field"
+              />
+              {errors.targetCountries && <div className="text-sm text-red-400">{errors.targetCountries.message}</div>}
+            </div>
+
+            <div>
+              <div className="lead-label">Your Business Type *</div>
+              <div className="radio-grid">
+                {businessTypes.map((business) => (
+                  <label key={business} className="radio-item">
+                    <input type="radio" {...register('businessType', { required: 'Please select your business type' })} value={business} />
+                    <span style={{ color: '#f0f0f0' }}>{business}</span>
+                  </label>
+                ))}
+              </div>
+              {errors.businessType && <div className="text-sm text-red-400">{errors.businessType.message}</div>}
+            </div>
+
+            <div>
+              <label className="lead-label" htmlFor="category">Which Category do you Export / Import? *</label>
+              <input id="category" type="text"  {...register('category', { required: 'Please mention the category' })} className="lead-field" />
+              {errors.category && <div className="text-sm text-red-400">{errors.category.message}</div>}
+            </div>
+
+            {errMsg && <div className="text-sm text-red-400">{errMsg}</div>}
+
+            <div>
+              <button type="submit" className="btn-primary" style={{ width: '100%' }} disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <svg className="animate-spin" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(0,0,0,0.08)" strokeWidth="4"/><path d="M22 12a10 10 0 00-10-10" stroke="#070c1a" strokeWidth="4" strokeLinecap="round"/></svg>
+                ) : null}
+                Get Free Consultation
+              </button>
+
+              <div className="secure-note" style={{ display: 'flex', gap: 10, alignItems: 'center', marginTop: 10 }}>
+                <span>🔒</span>
+                <div>
+                  <div style={{ fontWeight: 700 }}>Your information is secure</div>
+                  <div style={{ color: 'rgba(240,240,240,0.7)' }}>We'll contact you within 24 hours.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      ) : (
+        <div style={{ textAlign: 'center', padding: 18 }}>
+          <div style={{ fontSize: 36, color: '#D4AF37' }}>✓</div>
+          <h3 style={{ marginTop: 8, marginBottom: 6 }}>Thanks — we'll contact you soon</h3>
+          <p style={{ color: 'rgba(240,240,240,0.7)' }}>Our EXIM team will review your details and reach out with a free consultation.</p>
+        </div>
+      )}
     </div>
   );
 }
