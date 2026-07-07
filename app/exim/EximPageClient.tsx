@@ -462,14 +462,14 @@ export default function EXIMPage() {
                 The global market doesn&apos;t sleep, so why should your lead generation? For export-import businesses, traditional networking and trade fairs are no longer enough. Prosira helps exporters, importers, manufacturers, and traders generate qualified international leads through SEO, Google Ads, LinkedIn outreach, and high-converting digital funnels.
               </motion.p>
 
-              <motion.div variants={fadeUp} style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
+              {/* <motion.div variants={fadeUp} style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
                 <Link href="/contact" className="btn-primary">
                   Get Free Global Market Expansion Blueprint
                 </Link>
                 <Link href="/contact" className="btn-secondary">
                   Talk To EXIM Expert →
                 </Link>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
 
             {/* RIGHT – Globe visual */}
@@ -568,8 +568,8 @@ export default function EXIMPage() {
 
             <motion.div className="lead-right" variants={fadeUp}>
               <div className="lead-card glass" role="region" aria-labelledby="lead-form-heading">
-                <h3 id="lead-form-heading" style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: 8 }}>Get Export-Import Consultation</h3>
-                <p style={{ color: "rgba(240,240,240,0.7)", marginBottom: 12 }}>Fill in your details and our export experts will contact you shortly.</p>
+                <h3 id="lead-form-heading" style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: 8 }}>Fill the Form</h3>
+                {/* <p style={{ color: "rgba(240,240,240,0.7)", marginBottom: 12 }}>Fill in your details and our export experts will contact you shortly.</p> */}
 
                 <LeadConsultationForm />
               </div>
