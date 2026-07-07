@@ -533,51 +533,93 @@ export default function EXIMPage() {
 
       {/* ── NEW: LEAD GENERATION / CONSULTATION FORM (after FAQ) ───────────────── */}
       <section className="lead-section section-mid">
-        <div className="container">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ marginBottom: 22 }}>
-            <motion.h2 variants={fadeUp} className="display-font" style={{ fontSize: "1.9rem", fontWeight: 700, marginBottom: 8 }}>
+  <div className="container">
+    <motion.div
+      className="lead-grid"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={stagger}
+    >
+      <motion.div className="lead-left" variants={fadeUp}>
+        <div style={{ display: "grid", gap: 14 }}>
+          {[
+            { title: "International Lead Generation", icon: "🌐" },
+            { title: "Google Certified Experts", icon: "🔎" },
+            { title: "Export Marketing Specialists", icon: "💼" },
+            { title: "Free Business Audit", icon: "📋" },
+            { title: "24 Hour Response", icon: "⚡" },
+          ].map((it) => (
+            <div
+              key={it.title}
+              className="service-card"
+              style={{ display: "flex", gap: 12, alignItems: "center" }}
+            >
+              <div
+                style={{
+                  width: 56,
+                  height: 56,
+                  borderRadius: 12,
+                  background: "rgba(212,175,55,0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border: "1px solid rgba(212,175,55,0.12)",
+                }}
+              >
+                <span style={{ fontSize: 20 }}>{it.icon}</span>
+              </div>
+              <div>
+                <div style={{ fontWeight: 700, color: "#f0f0f0" }}>{it.title}</div>
+                <div style={{ color: "rgba(240,240,240,0.6)", fontSize: "0.92rem" }}>
+                  Premium support tailored for exporters.
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      <motion.div className="lead-right" variants={fadeUp}>
+        <div style={{ width: "100%", maxWidth: 720 }}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+            style={{ marginBottom: 22, textAlign: "left" }}
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="display-font"
+              style={{ fontSize: "1.9rem", fontWeight: 700, marginBottom: 8 }}
+            >
               Get Export-Import Consultation
             </motion.h2>
-            <motion.p variants={fadeUp} style={{ color: "rgba(240,240,240,0.72)", maxWidth: 760 }}>
+
+            <motion.p
+              variants={fadeUp}
+              style={{ color: "rgba(240,240,240,0.72)" }}
+            >
               Fill in your details and our export experts will contact you shortly.
             </motion.p>
           </motion.div>
 
-          <motion.div className="lead-grid" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={stagger}>
-            <motion.div className="lead-left" variants={fadeUp}>
-              <div style={{ display: "grid", gap: 14 }}>
-                {[
-                  { title: "International Lead Generation", icon: "🌐" },
-                  { title: "Google Certified Experts", icon: "🔎" },
-                  { title: "Export Marketing Specialists", icon: "💼" },
-                  { title: "Free Business Audit", icon: "📋" },
-                  { title: "24 Hour Response", icon: "⚡" },
-                ].map((it) => (
-                  <div key={it.title} className="service-card" style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                    <div style={{ width: 56, height: 56, borderRadius: 12, background: "rgba(212,175,55,0.08)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(212,175,55,0.12)" }}>
-                      <span style={{ fontSize: 20 }}>{it.icon}</span>
-                    </div>
-                    <div>
-                      <div style={{ fontWeight: 700, color: "#f0f0f0" }}>{it.title}</div>
-                      <div style={{ color: "rgba(240,240,240,0.6)", fontSize: "0.92rem" }}>Premium support tailored for exporters.</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+          <div className="lead-card glass" role="region" aria-labelledby="lead-form-heading">
+            {/* <h3
+              id="lead-form-heading"
+              style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: 8 }}
+            >
+              Fill the Form
+            </h3> */}
 
-            <motion.div className="lead-right" variants={fadeUp}>
-              <div className="lead-card glass" role="region" aria-labelledby="lead-form-heading">
-                <h3 id="lead-form-heading" style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: 8 }}>Fill the Form</h3>
-                {/* <p style={{ color: "rgba(240,240,240,0.7)", marginBottom: 12 }}>Fill in your details and our export experts will contact you shortly.</p> */}
-
-                <LeadConsultationForm />
-              </div>
-            </motion.div>
-          </motion.div>
+            <LeadConsultationForm />
+          </div>
         </div>
-      </section>
-
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
       {/* ── 2. TRUST BAR ────────────────────────────────────────────────────── */}
       <div style={{
         borderTop: "1px solid rgba(212,175,55,0.15)",
