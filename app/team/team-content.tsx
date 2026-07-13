@@ -34,7 +34,7 @@ const teamMembers = [
   },
   {
     name: "Saurabh Rathod",
-    role: "Digital Marketing Expert",
+    role: "Digital Marketing Specialist",
     image: "/team/saurabhh.png",
     bio: "Performance-driven digital strategist specializing in SEO, paid media, and web growth.",
     expandedBio:
